@@ -1,0 +1,22 @@
+.reportedPostsListContainer{
+  height: fit-content;
+  background: var(--secondary-color);
+  border-radius: 5px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90%;
+  padding: 1em;
+  margin: 1em auto;
+}
+
+.reportedPostsListContainerMobile{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  height: 100%;
+  padding: 1% 0;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

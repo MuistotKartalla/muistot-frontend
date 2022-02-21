@@ -1,0 +1,86 @@
+.normalText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 500;
+  text-align: left;
+}
+
+.normalTextNoMargin{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 500;
+  margin: 0;
+  text-align: left;
+}
+
+.textCenter{
+  text-align: center;
+}
+
+.titleText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 700;
+  font-size: 1.75em;
+  text-align: center;
+  margin: 0;
+  max-width: 93%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.titleTextAuto{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 700;
+  font-size: 2em;
+  text-align: center;
+  margin: auto;
+}
+
+.linkText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 5px 0;
+  margin: 0 0 10px 0;
+  width: fit-content;
+  width: -moz-fit-content;
+}
+
+.titleTextMobile{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 700;
+  font-size: 1.5em;
+  text-align: center;
+  margin: auto;
+}
+
+.noHorizontalMargin{
+  margin: auto 0;
+}
+
+.boldText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-size: 1.2em;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 600;
+  line-height: 1em;
+  text-align: left;
+}
+
+.smallText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 500;
+  font-size: 1em;
+  text-align: left;
+}
+
+.noMarginText{
+  margin: 0;
+}

@@ -1,0 +1,161 @@
+.loginContainer{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: auto;
+  max-width: 400px;
+  max-height: 700px;
+  border-radius: 5px;
+  margin: auto;
+  padding: 10px;
+  box-shadow: 0 0 5px var(--accent-color);
+  transition: box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: block;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 0px 15px 5px grey;
+}
+
+.loginContainer:focus-within{
+  box-shadow: 0 0 10px var(--accent-color-light)
+}
+
+.loginContainerMobile{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: auto;
+  width: 92.5%;
+  max-width: 400px;
+  max-height: 300px;
+  border-radius: 5px;
+  margin: auto;
+  padding: 10px;
+  box-shadow: 0 0 5px var(--accent-color);
+  transition: box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: block;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 0px 15px 5px grey;
+}
+
+.loginContainerMobile:focus-within{
+  box-shadow: 0 0 10px var(--accent-color-light)
+}
+
+.loginForm{
+  background: var(--secondary-color);
+  margin: auto;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border: none;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1em;
+  border-bottom: 2px linear-gradient(to right, var(--accent-color) 50%, #808080 50%);
+  resize: none;
+  transition: border-bottom-color 2s;
+}
+
+.loginFormMobile{
+  height: -webkit-fill-available;
+  height: -moz-available;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.loginForm:focus{
+  outline: none;
+}
+
+.buttonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.buttonContainerMobile{
+  display: flex;
+  flex-direction: row;
+}
+
+.headerText{
+  padding: 0px;
+  color: var(--title-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 2em;
+}
+
+.bottomPadding30{
+  padding-bottom: 30px;
+}
+
+
+
+.someButtonFacebook{
+  height: 44px;
+  position: relative;
+  float: right;
+  border-radius: 2px;
+  border:0px transparent;
+  max-width: 175.2px;
+  background: #4267b2;
+  color: white;
+}
+
+.someButtonFacebook:hover{
+  background: #4267b2;
+  opacity: 0.9;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.someButtonFacebook .fa{
+  margin-right: 5px;
+}
+
+.separatorLine{
+  border-top: 1px solid var(--primary-text-color);
+  position: relative;
+  text-align: center;
+  height: 15px;
+  margin: 1em 1em 0 1em;
+}
+
+.separatorLineMobile{
+  border-top: 1px solid var(--primary-text-color);
+  position: relative;
+  text-align: center;
+  height: 15px;
+  margin: 1em 0.1em 0 0.1em;
+}
+
+.separatorText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 500;
+  position:relative;
+  top: -0.7em;
+  background: var(--secondary-color);
+  padding: 0 0.5em 0 0.5em;
+}
+
+@media screen and (min-width: 345px) and (max-width: 380px) {
+  .someButtonFacebook{
+    max-width: 150px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .someButtonFacebook{
+    max-width: 120px;
+  }
+}

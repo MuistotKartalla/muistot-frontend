@@ -1,0 +1,60 @@
+.userSettingsContainer{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: 100%;
+  max-width: 600px;
+  max-height: 800px;
+  border-radius: 5px;
+  margin:auto;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+
+.userSettingsForm{
+  background: var(--secondary-color);
+  border-radius: 5px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.userSettingsFormMobile{
+  background: var(--secondary-color);
+  border-radius: 5px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 10px;
+}
+
+.userSettingsContainerMobile{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: 100%;
+  height: 100%;
+  margin:auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.deleteAccountButtonContainerMobile{
+  margin: 0.5em 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.deleteAccountButtonContainer{
+  margin: 1em 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

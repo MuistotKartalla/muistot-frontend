@@ -1,0 +1,92 @@
+.ttsContainer{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sliderRound{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #03FFFF;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.sliderRound:before{
+  position: absolute;
+  content: "";
+  top: 0.1em;
+  left: 0.1em;
+  width: 1.3em;
+  height: 1.3em;
+  background-color: var(--primary-text-color);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .sliderRound{
+  background-color: var(--accent-color);
+}
+
+input:focus + .sliderRound{
+  box-shadow: 0 0 1px var(--accent-color);
+}
+
+input:checked + .sliderRound:before{
+  transform: translateX(1.5em);
+  background-color: #03FFFF;;
+}
+
+.switch{
+  position: relative;
+  display: inline-block;
+  width: 3em;
+  height: 1.5em;
+  border-radius: 1em;
+  margin: auto 5px;
+}
+
+.switch input{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.themeLabelText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  display: block;
+  font-weight: 500;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  margin: 0;
+  width: fit-content;
+  color: var(--secondary-text-color);
+}
+
+.userNameText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.4em;
+  display: block;
+  font-weight: 700;
+  padding: 0.5em 0.5em 0.5em 1em;
+  margin: auto;
+  width: fit-content;
+  width: -moz-fit-content;
+  color: var(--secondary-text-color);
+}
+
+
+/* CSS for samller screen - by Adnan Islam */
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+
+.themeLabelText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: .9em;
+}
+
+}

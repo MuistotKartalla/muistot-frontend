@@ -1,0 +1,204 @@
+.rippleButton {
+  background: var(--primary-color);
+  color: var(--primary-text-color);
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1em;
+  margin: 0 .25em 0 .25em;
+  padding: .78571429em 1.5em .78571429em;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 7px;
+  background-position: center;
+  transition: background 0s;
+}
+
+.rippleButton:hover {
+  border: none;
+  background: var(--title-color);
+  color: var(--hover-text-color);
+  font-weight: bold;
+  transition: all 0.5s;
+  border-radius: 10px;
+}
+
+.rippleButton:active {
+  background-color: var(--effect-color);
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.smallButton{
+  padding: 0.5em
+}
+
+.positiveButton {
+  background: var(--accent-color);
+  border-radius: 7px;
+}
+
+.positiveButton:hover {
+  border: none;
+  background: var(--title-color);
+  color: var(--hover-text-color);
+  font-weight: bold;
+  transition: all 0.5s;
+  border-radius: 10px;
+}
+
+.negativeButton {
+  background: var(--accent-color);
+  border-radius: 7px;
+  transition: background 0s;
+}
+
+.negativeButton:hover {
+  border: none;
+  background: var(--title-color);
+  color: var(--hover-text-color);
+  font-weight: bold;
+  transition: all 0.5s;
+  border-radius: 10px; 
+}
+
+.fillButton{
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+
+.fillButtonWithoutMargin{
+  width: -webkit-fill-available;
+  width: -moz-available;
+  margin: 0;
+}
+
+.fitButton{
+  width: fit-content;
+}
+
+.rightButton{
+  align-self: flex-end;
+}
+
+.bigButton{
+  font-weight: 900;
+  font-size: 1em;
+  margin: 0;
+}
+
+.pulsingButton{
+  animation: pulse 1s infinite;
+  animation-timing-function: ease-in-out;
+  
+}
+
+@keyframes pulse{
+  0%{transform: scale(1); animation-timing-function: ease-in-out;}
+  50%{transform: scale(1.05);animation-timing-function: ease-in-out;}
+  0%{transform: scale(1);animation-timing-function: ease-in-out;}
+}
+
+.mobileButtonContainer{
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: 0;
+  padding: 0;
+}
+
+.mobileIcon{
+  fill: yellow;
+  width: 4em;
+  height: 4em;
+  margin: 5px 0 0 2px;
+}
+
+.mobileIconSecondary{
+  fill: yellow;
+  width: 4em;
+  height: 4em;
+}
+
+.mobileIconSmall{
+  cursor: pointer;
+  fill: var(--primary-text-color);
+  stroke: none;
+  margin: 0.5em;
+  width: 2em;
+  height: 2em;
+}
+
+.mobileIconSmall:hover {
+  fill: var(--title-color);
+}
+
+.copyclipboard {
+  background: var(--accent-color);
+  color: var(--primary-text-color);
+  cursor: pointer;
+  display: inline-block;
+  height: 2.5em;
+  width: 7.5em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: .8em;
+  margin: 0.7em .5em;
+  padding: .78571429em 1.5em .78571429em;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 7px;
+  background-position: center;
+  transition: background 0s;
+}
+
+.copyclipboard:hover {
+  border: none;
+  background: var(--title-color);
+  color: black;
+  font-weight: bold;
+  transition: all 0.5s;
+  border-radius: 7px;
+}
+
+.copyclipboard:active {
+  background-color: var(--effect-color);
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/* CSS for samller screen - by Adnan Islam */
+@media screen and (min-width: 500px) and (max-width: 630px) {
+
+  .mobileIconSmall{
+    cursor: pointer;
+    fill: var(--primary-text-color);
+    stroke: none;
+    margin: .5em 0.2em;
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .copyclipboard {
+    height: 2.5em;
+    width: 7.5em;
+    font-size: .6em;
+    margin: 1em .5em .25em .25em;
+  }
+}

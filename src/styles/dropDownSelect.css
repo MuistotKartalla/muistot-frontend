@@ -1,0 +1,158 @@
+.dropDownSelectHidden{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.dropDownSelectVisible{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.dropDownSelectCurrentItem{
+  cursor: pointer;
+  display: flex;
+  flex: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 4em;
+  width: 16em;
+  margin: 0px 10px;
+}
+
+.dropDownSelectCurrentItem:hover .dropDownIcon{
+  fill: var(--title-color);
+}
+
+.dropDownSelectCurrentItem:hover .activeItemText{
+  color: var(--title-color);
+}
+
+.activeItemText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  width: 16.8em;
+  color: var(--secondary-text-color);
+  text-align: left;
+  text-transform: capitalize;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  padding: .78571429em 0.5em .78571429em;
+  vertical-align: baseline;
+  align-self: center;
+}
+
+.activeItemTextActive{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  color: var(--primary-text-color);
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 600;
+  line-height: 1em;
+  padding: .78571429em 0.5em .78571429em;
+  vertical-align: baseline;
+  align-self: center;
+}
+
+
+.projectDropDownIcon{
+  padding: 0 0.5em 0 0;
+  margin: auto 0;
+  float: right;
+  fill: var(--secondary-text-color);
+  transition: 0s;
+  width: 2em !important;
+  height: 2em !important;
+}
+
+.projectDropDownIconActive{
+  padding: 0 0.5em 0 0;
+  margin: auto 0;
+  float: right;
+  fill: var(--primary-text-color);
+  width: 2em;
+  height: 2em;
+  transition: 0s;
+  transform: rotate(180deg);
+}
+
+
+/* CSS for samller screen - by Adnan Islam */
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+
+.activeItemText{
+  width: 10em;
+  margin: auto 5px;
+  font-weight: 700;
+  font-size: .9em;
+  padding: 5px;
+  vertical-align: baseline;
+  align-self: center;
+}
+
+.dropDownSelectHidden{
+  width: 12em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.dropDownSelectCurrentItem{
+  cursor: pointer;
+  display: flex;
+  flex: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 3em;
+  height: -webkit-fill-available;
+  width: 12em;
+  margin: 0px;
+}
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px){
+
+.activeItemText{
+  width: 10em;
+  margin: auto 5px;
+  font-weight: 700;
+  font-size: .9em;
+  padding: 3px;
+  vertical-align: baseline;
+  align-self: center;
+}
+
+.dropDownSelectHidden{
+  width: 10em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.dropDownSelectCurrentItem{
+  cursor: pointer;
+  display: flex;
+  flex: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 3em;
+  height: -webkit-fill-available;
+  width: 10em;
+  margin: 5px;
+}
+
+.themeLabelText{
+  font-size: .9em;
+}
+
+}

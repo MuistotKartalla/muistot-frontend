@@ -1,0 +1,59 @@
+.aboutContainer{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: 100%;
+  max-width: 600px;
+  max-height: 600px;
+  border-radius: 5px;
+  margin:auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 0px 15px 5px grey;
+}
+
+.aboutContainerMobile{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: 80%;
+  width: 90%;
+  margin: 80px 10px 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.aboutContentContainer{
+  height: 100%;
+  margin: 0 10px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: scroll;
+  text-align: left;
+}
+
+/* CSS for samller screen - by Adnan Islam */
+@media screen and (min-width: 700px) and (max-width: 1000px){
+
+.aboutContainer{
+  width: 100%;
+  max-width: 420px;
+  max-height: 450px;
+}
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px){
+
+.aboutContainer{
+  width: 100%;
+  max-width: 420px;
+  max-height: 500px;
+}
+
+}

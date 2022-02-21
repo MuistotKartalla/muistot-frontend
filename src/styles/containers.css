@@ -1,0 +1,97 @@
+/* These doesn't matter since they are replaced when settings are inited
+:root{
+  --primary-color: #ffffff;
+  --secondary-color: #e0e0e0;
+
+  --primary-text-color: #000000;
+  --secondary-text-color: #505050;
+
+  --accent-color: #ffffff;
+  --accent-color-dark: #e0e0e0;
+  --accent-color-light: #ffffff;
+  --effect-color: #ffffff;
+}
+*/
+:root{
+  --primary-color: #161616;
+  --secondary-color: #1b1c1d;
+
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #a0a0a0;
+
+  --accent-color: #383838;
+  --accent-color-dark: #1b1c1d;
+  --accent-color-light: #808080;
+  --effect-color: #cecece;
+}
+
+html, body, #root, #app, #app>div {
+  height: auto;
+  min-height: 100%;
+}
+
+.appContainer{
+  background-color: #161616;
+  margin: 0px;
+  position: absolute;
+  height: 100% !important;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.popUpContainer{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+.popUpBackground{
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+.contentContainer{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+.titleContainerMobile{
+  width: 100%;
+  height: fit-content;
+  max-width: 100%;
+  margin: 0 0 2em 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.titleHeaderMobile{
+  display: flex;
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+
+.dualButtonContainer{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 1em 0;
+  justify-content: space-between;
+}
+
+.closeContainer{
+  width: -webkit-fill-available;
+  width: -moz-available;
+  max-height: fit-content;
+  padding: 0 10px;
+}

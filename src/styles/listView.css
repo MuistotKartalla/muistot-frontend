@@ -1,0 +1,163 @@
+.listViewContainer{
+  background: transparent;
+  z-index: 4;
+  margin: auto;
+  display: flex;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.listViewInnerContainer{
+  z-index: 4;
+  background: var(--primary-color);
+  width: 90%;
+  max-height: 90%;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 0px 15px 5px grey;
+  border-radius: 10px;
+}
+
+.centerAlign{
+  margin: 0;
+  position: absolute;
+  padding: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+}
+
+.centerAlignWithPadding{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+}
+
+.postListSectionContainer{
+  width: 35%;
+  z-index: 4;
+  background: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.postListContainerMobile{
+  width: 100%;
+  margin: 0;
+  z-index: 4;
+  background: var(--secondary-color);
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.postPreviewContainer{
+  width: 60%;
+  margin: 1%;
+  height: 98%;
+}
+
+.postListContainerInner{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: 100%;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.filterSortContainer{
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  max-width: 100%;
+  max-height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.searchInputContainer{
+  background: var(--secondary-color);
+  margin: 0;
+  padding: 5px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border: none;
+  border-radius: 5px;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1em;
+  resize: none;
+}
+
+ /* width */
+ ::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--accent-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color-light);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 
+
+
+/* CSS for samller screen - by Adnan Islam */
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+
+
+h1.titleText {
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
+
+h2.postListTitle {
+  font-size: 1em;
+  text-transform: capitalize;
+}
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px) {
+
+
+
+h1.titleText {
+  font-size: 1em;
+}
+
+h2.postListTitle {
+  font-size: .8em;
+}
+
+.normalText{
+  font-size: .8em;
+}
+
+}

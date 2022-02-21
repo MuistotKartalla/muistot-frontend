@@ -1,0 +1,84 @@
+.dropDownContainer{
+  background: var(--primary-color);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.dropDownList{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropDownListItem{
+  cursor: pointer;
+  padding: 0px;
+  height: 100%;
+  width: auto;
+  display: block;
+  text-align: left;
+  align-self: center;
+  transition: 0s;
+  color: var(--secondary-text-color);
+}
+
+.dropDownItemText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  display: block;
+  font-weight: 500;
+  padding: 0.5em 0.5em;
+  margin: 0;
+  width: fit-content;
+}
+
+.dropDownListItem:hover{
+  color: #03FFFF;
+  transition: 0.5s;
+  background: var(--secondary-text-color);
+  height: 100%;
+}
+
+
+/* CSS for samller screen - by Adnan Islam */
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+
+.dropDownItemText{
+  width: auto;
+  margin: auto 5px;
+  font-weight: 700;
+  font-size: .9em;
+  padding: 5px;
+  vertical-align: baseline;
+  align-self: center;
+}
+
+.dropDownListItem{
+  padding: 0px;
+  height: 100%;
+  width: auto;
+  font-size: .9em;
+}
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px) {
+
+.dropDownItemText{
+  width: auto;
+  margin: auto 5px;
+  font-weight: 700;
+  font-size: .9em;
+  padding: 3px;
+  vertical-align: baseline;
+  align-self: center;
+}
+
+.dropDownListItem{
+  padding: 0px;
+  height: 100%;
+  width: auto;
+  font-size: .9em;
+}
+
+}

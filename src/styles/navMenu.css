@@ -1,0 +1,201 @@
+.menuContainer{
+  z-index: 5;
+  width: 100%;
+  height: 4em;
+  top: 0;
+  background: var(--primary-color);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select:  none;
+  box-shadow: 0 0 5px white;
+}
+
+.menuInnerContainer{
+  display: flex;
+  float: right;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 10;
+  width: 100%;
+  margin: 0px 10px;
+  padding: 0;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.menuLogo{
+  display: flex;
+  grid-area: logo;
+  margin: 0;
+  width: 100%;
+  max-width: 18%;
+  height: 4em;
+  width: -moz-fit-content;
+}
+
+.logoText{
+  cursor: pointer;
+  color: var(--title-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  margin: auto 10px;
+  font-weight: 700;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.projectInfoButtonContainer{
+  height: 4em;
+  display: flex;
+  flex: -1200px;
+  margin: 0px;
+  flex-direction: column;
+  min-width: fit-content;
+}
+
+.projectInfoButton{
+  background: var(--primary-color);
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  margin: 0 .25em 0 .25em;
+  padding: 0;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: .28571429rem;
+  background-position: center;
+  transition: background 0s;
+  margin: auto;
+}
+
+.projectInfoButton:hover{
+  color: var(--title-color);
+}
+
+.projectSelectContainer{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 45%;
+  margin: 0 1%;
+}
+
+
+/* CSS for samller screen - by Adnan Islam */
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+
+.logoText{
+  margin: auto 5px;
+  font-weight: 700;
+  font-size: .8em;
+  padding: 5px;
+}
+
+.projectInfoButton{
+  font-size: 1em;
+  padding: 0;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  text-decoration: none;
+  border-radius: .28571429rem;
+  background-position: center;
+  transition: background 0s;
+  margin: auto;
+}
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px) {
+
+.logoText{
+  margin: auto 5px;
+  font-weight: 700;
+  font-size: .9em;
+  padding: 3px;
+}
+
+.projectInfoButton{
+  font-size: .9em;
+  padding: 0;
+  margin: auto 10px;
+}
+
+}
+
+/*
+.menuButtonList{
+  color: var(--secondary-text-color);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 4em;
+  grid-area: right;
+}
+
+.menuItemText{
+  
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  display: block;
+  font-weight: 500;
+}
+
+.menuListItem{
+  cursor: pointer;
+  float: right;
+  margin: 0px;
+  padding: 0px 15px;
+  height: 4em;
+  display: block;
+  text-align: center;
+  align-self: center;
+  transition: 0s;
+}
+
+.menuListItem:hover{
+  color: var(--primary-text-color);
+  transition: 0.5s;
+  background: var(--accent-color);
+  height: 100%;
+}
+
+.accountDropDownContainer{
+  float: right;
+  height: fit-content;
+  height: -moz-fit-content;
+  width: 100%;
+  top: 4em;
+}
+
+.maxWidthContainer{
+  top: 0;
+  max-width: 1200px;
+  padding: 0px;
+  margin: 0 auto;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border-radius: 5px;
+}
+
+.accountItemContainer{
+  display: flex;
+  width: fit-content;
+  width: -moz-fit-content;
+}
+*/

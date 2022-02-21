@@ -1,0 +1,104 @@
+.newPostContainer{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: 100%;
+  height: max-content;
+  max-width: 600px;
+  max-height: 600px;
+  border-radius: 5px;
+  margin:auto;
+  padding: 20px;
+  box-shadow: 0 0 5px var(--accent-color);
+  transition: box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.newPostContainer:focus-within{
+  box-shadow: 0 0 10px var(--accent-color-light)
+}
+
+.newPostContainerMobile{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+.centerAlign{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centerAlignWithPaddingLean{
+  margin: 0;
+  position: absolute;
+  top: 50%;   
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.headerText{
+  padding: 0px;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.bottomPadding30{
+  padding-bottom: 30px;
+}
+
+.newPostTabSwitchContainer{
+  display: flex
+}
+
+.switchActiveButton{
+  background: var(--accent-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+
+.switchUnActiveButton{
+  background: var(--accent-color-dark);
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+
+.switchUnActiveButton:hover {
+  background: var(--accent-color-light) radial-gradient(circle, transparent 1%, var(--accent-color-light) 1%) center/15000%;
+  transition: background 0.5s;
+}
+
+.switchUnActiveButton:hover .switchActiveButton{
+  background: var(--accent-color-dark) radial-gradient(circle, transparent 1%, var(--accent-color-light) 1%) center/15000%;
+  transition: background 0.5s;
+}
+
+.switchUnActiveButton:active {
+  background-color: var(--effect-color);
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.postFormButtonContainer{
+  display: flex;
+  margin: 1em 0;
+}
+
+.postFormMobile{
+  width: 99%;
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
