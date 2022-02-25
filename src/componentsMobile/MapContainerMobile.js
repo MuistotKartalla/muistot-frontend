@@ -13,7 +13,7 @@ import iconT from "../resources/marker-transp.png"
 import iconTN from "../resources/marker-transp-new.png"
 import iconShadow from "../resources/marker-shadow.png"
 
-
+import iconx2 from "../resources/marker-icon-2x.png"
 
 import userIconMarker from "../resources/user_icon_custom.svg"
 import tempIconMarker from "../resources/temp_marker.svg"
@@ -180,7 +180,7 @@ const MapContainerMobile = (props) => {
         />
 
         {posts.map((element, index) =>
-         <Marker key={index} position={element.location} icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} onClick={() => onPostClick(element)}>
+         <Marker key={index} position={element.location} icon={element.uusi==1?(element.muistoja==null?emptyIconNew:newIcon):(element.muistoja==null?emptyIcon:defaultIcon)} onClick={() => onPostClick(element)}>
           </Marker>
         )}
         {userLocation !== null?

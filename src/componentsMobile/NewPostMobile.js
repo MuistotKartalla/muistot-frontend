@@ -7,7 +7,7 @@ import "../styles/buttons.css"
 import {createSite} from "../reducers/postReducer"
 import {notify} from "../reducers/notificationReducer"
 import {setTempSite} from "../reducers/tempSiteReducer"
-
+import ImageUploadMobile from "./ImageUploadMobile"
 
 import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
 
