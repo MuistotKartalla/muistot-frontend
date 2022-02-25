@@ -7,7 +7,6 @@ import "../styles/buttons.css"
 import {createSite} from "../reducers/postReducer"
 import {notify} from "../reducers/notificationReducer"
 import {setTempSite} from "../reducers/tempSiteReducer"
-import ImageUpload from "./ImageUpload"
 
 //combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.
 // aka if "live location" button is highlighted the it uses your current location. if map button highlighted then it uses selected location.
@@ -59,14 +58,6 @@ export const NewPostCombined = (props) => {
 
   }
 
-  const selectOnMap = (event) => {
-    //save already filled value to redux state, while the user selects the location on map
-    //show the map and notify the user with instructions.
-    event.preventDefault()
-    props.setTempSite({"title": titleField, "location":location})
-    props.history.push("/select-location/")
-    //props.notify(props.settings.strings["choose_on_map_notification"], false, 10)
-  }
 
   const TitleFieldChangeHandler = (event) => {
     event.preventDefault()

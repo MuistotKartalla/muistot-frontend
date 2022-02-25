@@ -20,7 +20,7 @@ export const MyPosts = (props) => {
   Out of focus click closes the pop up.
   */
 
-  const posts = props.posts.filter(post => post.author == props.user.UID)
+  const posts = props.posts.filter(post => post.author === props.user.UID)
   console.log(props.posts)
   console.log(props.user)
   console.log(posts)
