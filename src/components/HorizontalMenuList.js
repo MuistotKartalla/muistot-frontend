@@ -99,17 +99,7 @@ const HorizontalMenuList = (props) => {
 
   }
 
-  const toSignUp = (event) => {
-    event.preventDefault()
-	if(props.history.location.pathname === "/sign-up")
- 		{
- 		props.history.push("/")
- 		}
- 	else
- 		{
- 		props.history.push("/sign-up")
- 		}
-  }
+
   if(props.user){
     return(
       <div className="horizontalMenuContainerLogged" ref={ref}>
