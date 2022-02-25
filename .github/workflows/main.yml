@@ -14,7 +14,7 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - run: npm install
-      - run: npm build
+      - run: npm run build
       - run: rm -f build.tar.gz && tar -czf build.tar.gz ./build
       - name: Copy Build Files
         uses: appleboy/scp-action@master
