@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   release:
-    types: [published]
+    types: [ published ]
   workflow_dispatch:
 
 # Job
@@ -27,6 +27,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
 
+      - run: cd src && sed 's/baseURL = ".*"$/baseURL = "${{ secrets.BASE_URL }}"/g' App.js > App.js.new && rm App.js && mv App.js.new App.js; cd -
       - run: npm run build
         env:
           CI: false
