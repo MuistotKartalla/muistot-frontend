@@ -20,7 +20,6 @@ import "./styles/containers.css"
 import ContentArea from "./components/ContentArea"
 import ContentAreaMobile from "./componentsMobile/ContentAreaMobile"
 import NotificationMobile from "./componentsMobile/NotificationMobile"
-import Activity from "./components/Activity"
 import {log} from "./services/settings";
 
 const App = (props) => {
@@ -103,7 +102,6 @@ const App = (props) => {
                     <ContentArea/>
                     {props.notification.message !== null ? <Notification/> : <div/>}
                 </Router>
-                {props.user !== null ? <Activity/> : <div/>}
             </div>
         )
     }

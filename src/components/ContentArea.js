@@ -11,7 +11,6 @@ import NewPostCombined from "./NewPostCombined"
 import NewMemento from "./NewMemento"
 import PostView from "./PostView"
 import ListView from "./ListView"
-import SignUp from "./SignUp"
 import MyPosts from "./MyPosts"
 import ReportPost from "./ReportPost"
 import UserSettings from "./UserSettings"
@@ -23,7 +22,7 @@ import MapContainerOpen from "./MapContainerOpen"
 import NewProject from "./NewProject"
 import ProjectStats from "./ProjectStats"
 import ReportedPostsList from "./ReportedPostsList"
-import Activity from "./Activity"
+
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -107,11 +106,6 @@ const ContentArea = (props) => {
       <Route path="/reports/" render={({history}) => (
         <PopUpContainer history={history}>
           <ReportedPostsList history={history}/>
-        </PopUpContainer>
-      )}/>
-      <Route path="/activity" render={({history}) => (
-        <PopUpContainer history={history}>
-          <Activity history={history}/>
         </PopUpContainer>
       )}/>
 
