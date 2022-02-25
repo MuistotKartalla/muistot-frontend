@@ -172,7 +172,20 @@ const MapContainerOpen = (props) => {
     console.log("to list view")
     props.history.push("/list-view/"+props.posts[0].id)
   }
+  const newPostClick = (event) => {
+    //New post onClick event handler.
 
+    event.preventDefault()
+    if(props.user !== null){
+      console.log("Adding new post")
+      props.history.push("/new-post/")
+    }else{
+      //if not logged in, redirect to login page
+      props.history.push("/login/")
+      props.notify(props.settings.strings["login_required_to_post"], false, 5)
+    }
+
+  }
 
 // Erilaisia ikonivalintoja:
 //          <Marker key={index} position={element.location} icon={element.muistoja==null?emptyIcon:(index<2?star3Icon:(index<4?star2Icon:(index<6?starIcon:defaultIcon)))} onClick={() => onPostClick(element)}>
@@ -193,7 +206,7 @@ const MapContainerOpen = (props) => {
         />
 
         {posts.map((element, index) =>
-          <Marker key={index} position={element.location} icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} onClick={() => onPostClick(element)}>
+          <Marker key={index} position={element.location} icon={element.uusi==1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja==null?emptyIcon:defaultIcon)} onClick={() => onPostClick(element)}>
           </Marker>
         )}
         {userLocation !== null? props.currentProject.title!=="project 2"? 

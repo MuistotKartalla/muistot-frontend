@@ -19,7 +19,6 @@ export const ThemeToggleSwitch = (props) => {
     }else{
       props.setActiveTheme("dark")
       setDarkMode(true)
-
     }
   }
 
@@ -43,7 +42,8 @@ const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
 
-    settings: state.settings
+    settings: state.settings,
+    currentProject: state.projects.active
   }
 }
 

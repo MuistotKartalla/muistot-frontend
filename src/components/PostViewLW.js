@@ -17,6 +17,7 @@ import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
 import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 import {getImageURL} from "../services/images";
+import { project, projects } from "../services/paths"
 
 
 export const PostViewLW = (props) => {
