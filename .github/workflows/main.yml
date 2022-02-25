@@ -1,6 +1,8 @@
 name: Deploy
 
 on:
+  release:
+    types: [ published ]
   workflow_dispatch:
 
 # Job
@@ -12,12 +14,24 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-          cache: 'npm'
-      - name: Generate Build
-        run: npm install        |
-          npm build.         |
-          rm -f build.tar.gz |
-          tar -czf build.tar.gz ./build
+
+      # https://www.voorhoede.nl/en/blog/super-fast-npm-install-on-github-actions/
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - run: cd src && sed 's/baseURL = ".*"$/baseURL = "${{ secrets.BASE_URL }}"/g' App.js > App.js.new && rm App.js && mv App.js.new App.js; cd -
+      - run: npm run build
+        env:
+          CI: false
+      - run: rm -f build.tar.gz && tar -czf build.tar.gz ./build
       - name: Copy Build Files
         uses: appleboy/scp-action@master
         with:
