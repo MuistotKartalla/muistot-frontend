@@ -22,6 +22,7 @@ import MapContainerOpen from "./MapContainerOpen"
 import NewProject from "./NewProject"
 import ProjectStats from "./ProjectStats"
 import ReportedPostsList from "./ReportedPostsList"
+import UnverifiedPosts from "./UnverifiedPosts"
 
 
 const ContentArea = (props) => {
@@ -86,6 +87,11 @@ const ContentArea = (props) => {
       <Route path="/my-posts/" render={({history}) => (
         <PopUpContainer history={history}>
           <MyPosts history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/unverified-posts/" render={({history}) => (
+        <PopUpContainer history={history}>
+          <UnverifiedPosts history={history}/>
         </PopUpContainer>
       )}/>
       <Route path="/user-settings/" render={({history}) => (

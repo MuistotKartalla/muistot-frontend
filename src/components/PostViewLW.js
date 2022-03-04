@@ -128,7 +128,7 @@ export const PostViewLW = (props) => {
             // author sees delete button
             // user sees report button
             // admin sees delete and verify buttons.
-              (props.currentProject.moderators.find(user => user === props.user.username)? props.currentProject.title !== "project 2"?
+              (props.currentProject.moderators.find(user => user === props.user.username)? props.currentProject.id !== "piiput"?
                 <div className="postButtonsContainerInner">
                   <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   
@@ -172,7 +172,7 @@ export const PostViewLW = (props) => {
         </div>
             :
         <div className="postCloseContainer">
-          {props.currentProject.title !== "project 2"?
+          {props.currentProject.id !== "piiput"?
             <button className="rippleButton fillButton" onClick={showDetails}>{props.settings.strings["look_at_mementos"]}</button>
           : <div/>}
 		<hr></hr>

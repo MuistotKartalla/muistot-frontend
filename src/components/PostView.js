@@ -118,7 +118,7 @@ export const PostView = (props) => {
             // admin sees delete and verify buttons.
               (props.currentProject.moderators.find(user => user === props.user.username)?
                 <div className="postButtonsContainerInner">
-                  {props.currentProject.title !== "project 2"?
+                  {props.currentProject.id !== "piiput"?
                   <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   :
                   <></>
@@ -130,12 +130,12 @@ export const PostView = (props) => {
                   }
                 </div>
                 :
-                (props.user.username === post.author? props.currentProject.title !== "project 2"?
+                (props.user.username === post.author? props.currentProject.id !== "piiput"?
                   <div className="postButtonsContainerInner">
                     <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   </div>
                   :
-                  (post.verified? props.currentProject.title !== "project 2"?
+                  (post.verified? props.currentProject.id !== "piiput"?
                     <div/>
                     :
                     <div className="postButtonsContainerInner">
@@ -156,13 +156,13 @@ export const PostView = (props) => {
           </div>
         </div>
         <div className="storyContainer">
-          {props.currentProject.title === "project 2"?
+          {props.currentProject.id !== "piiput"?
           <div className="normalText" style={{padding:"10px"}}>{post.description}</div>
           :
 	        <MementoList posts={post} history={props.history}/>
           }
         </div>
-        {deleteState? props.currentProject.title !== "project 2"?
+        {deleteState? props.currentProject.id !== "piiput"?
         <div className="postCloseContainer">
             <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button> 
         </div>
