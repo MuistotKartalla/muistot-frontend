@@ -196,7 +196,7 @@ const MapContainerOpen = (props) => {
           <Marker key={index} position={element.location} icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} onClick={() => onPostClick(element)}>
           </Marker>
         )}
-        {userLocation !== null? props.currentProject.title!=="project 2"? 
+        {userLocation !== null? props.currentProject.id !== "piiput"? 
           <Marker position={userLocation} icon={userIcon} onClick={userClick}>
           </Marker>
           :
@@ -204,7 +204,7 @@ const MapContainerOpen = (props) => {
           :
           <br/>
         }
-        {tempMarker !== null? props.currentProject.title!=="project 2"? 
+        {tempMarker !== null? props.currentProject.id !== "piiput"? 
           <Marker position={tempMarker} icon={tempIcon}></Marker>
           :
           <div/>
@@ -216,7 +216,7 @@ const MapContainerOpen = (props) => {
         <FloatingSearch history={props.history}/>
       </div>
       <button className="overlayButtonLeft rippleButton" onClick={toListView}>{props.settings.strings["list_view"]}</button>
-      if {tempMarker ?  props.user ? props.currentProject.title!=="project 2"? 
+      if {tempMarker ?  props.user ? props.currentProject.id !== "piiput"? 
       <button className="overlayButtonCenter pulsingButton rippleButton smallButton" onClick={confirmNewLocationMarker}>{props.settings.strings["new_post"]}</button>
       :
       <br/>
