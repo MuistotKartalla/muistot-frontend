@@ -143,7 +143,8 @@
       "or":"or",
       "link_info": "A login link has been sent to the provided email address.",
       "continue": "Continue",
-      "login_or_register": "Login or create an account"
+      "login_or_register": "Login or create an account",
+      "unverified-posts" : "Unverified Posts"
     },
     "fi":{
       "look_at_mementos": "Katsele tälle kohteelle syötettyjä muistoja",
@@ -282,7 +283,8 @@
       "or":"tai",
       "link_info": "Kirjautumislinkki on lähetetty antamaasi sähköpostiosoitteeseen.",
       "continue": "Jatka",
-      "login_or_register": "Kirjaudu tai luo tili"
+      "login_or_register": "Kirjaudu tai luo tili",
+      "unverified-posts" : "Vahvistamattomat kohteet"
     }
   }
 }

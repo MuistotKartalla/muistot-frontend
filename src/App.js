@@ -3,7 +3,7 @@
 // - joniumGit
 import React, {useEffect, useState} from "react"
 import {connect} from "react-redux"
-import {BrowserRouter as Router, Redirect, Route} from "react-router-dom"
+import {BrowserRouter as Router, Route} from "react-router-dom"
 import axios from "axios"
 
 //import dispatch methods
@@ -27,9 +27,31 @@ const App = (props) => {
     const [projectsInit, setProjectsInitialized] = useState(false)
     const [settingsInit, setSettingsInitialized] = useState(false)
     const isMobile = window.innerWidth <= 500
-
     // Use local
     axios.defaults.baseURL = "http://localhost:5600"
+
+    const whash = window.location.hash
+    if (whash && whash.startsWith("#email-login:")) {
+        const query = whash.replace("#email-login:", "").split("&");
+        (async () => {
+            const token = (await axios.post("/login/email-only/exchange", null, {
+                    params: {
+                        user: query.filter((o, _, __) => o.startsWith("user")).map(o => o.split("=")[1])[0],
+                        token: query.filter((o, _, __) => o.startsWith("token")).map(o => o.split("=")[1])[0]
+                    }
+                })
+            ).headers.authorization
+            if (token) {
+                window.localStorage.setItem('ChimneysGoToken', token)
+            }
+        })();
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, "#");
+        } else {
+            window.location.hash = "#";
+        }
+    }
+
     useEffect(() => {
         log("Pääsilmukka aktivoitu");
         log(props)
@@ -85,20 +107,6 @@ const App = (props) => {
             <div className="appContainer">
                 <Router>
                     <Route path="/" render={({history}) => (<NavMenu history={history}/>)}/>
-                    <Route path="/login/email-only/exchange" render={() => {
-                        let query = new URLSearchParams(document.location.search);
-                        (async () => {
-                            window.localStorage.setItem('ChimneysGoToken', (
-                                await axios.post("/login/email-only/exchange", null, {
-                                    params: {
-                                        user: query.get('user'),
-                                        token: query.get('token')
-                                    }
-                                })
-                            ).headers.authorization)
-                        })();
-                        return <Redirect to="/"/>
-                    }}/>
                     <ContentArea/>
                     {props.notification.message !== null ? <Notification/> : <div/>}
                 </Router>

@@ -56,6 +56,13 @@ const HorizontalMenuList = (props) => {
       toggleDDV()
     }
   }
+  const UnverifiedPostsClick = (event) => {
+    event.preventDefault()
+    props.history.push("/unverified-posts/")
+    if(isComponentVisible){
+      toggleDDV()
+    }
+  }
   const reportsClick = (event) => {
     event.preventDefault()
     props.history.push("/reports/")
@@ -123,12 +130,12 @@ const HorizontalMenuList = (props) => {
         {isComponentVisible?
           <div className="accountDropDownContainer">
             {props.user.username === "admin"?
-              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick},{divider:true}, {string:props.settings.strings["reports"], onClickHandler: reportsClick},{string:props.settings.strings["project_statistics"], onClickHandler: statsClick},{string:props.settings.strings["configure_project"], onClickHandler: configureProjectClick}]}>
+              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick},{divider:true}, {string:props.settings.strings["reports"], onClickHandler: reportsClick},{string:props.settings.strings["project_statistics"], onClickHandler: statsClick},{string:props.settings.strings["configure_project"], onClickHandler: configureProjectClick}]}>
                 <p className="userNameText">{props.user.username}</p>
                 <ThemeToggleSwitch/>
               </DropDownList>
               :
-              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
                 <p className="userNameText">{props.user.username}</p>
                 <ThemeToggleSwitch/>
               </DropDownList>
