@@ -44,7 +44,9 @@ export const LoginForm = (props) => {
     return (
         <div className="loginContainer centerAlignWithPadding">
             <h1 className="headerText bottomPadding30">{props.settings.strings["login_or_register"]}</h1>
-            <div className="signUpTitleContainer">
+{/*             TODO: fix social media integration             
+
+                <div className="signUpTitleContainer">
                 <GoogleLogin
                     clientId="472567314178-p1qosj4m14piq95sn4ef35frp2i5bsgm.apps.googleusercontent.com"
                     buttonText="Login With Google"
@@ -62,7 +64,7 @@ export const LoginForm = (props) => {
                     icon="fa-facebook"
                 />
             </div>
-            <div className="separatorLine"><span className="separatorText">{props.settings.strings["or"]}</span></div>
+            <div className="separatorLine"><span className="separatorText">{props.settings.strings["or"]}</span></div> */}
             <form className="loginForm" name="loginForm" onSubmit={e => {
                 e.preventDefault();
                 const email = document.getElementById("email-input-field-0").value;
