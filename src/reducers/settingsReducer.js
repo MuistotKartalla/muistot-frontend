@@ -67,6 +67,7 @@ const settingsReducer = (state = initialState, action) => {
                 changeThemeInCSS(action.data.theme)
                 new_state["activeTheme"] = action.data.theme
             } else {
+                changeThemeInCSS(state.activeTheme)
                 new_state["activeTheme"] = state.activeTheme
             }
             return new_state
