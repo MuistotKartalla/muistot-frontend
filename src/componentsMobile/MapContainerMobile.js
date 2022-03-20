@@ -187,12 +187,14 @@ const MapContainerMobile = (props) => {
           <Marker position={userLocation} icon={userIcon} onClick={userClick}>
           </Marker>
           :
-          <div/>
+          <></>
+        
         }
-        {tempMarker !== null?
+        {tempMarker !== null? 
           <Marker position={tempMarker} icon={tempIcon}></Marker>
           :
-          <div/>
+          <></>
+         
         }
       </Map>
       <div className="floatingSearchContainerMapMobile">

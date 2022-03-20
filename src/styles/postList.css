@@ -80,15 +80,22 @@
 .postListItemImageContainer{
   width: 35%;
   height: 100%;
+  margin: auto 0.5em auto 0;
+  align-content: center;
 }
-
 .postListReportFlags{
   width: 30%;
 }
 
+
 .postListImagePreview{
-  display: flex;
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
 }
+
 
 .postListItemInfo {
   width: 55%;

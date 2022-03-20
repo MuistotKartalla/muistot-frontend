@@ -76,7 +76,7 @@ export const NewPostMobile = (props) => {
       <div>
         <div className="titleContainerMobile">
           <button className="mobileButtonContainer">
-            <ReturnIcon className="mobileIcon" onClick={() => props.history.goBack()}/>
+            <ReturnIcon className="mobileIcon" onClick={cancelClick}/>
           </button>
           <h1 className="titleTextMobile">{props.settings.strings["new_post"]}</h1>
         </div>
@@ -84,7 +84,7 @@ export const NewPostMobile = (props) => {
         {!location?
 	<div>
           <div className="newPostTabSwitchContainer">
-            <p className="normalText textCenter">{`${props.settings.strings["choose_location_first"]}`}</p>
+            <p className="normalText textCenter">{`${props.settings.strings["choose_on_map_mobile"]}`}</p>
             <button className="rippleButton negativeButton fillButton" onClick={selectOnMap}>{props.settings.strings["choose_on_map"]}</button>
           </div>
 	      <form className="postFormMobile" onSubmit={confirmPost}>
@@ -97,7 +97,6 @@ export const NewPostMobile = (props) => {
 	<div>
           <div className="newPostTabSwitchContainer">
             <button className="rippleButton positiveButton fillButton" onClick={selectOnMap}>{props.settings.strings["re_choose_on_map"]}</button>
-            <p className="normalText textCenter">{`{ ${props.settings.strings["using_selected_location"]} ${location.lat}, ${location.lng} }`}</p>
           </div>
       		<form className="postFormMobile" onSubmit={confirmPost}>
       		  <div className="inputContainer">

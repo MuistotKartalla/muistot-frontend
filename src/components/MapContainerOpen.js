@@ -200,16 +200,16 @@ const MapContainerOpen = (props) => {
           <Marker position={userLocation} icon={userIcon} onClick={userClick}>
           </Marker>
           :
-          <div/>
+          <></>
           :
-          <br/>
+          <></>
         }
         {tempMarker !== null? props.currentProject.id !== "piiput"? 
           <Marker position={tempMarker} icon={tempIcon}></Marker>
           :
-          <div/>
+          <></>
           :
-          <br/>
+          <></>
         }
       </Map>
       <div className="floatingSearchContainerMap">
@@ -219,10 +219,11 @@ const MapContainerOpen = (props) => {
       if {tempMarker ?  props.user ? props.currentProject.id !== "piiput"? 
       <button className="overlayButtonCenter pulsingButton rippleButton smallButton" onClick={confirmNewLocationMarker}>{props.settings.strings["new_post"]}</button>
       :
-      <br/>
-        : <br/>
-      : <br/>
-
+      <></>
+      : 
+      <></>
+      :
+      <></>
     }
     </div>
   )
