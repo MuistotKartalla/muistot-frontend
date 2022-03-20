@@ -36,7 +36,11 @@ export const NavMenuMobile = (props) => {
     props.history.push("/my-posts/")
     toggleVisibity()
   }
-
+  const toUnverifiedPostsClick = (event) => {
+    event.preventDefault()
+    props.history.push("/unverified-posts/")
+    toggleVisibity()
+  }
   const logoutClick = (event) => {
     event.preventDefault()
     console.log("Logging out")
@@ -114,6 +118,7 @@ export const NavMenuMobile = (props) => {
               <p className="userNameText">{props.user.username}</p>
               <div className="divider"/>
               <button className="mobileMenuButton" onClick={toMyPostsClick}>{props.settings.strings["my_posts"]}</button>
+              <button className="mobileMenuButton" onClick={toUnverifiedPostsClick}>{props.settings.strings["unverified-posts"]}</button>
               <button className="mobileMenuButton" onClick={toUserSettingsClick}>{props.settings.strings["account_settings"]}</button>
             </div>
             :
@@ -143,6 +148,7 @@ export const NavMenuMobile = (props) => {
           {props.user && props.user.username === "admin"?
             <div className="mobileMenuUserNameContainer">
               <div className="divider"/>
+              <button className="mobileMenuButton" onClick={toUnverifiedPostsClick}>{props.settings.strings["unverified-posts"]}</button>
               <button className="mobileMenuButton" onClick={toReportsClick}>{props.settings.strings["reports"]}</button>
               <button className="mobileMenuButton" onClick={toStatsClick}>{props.settings.strings["project_statistics"]}</button>
             </div>

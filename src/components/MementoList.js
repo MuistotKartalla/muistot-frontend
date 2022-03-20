@@ -54,6 +54,7 @@ export const MementoList = (props) => {
           <li key={index} className="postListItem">
             <div className="postListItemImageContainer">
               <img className="postListImagePreview" src={getImageURL(memento.image)} alt=""></img>
+              
             </div>
             <div className="postListItemInfo">
               <h2 className="postListTitle">{memento.title}</h2>

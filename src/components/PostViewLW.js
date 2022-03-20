@@ -87,7 +87,7 @@ export const PostViewLW = (props) => {
 
   
   //console.log(props)
-  if(post){
+  if(post && props.currentProject.title !== "project 2"){
     //if post is defined return the actual post view else empty div.
     return(  
       <div className="postViewContainerLW">
@@ -104,15 +104,11 @@ export const PostViewLW = (props) => {
         <ClearIcon className="clearIcon" onClick={closeClick}/>
         </div>
         </div>
-        {props.currentProject.title==="project 2"?
-        <div className="storyContainer" style={{padding: "20px"}}>
-          <p className="normalText">{post.description}</p>
-        </div>
-        :
+
         <div className="postImageContainer">
           <img className="postImage" src={getImageURL(post.image)} alt=""></img>
         </div>
-        }
+        
         <div className="postContextContainer">
           <div className="infoContainer">
             {post.authorText?
@@ -128,7 +124,7 @@ export const PostViewLW = (props) => {
             // author sees delete button
             // user sees report button
             // admin sees delete and verify buttons.
-              (props.currentProject.moderators.find(user => user === props.user.username)? props.currentProject.id !== "piiput"?
+              (props.currentProject.moderators.find(user => user === props.user.username)? 
                 <div className="postButtonsContainerInner">
                   <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   
@@ -152,7 +148,7 @@ export const PostViewLW = (props) => {
                     </div>
                   )
                 )
-              : <div/>)
+              )
             
               :
               <div/>
@@ -166,15 +162,15 @@ export const PostViewLW = (props) => {
         <div className="storyContainer">
           <p className="normalText">{post.story}</p>
         </div>
-          {deleteState?
+        {deleteState?
         <div className="postCloseContainer">
             <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button>
         </div>
             :
         <div className="postCloseContainer">
-          {props.currentProject.id !== "piiput"?
+          
             <button className="rippleButton fillButton" onClick={showDetails}>{props.settings.strings["look_at_mementos"]}</button>
-          : <div/>}
+ 
 		<hr></hr>
             <button className="rippleButton fillButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>        
         </div>
@@ -182,8 +178,61 @@ export const PostViewLW = (props) => {
       </div>
     )
   }
+  if(post && props.currentProject.title === "project 2"){
+    //if post is defined return the actual post view else empty div.
+    return(  
+      <div className="postViewContainerLW">
+        <div className="postTitleContainer">
+          
+          {post.published?
+            <Verified className="verifiedIcon"/>
+            :
+            <div/>
+          }
+          <h1 className="titleText">{post.title}</h1>
+
+        <div className="postCloseButtonContainer">
+        <ClearIcon className="clearIcon" onClick={closeClick}/>
+        </div>
+        </div>
+        
+        <div className="storyContainer" style={{padding: "20px"}}>
+          <p className="normalText">{post.description}</p>
+        </div>
+
+        <div className="postContextContainer">
+          <div className="infoContainer">
+            {post.authorText?
+              <p className="normalTextNoMargin">{`${props.settings.strings["by"]}: ${post.authorText}`}</p>
+              :
+              <p className="normalTextNoMargin">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
+            }
+          </div>
+          <div className="postButtonsContainer">
+
+            <button className="rippleButton" onClick={copyclipboard}>Copy URI</button>
+            <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
+            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
+            
+          </div>
+        </div>
+        <div className="storyContainer">
+          <p className="normalText">{post.story}</p>
+        </div>
+          
+        <div className="postCloseContainer">
+          
+            
+          : <div/>
+		<hr></hr>
+            <button className="rippleButton fillButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>        
+        </div>
+          
+      </div>
+    )
+  }
   return(
-  <hr></hr>
+  <></>
   )
 
 }

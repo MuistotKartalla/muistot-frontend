@@ -6,23 +6,21 @@ import {notify} from "../reducers/notificationReducer"
 import "../styles/myPosts.css"
 import "../styles/buttons.css"
 import "../styles/texts.css"
+
+
+import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
 import {getImageURL} from "../services/images";
 
 
 
-
-
-
-export const UnverfiedPosts = (props) => {
+export const UnverifiedPostsMobile = (props) => {
   /*
   Component that shows list of all components by the current user.
   Clicking a post in the list redirects to the post page.
   Out of focus click closes the pop up.
   */
 
-  const posts = props.posts.filter(post => post.published == false)
-  console.log(props.posts)
-  console.log(props.user)
+  const posts = props.posts.filter(post => post.published === false)
   console.log(posts)
 
   const getDateFromUnixStamp = (unix) => {
@@ -41,8 +39,14 @@ export const UnverfiedPosts = (props) => {
     //if user has posts render the lsit
 
     return(
-      <div className="myPostsContainer centerAlignWithPadding">
-        <h1 className="headerText">{props.settings.strings["unverified-posts"]}</h1>
+      <div className="myPostsContainerMobile">
+        <div className="titleContainerMobile">
+          <button className="mobileButtonContainer">
+            <ReturnIcon className="mobileIcon" onClick={() => props.history.goBack()}/>
+          </button>
+          <h1 className="titleTextMobile">{props.settings.strings["unverified-posts"]}</h1>
+        </div>
+
         <ul className="myPostsList">
           {posts.map((post,index) =>
             <li key={index} className="myPostsListItem" onClick={() => onPostClick(post)}>
@@ -62,8 +66,13 @@ export const UnverfiedPosts = (props) => {
   }
   //if user doesn't have any posts, tell them
   return(
-    <div className="myPostsContainer centerAlignWithPadding">
-      <h1 className="headerText">{props.settings.strings["unverified-posts"]}</h1>
+    <div className="myPostsContainerMobile">
+      <div className="titleContainerMobile">
+        <button className="mobileButtonContainer">
+          <ReturnIcon className="mobileIcon" onClick={() => props.history.goBack()}/>
+        </button>
+        <h1 className="titleTextMobile">{props.settings.strings["unverified-posts"]}</h1>
+      </div>
       <ul className="myPostsList">
         <li>
           <h2 className="headerText">{props.settings.strings["empty_list"]}</h2>
@@ -88,10 +97,9 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   //notify (for example)
   notify,
-
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UnverfiedPosts)
+)(UnverifiedPostsMobile)
