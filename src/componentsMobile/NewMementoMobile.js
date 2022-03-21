@@ -74,7 +74,9 @@ export const NewMementoMobile = (props) => {
 
     props.history.goBack()
   }
-
+  const imageOnChangeHandler = (image) => {
+    setImage(image)
+  }
   const TitleFieldChangeHandler = (event) => {
     event.preventDefault()
     setTitleField(event.target.value)
@@ -100,7 +102,7 @@ export const NewMementoMobile = (props) => {
 	      <h1 className="titleTextMobile">{props.settings.strings["new_memento"]} {post.title}</h1>
         </div>
       </div>
-      <ImageUploadMobile/>
+      <ImageUploadMobile change={imageOnChangeHandler}/>
       <form className="postFormMobile" onSubmit={confirmPost}>
         <div className="inputContainer">
           <input name="title" id="titleField" className="input" placeholder={props.settings.strings["title"]} maxLength="100" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>

@@ -18,6 +18,10 @@ const HorizontalMenuList = (props) => {
   //Hardcoded horizontal menu list for the nav bar. Maybe a separate component is not necessary but to keep components concise, it currently is.
   //Has all the menu buttons and event handlers for clicks that activate router navigation.
   const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false)
+  
+  console.log(props.currentProject.moderators)
+  console.log(props)
+
 
   const toggleDDV = () => {
     //DDV = dropDownVisibility
@@ -129,14 +133,15 @@ const HorizontalMenuList = (props) => {
         </ul>
         {isComponentVisible?
           <div className="accountDropDownContainer">
-            {props.user.username === "admin"?
+            
+            {props.currentProject.moderators.find(user => user !== props.user.username)?
               <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick},{divider:true}, {string:props.settings.strings["reports"], onClickHandler: reportsClick},{string:props.settings.strings["project_statistics"], onClickHandler: statsClick},{string:props.settings.strings["configure_project"], onClickHandler: configureProjectClick}]}>
-                <p className="userNameText">{props.user.username}</p>
+                <p className="userNameText">{props.user}</p>
                 <ThemeToggleSwitch/>
               </DropDownList>
               :
-              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
-                <p className="userNameText">{props.user.username}</p>
+              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+                <p className="userNameText">{props.user}</p>
                 <ThemeToggleSwitch/>
               </DropDownList>
             }
@@ -205,7 +210,8 @@ const mapStateToProps = (state) => {
     //maps state to props, after this you can for example call props.user
     user: state.user,
     settings: state.settings,
-    projects: state.projects
+    projects: state.projects,
+    currentProject: state.projects.active
   }
 }
 

@@ -20,7 +20,7 @@ export const UnverifiedPostsMobile = (props) => {
   Out of focus click closes the pop up.
   */
 
-  const posts = props.posts.filter(post => post.published === false)
+  const posts = props.posts.filter(post => post.waiting_approval === true)
   console.log(posts)
 
   const getDateFromUnixStamp = (unix) => {
