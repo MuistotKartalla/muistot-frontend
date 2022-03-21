@@ -79,14 +79,15 @@ export const PostView = (props) => {
 // Päivämäärät: <p className="normalTextNoMargin">{getDateFromUnixStamp(post.date)}</p>
 
 
-  console.log(props)
+  //console.log(props)
+  console.log(post)
   if(post && props.currentProject.title !== "project 2"){
     //if post is defined return the actual post view else empty div.
-
+    
     return(
       <div className="postViewContainer centerAlignWithPaddingLean">
         <div className="postTitleContainer">
-          {post.verified?
+          {post.waiting_approval !== true?
             <Verified className="verifiedIcon"/>
             :
             <br/>

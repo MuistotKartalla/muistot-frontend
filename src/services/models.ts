@@ -105,6 +105,7 @@ export interface OldSite {
     muistoja: number
     location: OldLocation
     projectId: string
+    waiting_approval?: boolean
    
 }
 
@@ -140,7 +141,9 @@ export function convONP(o: OldProject): Project {
             description: o.contentDescription
         },
         anonymous_posting: o.visitorPosting,
-        image: o.image
+        image: o.image,
+        admins: o.moderators || []
+
     } as Project
 }
 
@@ -189,6 +192,7 @@ export function convONS(o: OldSite): Site {
             lon: o.location.lng
         },
         image: o.image,
+        waiting_approval: o.waiting_approval
        
         
     } as Site
@@ -209,6 +213,7 @@ export function convNOS(project: string, o: Site): OldSite {
         },
         search: o.info.name,
         projectId: project,
+        waiting_approval: o.waiting_approval
     }
 }
 

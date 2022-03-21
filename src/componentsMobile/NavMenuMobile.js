@@ -115,7 +115,7 @@ export const NavMenuMobile = (props) => {
           <div className="divider"/>
           {props.user?
             <div className="mobileMenuNavigationContainer">
-              <p className="userNameText">{props.user.username}</p>
+              <p className="userNameText">{props.user}</p>
               <div className="divider"/>
               <button className="mobileMenuButton" onClick={toMyPostsClick}>{props.settings.strings["my_posts"]}</button>
               <button className="mobileMenuButton" onClick={toUnverifiedPostsClick}>{props.settings.strings["unverified-posts"]}</button>

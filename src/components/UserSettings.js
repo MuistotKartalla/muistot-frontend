@@ -13,6 +13,7 @@ export const UserSettings = (props) => {
   const [deleteAccount, setDeleteAccount] = useState(false)
   let logintype = props.user !== null ? props.user.Logintype : "regular"
   console.log("Logintype is:" + logintype)
+  console.log(props)
 
   const toggleDeleteAccount = (event) => {
     event.preventDefault()

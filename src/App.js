@@ -55,8 +55,7 @@ const App = (props) => {
     useEffect(() => {
         log("Pääsilmukka aktivoitu");
         log(props)
-
-        const userToken = window.localStorage.getItem('ChimneysGoToken')
+        const userToken = window.localStorage.getItem('ChimneysGoToken')        
         const activeProjectJSON = window.localStorage.getItem("ChimneysGoProject")
         const settingsJSON = {
             language: window.localStorage.getItem("ChimneysGoLanguage"),
@@ -65,7 +64,7 @@ const App = (props) => {
 
         if (userToken) {
             axios.defaults.headers.common['Authorization'] = userToken
-            props.initLoggedUser(userToken)
+            props.initLoggedUser(userToken)            
         }
 
         if (!settingsInit && settingsJSON) {
@@ -83,6 +82,7 @@ const App = (props) => {
 
         if (!postsInit && props.projects.active && props.projects.active.title) {
             console.log("Ladataan aktiivisen projektin kohteet...")
+            console.log(userToken)
             //Rajattava vain kartalla näkyviin vielä!
             var params = {projectId: props.projects.active.id};
             props.initPosts(params)
