@@ -69,11 +69,6 @@ const App = (props) => {
             setUserInitialized(true)          
         }
 
-        if (!userToken && userInit){
-            setUserInitialized(false)
-            props.logout(props.notify, props.settings.strings["logout_notification"])
-        }
-
         if (!settingsInit && settingsJSON) {
             log("Aktivoidaan asetukset:")
             log(settingsJSON)

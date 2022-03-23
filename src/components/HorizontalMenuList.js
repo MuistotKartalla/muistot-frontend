@@ -144,6 +144,7 @@ const HorizontalMenuList = (props) => {
               :
               <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
                 <p className="userNameText">{props.user.username}</p>
+
                 <ThemeToggleSwitch/>
               </DropDownList>
             }

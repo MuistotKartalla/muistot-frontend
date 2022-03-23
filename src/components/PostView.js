@@ -78,8 +78,6 @@ export const PostView = (props) => {
 
 // Päivämäärät: <p className="normalTextNoMargin">{getDateFromUnixStamp(post.date)}</p>
 
-
-
   if(post && props.currentProject.title !== "project 2"){
     //if post is defined return the actual post view else empty div.
     
