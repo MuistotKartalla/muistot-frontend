@@ -26,6 +26,7 @@ const App = (props) => {
     const [postsInit, setPostsInitialized] = useState(false)
     const [projectsInit, setProjectsInitialized] = useState(false)
     const [settingsInit, setSettingsInitialized] = useState(false)
+    const [userInit, setUserInitialized] = useState(false)
     const isMobile = window.innerWidth <= 500
     // Use local
     axios.defaults.baseURL = "http://localhost:5600"
@@ -62,9 +63,10 @@ const App = (props) => {
             theme: window.localStorage.getItem("ChimneysGoTheme")
         }
 
-        if (userToken) {
+        if (userToken && !userInit) {
             axios.defaults.headers.common['Authorization'] = userToken
-            props.initLoggedUser(userToken)            
+            props.initLoggedUser(userToken)
+            setUserInitialized(true)          
         }
 
         if (!settingsInit && settingsJSON) {

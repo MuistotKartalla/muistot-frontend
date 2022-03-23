@@ -1,12 +1,13 @@
 .reportedPostsListContainer{
-  height: fit-content;
-  background: var(--secondary-color);
-  border-radius: 5px;
-  width: 100%;
   max-width: 800px;
+  z-index: 4;
+  background: var(--secondary-color);
+  width: 100%;
+  height: auto;
   max-height: 90%;
-  padding: 1em;
-  margin: 1em auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .reportedPostsListContainerMobile{

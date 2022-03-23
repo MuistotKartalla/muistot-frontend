@@ -20,7 +20,7 @@ export const MyPostsMobile = (props) => {
   Out of focus click closes the pop up.
   */
 
-  const posts = props.posts.filter(post => post.author === props.user.username)
+  const posts = props.posts.filter(post => post.author ===  props.user.UID)
   console.log(posts)
 
   const getDateFromUnixStamp = (unix) => {

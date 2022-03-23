@@ -79,6 +79,11 @@ export interface Register {
     password: string
 }
 
+export interface User{
+    username: string
+    email: string
+}
+
 export interface OldProject {
     id: string
     title: string
@@ -216,6 +221,7 @@ export function convNOS(project: string, o: Site): OldSite {
         waiting_approval: o.waiting_approval
     }
 }
+
 
 export interface SearchParams {
     location?: Location

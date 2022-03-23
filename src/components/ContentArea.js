@@ -40,15 +40,11 @@ const ContentArea = (props) => {
       <Route path ="/" render={({history}) => (
         <MapContainerOpen history={history}/>
       )}/>
-
       <Route path="/login" render={({history}) => (
         <PopUpContainer history={history}>
           <LoginForm history={history}/>
         </PopUpContainer>
       )}/>
-
-     
-
       <Route path="/about" render={({history}) => (
         <PopUpContainer history={history}>
           <About history={history}/>
@@ -114,7 +110,6 @@ const ContentArea = (props) => {
           <ReportedPostsList history={history}/>
         </PopUpContainer>
       )}/>
-
     </div>
 
   )
@@ -127,8 +122,6 @@ const mapStateToProps = (state) => {
     //maps state to props, after this you can for example call props.notification
     notification: state.notification,
     user: state.user,
-
-
   }
 }
 
@@ -136,7 +129,6 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   //notify (for example)
   notify,
-
 }
 
 export default connect(

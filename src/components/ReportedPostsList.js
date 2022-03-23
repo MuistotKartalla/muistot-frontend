@@ -9,7 +9,7 @@ import "../styles/reportedPostsList.css"
 import "../styles/buttons.css"
 import "../styles/texts.css"
 import {getImageURL} from "../services/images";
-
+import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 
 
 
@@ -31,11 +31,19 @@ export const ReportedPostsList = (props) => {
   const onItemClick = (post) => {
     props.history.push(`/post-view/${post.id}/`)
   }
+  const closeClick = (event) => {
+    //go back to the previous page
+    event.preventDefault()
+    props.history.push("/")
+  }
 
   return(
     <div className="reportedPostsListContainer centerAlignWithPadding">
-      <h1 className="headerText">{props.settings.strings["reported_posts"]}</h1>
-      <ul className="postListListAdmin">
+      <div className="postTitleContainer">
+      <h1 className="titleText centerAlignWithPadding">{props.settings.strings["reported_posts"]}</h1>
+      <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
+      </div>
+      <div className="postListListAdmin">
         {posts.map((post,index) =>
           <li key={index} className="postListItem" onClick={() => onItemClick(post)}>
             <div className="postListItemImageContainer">
@@ -55,7 +63,7 @@ export const ReportedPostsList = (props) => {
             </div>
           </li>
         )}
-      </ul>
+      </div>
     </div>
   )
 
