@@ -1,9 +1,10 @@
 // By: Niklas Impiö
 import React from "react"
 import {connect} from "react-redux"
-import {logout} from "../reducers/loginReducer"
+import {logout,logoutS} from "../reducers/loginReducer"
 import {notify} from "../reducers/notificationReducer"
 import {initPosts} from "../reducers/postReducer"
+
 
 import "../styles/horizontalMenuList.css"
 import useComponentVisible from "../hooks/OutsideClick"
@@ -14,14 +15,14 @@ import {ReactComponent as PersonIcon} from "../resources/person.svg"
 import ThemeToggleSwitch from "./ThemeToggleSwitch"
 import LanguageDropDown from "./LanguageDropDown"
 
+
 const HorizontalMenuList = (props) => {
   //Hardcoded horizontal menu list for the nav bar. Maybe a separate component is not necessary but to keep components concise, it currently is.
   //Has all the menu buttons and event handlers for clicks that activate router navigation.
   const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false)
   
-  console.log(props.currentProject.moderators)
-  console.log(props)
-
+  //account settings not in use atm {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick} 
+  // reports not in use atm ,{divider:true}, {string:props.settings.strings["reports"], onClickHandler: reportsClick}
 
   const toggleDDV = () => {
     //DDV = dropDownVisibility
@@ -95,20 +96,21 @@ const HorizontalMenuList = (props) => {
     props.logout(props.notify, props.settings.strings["logout_notification"])
     var params = {projectId: props.projects.active.id};
     props.initPosts(params) 
-   toggleDDV()
+    toggleDDV()
   }
   const toLoginClick = (event) => {
     event.preventDefault()
-	if(props.history.location.pathname === "/login")
- 		{
- 		props.history.push("/")
- 		}
- 	else
- 		{
- 		props.history.push("/login")
- 		}
+    props.logoutS(props.notify)
+    if(props.history.location.pathname === "/login")
+      {
+      props.history.push("/")
+      }
+    else
+      {
+      props.history.push("/login")
+      }
 
-  }
+    }
 
 
   if(props.user){
@@ -134,14 +136,14 @@ const HorizontalMenuList = (props) => {
         {isComponentVisible?
           <div className="accountDropDownContainer">
             
-            {props.currentProject.moderators.find(user => user !== props.user.username)?
-              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick},{divider:true}, {string:props.settings.strings["reports"], onClickHandler: reportsClick},{string:props.settings.strings["project_statistics"], onClickHandler: statsClick},{string:props.settings.strings["configure_project"], onClickHandler: configureProjectClick}]}>
-                <p className="userNameText">{props.user}</p>
+            {props.currentProject.moderators.find(user => user === props.user.username)?
+              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+                <p className="userNameText">{props.user.username}</p>
                 <ThemeToggleSwitch/>
               </DropDownList>
               :
-              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
-                <p className="userNameText">{props.user}</p>
+              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+                <p className="userNameText">{props.user.username}</p>
                 <ThemeToggleSwitch/>
               </DropDownList>
             }
@@ -219,7 +221,9 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   notify,
   initPosts,
-  logout
+  logout,
+  logoutS
+
 }
 
 export default connect(

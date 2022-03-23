@@ -13,8 +13,7 @@ export const About = (props) => {
   const closeClick = (event) => {
     //go back to the previous page
     event.preventDefault()
-    console.log("closebutton clicked")
-    props.history.goBack()
+    props.history.push("/")
   }
 
   //html stuff here
@@ -29,13 +28,6 @@ export const About = (props) => {
             <h2 className="titleText">{props.settings.strings["tos_title"]}</h2>
 		<ReactMarkdown source={props.settings.strings["tos_text"]} />    
       </div>
-    
-    
-
-
-
-
-
     </div>
 
   )

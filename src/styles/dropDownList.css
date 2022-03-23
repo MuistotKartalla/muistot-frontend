@@ -2,6 +2,7 @@
   background: var(--primary-color);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  overflow-y: auto;
 }
 
 .dropDownList{
@@ -33,7 +34,7 @@
 }
 
 .dropDownListItem:hover{
-  color: #03FFFF;
+  color: var(--title-color);
   transition: 0.5s;
   background: var(--secondary-text-color);
   height: 100%;

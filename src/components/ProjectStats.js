@@ -17,9 +17,8 @@ export const projectStats = (props) => {
 
   const closeClick = (event) => {
     event.preventDefault()
-    props.history.goBack()
+    props.history.push("/")
   }
-
 
   return(
     <div className="projectStatsContainer centerAlignWithPadding">

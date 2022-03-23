@@ -1,7 +1,7 @@
 // By: Niklas Impiö
 import React, {useState} from "react"
 import {connect} from "react-redux"
-import {logout} from "../reducers/loginReducer"
+import {logout,logoutS} from "../reducers/loginReducer"
 import {notify} from "../reducers/notificationReducer"
 
 
@@ -15,6 +15,9 @@ import DropDownSelectProject from "../components/DropDownSelectProject"
 import {setActiveProject} from "../reducers/projectReducer"
 import {initPosts} from "../reducers/postReducer"
 
+
+// reported posts and stats are not in use atm  <button className="mobileMenuButton" onClick={toReportsClick}>{props.settings.strings["reports"]}</button>
+              //<button className="mobileMenuButton" onClick={toStatsClick}>{props.settings.strings["project_statistics"]}</button>
 
 export const NavMenuMobile = (props) => {
   const [visible, setVisible] = useState(false)
@@ -51,6 +54,7 @@ export const NavMenuMobile = (props) => {
   }
   const toLoginClick = (event) => {
     event.preventDefault()
+    props.logoutS(props.notify)
     props.history.push("/login")
     toggleVisibity()
   }
@@ -107,54 +111,44 @@ export const NavMenuMobile = (props) => {
             </div>
 
           </div>
-          <div className="divider"/>
+          {props.user?
+            <div className="mobileMenuNavigationContainer">
+              <p className="userNameText">{props.user.username}</p>
+              <div className="divider"/>
+              <button className="mobileMenuButton" onClick={toMyPostsClick}>{props.settings.strings["my_posts"]}</button>
+              </div>
+            :<></>}
+          
           <div className="mobileMenuProjectContainer">
             <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject}/>
             <button className="mobileMenuButton" onClick={toProjectMenu}>{props.settings.strings["project_info"]}</button>
+            <button className="mobileMenuButton" onClick={toAboutClick}>{props.settings.strings["about"]}</button>
+            <div className="divider"/>
+          <div className="preferencesContainer">
+            <LanguageDropDown/>
+            <ThemeToggleSwitch/>
           </div>
           <div className="divider"/>
+          </div>
           {props.user?
             <div className="mobileMenuNavigationContainer">
-              <p className="userNameText">{props.user}</p>
+              <button className="mobileMenuButton" onClick={logoutClick}>{props.settings.strings["log_out"]}</button>
+              {props.currentProject.moderators.find(user => user === props.user.username)?
+              <div className="mobileMenuUserNameContainer">
               <div className="divider"/>
-              <button className="mobileMenuButton" onClick={toMyPostsClick}>{props.settings.strings["my_posts"]}</button>
               <button className="mobileMenuButton" onClick={toUnverifiedPostsClick}>{props.settings.strings["unverified-posts"]}</button>
-              <button className="mobileMenuButton" onClick={toUserSettingsClick}>{props.settings.strings["account_settings"]}</button>
+              </div>
+              :
+              <></>
+          }
             </div>
             :
             <div className="mobileMenuNavigationContainer">
               <button className="mobileMenuButton" onClick={toLoginClick}>{props.settings.strings["log_in"]}</button>
             </div>
-
           }
 
-          <div className="divider"/>
-          <div className="preferencesContainer">
-            <LanguageDropDown/>
-            <ThemeToggleSwitch/>
-          </div>
 
-          <div className="divider"/>
-          {props.user?
-            <div className="mobileMenuNavigationContainer">
-              <button className="mobileMenuButton" onClick={toAboutClick}>{props.settings.strings["about"]}</button>
-              <button className="mobileMenuButton" onClick={logoutClick}>{props.settings.strings["log_out"]}</button>
-            </div>
-            :
-            <div className="mobileMenuNavigationContainer">
-              <button className="mobileMenuButton" onClick={toAboutClick}>{props.settings.strings["about"]}</button>
-            </div>
-          }
-          {props.user && props.user.username === "admin"?
-            <div className="mobileMenuUserNameContainer">
-              <div className="divider"/>
-              <button className="mobileMenuButton" onClick={toUnverifiedPostsClick}>{props.settings.strings["unverified-posts"]}</button>
-              <button className="mobileMenuButton" onClick={toReportsClick}>{props.settings.strings["reports"]}</button>
-              <button className="mobileMenuButton" onClick={toStatsClick}>{props.settings.strings["project_statistics"]}</button>
-            </div>
-            :
-            <div/>
-          }
         </div>
 
       </div>
@@ -176,7 +170,8 @@ const mapStateToProps = (state) => {
     //maps state to props, after this you can for example call props.notification
     user: state.user,
     settings: state.settings,
-    projects: state.projects
+    projects: state.projects,
+    currentProject: state.projects.active
   }
 }
 
@@ -186,7 +181,8 @@ const mapDispatchToProps = {
   notify,
   logout,
   setActiveProject,
-  initPosts
+  initPosts,
+  logoutS
 }
 
 export default connect(

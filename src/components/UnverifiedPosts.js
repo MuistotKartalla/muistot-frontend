@@ -7,28 +7,22 @@ import "../styles/myPosts.css"
 import "../styles/buttons.css"
 import "../styles/texts.css"
 import {getImageURL} from "../services/images";
-
-
-
-
+import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 
 
 export const UnverfiedPosts = (props) => {
   /*
-  Component that shows list of all components by the current user.
+  Component that shows list of all posts that are waiting approval.
   Clicking a post in the list redirects to the post page.
   Out of focus click closes the pop up.
   */
 
   const posts = props.posts.filter(post => post.waiting_approval === true)
-  console.log(props.posts)
-  console.log(props.user)
-  console.log(posts)
-
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
-    const date = new Date(unix)
-    return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
+  
+  const closeClick = (event) => {
+    //go back to the previous page
+    event.preventDefault()
+    props.history.push("/")
   }
 
 
@@ -38,21 +32,23 @@ export const UnverfiedPosts = (props) => {
     props.history.push(`/post-view/${post.id}/`)
   }
   if(posts && posts.length > 0){
-    //if user has posts render the lsit
+    //if there are unverified posts render the list
 
     return(
       <div className="myPostsContainer centerAlignWithPadding">
-        <h1 className="headerText">{props.settings.strings["unverified-posts"]}</h1>
+        <div className="postTitleContainer">
+        <h1 className="titleText centerAlignWithPadding">{props.settings.strings["unverified-posts"]}</h1>
+        <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
+        </div>
         <ul className="myPostsList">
           {posts.map((post,index) =>
-            <li key={index} className="myPostsListItem" onClick={() => onPostClick(post)}>
+            <li key={index} className="postViewListItem" onClick={() => onPostClick(post)}>
               <div className="postListItemImageContainer">
                 <img className="postListImagePreview" src={getImageURL(post.image)} alt=""></img>
               </div>
               <div className="postListItemInfo">
                 <h2 className="postListTitle">{post.title}</h2>
                 <p className="postListText">{post.author}</p>
-                <p className="postListText">{getDateFromUnixStamp(post.date)}</p>
               </div>
             </li>
           )}

@@ -79,15 +79,14 @@ export const PostView = (props) => {
 // Päivämäärät: <p className="normalTextNoMargin">{getDateFromUnixStamp(post.date)}</p>
 
 
-  //console.log(props)
-  console.log(post)
+
   if(post && props.currentProject.title !== "project 2"){
     //if post is defined return the actual post view else empty div.
     
     return(
       <div className="postViewContainer centerAlignWithPaddingLean">
         <div className="postTitleContainer">
-          {post.waiting_approval !== true?
+          {!post.waiting_approval?
             <Verified className="verifiedIcon"/>
             :
             <br/>
@@ -117,31 +116,28 @@ export const PostView = (props) => {
             // author sees delete button
             // user sees report button
             // admin sees delete and verify buttons.
-              (props.currentProject.moderators.find(user => user === props.user.username)?
-                <div className="postButtonsContainerInner">
-                  
-                  <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
-                  
-             
-                  {post.verified?
-                    <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["unverify"]}</button>
+            (props.currentProject.moderators.find(user => user === props.user.username)?
+                <div className="postButtonsContainerInner">                 
+                  <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>                          
+                  {post.waiting_approval?
+                    <button className="rippleButton Button " onClick={verifyClick}>{props.settings.strings["verify"]}</button>
                     :
-                    <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["verify"]}</button>
+                    <button className="rippleButton Button " onClick={verifyClick}>{props.settings.strings["unverify"]}</button>
                   }
                 </div>
                 :
-                (props.user.username === post.author? 
+                (post.author === props.user.UID? 
                   <div className="postButtonsContainerInner">
                     <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   </div>
                   :
-                  (post.verified? props.currentProject.id !== "piiput"?
+                  (post.post.waiting_approval !== true?
                     <div/>
                     :
                     <div className="postButtonsContainerInner">
                       <button className="rippleButton smallButton negativeButton" onClick={reportClick}>{props.settings.strings["report"]}</button>
                     </div>
-                  : <div/>)
+                  )
                  )
               )
               :
@@ -173,7 +169,7 @@ export const PostView = (props) => {
     return(
       <div className="postViewContainer centerAlignWithPaddingLean">
       <div className="postTitleContainer">
-        {post.verified?
+        {!post.waiting_approval?
           <Verified className="verifiedIcon"/>
           :
           <br/>
@@ -232,7 +228,9 @@ const mapDispatchToProps = {
   notify,
   deletePost,
   toggleVerify,
-  updateMapLocation
+  updateMapLocation,
+  
+
 }
 
 export default connect(
