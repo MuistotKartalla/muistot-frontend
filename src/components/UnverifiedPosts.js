@@ -44,6 +44,7 @@ export const UnverfiedPosts = (props) => {
     console.log(`Clicked post: ${post}`, post)
     props.history.push(`/post-view/${post.id}/`)
   }
+  
   if(posts && posts.length > 0){
     //if there are unverified posts render the list
 
