@@ -24,6 +24,7 @@ export const UnverfiedPosts = (props) => {
     event.preventDefault()
     props.history.push("/")
 
+  }  
   const getDateFromUnixStamp = (unix) => {
     //returns date in format dd.mm.yyyy
     const date = new Date(unix)
