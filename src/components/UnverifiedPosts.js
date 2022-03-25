@@ -20,9 +20,10 @@ export const UnverfiedPosts = (props) => {
   const posts = props.posts.filter(post => post.waiting_approval === true)
 
   const closeClick = (event) => {
-    //go back to the previous page
-    event.preventDefault()
-    props.history.push("/")
+      //go back to the previous page
+      event.preventDefault()
+      props.history.push("/")
+  }
 
   const getDateFromUnixStamp = (unix) => {
     //returns date in format dd.mm.yyyy
