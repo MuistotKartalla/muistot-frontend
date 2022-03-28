@@ -113,7 +113,7 @@ export const NavMenuMobile = (props) => {
           </div>
           {props.user?
             <div className="mobileMenuNavigationContainer">
-              <p className="userNameText">{props.user}</p>
+              <p className="userNameText">{props.user.username}</p>
               <div className="divider"/>
               <button className="mobileMenuButton" onClick={toMyPostsClick}>{props.settings.strings["my_posts"]}</button>
               </div>

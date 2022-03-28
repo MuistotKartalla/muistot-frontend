@@ -83,12 +83,13 @@ const MapContainerOpen = (props) => {
     //hook for initializing state variable posts. And sets map position to user location if location access.
     if(props.userLocation !== userLocation && userLocation !== null){
       //triggers every 5 sec on firefox, but not on chrome???
-      console.log("updating user location to redux state:", userLocation)
-      console.log(props.userLocation, userLocation, props.userLocation === userLocation)
       props.updateUserLocation(userLocation)
     }
     if(props.posts !== posts){
       setPosts(props.posts)
+    }
+    if(followUser){
+      setPosition(userLocation)
     }
     if(props.mapLocation !== null){
       console.log("setting map to location")
@@ -106,11 +107,12 @@ const MapContainerOpen = (props) => {
     props.history.push(`/post-view/${post.id}/`)
     setFollowUser(false)
     setPosition(post.location)
-
+    setTempMarker(null)
   }
 
 
   const leftClick = (event) => {
+    setFollowUser(false)
     if(props.user !== null) {
       if (!tempMarker) {
         setPosition(event.latlng)
@@ -148,6 +150,7 @@ const MapContainerOpen = (props) => {
 
   const rightClick = (event) => {
     setPosition(event.latlng)
+    setFollowUser(false)
   }
 
 
@@ -196,15 +199,14 @@ const MapContainerOpen = (props) => {
           <Marker key={index} position={element.location} icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} onClick={() => onPostClick(element)}>
           </Marker>
         )}
-        {userLocation !== null? props.currentProject.id !== "piiput"? 
+        {userLocation !== null? 
           <Marker position={userLocation} icon={userIcon} onClick={userClick}>
           </Marker>
           :
           <></>
-          :
-          <></>
+         
         }
-        {tempMarker !== null? props.currentProject.id !== "piiput"? 
+        {tempMarker !== null? props.currentProject.title !== "project 2"? 
           <Marker position={tempMarker} icon={tempIcon}></Marker>
           :
           <></>
@@ -216,7 +218,7 @@ const MapContainerOpen = (props) => {
         <FloatingSearch history={props.history}/>
       </div>
       <button className="overlayButtonLeft rippleButton" onClick={toListView}>{props.settings.strings["list_view"]}</button>
-      if {tempMarker ?  props.user ? props.currentProject.id !== "piiput"? 
+      {tempMarker ?  props.user ? props.currentProject.title !== "project 2"? 
       <button className="overlayButtonCenter pulsingButton rippleButton smallButton" onClick={confirmNewLocationMarker}>{props.settings.strings["new_post"]}</button>
       :
       <></>

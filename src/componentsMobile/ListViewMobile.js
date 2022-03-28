@@ -9,11 +9,14 @@ import {notify} from "../reducers/notificationReducer"
 import "../styles/listView.css"
 import "../styles/postView.css"
 import "../styles/postList.css"
+import "../styles/buttons.css"
+import "../styles/texts.css"
 
 
 
 import {ReactComponent as AddIcon} from "../resources/add_circle.svg"
 import {ReactComponent as MapViewIcon} from "../resources/map_view_icon.svg"
+import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
 import {getImageURL} from "../services/images";
 
 
@@ -46,7 +49,6 @@ export const ListViewMobile = (props) => {
 
   const toMapView = (event) => {
     event.preventDefault()
-
     props.history.push("/")
   }
   const newPostClick = (event) => {
@@ -67,6 +69,14 @@ export const ListViewMobile = (props) => {
   return (
 
     <div className="postListContainerMobile">
+      <div className="postTitleContainerMobile">
+      <button className="mobileButtonContainer">
+        <ReturnIcon className="mobileIcon" onClick={toMapView}/>
+      </button>
+      <div className="postTitleHeader">
+      <h1 className="postTitleTextMobile">{props.settings.strings["list_view"]}</h1>
+      </div>
+      </div>
       <div className="postListContainerInner">
         <ul className="postSearchList">
           {posts.map((post,index) =>
@@ -81,9 +91,13 @@ export const ListViewMobile = (props) => {
           )}
         </ul>
       </div>
+      {props.currentProject.title !== "project 2"?
       <button className="mobileNewButton" onClick={newPostClick}>
         <AddIcon className="mobileIconSecondary"/>
       </button>
+      :
+      <></>}
+
       <button className="mobileListViewButton" onClick={toMapView}>
         <MapViewIcon className="mobileIconSecondary"/>
       </button>
@@ -100,6 +114,7 @@ const mapStateToProps = (state) => {
     user: state.user,
     settings: state.settings,
     posts: state.posts,
+    currentProject: state.projects.active
   }
 }
 

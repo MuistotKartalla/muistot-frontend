@@ -84,7 +84,6 @@ const App = (props) => {
 
         if (!postsInit && props.projects.active && props.projects.active.title) {
             console.log("Ladataan aktiivisen projektin kohteet...")
-            console.log(userToken)
             //Rajattava vain kartalla näkyviin vielä!
             var params = {projectId: props.projects.active.id};
             props.initPosts(params)
@@ -92,7 +91,7 @@ const App = (props) => {
         }
 
         document.title = "Muistot kartalla"
-    }, [props, postsInit, projectsInit, settingsInit]) //Added seconds and minutes
+    }, [props, postsInit, projectsInit, settingsInit,userInit]) //Added seconds and minutes
 
     if (isMobile) {
         return (
