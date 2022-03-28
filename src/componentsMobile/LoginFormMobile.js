@@ -5,6 +5,7 @@ import {initPosts} from "../reducers/postReducer"
 import {notify} from "../reducers/notificationReducer"
 import "../styles/loginForm.css"
 
+
 import GoogleLogin from "react-google-login"
 import FacebookLogin from "react-facebook-login"
 import axios from "axios";
@@ -12,7 +13,7 @@ import axios from "axios";
 export const LoginForm = (props) => {
 
     const [loginSuccessful, setLoginSuccessful] = useState(false)
-
+    
     const cancelClick = (event) => {
         event.preventDefault()
         props.history.goBack()
@@ -40,11 +41,12 @@ export const LoginForm = (props) => {
             </div>
         )
     }
-
     return (
         <div className="loginContainerMobile">
             <h1 className="headerText">{props.settings.strings["login_or_register"]}</h1>
-            <div className="loginForm">
+    {/*             TODO: fix social media integration             
+
+                <div className="loginForm">
                 <GoogleLogin
                     clientId="472567314178-p1qosj4m14piq95sn4ef35frp2i5bsgm.apps.googleusercontent.com"
                     buttonText="Login With Google"
@@ -62,7 +64,7 @@ export const LoginForm = (props) => {
                     icon="fa-facebook"
                 />
             </div>
-            <div className="separatorLineMobile"><span className="separatorText">{props.settings.strings["or"]}</span></div>
+            <div className="separatorLineMobile"><span className="separatorText">{props.settings.strings["or"]}</span></div>*/}
             <form className="loginForm" name="loginForm" onSubmit={e => {
                 e.preventDefault();
                 const email = document.getElementById("email-input-field-0").value;
@@ -70,8 +72,8 @@ export const LoginForm = (props) => {
                 setLoginSuccessful(true);
             }}>
                 <div className="inputContainer">
-                    <input id="email-input-field-0" className="inputLogIn" placeholder={props.settings.strings["email"]}
-                           maxLength="32"/>
+                    <input id="email-input-field-0" className="inputLogIn" type="email" placeholder={props.settings.strings["email"]}
+                            maxLength="32"/>
                     <div className="inputFocusLine"/>
                 </div>
                 <div className="postFormButtonContainer">
@@ -84,6 +86,8 @@ export const LoginForm = (props) => {
         </div>
     )
 }
+    
+
 
 const mapStateToProps = (state) => {
     return {

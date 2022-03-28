@@ -108,7 +108,7 @@ export const PostView = (props) => {
             }
           </div>
           <div className="postButtonsContainer">
-            {props.user !== null?
+            {props.user?
             // multilevel conditional rendering
             // visitor sees no buttons
             // author sees delete button
@@ -124,17 +124,17 @@ export const PostView = (props) => {
                   }
                 </div>
                 :
-                (post.author === props.user.UID? 
+                (props.user.username === post.author? 
                   <div className="postButtonsContainerInner">
                     <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   </div>
                   :
-                  (post.post.waiting_approval !== true?
-                    <div/>
-                    :
+                  (post.waiting_approval?
                     <div className="postButtonsContainerInner">
                       <button className="rippleButton smallButton negativeButton" onClick={reportClick}>{props.settings.strings["report"]}</button>
                     </div>
+                    :
+                    <></>
                   )
                  )
               )
@@ -148,17 +148,16 @@ export const PostView = (props) => {
             <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/>
           </div>
         </div>
-        <div className="storyContainer">
-	        <MementoList posts={post} history={props.history}/>
-        </div>
         {deleteState? 
         <div className="postCloseContainer">
             <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button> 
         </div>
         : 
-
         <></>
         }
+        <div className="storyContainer">
+	        <MementoList posts={post} history={props.history}/>
+        </div>
       </div>
     )
   }

@@ -72,7 +72,7 @@ export const LoginForm = (props) => {
                 setLoginSuccessful(true);
             }}>
                 <div className="inputContainer">
-                    <input id="email-input-field-0" className="inputLogIn" placeholder={props.settings.strings["email"]}
+                    <input id="email-input-field-0" className="inputLogIn" type="email" placeholder={props.settings.strings["email"]}
                            maxLength="32"/>
                     <div className="inputFocusLine"/>
                 </div>

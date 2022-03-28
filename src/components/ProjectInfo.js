@@ -39,6 +39,7 @@ export const ProjectInfo = (props) => {
           <h1 className="titleText centerAlignWithPadding">{project.title}</h1>
           <ClearIcon className="clearIcon" onClick={closeClick}/>
         </div>
+        <div className="projectInfoContentContainer">
         <div className="projectInfoDescriptionContainer normalText">
 		<ReactMarkdown source={project.description} />
         </div>
@@ -47,6 +48,7 @@ export const ProjectInfo = (props) => {
         </div>
         <div className="projectInfoContentDescriptionContainer normalText">
 		<ReactMarkdown source={project.contentDescription} />
+        </div>
         </div>
       </div>
     )
