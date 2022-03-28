@@ -89,7 +89,7 @@
 .infoText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   color: var(--primary-text-color);
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   padding-top: 0.75em
 }
