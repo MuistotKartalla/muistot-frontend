@@ -71,12 +71,12 @@ const MapContainerMobile = (props) => {
   //TEMP solution since I don't know how to access redux state from location hook directly
   //updates user state to redux from here, should find a better way, causes extra render.
 
+  if(props.userLocation !== userLocation && userLocation !== null){
+    props.updateUserLocation(userLocation)
+  }
 
   useEffect(() => {
     //hook for initializing state variable posts. And sets map position to user location if location access.
-    if(props.userLocation !== userLocation && userLocation !== null){
-      props.updateUserLocation(userLocation)
-    }
     if(props.posts !== posts){
       setPosts(props.posts)
     }
@@ -91,7 +91,7 @@ const MapContainerMobile = (props) => {
       setPosition(props.mapLocation)
       props.updateMapLocation(null)
     }
-  }, [props, posts, followUser, userLocation])
+  }, [props, posts, followUsers])
 
 
 
@@ -134,7 +134,7 @@ const MapContainerMobile = (props) => {
   const toListView = (event) => {
     event.preventDefault()
     console.log("to list view")
-    props.history.push("/list-view/"+props.posts[0].id)
+    props.history.push("/list-view/")
   }
 
   const newPostClick = (event) => {
