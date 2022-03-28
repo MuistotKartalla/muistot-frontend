@@ -91,7 +91,9 @@ const MapContainerMobile = (props) => {
       setPosition(props.mapLocation)
       props.updateMapLocation(null)
     }
-  }, [props, posts, followUsers])
+
+  }, [props, posts, followUser,userLocation ])
+
 
 
 
