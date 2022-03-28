@@ -70,6 +70,7 @@ const MapContainerMobile = (props) => {
 
   //TEMP solution since I don't know how to access redux state from location hook directly
   //updates user state to redux from here, should find a better way, causes extra render.
+
   if(props.userLocation !== userLocation && userLocation !== null){
     props.updateUserLocation(userLocation)
   }
@@ -90,7 +91,7 @@ const MapContainerMobile = (props) => {
       setPosition(props.mapLocation)
       props.updateMapLocation(null)
     }
-  }, [props, posts, followUser, userLocation])
+  }, [props, posts, followUsers])
 
 
 
@@ -166,7 +167,7 @@ const MapContainerMobile = (props) => {
       console.log("Disabling Follow User")
       setFollowUser(false)
     }
-    setPosition(event.latlng)
+    setPosition(event.target.getCenter())
   }
 
   const scrollListener = (event) => {
