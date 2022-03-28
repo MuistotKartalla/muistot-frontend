@@ -145,6 +145,7 @@
       "link_info": "A login link has been sent to the provided email address.",
       "continue": "Continue",
       "login_or_register": "Login or create an account",
+      "login_info": "We'll send a link to your email which lets you login or register to the service.",
       "unverified-posts" : "Unverified Posts",
       "choose_on_map_mobile": "First choose location"
     },
@@ -289,6 +290,7 @@
       "link_info": "Kirjautumislinkki on lähetetty antamaasi sähköpostiosoitteeseen.",
       "continue": "Jatka",
       "login_or_register": "Kirjaudu tai luo tili",
+      "login_info": "Saat sähköpostiisi linkin jonka avulla voit kirjautua tai rekisteröityä palveluun.",
       "unverified-posts" : "Vahvistamattomat kohteet",
       "choose_on_map_mobile": "Valitse ensin sijainti"
     }

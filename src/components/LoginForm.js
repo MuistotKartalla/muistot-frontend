@@ -75,6 +75,7 @@ export const LoginForm = (props) => {
                     <input id="email-input-field-0" className="inputLogIn" type="email" placeholder={props.settings.strings["email"]}
                            maxLength="32"/>
                     <div className="inputFocusLine"/>
+                    <div className="infoText">{props.settings.strings["login_info"]}</div>
                 </div>
                 <div className="postFormButtonContainer">
                     <button type="submit"
