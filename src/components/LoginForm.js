@@ -15,7 +15,7 @@ export const LoginForm = (props) => {
 
     const cancelClick = (event) => {
         event.preventDefault()
-        props.history.goBack()
+        props.history.push("/")
     }
 
     const someFail = () => {
