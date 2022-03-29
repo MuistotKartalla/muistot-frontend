@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react"
 import {connect} from "react-redux"
 
 
-
 import * as postService from "../services/posts"
 import {notify} from "../reducers/notificationReducer"
 
@@ -13,16 +12,13 @@ import {getImageURL} from "../services/images";
 
 export const MementoList = (props) => {
   const [mementos, setMementos] = useState([])  
-  console.log("MementoList constructor launched")
-  console.log(mementos)
 
   useEffect(() => {
-    console.log("MementoList useEffect")
-    console.log(props.posts.id)
-    postService.getMemories(
-        props.posts.projectId,
-        props.posts.id
-    ).then(data => {setMementos(data)})
+    if(props.posts.muistoja != 0){
+      postService.getMemories(
+          props.posts.projectId,
+          props.posts.id
+      ).then(data => {setMementos(data)})}
   }, [props])
 
   const newMementoClick = (kohdeid) => {
@@ -51,18 +47,18 @@ export const MementoList = (props) => {
             </div>
           </li>
         {mementos.map((memento,index) =>
-          <li key={index} className="postListItem">
-            <div className="postListItemImageContainer">
-              <img className="postListImagePreview" src={getImageURL(memento.image)} alt=""></img>
-              
-            </div>
-            <div className="postListItemInfo">
-              <h2 className="postListTitle">{memento.title}</h2>
-              <p className="normalText">{memento.story}</p>
-              
-            </div>
-          </li>
-	)}
+            <li key={index} className="postListItem">
+              <div className="postListItemImageContainer">
+                <img className="postListImagePreview" src={getImageURL(memento.image)} alt=""></img>
+                
+              </div>
+              <div className="postListItemInfo">
+                <h2 className="postListTitle">{memento.title}</h2>
+                <p className="normalText">{memento.story}</p>
+                
+              </div>
+            </li>
+    )}
       </ul>
     </div>
   )

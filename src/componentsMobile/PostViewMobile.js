@@ -135,7 +135,7 @@ export const PostViewMobile = (props) => {
                   }
                 </div>
                 :
-                (props.user.username === post.author?
+                (post.own === true?
                   <div className="postButtonsContainerInnerMobile">
                     <button className="rippleButton fillButton bigButton"onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                     <div className="divider"/>

@@ -38,6 +38,7 @@ export const ImageUpload = (props) => {
       setImage(file)
       let result = reader.result
       setImagePreviewUrl(result)
+      props.change(reader.result)
       setTempPostImage({file:file, data:reader.result})
     }
     reader.readAsDataURL(file)
