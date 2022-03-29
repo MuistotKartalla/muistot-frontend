@@ -95,6 +95,9 @@ const MapContainerMobile = (props) => {
 
 
 
+
+
+
   const onPostClick = (post) => {
     //event handler for post marker clicks. Routes to post view.
     console.log(`Clicked post: ${post}`, post)
