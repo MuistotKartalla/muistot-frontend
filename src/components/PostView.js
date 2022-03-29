@@ -124,7 +124,7 @@ export const PostView = (props) => {
                   }
                 </div>
                 :
-                (props.user.username === post.author? 
+                (post.own === true? 
                   <div className="postButtonsContainerInner">
                     <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   </div>
