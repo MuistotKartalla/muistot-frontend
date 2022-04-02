@@ -24,15 +24,14 @@ export const PostViewLW = (props) => {
   //gets the post to show based on the id that is set on the url field.
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
 
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
+    /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }
+  }*/
 
   const deletePost = (event) => {
     event.preventDefault()
-    console.log("postView deleting post", post.id)
+    //console.log("postView deleting post", post.id)
     props.deletePost(post.id)
     props.history.goBack()
     props.notify(`${props.settings.strings["post"]}: "${post.title}" ${props.settings.strings["delete_success"]}`, false, 5)
@@ -40,7 +39,7 @@ export const PostViewLW = (props) => {
   }
   const showOnMap = (event) => {
     event.preventDefault()
-    console.log(`Centering Map to ${post.title} coordinates.`)
+    //console.log(`Centering Map to ${post.title} coordinates.`)
     props.updateMapLocation(post.location)
     props.history.push("/")
   }
@@ -51,7 +50,7 @@ export const PostViewLW = (props) => {
   const closeClick = (event) => {
     //eventhandler for close button
     event.preventDefault()
-    console.log("closeClick")
+    //console.log("closeClick")
     props.history.push("/")
   }
 
@@ -68,7 +67,7 @@ export const PostViewLW = (props) => {
 
   const copyclipboard = (event) => {
     navigator.clipboard.writeText(window.location.href).then(function() {
-      console.log('Copying URI is successful');
+      //console.log('Copying URI is successful');
     }, function(err) {
       console.error('Copying URI is unseccessful', err);
     });
@@ -86,7 +85,7 @@ export const PostViewLW = (props) => {
   }
 
   
-  //console.log(props)
+ //console.log(props)
   if(post && props.currentProject.title !== "project 2"){
     //if post is defined return the actual post view else empty div.
     return(  

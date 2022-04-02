@@ -81,12 +81,12 @@ const MapContainerMobile = (props) => {
       setPosts(props.posts)
     }
     if(followUser){
-      console.log("centering map to user location")
+      //console.log("centering map to user location")
       setPosition(userLocation)
     }
 
     if(props.mapLocation !== null){
-      console.log("setting map to location")
+      //console.log("setting map to location")
       setZoom(14)
       setPosition(props.mapLocation)
       props.updateMapLocation(null)
@@ -99,7 +99,7 @@ const MapContainerMobile = (props) => {
 
   const onPostClick = (post) => {
     //event handler for post marker clicks. Routes to post view.
-    console.log(`Clicked post: ${post}`, post)
+    //console.log(`Clicked post: ${post}`, post)
     props.history.push(`/post-view/${post.id}/`)
     setFollowUser(false)
     setPosition(post.location)
@@ -127,7 +127,7 @@ const MapContainerMobile = (props) => {
 
     const tempSite = {...props.tempSite}
     tempSite.location = tempMarker
-    console.log(tempSite)
+    //console.log(tempSite)
     props.setTempSite(tempSite)
     props.history.push("/new-post/")
     setTempMarker(null)
@@ -135,16 +135,16 @@ const MapContainerMobile = (props) => {
 
   const toListView = (event) => {
     event.preventDefault()
-    console.log("to list view")
+    //console.log("to list view")
     props.history.push("/list-view/")
   }
 
   const newPostClick = (event) => {
     //New post onClick event handler.
     event.preventDefault()
-    console.log("Adding new post")
+    //console.log("Adding new post")
     if(props.user !== null){
-      console.log("Adding new post")
+      //console.log("Adding new post")
       props.history.push("/new-post/")
     }else{
       //if not logged in, redirect to login page
@@ -156,7 +156,7 @@ const MapContainerMobile = (props) => {
   const userClick = () => {
     //when user avatar clicked the map centers to user and followUser is activated.
     if(!followUser){
-      console.log("Following User")
+      //console.log("Following User")
       setFollowUser(true)
       props.notify(props.settings.strings["user_follow"], false, 5)
     }
@@ -166,7 +166,7 @@ const MapContainerMobile = (props) => {
   const dragEvent = (event) => {
     //if followUser is active, disable it.
     if(followUser){
-      console.log("Disabling Follow User")
+      //console.log("Disabling Follow User")
       setFollowUser(false)
     }
     setPosition(event.target.getCenter())
@@ -174,7 +174,7 @@ const MapContainerMobile = (props) => {
 
   const scrollListener = (event) => {
     //dunno if needed updates the state for the zoom level.
-    console.log(`Setting zoom to ${event.target._zoom}`)
+    //console.log(`Setting zoom to ${event.target._zoom}`)
     setZoom(event.target._zoom)
   }
   return(

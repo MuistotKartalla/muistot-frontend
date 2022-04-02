@@ -19,7 +19,7 @@ export const ProjectInfoMobile = (props) => {
 
   useEffect(() => {
     if(!project.title){
-      console.log("no active project")
+      //console.log("no active project")
       setProject(props.projects.active)
     }
 
@@ -28,7 +28,7 @@ export const ProjectInfoMobile = (props) => {
   // const closeClick = (event) => {
   //   //go back to the previous page
   //   event.preventDefault()
-  //   console.log("closebutton clicked")
+  //   //console.log("closebutton clicked")
   //   props.history.goBack()
   // }
 

@@ -44,8 +44,8 @@ export const ListView = (props) => {
         </div>
 */
 
-  console.log("Listanäkymä")
-  console.log(props)
+  //console.log("Listanäkymä")
+  //console.log(props)
   return (
 
     <div className="listViewInnerContainer centerAlign">

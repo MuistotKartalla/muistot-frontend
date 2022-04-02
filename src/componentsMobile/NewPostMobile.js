@@ -40,7 +40,7 @@ export const NewPostMobile = (props) => {
   }
   const confirmPost = (event) => {
     event.preventDefault()
-    console.log("creating new post")
+    //console.log("creating new post")
 
     if(titleField.length < 5){
       props.notify(props.settings.strings["title_length"], true, 5)

@@ -15,7 +15,7 @@ const PopUpContainer = (props) => {
     //background click
     if(event.target.id === "popUpBackground"){
       props.history.push("/")
-      console.log("unfocus click")
+      //console.log("unfocus click")
     }
   }
 

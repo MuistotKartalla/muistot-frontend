@@ -83,7 +83,7 @@ const App = (props) => {
         }
 
         if (!postsInit && props.projects.active && props.projects.active.title) {
-            console.log("Ladataan aktiivisen projektin kohteet...")
+            //console.log("Ladataan aktiivisen projektin kohteet...")
             //Rajattava vain kartalla näkyviin vielä!
             var params = {projectId: props.projects.active.id};
             props.initPosts(params)

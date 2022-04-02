@@ -27,7 +27,7 @@ const HorizontalMenuList = (props) => {
   const toggleDDV = () => {
     //DDV = dropDownVisibility
     //event.preventDefault()
-    console.log("toggling dropdown visibility")
+    //console.log("toggling dropdown visibility")
     setIsComponentVisible(!isComponentVisible)
   }
 
@@ -92,7 +92,7 @@ const HorizontalMenuList = (props) => {
 
   const logoutClick = (event) => {
     event.preventDefault()
-    console.log("Logging out")
+    //console.log("Logging out")
     props.logout(props.notify, props.settings.strings["logout_notification"])
     var params = {projectId: props.projects.active.id};
     props.initPosts(params) 

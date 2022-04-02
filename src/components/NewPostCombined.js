@@ -16,10 +16,10 @@ export const NewPostCombined = (props) => {
   const [titleField, setTitleField] = useState("")
   const [location, setLocation] = useState(false)
   const [image, setImage] = useState(null)
-  console.log("NewPostCombined constructor launched")
+  //console.log("NewPostCombined constructor launched")
 
   useEffect(() => {
-    console.log("NewPostCombined useEffect")      
+    //console.log("NewPostCombined useEffect")      
     setLocation(props.tempSite.location)
     setTitleField(props.tempSite.title)
     setImage(props.tempSite.image)
@@ -39,7 +39,7 @@ export const NewPostCombined = (props) => {
   }
   const confirmPost = (event) => {
     event.preventDefault()
-    console.log("creating new post")
+    //console.log("creating new post")
 
     if(titleField.length < 5){
       props.notify(props.settings.strings["title_length"], true, 5)

@@ -10,7 +10,7 @@ export const AboutMobile = (props) => {
   const closeClick = (event) => {
     //go back to the previous page
     event.preventDefault()
-    console.log("closebutton clicked")
+    //console.log("closebutton clicked")
     props.history.goBack()
   }
 

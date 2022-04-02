@@ -22,25 +22,26 @@ export const MyPosts = (props) => {
   */
 
   const posts = props.posts.filter(post => post.own === true)
-  console.log(props.posts)
-  console.log(props.user)
-  console.log(posts)
+
+  //console.log(props.posts)
+  //console.log(props.user)
+  //console.log(posts)
+
   const closeClick = (event) => {
     //go back to the previous page
     event.preventDefault()
     props.history.push("/")
   }
 
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
+    /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }
+  }*/
 
 
   const onPostClick = (post) => {
     //event handler for post marker clicks. Routes to post view.
-    console.log(`Clicked post: ${post}`, post)
+    //console.log(`Clicked post: ${post}`, post)
     props.history.push(`/post-view/${post.id}/`)
   }
   if(posts && posts.length > 0){

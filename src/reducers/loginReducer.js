@@ -21,7 +21,7 @@ const loginReducer = (state = null, action) => {
         case LOGOUT:
             return null
         case LOGOUTS:
-                return null    
+            return null    
         case INIT_USER:
             return action.data
         case RENEW_EXP:

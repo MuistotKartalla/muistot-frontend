@@ -11,8 +11,8 @@ export const ThemeToggleSwitch = (props) => {
 
   const toggleTheme = () => {
 
-    console.log("toggling visibility")
-    console.log(props)
+    //console.log("toggling visibility")
+    //console.log(props)
     if(darkMode){
       props.setActiveTheme("light")
       setDarkMode(false)
@@ -24,7 +24,7 @@ export const ThemeToggleSwitch = (props) => {
   }
 
 
-  console.log("darkMode", props.settings.theme === "dark")
+  //console.log("darkMode", props.settings.theme === "dark")
 
   return(
     <div className="ttsContainer">

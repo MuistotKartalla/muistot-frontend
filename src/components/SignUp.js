@@ -51,7 +51,7 @@ export const SignUp = (props) => {
     }
 
     const recaptchacaLoaded = () => {
-        console.log('recaptcha loaded')
+        //console.log('recaptcha loaded')
     }
 
     const someFail = () => {
@@ -110,7 +110,7 @@ export const SignUp = (props) => {
                     props.history.push("/")
                 } catch (error) {
                     //if the loginservice returns error or doesn't answer error is catched and user notified..
-                    console.log(error.response['data'])
+                    //console.log(error.response['data'])
                     props.notify(error.response['data']['error'] + ": " + error.response['data']['msg'], false, 5)
                 }
 
@@ -139,7 +139,7 @@ export const SignUp = (props) => {
                     props.history.push("/")
                 } catch (error) {
                     //if the loginservice returns error or doesn't answer error is catched and user notified..
-                    console.log(error.response['data'])
+                    //console.log(error.response['data'])
                     props.notify(error.response['data']['error'] + ": " + error.response['data']['msg'], false, 5)
                 }
             }

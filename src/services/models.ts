@@ -126,6 +126,8 @@ export interface OldMemory {
     search: string
     author?: string
     own?: boolean
+    waiting_approval?: boolean
+
 }
 
 export interface Image {
@@ -140,6 +142,7 @@ export interface OldMemoryOutbound {
     search: string
     author?: string
     own?: boolean
+    waiting_approval?: boolean
 }
 
 export function convONP(o: OldProject): Project {
@@ -186,7 +189,8 @@ export function convNOM(o: Memory): OldMemory {
         image: o.image || 'placeholder.jpg',
         search: o.title,
         author: o.user,
-        own: o.own
+        own: o.own,
+        waiting_approval: o.waiting_approval
     }
 }
 

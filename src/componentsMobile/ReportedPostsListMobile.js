@@ -22,11 +22,10 @@ export const ReportedPostsListMobile = (props) => {
 
   const posts = props.posts
 
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
+    /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }
+  }*/
 
   const onItemClick = (post) => {
     props.history.push(`/post-view/${post.id}/`)
@@ -51,7 +50,7 @@ export const ReportedPostsListMobile = (props) => {
             <div className="postListItemInfo">
               <h2 className="postListTitle">{post.title}</h2>
               <p className="postListText">{post.author}</p>
-              <p className="postListText">{getDateFromUnixStamp(post.date)}</p>
+              
             </div>
             <div className="postListReportFlags">
               <p className="postListText">{props.settings.strings["NSFW_content"]}: #</p>

@@ -39,7 +39,7 @@ export const ReportPostMobile = (props) => {
     props.history.goBack()
     props.notify(props.settings.strings["report_submitted"], false, 5)
   }
-  console.log(props)
+  //console.log(props)
   if(props.posts){
     const post = props.posts.find(item => "" + item.id === props.match.params.id)
     return(
