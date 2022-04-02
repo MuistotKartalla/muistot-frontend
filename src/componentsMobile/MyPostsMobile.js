@@ -21,7 +21,9 @@ export const MyPostsMobile = (props) => {
   */
 
   const posts = props.posts.filter(post => post.own === true)
+
   //console.log(posts)
+
 
     /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)

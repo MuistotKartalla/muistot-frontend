@@ -22,9 +22,11 @@ export const MyPosts = (props) => {
   */
 
   const posts = props.posts.filter(post => post.own === true)
+
   //console.log(props.posts)
   //console.log(props.user)
   //console.log(posts)
+
   const closeClick = (event) => {
     //go back to the previous page
     event.preventDefault()
