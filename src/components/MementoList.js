@@ -61,9 +61,9 @@ export const MementoList = (props) => {
                 {props.currentProject.moderators.find(user => user === props.user.username)?
                 <div className="postButtonsContainerInner">
                 {memento.waiting_approval?             
-                <button className="rippleButton smallButton negativeButton" onClick={() => verifyClickMemento(memento)}>{props.settings.strings["verify"]}</button>
+                <button className="rippleButton Button negativeButton" onClick={() => verifyClickMemento(memento)}>{props.settings.strings["verify"]}</button>
                 :
-                <button className="rippleButton smallButton negativeButton" onClick={() => verifyClickMemento(memento)}>{props.settings.strings["unverify"]}</button>
+                <button className="rippleButton Button negativeButton" onClick={() => verifyClickMemento(memento)}>{props.settings.strings["unverify"]}</button>
                 }
                 </div>
                 : <div/>}
