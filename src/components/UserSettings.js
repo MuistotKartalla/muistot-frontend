@@ -12,8 +12,8 @@ export const UserSettings = (props) => {
 
   const [deleteAccount, setDeleteAccount] = useState(false)
   let logintype = props.user !== null ? props.user.Logintype : "regular"
-  console.log("Logintype is:" + logintype)
-  console.log(props)
+  //console.log("Logintype is:" + logintype)
+  //console.log(props)
 
   const toggleDeleteAccount = (event) => {
     event.preventDefault()
@@ -38,7 +38,7 @@ export const UserSettings = (props) => {
           props.history.push("/")
           props.logout(props.notify, props.settings.strings["account_delete_ok"])
         }catch(error){
-          console.log(error.response['data'])
+          //console.log(error.response['data'])
           props.notify(error.response['data']['error'] + ": " + error.response['data']['msg'], false, 5)
         }
     }
@@ -56,14 +56,14 @@ export const UserSettings = (props) => {
       props.history.push("/")
       props.logout(props.notify, props.settings.strings["account_delete_ok"])
     }catch(error){
-      console.log(error.response['data'])
+      //console.log(error.response['data'])
       props.notify(error.response['data']['error'] + ": " + error.response['data']['msg'], false, 5)
     }
 
   }
 
   const modifyConfirmClick = async (event) => {
-    //console.log("attempting profile modification")
+   //console.log("attempting profile modification")
     event.preventDefault()
     if(event.target.firstName.value === "" && event.target.lastName.value === "" && event.target.email.value === "" && event.target.city.value === "" && event.target.username.value === "" && event.target.new_password.value === "")
     {
@@ -99,7 +99,7 @@ export const UserSettings = (props) => {
           props.notify(props.settings.strings["account_modify_ok"], false, 8)
           props.history.push("/")
         }catch(error){
-          console.log(error.response['data'])
+          //console.log(error.response['data'])
           props.notify(error.response['data']['error'] + ": " + error.response['data']['msg'], false, 5)
         }
     }
@@ -107,7 +107,7 @@ export const UserSettings = (props) => {
   }
 
     const modifyConfirmClickSoMe = async (event) => {
-    //console.log("attempting profile modification")
+   //console.log("attempting profile modification")
     event.preventDefault()
     if(event.target.city.value === "")
     {
@@ -125,7 +125,7 @@ export const UserSettings = (props) => {
           props.notify(props.settings.strings["account_modify_ok"], false, 8)
           props.history.push("/")
         }catch(error){
-          console.log(error.response['data'])
+          //console.log(error.response['data'])
           props.notify(error.response['data']['error'] + ": " + error.response['data']['msg'], false, 5)
         }
     }

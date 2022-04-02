@@ -17,11 +17,10 @@ import {getImageURL} from "../services/images";
 export const PostList = (props) => {
 
 
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
+    /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }
+  }*/
   return (
 
     <div className="postListContainer">

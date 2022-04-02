@@ -20,7 +20,7 @@ export const UserSettingsMobile = (props) => {
   }
   const deleteAccountConfirmClick = (event) => {
     event.preventDefault()
-    console.log("deleting account")
+    //console.log("deleting account")
     //TODO
   }
 

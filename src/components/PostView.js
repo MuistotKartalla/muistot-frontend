@@ -23,22 +23,22 @@ export const PostView = (props) => {
   const [deleteState, setDeleteState] = useState(false)
   //gets the post to show based on the id that is set on the url field.
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
+  //console.log(props) 
   post.uusi = 0
 
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
+    /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }
+  }*/
   const showOnMap = (event) => {
     event.preventDefault()
-    console.log(`Centering Map to ${post.title} coordinates.`)
+    //console.log(`Centering Map to ${post.title} coordinates.`)
     props.updateMapLocation(post.location)
     props.history.push("/")
   }
   const deletePost = (event) => {
     event.preventDefault()
-    console.log("postView deleting post", post.id)
+    //console.log("postView deleting post", post.id)
     props.deletePost(post.id)
     props.history.goBack()
     props.notify(`${props.settings.strings["post"]}: "${post.title}" ${props.settings.strings["delete_success"]}`, false, 5)
@@ -48,7 +48,7 @@ export const PostView = (props) => {
   const closeClick = (event) => {
     //eventhandler for close button
     event.preventDefault()
-    console.log("closeClick")
+    //console.log("closeClick")
     props.history.push("/")
   }
 
@@ -60,7 +60,6 @@ export const PostView = (props) => {
   const verifyClick = (event) => {
     event.preventDefault()
     props.toggleVerify(post)
-
   }
 
   const twitterShareClick = (event) => {

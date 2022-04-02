@@ -51,7 +51,7 @@ export const LoginForm = (props) => {
                     clientId="472567314178-p1qosj4m14piq95sn4ef35frp2i5bsgm.apps.googleusercontent.com"
                     buttonText="Login With Google"
                     onSuccess={responseGoogle}
-                    onFailure={e => console.log(e)}
+                    onFailure={e => //console.log(e)}
                     cookiePolicy={'single_host_origin'}
                 />
                 <FacebookLogin

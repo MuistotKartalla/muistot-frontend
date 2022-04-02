@@ -16,12 +16,12 @@ export const NewMemento = (props) => {
   const [image, setImage] = useState(null)
 
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
-  console.log(post)
-  console.log("NewMemento launched")
+  //console.log(post)
+  //console.log("NewMemento launched")
 
 
   useEffect(() => {
-    console.log("NewMemento useEffect")
+    //console.log("NewMemento useEffect")
     setTitleField(props.tempPost.title)
     setStoryField(props.tempPost.story)
     setImage(props.tempPost.image)
@@ -47,7 +47,7 @@ export const NewMemento = (props) => {
 
   const confirmPost = (event) => {
     event.preventDefault()
-    console.log("creating new memento")
+    //console.log("creating new memento")
 
     if(titleField.length < 5){
       props.notify(props.settings.strings["title_length"], true, 5)
@@ -58,7 +58,7 @@ export const NewMemento = (props) => {
       return
     }
 
-      console.log(image);
+      //console.log(image);
       (async () => await postService.createMemory(
               getActiveProject(),
               post.id,

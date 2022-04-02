@@ -24,7 +24,7 @@ export const LanguageDropDown = (props) => {
 
   const toggleVisibility = () => {
     // doesnt close the dropdown when clicking the selected one.
-    console.log("Kielivalikon näkymistä vaihdettu")
+    //console.log("Kielivalikon näkymistä vaihdettu")
     setIsComponentVisible(!isComponentVisible)
   }
 
@@ -38,7 +38,7 @@ export const LanguageDropDown = (props) => {
         props.setActiveLanguage(element)
         setActive(element)
         setIsComponentVisible(!isComponentVisible)
-        console.log(element, " klikattu")
+        //console.log(element, " klikattu")
       }
       })
     })
@@ -46,7 +46,7 @@ export const LanguageDropDown = (props) => {
   }
 
   if(!isComponentVisible){
-    console.log(active)       //active is wrong here, use props.settings.activeLanguage
+    //console.log(active)       //active is wrong here, use props.settings.activeLanguage
     return(
       <div className="languageDDContainer" ref={ref}>
         <div className="languageDDCurrentItemContainer" onClick={toggleVisibility}>
@@ -88,7 +88,7 @@ export const LanguageDropDown = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  //console.log(state)
   return {
     //maps state to props, after this you can for example call props.notification
     settings: state.settings

@@ -56,7 +56,7 @@ export const NewProject = (props) => {
   }
 
   const imageOnChangeHandler = (image) => {
-    console.log(image)
+    //console.log(image)
     setImage(image)
   }
 

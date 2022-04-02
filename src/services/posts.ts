@@ -11,8 +11,8 @@ export const getSites = async (project: string, params?: SearchParams): Promise<
         const response = await sites(async (url) => await axios.get(url, config), project)
         return [...response.data.items].map(s => convNOS(project, s))
     } catch (e) {
-        console.log("search failed")
-        console.log(e)
+        //console.log("search failed")
+        //console.log(e)
         throw e
     }
 }
@@ -27,8 +27,8 @@ export const createMemory = async (project: string, site: string, memory: OldMem
     const newMemory = convONM(memory)
     const res = await memories(async (url) => await axios.post(url, newMemory), project, site)
     if (res.status === 201) {
-        console.log("created new memory")
-        console.log(newMemory)
+        //console.log("created new memory")
+        //console.log(newMemory)
         return convNOM((await axios.get(res.headers.location)).data)
     } else {
         throw new Error('failed creation')
@@ -39,8 +39,8 @@ export const createSite = async (project: string, site: OldSite): Promise<OldSit
     const newSite = convONS(site)
     const res = await sites(async (url) => axios.post(url, newSite), project)
     if (res.status === 201) {
-        console.log("created new site")
-        console.log(newSite)
+        //console.log("created new site")
+        //console.log(newSite)
         return convNOS(project, (await axios.get(res.headers.location)).data)
     } else {
         throw new Error('failed creation')
@@ -60,20 +60,25 @@ export const deleteSite = async (project: string, site: string) => await sitePat
     site
 )
 
-export const toggleVerifySite = async (project_id: string, site: string, verify?: boolean) => await project(
-    async (url) => axios.post(url + '/admin/publish', {
+export const toggleVerifySite = async (project_id: string, site: string, verify?: boolean) => await axios.post(
+    '/admin/publish', {
         type: 'site',
         identifier: site,
-        publish: verify || true
-    }),
-    project_id
+        parents: {
+          project: project_id
+        },
+        publish: verify || false
+    }
 )
 
-export const toggleVerifyMemory = async (project_id: string, post: number, verify?: boolean) => await project(
-    async (url) => axios.post(url + '/admin/publish', {
+export const toggleVerifyMemory = async (project_id: string, site: string, post: number, verify?: boolean) => await axios.post(
+    '/admin/publish', {
         type: 'memory',
         identifier: post,
-        publish: verify || true
-    }),
-    project_id
+        parents: {
+            project: project_id,
+            site: site
+          },
+        publish: verify || false
+    }
 )

@@ -18,7 +18,7 @@ const postReducer = (state = [], action) => {
         case ADD_POSTS:
             return state.concat(action.data)
         case EDIT_POST:
-            return [...state.filter(post => post.id !== action.data.id), action.data]
+            return state.filter(post => post.id !== action.data)
         case CREATE_POST:
             return state.concat(action.data)
         case CREATE_SITE:
@@ -94,13 +94,12 @@ export const toggleVerify = (site) => {
     // backend returns the modified object,
     // it is then updated to redux state
     // post = {...post, verify: !post.verify}
-    log("verifying Post" + site.id.toString())
     return async dispatch => {
         try {
             const response = await postService.toggleVerifySite(
                 getActiveProject(),
                 site.id,
-                'waiting_approval' in site
+                site.waiting_approval
             )
             dispatch({
                 type: EDIT_POST,
@@ -112,4 +111,25 @@ export const toggleVerify = (site) => {
     }
 }
 
+export const toggleVerifyMemento = (site, memento) => {
+    // sends verify request to backend,
+    // backend returns the modified object,
+    // it is then updated to redux state
+    return async dispatch => {
+            try {
+                const response = await postService.toggleVerifyMemory(
+                    getActiveProject(),
+                    site.id,
+                    memento.id,
+                    memento.waiting_approval
+                )
+                dispatch({
+                    type: EDIT_POST,
+                    data: response.data
+                })
+            } catch (exeption) {
+                log(exeption)
+            }
+    }
+}
 export default postReducer

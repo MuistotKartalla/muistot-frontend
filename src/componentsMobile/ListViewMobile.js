@@ -41,11 +41,10 @@ export const ListViewMobile = (props) => {
     props.history.push(`/post-view/${post.id}`)
   }
 
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
+    /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }
+  }*/
 
   const toMapView = (event) => {
     event.preventDefault()
@@ -54,9 +53,9 @@ export const ListViewMobile = (props) => {
   const newPostClick = (event) => {
     //New post onClick event handler.
     event.preventDefault()
-    console.log("Adding new post")
+    //console.log("Adding new post")
     if(props.user !== null){
-      console.log("Adding new post")
+      //console.log("Adding new post")
       props.history.push("/new-post/")
     }else{
       //if not logged in, redirect to login page

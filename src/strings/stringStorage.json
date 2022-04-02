@@ -198,7 +198,7 @@
       "submit": "Vahvista",
       "confirm": "Vahvista",
       "verify": "Verifioi",
-      "unverify": "Unverfioi",
+      "unverify": "Unverifioi",
       "choose_on_map_notification": "Valitse sijainti kartalta klikkaamalla.",
       "error": "Virhe",
       "jwt_expired": "Kirjautuminen vanhentunut.",

@@ -46,7 +46,7 @@ export const NavMenuMobile = (props) => {
   }
   const logoutClick = (event) => {
     event.preventDefault()
-    console.log("Logging out")
+    //console.log("Logging out")
     props.logout(props.notify, "Logout complete.")
     var params = {projectId: props.projects.active.id};  
     props.initPosts(params)

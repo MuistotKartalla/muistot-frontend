@@ -7,7 +7,7 @@ import "../styles/notification.css"
 
 const Notification = (props) => {
 
-  console.log(`setting notification timer animation duration for ${props.notification.seconds} seconds;`)
+  //console.log(`setting notification timer animation duration for ${props.notification.seconds} seconds;`)
   if(document.getElementById("notificationTimer") !== null){
     //notification is currently rendered.
 

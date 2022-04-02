@@ -51,7 +51,7 @@ export const SoMeSignUp = (props) => {
       }
 
       if(userReady === true){
-          console.log('tällänen uuseri tuloillaan: ' + JSON.stringify(newUser))
+          //console.log('tällänen uuseri tuloillaan: ' + JSON.stringify(newUser))
 
           /*try{
             const ok = await signUpService.signUpRequest(newUser)
@@ -59,8 +59,8 @@ export const SoMeSignUp = (props) => {
             props.history.push("/")
           }catch(error){
             //if the loginservice returns error or doesn't answer error is catched and user notified..
-            console.log('error: ' + JSON.stringify(error));
-            console.log(error.response['data'])
+            //console.log('error: ' + JSON.stringify(error));
+            //console.log(error.response['data'])
             props.notify(error.response['data']['error'] + ": " + error.response['data']['msg'], false, 5)
           }*/
       }
@@ -68,18 +68,18 @@ export const SoMeSignUp = (props) => {
     }
 
     const responseGoogle = async (response) => {
-      console.log('tällänen vastaus: ' + JSON.stringify(response))
+      //console.log('tällänen vastaus: ' + JSON.stringify(response))
       let profile = response.getBasicProfile()
-      console.log('ID: ' + profile.getId()) // Do not send to your backend! Use an ID token instead.
-      console.log('Name: ' + profile.getName())
-      console.log('Etu Name: ' + profile.getGivenName())
-      console.log('Suku Name: ' + profile.getFamilyName())
-      console.log('Image URL: ' + profile.getImageUrl())
-      console.log('Email: ' + profile.getEmail()) // This is null if the 'email' scope is not present.
-      console.log('Id Token: ' + response.getAuthResponse().id_token) // This is null if the 'email' scope is not present.
+      //console.log('ID: ' + profile.getId()) // Do not send to your backend! Use an ID token instead.
+      //console.log('Name: ' + profile.getName())
+      //console.log('Etu Name: ' + profile.getGivenName())
+      //console.log('Suku Name: ' + profile.getFamilyName())
+      //console.log('Image URL: ' + profile.getImageUrl())
+      //console.log('Email: ' + profile.getEmail()) // This is null if the 'email' scope is not present.
+      //console.log('Id Token: ' + response.getAuthResponse().id_token) // This is null if the 'email' scope is not present.
 
       props.settings.strings["firstLogin"] = true
-      console.log('pliis pelaa saatana ' + props.settings.strings["firstLogin"])
+      //console.log('pliis pelaa saatana ' + props.settings.strings["firstLogin"])
 
       newUser.firstName = profile.getGivenName()
       newUser.lastName = profile.getFamilyName()
@@ -87,15 +87,15 @@ export const SoMeSignUp = (props) => {
       newUser.username = profile.getName()
       newUser.password = profile.getId()
 
-      console.log('tällänen uuseri tuloillaan: ' + JSON.stringify(newUser))
+      //console.log('tällänen uuseri tuloillaan: ' + JSON.stringify(newUser))
       //props.history.push("/some-sign-up-first-time")
 
     }
     const responseFacebook = async (response) => {
-      console.log('tällänen vastaus fabolt: ' + JSON.stringify(response))
-      console.log('nimi: ' + response.name)
-      console.log('mail:: ' + response.email)
-      console.log('uid: ' + response.userID)
+      //console.log('tällänen vastaus fabolt: ' + JSON.stringify(response))
+      //console.log('nimi: ' + response.name)
+      //console.log('mail:: ' + response.email)
+      //console.log('uid: ' + response.userID)
 
       newUser.firstName = response.name
       newUser.lastName = response.name
@@ -103,7 +103,7 @@ export const SoMeSignUp = (props) => {
       newUser.username = response.name
       newUser.password = response.userID
 
-      console.log('tällänen uuseri tuloillaan: ' + JSON.stringify(newUser))
+      //console.log('tällänen uuseri tuloillaan: ' + JSON.stringify(newUser))
       props.history.push("/some-sign-up-first-time")
     }
     return(

@@ -16,7 +16,7 @@ const ExampleComponentTemplate = (props) => {
 
   //if you need to initialize stuff, use react hook
   useEffect(() => {
-    console.log("effect hook called")
+    //console.log("effect hook called")
     //props.initializeContent
 
   }, [])
@@ -25,18 +25,18 @@ const ExampleComponentTemplate = (props) => {
   const exampleOnClick = (event) => {
     //event function that does stuff on click
     event.preventDefault()
-    console.log("button pressed")
+    //console.log("button pressed")
   }
 
   const exampleOnChange = (event) => {
     //for text fields and stuff you can add onChange event listener to your html component
     event.preventDefault()
-    console.log(event.target.value)
+    //console.log(event.target.value)
     setFieldValue(event.target.value)
   }
 
   const exampleOnSubmit = (event) => {
-    console.log("submitting stuff")
+    //console.log("submitting stuff")
     //save the field value
     const value = fieldValue
     //reset the actual field

@@ -50,7 +50,7 @@ export const SoMeSignUpFirstTime = (props) => {
       }
 
       if(userReady === true){
-          console.log('tällänen uuseri tuloillaan: ' + JSON.stringify(newUser))
+          //console.log('tällänen uuseri tuloillaan: ' + JSON.stringify(newUser))
 
           /*try{
             const ok = await signUpService.signUpRequest(newUser)
@@ -58,8 +58,8 @@ export const SoMeSignUpFirstTime = (props) => {
             props.history.push("/")
           }catch(error){
             //if the loginservice returns error or doesn't answer error is catched and user notified..
-            console.log('error: ' + JSON.stringify(error));
-            console.log(error.response['data'])
+            //console.log('error: ' + JSON.stringify(error));
+            //console.log(error.response['data'])
             props.notify(error.response['data']['error'] + ": " + error.response['data']['msg'], false, 5)
           }*/
       }

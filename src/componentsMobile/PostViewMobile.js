@@ -27,11 +27,11 @@ export const PostViewMobile = (props) => {
   const [deleteState, setDeleteState] = useState(false)
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
   post.uusi = 0
-  //console.log(post)
+ //console.log(post)
 
   const deletePost = (event) => {
     event.preventDefault()
-    console.log("postView deleting post", post.id)
+    //console.log("postView deleting post", post.id)
     props.deletePost(post.id)
     props.history.goBack()
     props.notify(`${props.settings.strings["post"]}: "${post.title}" ${props.settings.strings["delete_success"]}`, false, 5)
@@ -40,16 +40,15 @@ export const PostViewMobile = (props) => {
 
   const showOnMap = (event) => {
     event.preventDefault()
-    console.log(`Centering Map to ${post.title} coordinates.`)
+    //console.log(`Centering Map to ${post.title} coordinates.`)
     props.updateMapLocation(post.location)
     props.history.push("/")
   }
 
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
+    /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }
+  }*/
   const reportClick = (event) => {
     event.preventDefault()
     props.history.push(`/post-view/${post.id}/report/`)
