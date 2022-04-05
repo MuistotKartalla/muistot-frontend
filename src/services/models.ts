@@ -127,7 +127,6 @@ export interface OldMemory {
     author?: string
     own?: boolean
     waiting_approval?: boolean
-
 }
 
 export interface Image {

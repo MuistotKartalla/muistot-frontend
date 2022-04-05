@@ -52,11 +52,6 @@ export const PostView = (props) => {
     props.history.push("/")
   }
 
-  const reportClick = (event) => {
-    event.preventDefault()
-    props.history.push(`/post-view/${post.id}/report/`)
-  }
-
   const verifyClick = (event) => {
     event.preventDefault()
     props.toggleVerify(post)
@@ -107,19 +102,19 @@ export const PostView = (props) => {
             }
           </div>
           <div className="postButtonsContainer">
-            {props.user?
+          {props.user?
             // multilevel conditional rendering
             // visitor sees no buttons
             // author sees delete button
             // user sees report button
             // admin sees delete and verify buttons.
-            (props.currentProject.moderators.find(user => user === props.user.username)?
-                <div className="postButtonsContainerInner">                 
-                  <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>                          
+              (props.currentProject.moderators.find(user => user === props.user.username)?
+                <div className="postButtonsContainerInner">
+                  <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   {post.waiting_approval?
-                    <button className="rippleButton Button " onClick={verifyClick}>{props.settings.strings["verify"]}</button>
+                    <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["verify"]}</button>
                     :
-                    <button className="rippleButton Button " onClick={verifyClick}>{props.settings.strings["unverify"]}</button>
+                    <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["unverify"]}</button>
                   }
                 </div>
                 :
@@ -128,17 +123,12 @@ export const PostView = (props) => {
                     <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   </div>
                   :
-                  (post.waiting_approval?
-                    <div className="postButtonsContainerInner">
-                      <button className="rippleButton smallButton negativeButton" onClick={reportClick}>{props.settings.strings["report"]}</button>
-                    </div>
-                    :
-                    <></>
-                  )
-                 )
+                  <></>
+                )
+
               )
               :
-              <div/>
+              <></>
             }
 
             <button className="rippleButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>

@@ -80,10 +80,6 @@ const MapContainerMobile = (props) => {
     if(props.posts !== posts){
       setPosts(props.posts)
     }
-    if(followUser){
-      //console.log("centering map to user location")
-      setPosition(userLocation)
-    }
 
     if(props.mapLocation !== null){
       //console.log("setting map to location")

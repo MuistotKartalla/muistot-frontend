@@ -13,7 +13,7 @@ import {setActiveProject} from "../reducers/projectReducer"
 
 export const DropDownSelect = (props) => {
 
-
+  //todo for making new project
   const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false)
 
   const toggleVisibility = () => {

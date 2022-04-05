@@ -93,3 +93,9 @@
   text-align: center;
   padding-top: 0.75em
 }
+
+h1.titleText, h1.titleTextMobile {
+  color: var(--title-color);
+  text-align: center;
+  margin-top: 15px;
+}

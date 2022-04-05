@@ -1,7 +1,8 @@
 import React from "react"
 import {connect} from "react-redux"
 import "../styles/about.css"
-import "../styles/postView.css"
+import "../styles/texts.css"
+
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 const ReactMarkdown = require('react-markdown')
 //probably make individual css files for all you use here.

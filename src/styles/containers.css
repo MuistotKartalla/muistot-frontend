@@ -1,20 +1,6 @@
-/* These doesn't matter since they are replaced when settings are inited
 :root{
-  --primary-color: #ffffff;
-  --secondary-color: #e0e0e0;
-
-  --primary-text-color: #000000;
-  --secondary-text-color: #505050;
-
-  --accent-color: #ffffff;
-  --accent-color-dark: #e0e0e0;
-  --accent-color-light: #ffffff;
-  --effect-color: #ffffff;
-}
-*/
-:root{
-  --primary-color: #161616;
-  --secondary-color: #1b1c1d;
+  --primary-color: #000000;
+  --secondary-color: #202124;
 
   --primary-text-color: #ffffff;
   --secondary-text-color: #a0a0a0;
@@ -23,6 +9,9 @@
   --accent-color-dark: #1b1c1d;
   --accent-color-light: #808080;
   --effect-color: #cecece;
+  --primary-color: #000000;
+  --title-color:#03FFFF;
+  --hover-text-color: #000000;
 }
 
 html, body, #root, #app, #app>div {

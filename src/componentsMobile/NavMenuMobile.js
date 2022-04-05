@@ -16,9 +16,6 @@ import {setActiveProject} from "../reducers/projectReducer"
 import {initPosts} from "../reducers/postReducer"
 
 
-// reported posts and stats are not in use atm  <button className="mobileMenuButton" onClick={toReportsClick}>{props.settings.strings["reports"]}</button>
-              //<button className="mobileMenuButton" onClick={toStatsClick}>{props.settings.strings["project_statistics"]}</button>
-
 export const NavMenuMobile = (props) => {
   const [visible, setVisible] = useState(false)
   //Nav menu container component that has the menu components embedded.
@@ -65,11 +62,7 @@ export const NavMenuMobile = (props) => {
     toggleVisibity()
   }
 
-  const toUserSettingsClick = (event) => {
-    event.preventDefault()
-    props.history.push("/account-settings/")
-    toggleVisibity()
-  }
+  
 
   const toRoot = (event) => {
     //pushes url route to root or "/", might change later when different projects implemented.
@@ -79,24 +72,12 @@ export const NavMenuMobile = (props) => {
   }
 
   const changeProject = (project) => {
-        props.setActiveProject(project)
-        var params = {projectId: project.id};  
-        props.initPosts(params)
+    props.setActiveProject(project)
+    var params = {projectId: project.id};  
+    props.initPosts(params)
   }
 
-  const toReportsClick = (event) => {
-    event.preventDefault()
-    props.history.push("/reports/")
-    toggleVisibity()
-
-  }
-  const toStatsClick = (event) => {
-    event.preventDefault()
-    props.history.push("/project-stats/")
-    toggleVisibity()
-  }
-
-
+  
   if(visible){
     return (
       <div className="mobileMenuContainerOuter">

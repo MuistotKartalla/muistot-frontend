@@ -52,13 +52,12 @@ export const MementoList = (props) => {
         {mementos.map((memento,index) =>
             <li key={index} className="postListItem">
               <div className="postListItemImageContainer">
-                <img className="postListImagePreview" src={getImageURL(memento.image)} alt=""></img>
-                
+                <img className="postListImagePreview" src={getImageURL(memento.image)} alt=""></img>   
               </div>
               <div className="postListItemInfo">  
                 <h2 className="postListTitle">{memento.title}</h2>
-
-                {props.currentProject.moderators.find(user => user === props.user.username)?
+                {props.user?
+                (props.currentProject.moderators.find(user => user === props.user.username)?
                 <div className="postButtonsContainerInner">
                 {memento.waiting_approval?             
                 <button className="rippleButton Button negativeButton" onClick={() => verifyClickMemento(memento)}>{props.settings.strings["verify"]}</button>
@@ -66,7 +65,9 @@ export const MementoList = (props) => {
                 <button className="rippleButton Button negativeButton" onClick={() => verifyClickMemento(memento)}>{props.settings.strings["unverify"]}</button>
                 }
                 </div>
-                : <div/>}
+                : <div/>)
+                :
+                <></>}
                 <p className="normalText">{memento.story}</p>
                 
               </div>
