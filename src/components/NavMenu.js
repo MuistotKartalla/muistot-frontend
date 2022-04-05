@@ -38,16 +38,10 @@ export const NavMenu = (props) => {
   }
 
   const changeProject = (project) => {
-    if(props.user && props.user.username === "admin" && project===props.settings.strings["new_project"])
-	{
-      	props.history.push("/new-project/")
-    	}
-     else
-	{
-      	props.setActiveProject(project)
-      	var params = {projectId: project.id};
-      	props.initPosts(params)
-  	}
+    props.setActiveProject(project)
+    var params = {projectId: project.id};
+    props.initPosts(params)
+  	
   }
   return (
     <div className="menuContainer">
@@ -57,12 +51,9 @@ export const NavMenu = (props) => {
         </div>
 
         <div className="projectSelectContainer">
-          {props.user && props.user.username === "admin"?
-            //if user is admin (CHANGE LOGIC LATER) show new project option in the project LIST.
-            <DropDownSelectProject items={props.projects.projects.concat("divider").concat(props.settings.strings["new_project"])} active={props.projects.active} change={changeProject}/>
-            :
-            <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject}/>
-          }
+          
+          <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject}/>
+
           <div className="projectInfoButtonContainer">
             <button className="projectInfoButton" onClick={toProjectMenu}>{props.settings.strings["project_info"]}</button>
           </div>

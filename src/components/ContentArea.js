@@ -6,23 +6,18 @@ import {Route} from "react-router-dom"
 import "../styles/containers.css"
 
 import {notify} from "../reducers/notificationReducer"
-
 import NewPostCombined from "./NewPostCombined"
 import NewMemento from "./NewMemento"
 import PostView from "./PostView"
 import ListView from "./ListView"
 import MyPosts from "./MyPosts"
-import ReportPost from "./ReportPost"
-import UserSettings from "./UserSettings"
 import LoginForm from "./LoginForm"
 import PopUpContainer from "./PopUpContainer"
 import About from "./About"
 import ProjectInfo from "./ProjectInfo"
 import MapContainerOpen from "./MapContainerOpen"
-import NewProject from "./NewProject"
-import ProjectStats from "./ProjectStats"
-import ReportedPostsList from "./ReportedPostsList"
 import UnverifiedPosts from "./UnverifiedPosts"
+
 
 
 const ContentArea = (props) => {
@@ -75,11 +70,6 @@ const ContentArea = (props) => {
           <PostView match={match} history={history}/>
         </PopUpContainer>
       )}/>
-      <Route exact path="/post-view/:id/report" render={({match,history}) => (
-        <PopUpContainer history={history}>
-          <ReportPost match={match} history={history}/>
-        </PopUpContainer>
-      )}/>
       <Route path="/my-posts/" render={({history}) => (
         <PopUpContainer history={history}>
           <MyPosts history={history}/>
@@ -88,26 +78,6 @@ const ContentArea = (props) => {
       <Route path="/unverified-posts/" render={({history}) => (
         <PopUpContainer history={history}>
           <UnverifiedPosts history={history}/>
-        </PopUpContainer>
-      )}/>
-      <Route path="/user-settings/" render={({history}) => (
-        <PopUpContainer history={history}>
-          <UserSettings history={history}/>
-        </PopUpContainer>
-      )}/>
-      <Route path="/new-project/" render={({history}) => (
-        <PopUpContainer history={history}>
-          <NewProject history={history}/>
-        </PopUpContainer>
-      )}/>
-      <Route path="/project-stats/" render={({history}) => (
-        <PopUpContainer history={history}>
-          <ProjectStats history={history}/>
-        </PopUpContainer>
-      )}/>
-      <Route path="/reports/" render={({history}) => (
-        <PopUpContainer history={history}>
-          <ReportedPostsList history={history}/>
         </PopUpContainer>
       )}/>
     </div>

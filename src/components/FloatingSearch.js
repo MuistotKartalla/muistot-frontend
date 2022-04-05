@@ -4,6 +4,8 @@ import {connect} from "react-redux"
 import useComponentVisible from "../hooks/OutsideClick"
 
 import "../styles/floatingSearch.css"
+import "../styles/inputs.css"
+
 
 import PostList from "./PostList"
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"

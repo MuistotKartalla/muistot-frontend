@@ -46,14 +46,6 @@ const HorizontalMenuList = (props) => {
     }
   }
 
-  const accountSettingsClick = (event) => {
-    event.preventDefault()
-    props.history.push("/user-settings/")
-    if(isComponentVisible){
-      toggleDDV()
-    }
-  }
-
   const myPostsClick = (event) => {
     event.preventDefault()
     props.history.push("/my-posts/")
@@ -68,28 +60,7 @@ const HorizontalMenuList = (props) => {
       toggleDDV()
     }
   }
-  const reportsClick = (event) => {
-    event.preventDefault()
-    props.history.push("/reports/")
-    if(isComponentVisible){
-      toggleDDV()
-    }
-  }
-  const statsClick = (event) => {
-    event.preventDefault()
-    props.history.push("/project-stats/")
-    if(isComponentVisible){
-      toggleDDV()
-    }
-  }
-  const configureProjectClick = (event) => {
-    event.preventDefault()
-    props.history.push("/configure-project/")
-    if(isComponentVisible){
-      toggleDDV()
-    }
-  }
-
+  
   const logoutClick = (event) => {
     event.preventDefault()
     //console.log("Logging out")
@@ -159,8 +130,6 @@ const HorizontalMenuList = (props) => {
     return(
       <div className="horizontalMenuContainer" ref={ref}>
         <ul className="menuButtonList">
-
-
           <div>
             {isComponentVisible?
               <li className="accountItemActive" onClick={toggleDDV}>
@@ -187,18 +156,9 @@ const HorizontalMenuList = (props) => {
         </ul>
         {isComponentVisible?
           <div className="accountDropDownContainer">
-            {props.user?
-              <DropDownList  items={[{string:props.settings.strings["account_activity"], onClickHandler: null}, {string:props.settings.strings["configure_account"], onClickHandler: null},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
-                <p className="userNameText">{props.user.username}</p>
-                <ThemeToggleSwitch/>
-              </DropDownList>
-              :
               <DropDownList  items={[{string:props.settings.strings["about"], onClickHandler:aboutClick}]}>
                 <ThemeToggleSwitch/>
               </DropDownList>
-            }
-
-
           </div>
           :
           <div/>

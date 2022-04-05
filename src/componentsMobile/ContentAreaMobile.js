@@ -14,13 +14,8 @@ import ListViewMobile from "./ListViewMobile"
 import NewPostMobile from "./NewPostMobile"
 import NewMementoMobile from "./NewMementoMobile"
 import MyPostsMobile from "./MyPostsMobile"
-import SignUpMobile from "./SignUpMobile"
-import UserSettingsMobile from "./UserSettingsMobile"
 import ProjectInfoMobile from "./ProjectInfoMobile"
 import AboutMobile from "./AboutMobile"
-import ReportPostMobile from "./ReportPostMobile"
-import ReportedPostsListMobile from "./ReportedPostsListMobile"
-import ProjectStatsMobile from "./ProjectStatsMobile"
 import UnverifiedPostsMobile from "./UnverifiedPostsMobile"
 
 const ContentAreaMobile = (props) => {
@@ -50,9 +45,6 @@ const ContentAreaMobile = (props) => {
       <Route path="/login/" render={({history}) => (
         <LoginFormMobile history={history}/>
       )}/>
-      <Route path="/sign-up/" render={({history}) => (
-        <SignUpMobile history={history}/>
-      )}/>
       <Route path="/new-post/" render={({history}) => (
         <NewPostMobile history={history}/>
       )}/>
@@ -66,23 +58,11 @@ const ContentAreaMobile = (props) => {
       <Route path="/my-posts/" render={({history}) => (
         <MyPostsMobile history={history}/>
       )}/>
-      <Route path="/account-settings/" render={({history}) => (
-        <UserSettingsMobile history={history}/>
-      )}/>
       <Route path="/about/" render={({history}) => (
         <AboutMobile history={history}/>
       )}/>
       <Route path="/project-info/" render={({history}) => (
         <ProjectInfoMobile history={history}/>
-      )}/>
-      <Route exact path="/post-view/:id/report" render={({match,history}) => (
-        <ReportPostMobile match={match} history={history}/>
-      )}/>
-      <Route exact path="/reports/" render={({history}) => (
-        <ReportedPostsListMobile history={history}/>
-      )}/>
-      <Route exact path="/project-stats/" render={({history}) => (
-        <ProjectStatsMobile history={history}/>
       )}/>
     </div>
   )

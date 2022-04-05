@@ -49,10 +49,7 @@ export const PostViewMobile = (props) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
   }*/
-  const reportClick = (event) => {
-    event.preventDefault()
-    props.history.push(`/post-view/${post.id}/report/`)
-  }
+
   const verifyClick = (event) => {
     event.preventDefault()
     props.toggleVerify(post)
@@ -140,14 +137,7 @@ export const PostViewMobile = (props) => {
                     <div className="divider"/>
                   </div>
                   :
-                  (!post.waiting_approval?
-                    <div className="postButtonsContainerInnerMobile">
-                      <button className="rippleButton fillButton bigButton" onClick={reportClick}>{props.settings.strings["report"]}</button>
-                      <div className="divider"/>
-                    </div>
-                    :
-                    <></>
-                  )
+                  <></>
                 )
               )
               :
