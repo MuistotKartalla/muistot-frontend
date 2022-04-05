@@ -49,7 +49,6 @@ export const PostViewMobile = (props) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
   }*/
-
   const verifyClick = (event) => {
     event.preventDefault()
     props.toggleVerify(post)
