@@ -7,7 +7,8 @@ import "../styles/myPosts.css"
 import "../styles/buttons.css"
 import "../styles/texts.css"
 import {getImageURL} from "../services/images";
-
+import {ReactComponent as ClearIcon} from "../resources/clear.svg"
+import "../styles/postList.css"
 
 
 
@@ -20,21 +21,25 @@ export const MyPosts = (props) => {
   Out of focus click closes the pop up.
   */
 
-  const posts = props.posts.filter(post => post.author === props.user.UID)
-  console.log(props.posts)
-  console.log(props.user)
-  console.log(posts)
+  const posts = props.posts.filter(post => post.own === true)
+  //console.log(props.posts)
+  //console.log(props.user)
+  //console.log(posts)
+  const closeClick = (event) => {
+    //go back to the previous page
+    event.preventDefault()
+    props.history.push("/")
+  }
 
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
+    /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }
+  }*/
 
 
   const onPostClick = (post) => {
     //event handler for post marker clicks. Routes to post view.
-    console.log(`Clicked post: ${post}`, post)
+    //console.log(`Clicked post: ${post}`, post)
     props.history.push(`/post-view/${post.id}/`)
   }
   if(posts && posts.length > 0){
@@ -42,17 +47,19 @@ export const MyPosts = (props) => {
 
     return(
       <div className="myPostsContainer centerAlignWithPadding">
-        <h1 className="headerText">{props.settings.strings["my_posts"]}</h1>
+        <div className="postTitleContainer">
+        <h1 className="titleText centerAlignWithPadding">{props.settings.strings["my_posts"]}</h1>
+        <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
+        </div>
         <ul className="myPostsList">
           {posts.map((post,index) =>
-            <li key={index} className="myPostsListItem" onClick={() => onPostClick(post)}>
+            <li key={index} className="postViewListItem" onClick={() => onPostClick(post)}>
               <div className="postListItemImageContainer">
                 <img className="postListImagePreview" src={getImageURL(post.image)} alt=""></img>
               </div>
               <div className="postListItemInfo">
                 <h2 className="postListTitle">{post.title}</h2>
-                <p className="postListText">{post.author}</p>
-                <p className="postListText">{getDateFromUnixStamp(post.date)}</p>
+                <p className="postListText">{props.user.username}</p>
               </div>
             </li>
           )}

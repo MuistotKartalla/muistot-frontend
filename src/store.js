@@ -2,6 +2,8 @@
 import {createStore, combineReducers, applyMiddleware} from "redux"
 import thunk from "redux-thunk"
 import {composeWithDevTools} from "redux-devtools-extension"
+import storage from 'redux-persist/lib/storage';
+import {persistReducer,persistStore} from 'redux-persist';
 //import reducers here
 import notificationReducer from "./reducers/notificationReducer"
 import postReducer from "./reducers/postReducer"
@@ -13,6 +15,11 @@ import projectReducer from "./reducers/projectReducer"
 import settingsReducer from "./reducers/settingsReducer"
 import mapLocationReducer from "./reducers/mapLocationReducer"
 
+const persistConfig = {
+    key: 'main-root',
+    storage,
+    blacklist: ['tempPost','tempSite', 'mapLocation', 'notification', 'userLocation'] 
+};
 
 const reducer = combineReducers({
     //combine reducers here
@@ -28,13 +35,15 @@ const reducer = combineReducers({
     mapLocation: mapLocationReducer
 
 })
-
+const persistedReducer = persistReducer(persistConfig, reducer);
 //create store
-const store = createStore(reducer,
+const store = createStore(persistedReducer,
     composeWithDevTools(
         applyMiddleware(thunk)
     )
 )
+const Persistor = persistStore(store);
 
-//export store
+
+export{Persistor};
 export default store

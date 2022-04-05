@@ -7,6 +7,7 @@ import "../styles/buttons.css"
 import {createSite} from "../reducers/postReducer"
 import {notify} from "../reducers/notificationReducer"
 import {setTempSite} from "../reducers/tempSiteReducer"
+import ImageUploadMobile from "./ImageUploadMobile"
 
 
 import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
@@ -18,10 +19,12 @@ import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
 export const NewPostMobile = (props) => {
   const [titleField, setTitleField] = useState("")
   const [location, setLocation] = useState(false)
+  const [image, setImage] = useState(null)
 
   useEffect(() => {
     setLocation(props.tempSite.location)
     setTitleField(props.tempSite.title)
+    setImage(props.tempSite.image)
   }, [props])
 
 
@@ -30,12 +33,14 @@ export const NewPostMobile = (props) => {
     props.history.push("/")
     setTitleField("")
     setLocation(false)
-    props.setTempSite({"title": "", "location":null})
+    props.setTempSite({"title": "", "location":false, "image": null})
   }
-
+  const imageOnChangeHandler = (image) => {
+    setImage(image)
+  }
   const confirmPost = (event) => {
     event.preventDefault()
-    console.log("creating new post")
+    //console.log("creating new post")
 
     if(titleField.length < 5){
       props.notify(props.settings.strings["title_length"], true, 5)
@@ -45,12 +50,13 @@ export const NewPostMobile = (props) => {
       props.notify(props.settings.strings["location_valid"], true, 5)
       return
     }
-    props.createSite({projectId: props.projects.active.id, title:titleField, location:location})
+    props.createSite({projectId:props.projects.active.id, title:titleField, location:location, image: image})
     
     props.notify(`"${titleField}" ${props.settings.strings["created"]}`, false, 5)
     setTitleField("")
     setLocation(false)
-    props.setTempSite({"title": "", "location":null})
+    setImage(null)
+    props.setTempSite({"title": "", "location":null, "image": null})
     props.history.push("/")
   }
 
@@ -103,6 +109,7 @@ export const NewPostMobile = (props) => {
 	          <p className="normalText textCenter">{props.settings.strings["give_name_for_location"]}</p>
       		    <input name="title" id="titleField" className="input" placeholder={props.settings.strings["title"]} maxLength="100" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>
       		    <div className="inputFocusLine"/>
+              <ImageUploadMobile change={imageOnChangeHandler}/>
       		  </div>
 
 	        <div className="postFormButtonContainer">

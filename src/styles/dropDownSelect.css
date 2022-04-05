@@ -12,6 +12,7 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 5px;
+  max-height: 700px;
 }
 
 .dropDownSelectCurrentItem{
@@ -156,3 +157,18 @@
 }
 
 }
+
+@media screen and (min-height: 700px) and (max-height: 1060px) {
+
+  .dropDownSelectVisible{
+    max-height: 600px;
+  }
+  }
+  
+  
+  @media screen and (max-height: 700px) {
+  
+    .dropDownSelectVisible{
+      max-height: 400px;
+    }
+    }

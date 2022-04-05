@@ -19,7 +19,7 @@ export const ProjectInfo = (props) => {
 
   useEffect(() => {
     if(!project.title){
-      console.log("no active project")
+      //console.log("no active project")
       setProject(props.projects.active)
     }
 
@@ -28,7 +28,7 @@ export const ProjectInfo = (props) => {
   const closeClick = (event) => {
     //go back to the previous page
     event.preventDefault()
-    console.log("closebutton clicked")
+    //console.log("closebutton clicked")
     props.history.goBack()
   }
 
@@ -39,6 +39,7 @@ export const ProjectInfo = (props) => {
           <h1 className="titleText centerAlignWithPadding">{project.title}</h1>
           <ClearIcon className="clearIcon" onClick={closeClick}/>
         </div>
+        <div className="projectInfoContentContainer">
         <div className="projectInfoDescriptionContainer normalText">
 		<ReactMarkdown source={project.description} />
         </div>
@@ -47,6 +48,7 @@ export const ProjectInfo = (props) => {
         </div>
         <div className="projectInfoContentDescriptionContainer normalText">
 		<ReactMarkdown source={project.contentDescription} />
+        </div>
         </div>
       </div>
     )

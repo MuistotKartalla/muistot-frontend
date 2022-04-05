@@ -19,14 +19,14 @@ export const NewMementoMobile = (props) => {
   const [titleField, setTitleField] = useState("")
   const [storyField, setStoryField] = useState("")
   const [image, setImage] = useState(null)
-  console.log(props)
+  //console.log(props)
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
-  console.log(post)
+  //console.log(post)
 
   useEffect(() => {
     setTitleField(props.tempPost.title)
     setStoryField(props.tempPost.story)
-    console.log(props.tempPost.image)
+    //console.log(props.tempPost.image)
     setImage(props.tempPost.image)
 
   }, [props])
@@ -43,7 +43,7 @@ export const NewMementoMobile = (props) => {
 
   const confirmPost = (event) => {
     event.preventDefault()
-    console.log("creating new memento")
+    //console.log("creating new memento")
 
     if(titleField.length < 5){
       props.notify(props.settings.strings["title_length"], true, 5)
@@ -54,7 +54,7 @@ export const NewMementoMobile = (props) => {
       return
     }
 
-    console.log(image);
+    //console.log(image);
     (async () => await postService.createMemory(
             getActiveProject(),
             post.id,
@@ -74,7 +74,9 @@ export const NewMementoMobile = (props) => {
 
     props.history.goBack()
   }
-
+  const imageOnChangeHandler = (image) => {
+    setImage(image)
+  }
   const TitleFieldChangeHandler = (event) => {
     event.preventDefault()
     setTitleField(event.target.value)
@@ -100,7 +102,7 @@ export const NewMementoMobile = (props) => {
 	      <h1 className="titleTextMobile">{props.settings.strings["new_memento"]} {post.title}</h1>
         </div>
       </div>
-      <ImageUploadMobile/>
+      <ImageUploadMobile change={imageOnChangeHandler}/>
       <form className="postFormMobile" onSubmit={confirmPost}>
         <div className="inputContainer">
           <input name="title" id="titleField" className="input" placeholder={props.settings.strings["title"]} maxLength="100" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>

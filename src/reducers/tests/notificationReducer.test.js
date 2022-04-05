@@ -1,6 +1,6 @@
 import notificationReducer from "../notificationReducer"
 
-const cancelFunction = () => {console.log("cancel")}
+const cancelFunction = () => {//console.log("cancel")}
 const initialState = {message: null, error: false, seconds: 0, cancel: null}
 const notification = {message: "testing", error: false, seconds: 5, cancel: cancelFunction}
 

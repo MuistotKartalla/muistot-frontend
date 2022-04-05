@@ -116,6 +116,17 @@
   padding: 0;
 }
 
+.mobileButton{
+  z-index: 4;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: 0;
+  padding: 0.5em;
+  display: flex;
+}
 .mobileIcon{
   fill: yellow;
   width: 4em;

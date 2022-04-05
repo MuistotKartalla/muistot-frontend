@@ -7,6 +7,7 @@ import "../styles/buttons.css"
 import {createSite} from "../reducers/postReducer"
 import {notify} from "../reducers/notificationReducer"
 import {setTempSite} from "../reducers/tempSiteReducer"
+import ImageUpload from "./ImageUpload"
 
 //combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.
 // aka if "live location" button is highlighted the it uses your current location. if map button highlighted then it uses selected location.
@@ -14,13 +15,14 @@ import {setTempSite} from "../reducers/tempSiteReducer"
 export const NewPostCombined = (props) => {
   const [titleField, setTitleField] = useState("")
   const [location, setLocation] = useState(false)
-  console.log("NewPostCombined constructor launched")
+  const [image, setImage] = useState(null)
+  //console.log("NewPostCombined constructor launched")
 
   useEffect(() => {
-    console.log("NewPostCombined useEffect")      
+    //console.log("NewPostCombined useEffect")      
     setLocation(props.tempSite.location)
     setTitleField(props.tempSite.title)
-
+    setImage(props.tempSite.image)
   }, [props])
 
 
@@ -29,12 +31,15 @@ export const NewPostCombined = (props) => {
     props.history.push("/")
     setTitleField("")
     setLocation(false)
-    props.setTempSite({"title": "", "location":false})
+    setImage(null)
+    props.setTempSite({"title": "", "location":false, "image": null})
   }
-
+  const imageOnChangeHandler = (image) => {
+    setImage(image)
+  }
   const confirmPost = (event) => {
     event.preventDefault()
-    console.log("creating new post")
+    //console.log("creating new post")
 
     if(titleField.length < 5){
       props.notify(props.settings.strings["title_length"], true, 5)
@@ -45,13 +50,15 @@ export const NewPostCombined = (props) => {
 
       return
     }
+  
 
-    props.createSite({projectId:props.projects.active.id, title:titleField, location:location})
+    props.createSite({projectId:props.projects.active.id, title:titleField, location:location, image: image})
 
     props.notify(`"${titleField}" ${props.settings.strings["created"]}`, false, 5)
     setTitleField("")
     setLocation(false)
-    props.setTempSite({"title": "", "location":false})
+    setImage(null)
+    props.setTempSite({"title": "", "location":false, "image": null})
 
     props.history.push("/")
 
@@ -89,6 +96,7 @@ export const NewPostCombined = (props) => {
 	  <p className="normalText textleft">{props.settings.strings["give_name_for_location"]}</p>
           <input name="title" id="titleField" className="input" placeholder={props.settings.strings["name"]} maxLength="100" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>
           <div className="inputFocusLine"/>
+          <ImageUpload change={imageOnChangeHandler}/>
         </div>
         <div className="postFormButtonContainer">
           <button className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>

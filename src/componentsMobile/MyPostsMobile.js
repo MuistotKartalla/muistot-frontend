@@ -20,19 +20,18 @@ export const MyPostsMobile = (props) => {
   Out of focus click closes the pop up.
   */
 
-  const posts = props.posts.filter(post => post.author === props.user.username)
-  console.log(posts)
+  const posts = props.posts.filter(post => post.own === true)
+  //console.log(posts)
 
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
+    /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }
+  }*/
 
 
   const onPostClick = (post) => {
     //event handler for post marker clicks. Routes to post view.
-    console.log(`Clicked post: ${post}`, post)
+    //console.log(`Clicked post: ${post}`, post)
     props.history.push(`/post-view/${post.id}/`)
   }
   if(posts && posts.length > 0){
@@ -56,7 +55,7 @@ export const MyPostsMobile = (props) => {
               <div className="postListItemInfo">
                 <h2 className="postListTitle">{post.title}</h2>
                 <p className="postListText">{post.author}</p>
-                <p className="postListText">{getDateFromUnixStamp(post.date)}</p>
+                
               </div>
             </li>
           )}

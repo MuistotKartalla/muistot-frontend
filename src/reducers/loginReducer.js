@@ -3,12 +3,15 @@ import * as loginService from "../services/login"
 import {sendVerifyLink as svlService} from "../services/email"
 import axios from 'axios'
 import {log} from "../services/settings";
+import * as userService from "../services/user"
 
 const LOGIN = "LOGIN"
 const LOGOUT = "LOGOUT"
+const LOGOUTS = "LOGOUTS"
 const INIT_USER = "INIT_USER"
 const RENEW_EXP = "RENEW_EXP"
 const RENEW_LINK = "RENEW_LINK"
+
 
 const loginReducer = (state = null, action) => {
     // Different action types defined here. returned value will be set as redux state.
@@ -17,12 +20,14 @@ const loginReducer = (state = null, action) => {
             return action.data
         case LOGOUT:
             return null
+        case LOGOUTS:
+            return null    
         case INIT_USER:
             return action.data
         case RENEW_EXP:
             return action.data
         case RENEW_LINK:
-            return null
+            return null  
         default:
             return state
     }
@@ -68,14 +73,35 @@ export const logout = (notify, notifymsg) => {
     }
 }
 
-export const initLoggedUser = (user) => {
-    //just a way to init logged user from outside the reducer with for example value from localstorage.
-    return (dispatch) => {
+export const logoutS = (notify) => {
+    //remove user from state, localstorage and remove all tokens from services.
+    return (dispatch) => {try{
+        delete axios.defaults.headers.common["Authorization"];
+        window.localStorage.removeItem('ChimneysGoToken')
+        dispatch({
+            type: LOGOUTS,
+            data: null
+        })}catch(e){
+            notify(e.response['data']['error'] + ": " + e.response['data']['msg'], false, 5)
+        }
+    }
+}
+
+
+
+export const initLoggedUser = (user) =>{
+    return async (dispatch) => {
+        const activeUser = await userService.getUser()
+        let currentUser = null
+        if(user){
+            currentUser = activeUser
+        }
         dispatch({
             type: INIT_USER,
-            data: user
-
+            data: currentUser
         })
+        
+      
     }
 }
 

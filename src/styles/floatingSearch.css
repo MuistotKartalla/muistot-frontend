@@ -78,7 +78,7 @@
 }
 
 
-@media screen and (min-height: 450px) and (max-height: 700px) {
+@media screen and (max-height: 700px) {
 
   .searchResultsContainer{
     max-height:300px ;

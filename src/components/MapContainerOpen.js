@@ -83,15 +83,13 @@ const MapContainerOpen = (props) => {
     //hook for initializing state variable posts. And sets map position to user location if location access.
     if(props.userLocation !== userLocation && userLocation !== null){
       //triggers every 5 sec on firefox, but not on chrome???
-      console.log("updating user location to redux state:", userLocation)
-      console.log(props.userLocation, userLocation, props.userLocation === userLocation)
       props.updateUserLocation(userLocation)
     }
     if(props.posts !== posts){
       setPosts(props.posts)
     }
     if(props.mapLocation !== null){
-      console.log("setting map to location")
+      //console.log("setting map to location")
       setZoom(14)
       setPosition(props.mapLocation)
       props.updateMapLocation(null)
@@ -102,15 +100,16 @@ const MapContainerOpen = (props) => {
 
   const onPostClick = (post) => {
     //event handler for post marker clicks. Routes to post view.
-    console.log(`Clicked post: ${post}`, post)
+    //console.log(`Clicked post: ${post}`, post)
     props.history.push(`/post-view/${post.id}/`)
     setFollowUser(false)
     setPosition(post.location)
-
+    setTempMarker(null)
   }
 
 
   const leftClick = (event) => {
+    setFollowUser(false)
     if(props.user !== null) {
       if (!tempMarker) {
         setPosition(event.latlng)
@@ -127,7 +126,7 @@ const MapContainerOpen = (props) => {
   const userClick = () => {
     //when user avatar clicked the map centers to user and followUser is activated.
     if(!followUser){
-      console.log("Following User")
+      //console.log("Following User")
       setFollowUser(true)
       props.notify(props.settings.strings["user_follow"], false, 5)
     }
@@ -137,7 +136,7 @@ const MapContainerOpen = (props) => {
   const dragEvent = (event) => {
     //if followUser is active, disable it.
     if(followUser){
-      console.log("Disabling Follow User")
+      //console.log("Disabling Follow User")
       setFollowUser(false)
       setTempMarker(null)
     }
@@ -148,6 +147,7 @@ const MapContainerOpen = (props) => {
 
   const rightClick = (event) => {
     setPosition(event.latlng)
+    setFollowUser(false)
   }
 
 
@@ -156,7 +156,7 @@ const MapContainerOpen = (props) => {
     if(props.user !== null) {
       const tempSite = {...props.tempSite}
       tempSite.location = tempMarker
-      console.log(tempSite)
+      //console.log(tempSite)
       props.setTempSite(tempSite)
       props.history.push("/new-post/")
     }else{
@@ -169,7 +169,7 @@ const MapContainerOpen = (props) => {
 
   const toListView = (event) => {
     event.preventDefault()
-    console.log("to list view")
+    //console.log("to list view")
     props.history.push("/list-view/"+props.posts[0].id)
   }
 
@@ -180,7 +180,7 @@ const MapContainerOpen = (props) => {
 
   const scrollListener = (event) => {
     //dunno if needed updates the state for the zoom level.
-    console.log(`Setting zoom to ${event.target._zoom}`)
+    //console.log(`Setting zoom to ${event.target._zoom}`)
     setZoom(event.target._zoom)
     setTempMarker(null)
   }
@@ -196,15 +196,14 @@ const MapContainerOpen = (props) => {
           <Marker key={index} position={element.location} icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} onClick={() => onPostClick(element)}>
           </Marker>
         )}
-        {userLocation !== null? props.currentProject.id !== "piiput"? 
+        {userLocation !== null? 
           <Marker position={userLocation} icon={userIcon} onClick={userClick}>
           </Marker>
           :
           <></>
-          :
-          <></>
+         
         }
-        {tempMarker !== null? props.currentProject.id !== "piiput"? 
+        {tempMarker !== null? props.currentProject.title !== "project 2"? 
           <Marker position={tempMarker} icon={tempIcon}></Marker>
           :
           <></>
@@ -216,11 +215,13 @@ const MapContainerOpen = (props) => {
         <FloatingSearch history={props.history}/>
       </div>
       <button className="overlayButtonLeft rippleButton" onClick={toListView}>{props.settings.strings["list_view"]}</button>
-      if {tempMarker ?  props.user ? props.currentProject.id !== "piiput"? 
+      {tempMarker ?  props.user ? props.currentProject.title !== "project 2"? !followUser?
       <button className="overlayButtonCenter pulsingButton rippleButton smallButton" onClick={confirmNewLocationMarker}>{props.settings.strings["new_post"]}</button>
       :
       <></>
       : 
+      <></>
+      :
       <></>
       :
       <></>

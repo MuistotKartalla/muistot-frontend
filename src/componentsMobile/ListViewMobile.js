@@ -9,11 +9,14 @@ import {notify} from "../reducers/notificationReducer"
 import "../styles/listView.css"
 import "../styles/postView.css"
 import "../styles/postList.css"
+import "../styles/buttons.css"
+import "../styles/texts.css"
 
 
 
 import {ReactComponent as AddIcon} from "../resources/add_circle.svg"
 import {ReactComponent as MapViewIcon} from "../resources/map_view_icon.svg"
+import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
 import {getImageURL} from "../services/images";
 
 
@@ -38,23 +41,21 @@ export const ListViewMobile = (props) => {
     props.history.push(`/post-view/${post.id}`)
   }
 
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
+    /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }
+  }*/
 
   const toMapView = (event) => {
     event.preventDefault()
-
     props.history.push("/")
   }
   const newPostClick = (event) => {
     //New post onClick event handler.
     event.preventDefault()
-    console.log("Adding new post")
+    //console.log("Adding new post")
     if(props.user !== null){
-      console.log("Adding new post")
+      //console.log("Adding new post")
       props.history.push("/new-post/")
     }else{
       //if not logged in, redirect to login page
@@ -67,6 +68,14 @@ export const ListViewMobile = (props) => {
   return (
 
     <div className="postListContainerMobile">
+      <div className="postTitleContainerMobile">
+      <button className="mobileButtonContainer">
+        <ReturnIcon className="mobileIcon" onClick={toMapView}/>
+      </button>
+      <div className="postTitleHeader">
+      <h1 className="postTitleTextMobile">{props.settings.strings["list_view"]}</h1>
+      </div>
+      </div>
       <div className="postListContainerInner">
         <ul className="postSearchList">
           {posts.map((post,index) =>
@@ -81,9 +90,13 @@ export const ListViewMobile = (props) => {
           )}
         </ul>
       </div>
+      {props.currentProject.title !== "project 2"?
       <button className="mobileNewButton" onClick={newPostClick}>
         <AddIcon className="mobileIconSecondary"/>
       </button>
+      :
+      <></>}
+
       <button className="mobileListViewButton" onClick={toMapView}>
         <MapViewIcon className="mobileIconSecondary"/>
       </button>
@@ -100,6 +113,7 @@ const mapStateToProps = (state) => {
     user: state.user,
     settings: state.settings,
     posts: state.posts,
+    currentProject: state.projects.active
   }
 }
 

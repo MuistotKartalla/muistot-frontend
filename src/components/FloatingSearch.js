@@ -4,6 +4,8 @@ import {connect} from "react-redux"
 import useComponentVisible from "../hooks/OutsideClick"
 
 import "../styles/floatingSearch.css"
+import "../styles/inputs.css"
+
 
 import PostList from "./PostList"
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
@@ -39,8 +41,8 @@ export const FloatingSearch = (props) => {
   }
 
   const onSearchValueChange = (event) => {
-    console.log("onSearchValueChange")
-    console.log(event.target.value)
+    //console.log("onSearchValueChange")
+    //console.log(event.target.value)
     event.preventDefault()
     setSearchValue(event.target.value)
     const time = new Date().getTime()
@@ -56,17 +58,17 @@ export const FloatingSearch = (props) => {
   }
   const callSearch = (searchTerm) => {
     //TODO
-    console.log("Calling search with term", searchTerm )
+    //console.log("Calling search with term", searchTerm )
   }
 
   const onItemClick = (post) => {
-    console.log("onItemClick")
+    //console.log("onItemClick")
     setIsComponentVisible(false)
     props.history.push(`/post-view/${post.id}/`)
   }
 
-  console.log("Hakunäkymä")
-  console.log(props)
+  //console.log("Hakunäkymä")
+  //console.log(props)
 
   if(!isComponentVisible){
     return(

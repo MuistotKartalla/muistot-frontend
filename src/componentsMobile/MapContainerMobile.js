@@ -70,34 +70,32 @@ const MapContainerMobile = (props) => {
 
   //TEMP solution since I don't know how to access redux state from location hook directly
   //updates user state to redux from here, should find a better way, causes extra render.
+
   if(props.userLocation !== userLocation && userLocation !== null){
-    console.log("updating user location to redux state")
     props.updateUserLocation(userLocation)
   }
 
   useEffect(() => {
     //hook for initializing state variable posts. And sets map position to user location if location access.
-    console.log("initing map")
     if(props.posts !== posts){
       setPosts(props.posts)
     }
-    if(followUser){
-      console.log("centering map to user location")
-      setPosition(userLocation)
-    }
 
     if(props.mapLocation !== null){
-      console.log("setting map to location")
+      //console.log("setting map to location")
+      setZoom(14)
       setPosition(props.mapLocation)
       props.updateMapLocation(null)
     }
-  }, [props, posts, followUser, userLocation])
+
+  }, [props, posts, followUser,userLocation ])
+
 
 
 
   const onPostClick = (post) => {
     //event handler for post marker clicks. Routes to post view.
-    console.log(`Clicked post: ${post}`, post)
+    //console.log(`Clicked post: ${post}`, post)
     props.history.push(`/post-view/${post.id}/`)
     setFollowUser(false)
     setPosition(post.location)
@@ -106,14 +104,17 @@ const MapContainerMobile = (props) => {
 
   const leftClick = (event) => {
     //unfocus click or logo click doesn't reset TempMarker.
+    setFollowUser(false)
     if(props.history.location.pathname === "/select-location/"){
       setTempMarker(event.latlng)
       setPosition(event.latlng)
     }
+    else{setPosition(event.latlng)}
   }
 
   const rightClick = (event) => {
     setPosition(event.latlng)
+    setFollowUser(false)
   }
 
 
@@ -122,7 +123,7 @@ const MapContainerMobile = (props) => {
 
     const tempSite = {...props.tempSite}
     tempSite.location = tempMarker
-    console.log(tempSite)
+    //console.log(tempSite)
     props.setTempSite(tempSite)
     props.history.push("/new-post/")
     setTempMarker(null)
@@ -130,15 +131,16 @@ const MapContainerMobile = (props) => {
 
   const toListView = (event) => {
     event.preventDefault()
-    console.log("Adding new post")
+    //console.log("to list view")
     props.history.push("/list-view/")
   }
+
   const newPostClick = (event) => {
     //New post onClick event handler.
     event.preventDefault()
-    console.log("Adding new post")
+    //console.log("Adding new post")
     if(props.user !== null){
-      console.log("Adding new post")
+      //console.log("Adding new post")
       props.history.push("/new-post/")
     }else{
       //if not logged in, redirect to login page
@@ -150,7 +152,7 @@ const MapContainerMobile = (props) => {
   const userClick = () => {
     //when user avatar clicked the map centers to user and followUser is activated.
     if(!followUser){
-      console.log("Following User")
+      //console.log("Following User")
       setFollowUser(true)
       props.notify(props.settings.strings["user_follow"], false, 5)
     }
@@ -160,15 +162,15 @@ const MapContainerMobile = (props) => {
   const dragEvent = (event) => {
     //if followUser is active, disable it.
     if(followUser){
-      console.log("Disabling Follow User")
+      //console.log("Disabling Follow User")
       setFollowUser(false)
     }
-    setPosition(event.latlng)
+    setPosition(event.target.getCenter())
   }
 
   const scrollListener = (event) => {
     //dunno if needed updates the state for the zoom level.
-    console.log(`Setting zoom to ${event.target._zoom}`)
+    //console.log(`Setting zoom to ${event.target._zoom}`)
     setZoom(event.target._zoom)
   }
   return(
@@ -183,7 +185,7 @@ const MapContainerMobile = (props) => {
          <Marker key={index} position={element.location} icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} onClick={() => onPostClick(element)}>
           </Marker>
         )}
-        {userLocation !== null?
+        {userLocation !== null? 
           <Marker position={userLocation} icon={userIcon} onClick={userClick}>
           </Marker>
           :
@@ -200,17 +202,21 @@ const MapContainerMobile = (props) => {
       <div className="floatingSearchContainerMapMobile">
         <FloatingSearch history={props.history}/>
       </div>
-      {props.history.location.pathname !== "/select-location/"?
+      {props.history.location.pathname !== "/select-location/"? 
         <div>
-          <button className="mobileListViewButton" onClick={toListView}>
-            <ListViewIcon className="listIcon"/>
-          </button>
+      {props.currentProject.title !== "project 2"?     
           <button className="mobileNewButton" onClick={newPostClick}>
             <AddIcon className="addIcon"/>
           </button>
+        :
+        <></>
+        }
+          <button className="mobileListViewButton" onClick={toListView}>
+            <ListViewIcon className="listIcon"/>
+          </button>
         </div>
         :
-        tempMarker === null?
+        tempMarker === null? 
           <button className="overlayButtonRight rippleButton" onClick={newPostClick}>{props.settings.strings["no_location_selected"]}</button>
           :
           <button className="overlayButtonRight pulsingButton rippleButton" onClick={confirmNewLocationMarker}>{props.settings.strings["confirm_location"]}</button>
@@ -228,7 +234,8 @@ const mapStateToProps = (state) => {
     settings: state.settings,
     posts: state.posts,
     user: state.user,
-    mapLocation: state.mapLocation
+    mapLocation: state.mapLocation,
+    currentProject: state.projects.active
 
   }
 }

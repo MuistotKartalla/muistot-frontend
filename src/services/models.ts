@@ -27,6 +27,7 @@ export interface Comment {
     project?: string
     site?: string
     memory?: number
+    own?: boolean
 }
 
 export interface Memory {
@@ -40,6 +41,7 @@ export interface Memory {
     waiting_approval?: boolean
     comments_count: number
     comments: Comment[]
+    own?: boolean
 }
 
 export interface Site {
@@ -51,6 +53,7 @@ export interface Site {
     waiting_approval?: boolean
     memories_count: number
     memories: Memory[]
+    own?: boolean
 }
 
 export interface Project {
@@ -79,6 +82,11 @@ export interface Register {
     password: string
 }
 
+export interface User{
+    username: string
+    email: string
+}
+
 export interface OldProject {
     id: string
     title: string
@@ -105,6 +113,8 @@ export interface OldSite {
     muistoja: number
     location: OldLocation
     projectId: string
+    waiting_approval?: boolean
+    own?: boolean
    
 }
 
@@ -115,6 +125,8 @@ export interface OldMemory {
     image: string
     search: string
     author?: string
+    own?: boolean
+    waiting_approval?: boolean
 }
 
 export interface Image {
@@ -128,6 +140,8 @@ export interface OldMemoryOutbound {
     image: Image
     search: string
     author?: string
+    own?: boolean
+    waiting_approval?: boolean
 }
 
 export function convONP(o: OldProject): Project {
@@ -140,7 +154,9 @@ export function convONP(o: OldProject): Project {
             description: o.contentDescription
         },
         anonymous_posting: o.visitorPosting,
-        image: o.image
+        image: o.image,
+        admins: o.moderators || []
+
     } as Project
 }
 
@@ -171,7 +187,9 @@ export function convNOM(o: Memory): OldMemory {
         story: o.story,
         image: o.image || 'placeholder.jpg',
         search: o.title,
-        author: o.user
+        author: o.user,
+        own: o.own,
+        waiting_approval: o.waiting_approval
     }
 }
 
@@ -189,7 +207,8 @@ export function convONS(o: OldSite): Site {
             lon: o.location.lng
         },
         image: o.image,
-       
+        waiting_approval: o.waiting_approval,
+        own: o.own
         
     } as Site
 }
@@ -209,8 +228,11 @@ export function convNOS(project: string, o: Site): OldSite {
         },
         search: o.info.name,
         projectId: project,
+        waiting_approval: o.waiting_approval,
+        own: o.own
     }
 }
+
 
 export interface SearchParams {
     location?: Location

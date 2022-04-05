@@ -15,7 +15,7 @@ export const LoginForm = (props) => {
 
     const cancelClick = (event) => {
         event.preventDefault()
-        props.history.goBack()
+        props.history.push("/")
     }
 
     const someFail = () => {
@@ -51,7 +51,7 @@ export const LoginForm = (props) => {
                     clientId="472567314178-p1qosj4m14piq95sn4ef35frp2i5bsgm.apps.googleusercontent.com"
                     buttonText="Login With Google"
                     onSuccess={responseGoogle}
-                    onFailure={e => console.log(e)}
+                    onFailure={e => //console.log(e)}
                     cookiePolicy={'single_host_origin'}
                 />
                 <FacebookLogin
@@ -72,9 +72,10 @@ export const LoginForm = (props) => {
                 setLoginSuccessful(true);
             }}>
                 <div className="inputContainer">
-                    <input id="email-input-field-0" className="inputLogIn" placeholder={props.settings.strings["email"]}
-                           maxLength="32"/>
+                    <input id="email-input-field-0" className="inputLogIn" type="email" placeholder={props.settings.strings["email"]}
+                           maxLength="32" required/>
                     <div className="inputFocusLine"/>
+                    <div className="infoText">{props.settings.strings["login_info"]}</div>
                 </div>
                 <div className="postFormButtonContainer">
                     <button type="submit"

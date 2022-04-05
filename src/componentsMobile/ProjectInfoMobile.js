@@ -7,7 +7,7 @@ import "../styles/projectInfo.css"
 import "../styles/containers.css"
 
 import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
-
+import {getImageURL} from "../services/images";
 const ReactMarkdown = require('react-markdown')
 
 export const ProjectInfoMobile = (props) => {
@@ -19,7 +19,7 @@ export const ProjectInfoMobile = (props) => {
 
   useEffect(() => {
     if(!project.title){
-      console.log("no active project")
+      //console.log("no active project")
       setProject(props.projects.active)
     }
 
@@ -28,7 +28,7 @@ export const ProjectInfoMobile = (props) => {
   // const closeClick = (event) => {
   //   //go back to the previous page
   //   event.preventDefault()
-  //   console.log("closebutton clicked")
+  //   //console.log("closebutton clicked")
   //   props.history.goBack()
   // }
 
@@ -43,16 +43,17 @@ export const ProjectInfoMobile = (props) => {
             <h1 className="titleTextMobile">{project.title}</h1>
           </div>
         </div>
+        <div className="projectInfoContentContainer">
         <div className="projectInfoDescriptionContainer normalText">
 		<ReactMarkdown source={project.description} />
         </div>
         <div className="projectInfoImageContainer">
-          <img className="projectInfoImage" src={"/kuvat/" + project.image} alt=""></img>
+        <img className="projectInfoImage" src={getImageURL(project.image)} alt=""></img>
         </div>
         <div className="projectInfoContentDescriptionContainer normalText">
 		<ReactMarkdown source={project.contentDescription} />
         </div>
-
+        </div>
       </div>
     )
   }else{
@@ -63,7 +64,7 @@ export const ProjectInfoMobile = (props) => {
             <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); props.history.goBack()}}/>
           </button>
           <div className="titleHeaderMobile">
-            <h1 className="titleTextMobile">{project.title}</h1>
+            <h1 className="titleTextMobile">{props.settings.strings["project_info"]}</h1>
           </div>
         </div>
       </div>

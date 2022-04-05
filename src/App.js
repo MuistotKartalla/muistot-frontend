@@ -26,6 +26,7 @@ const App = (props) => {
     const [postsInit, setPostsInitialized] = useState(false)
     const [projectsInit, setProjectsInitialized] = useState(false)
     const [settingsInit, setSettingsInitialized] = useState(false)
+    const [userInit, setUserInitialized] = useState(false)
     const isMobile = window.innerWidth <= 500
     // Use local
     axios.defaults.baseURL = "http://localhost:5600"
@@ -55,17 +56,17 @@ const App = (props) => {
     useEffect(() => {
         log("Pääsilmukka aktivoitu");
         log(props)
-
-        const userToken = window.localStorage.getItem('ChimneysGoToken')
+        const userToken = window.localStorage.getItem('ChimneysGoToken')        
         const activeProjectJSON = window.localStorage.getItem("ChimneysGoProject")
         const settingsJSON = {
             language: window.localStorage.getItem("ChimneysGoLanguage"),
             theme: window.localStorage.getItem("ChimneysGoTheme")
         }
 
-        if (userToken) {
+        if (userToken && !userInit) {
             axios.defaults.headers.common['Authorization'] = userToken
             props.initLoggedUser(userToken)
+            setUserInitialized(true)          
         }
 
         if (!settingsInit && settingsJSON) {
@@ -82,7 +83,7 @@ const App = (props) => {
         }
 
         if (!postsInit && props.projects.active && props.projects.active.title) {
-            console.log("Ladataan aktiivisen projektin kohteet...")
+            //console.log("Ladataan aktiivisen projektin kohteet...")
             //Rajattava vain kartalla näkyviin vielä!
             var params = {projectId: props.projects.active.id};
             props.initPosts(params)
@@ -90,7 +91,7 @@ const App = (props) => {
         }
 
         document.title = "Muistot kartalla"
-    }, [props, postsInit, projectsInit, settingsInit]) //Added seconds and minutes
+    }, [props, postsInit, projectsInit, settingsInit,userInit]) //Added seconds and minutes
 
     if (isMobile) {
         return (

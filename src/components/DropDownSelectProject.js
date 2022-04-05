@@ -18,7 +18,7 @@ export const DropDownSelectProject = (props) => {
 
   const toggleVisibility = () => {
 
-    console.log("toggling visibility")
+    //console.log("toggling visibility")
     setIsComponentVisible(!isComponentVisible)
   }
 
@@ -40,7 +40,7 @@ export const DropDownSelectProject = (props) => {
         list.push({string: element.title, onClickHandler: () => {
           props.change(element)
           setIsComponentVisible(!isComponentVisible)
-          console.log(element.title, " clicked")
+          //console.log(element.title, " clicked")
         }
         })
 

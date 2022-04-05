@@ -11,7 +11,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: var(--secondary-color);
+  background: var(--primary-color);
   width: 80%;
   height: 100%;
   z-index: 4;
@@ -66,7 +66,7 @@
 
 .logoTextMobile{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: #03FFFF;
+  color: var(--title-color);
   font-weight: 700;
   font-size: 1.2em;
   margin: auto;
@@ -74,7 +74,7 @@
 
 .mobileMenuButton{
   width: 100%;
-  background: var(--secondary-color);
+  background: var(--primary-color);
   color: var(--secondary-text-color);
   cursor: pointer;
   display: inline-block;

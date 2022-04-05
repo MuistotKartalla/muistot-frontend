@@ -23,22 +23,22 @@ export const PostView = (props) => {
   const [deleteState, setDeleteState] = useState(false)
   //gets the post to show based on the id that is set on the url field.
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
+  //console.log(props) 
   post.uusi = 0
 
-  const getDateFromUnixStamp = (unix) => {
-    //returns date in format dd.mm.yyyy
+    /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }
+  }*/
   const showOnMap = (event) => {
     event.preventDefault()
-    console.log(`Centering Map to ${post.title} coordinates.`)
+    //console.log(`Centering Map to ${post.title} coordinates.`)
     props.updateMapLocation(post.location)
     props.history.push("/")
   }
   const deletePost = (event) => {
     event.preventDefault()
-    console.log("postView deleting post", post.id)
+    //console.log("postView deleting post", post.id)
     props.deletePost(post.id)
     props.history.goBack()
     props.notify(`${props.settings.strings["post"]}: "${post.title}" ${props.settings.strings["delete_success"]}`, false, 5)
@@ -48,19 +48,13 @@ export const PostView = (props) => {
   const closeClick = (event) => {
     //eventhandler for close button
     event.preventDefault()
-    console.log("closeClick")
+    //console.log("closeClick")
     props.history.push("/")
-  }
-
-  const reportClick = (event) => {
-    event.preventDefault()
-    props.history.push(`/post-view/${post.id}/report/`)
   }
 
   const verifyClick = (event) => {
     event.preventDefault()
     props.toggleVerify(post)
-
   }
 
   const twitterShareClick = (event) => {
@@ -78,15 +72,13 @@ export const PostView = (props) => {
 
 // Päivämäärät: <p className="normalTextNoMargin">{getDateFromUnixStamp(post.date)}</p>
 
-
-  console.log(props)
   if(post && props.currentProject.title !== "project 2"){
     //if post is defined return the actual post view else empty div.
-
+    
     return(
       <div className="postViewContainer centerAlignWithPaddingLean">
         <div className="postTitleContainer">
-          {post.verified?
+          {!post.waiting_approval?
             <Verified className="verifiedIcon"/>
             :
             <br/>
@@ -110,7 +102,7 @@ export const PostView = (props) => {
             }
           </div>
           <div className="postButtonsContainer">
-            {props.user !== null?
+          {props.user?
             // multilevel conditional rendering
             // visitor sees no buttons
             // author sees delete button
@@ -118,33 +110,25 @@ export const PostView = (props) => {
             // admin sees delete and verify buttons.
               (props.currentProject.moderators.find(user => user === props.user.username)?
                 <div className="postButtonsContainerInner">
-                  
                   <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
-                  
-             
-                  {post.verified?
-                    <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["unverify"]}</button>
-                    :
+                  {post.waiting_approval?
                     <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["verify"]}</button>
+                    :
+                    <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["unverify"]}</button>
                   }
                 </div>
                 :
-                (props.user.username === post.author? 
+                (post.own === true? 
                   <div className="postButtonsContainerInner">
                     <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   </div>
                   :
-                  (post.verified? props.currentProject.id !== "piiput"?
-                    <div/>
-                    :
-                    <div className="postButtonsContainerInner">
-                      <button className="rippleButton smallButton negativeButton" onClick={reportClick}>{props.settings.strings["report"]}</button>
-                    </div>
-                  : <div/>)
-                 )
+                  <></>
+                )
+
               )
               :
-              <div/>
+              <></>
             }
 
             <button className="rippleButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
@@ -153,17 +137,16 @@ export const PostView = (props) => {
             <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/>
           </div>
         </div>
-        <div className="storyContainer">
-	        <MementoList posts={post} history={props.history}/>
-        </div>
         {deleteState? 
         <div className="postCloseContainer">
             <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button> 
         </div>
         : 
-
         <></>
         }
+        <div className="storyContainer">
+	        <MementoList posts={post} history={props.history}/>
+        </div>
       </div>
     )
   }
@@ -172,7 +155,7 @@ export const PostView = (props) => {
     return(
       <div className="postViewContainer centerAlignWithPaddingLean">
       <div className="postTitleContainer">
-        {post.verified?
+        {!post.waiting_approval?
           <Verified className="verifiedIcon"/>
           :
           <br/>
@@ -231,7 +214,9 @@ const mapDispatchToProps = {
   notify,
   deletePost,
   toggleVerify,
-  updateMapLocation
+  updateMapLocation,
+  
+
 }
 
 export default connect(
