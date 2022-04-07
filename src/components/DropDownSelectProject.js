@@ -37,7 +37,7 @@ export const DropDownSelectProject = (props) => {
         })
 
       }else{
-        list.push({string: element.title, onClickHandler: () => {
+        list.push({string: props.settings.strings[element.id], onClickHandler: () => {
           props.change(element)
           setIsComponentVisible(!isComponentVisible)
           //console.log(element.title, " clicked")
@@ -54,7 +54,7 @@ export const DropDownSelectProject = (props) => {
     return(
       <div className="dropDownSelectHidden" ref={ref}>
         <div className="dropDownSelectCurrentItem" onClick={toggleVisibility}>
-          <span className="activeItemText">{props.active.title}</span> 
+          <span className="activeItemText">{props.settings.strings[props.active.id]}</span> 
           <DropDownIcon className="dropDownIcon"></DropDownIcon>
         </div>
       </div>
@@ -63,7 +63,7 @@ export const DropDownSelectProject = (props) => {
     return(
       <div className="dropDownSelectVisible" ref={ref}>
         <div className="dropDownSelectCurrentItem" onClick={toggleVisibility}>
-          <span className="activeItemText">{props.active.title}</span>
+          <span className="activeItemText">{props.settings.strings[props.active.id]}</span>
           <DropDownIcon className="dropDownIconActive"></DropDownIcon>
         </div>
         <DropDownList items={genListOptions()}/>

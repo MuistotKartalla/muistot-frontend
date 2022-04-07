@@ -204,7 +204,7 @@ const MapContainerMobile = (props) => {
       </div>
       {props.history.location.pathname !== "/select-location/"? 
         <div>
-      {props.currentProject.title !== "project 2"?     
+      {props.currentProject.id !== "parantolat"?     
           <button className="mobileNewButton" onClick={newPostClick}>
             <AddIcon className="addIcon"/>
           </button>

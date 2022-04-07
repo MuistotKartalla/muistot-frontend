@@ -17,6 +17,7 @@ import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
 import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 import {getImageURL} from "../services/images";
+const ReactMarkdown = require('react-markdown')
 
 
 export const PostViewLW = (props) => {
@@ -153,13 +154,10 @@ export const PostViewLW = (props) => {
               <div/>
             }
             <button className="rippleButton" onClick={copyclipboard}>Copy URI</button>
+        {/*             
             <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
-            
+            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>  */}
           </div>
-        </div>
-        <div className="storyContainer">
-          <p className="normalText">{post.story}</p>
         </div>
         {deleteState?
         <div className="postCloseContainer">
@@ -195,8 +193,8 @@ export const PostViewLW = (props) => {
         </div>
         </div>
         
-        <div className="storyContainer" style={{padding: "20px"}}>
-          <p className="normalText">{post.description}</p>
+        <div className="storyContainer normalText" style={{padding:"20px"}}>
+	      	<ReactMarkdown source={post.description} />
         </div>
 
         <div className="postContextContainer">
@@ -210,15 +208,12 @@ export const PostViewLW = (props) => {
           <div className="postButtonsContainer">
 
             <button className="rippleButton" onClick={copyclipboard}>Copy URI</button>
+        {/*             
             <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
+            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>  */}
             
           </div>
         </div>
-        <div className="storyContainer">
-          <p className="normalText">{post.story}</p>
-        </div>
-          
         <div className="postCloseContainer">
           
             

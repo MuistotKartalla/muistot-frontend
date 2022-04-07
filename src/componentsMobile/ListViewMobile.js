@@ -90,7 +90,7 @@ export const ListViewMobile = (props) => {
           )}
         </ul>
       </div>
-      {props.currentProject.title !== "project 2"?
+      {props.currentProject.id !== "parantolat"?
       <button className="mobileNewButton" onClick={newPostClick}>
         <AddIcon className="mobileIconSecondary"/>
       </button>
