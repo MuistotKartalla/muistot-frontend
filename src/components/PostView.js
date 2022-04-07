@@ -10,6 +10,7 @@ import "../styles/postView.css"
 import "../styles/buttons.css"
 import "../styles/texts.css"
 import "../styles/floatingSearch.css"
+import "../styles/projectInfo.css"
 
 import MementoList from "./MementoList"
 import {ReactComponent as Verified} from "../resources/verified.svg"
@@ -18,6 +19,7 @@ import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
 import {ReactComponent as InstagramIcon} from "../resources/instagram_icon.svg"
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 import {getImageURL} from "../services/images";
+const ReactMarkdown = require('react-markdown')
 
 export const PostView = (props) => {
   const [deleteState, setDeleteState] = useState(false)
@@ -72,7 +74,7 @@ export const PostView = (props) => {
 
 // Päivämäärät: <p className="normalTextNoMargin">{getDateFromUnixStamp(post.date)}</p>
 
-  if(post && props.currentProject.title !== "project 2"){
+  if(post && props.currentProject.id !== "parantolat"){
     //if post is defined return the actual post view else empty div.
     
     return(
@@ -132,9 +134,10 @@ export const PostView = (props) => {
             }
 
             <button className="rippleButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
-            <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
-            <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/>
+         {/* 
+          <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
+          <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
+          <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/> */}
           </div>
         </div>
         {deleteState? 
@@ -150,7 +153,7 @@ export const PostView = (props) => {
       </div>
     )
   }
-  if(post && props.currentProject.title === "project 2"){
+  if(post && props.currentProject.id === "parantolat"){
     
     return(
       <div className="postViewContainer centerAlignWithPaddingLean">
@@ -180,14 +183,15 @@ export const PostView = (props) => {
         </div>
         <div className="postButtonsContainer">
           <button className="rippleButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
+         {/* 
           <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
           <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
-          <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/>
+          <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/> */}
         </div>
       </div>
-      <div className="storyContainer">
-        <div className="normalText" style={{padding:"10px"}}>{post.description}</div>
-      </div>
+      <div className="storyContainer normalText" style={{padding:"10px"}}>
+		<ReactMarkdown source={post.description} />
+        </div>
     </div>
     )
   }

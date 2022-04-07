@@ -147,7 +147,9 @@
       "login_or_register": "Login or create an account",
       "login_info": "We'll send a link to your email which lets you login or register to the service.",
       "unverified-posts" : "Unverified Posts",
-      "choose_on_map_mobile": "First choose location"
+      "choose_on_map_mobile": "First choose location",
+      "piiput": "Smokestack Memories",
+      "parantolat": "Sanatoriums"
     },
     "fi":{
       "look_at_mementos": "Katsele tälle kohteelle syötettyjä muistoja",
@@ -292,7 +294,9 @@
       "login_or_register": "Kirjaudu tai luo tili",
       "login_info": "Saat sähköpostiisi linkin jonka avulla voit kirjautua tai rekisteröityä palveluun.",
       "unverified-posts" : "Vahvistamattomat kohteet",
-      "choose_on_map_mobile": "Valitse ensin sijainti"
+      "choose_on_map_mobile": "Valitse ensin sijainti",
+      "piiput": "Piippumuistoja",
+      "parantolat": "Parantolat"
     }
   }
 }

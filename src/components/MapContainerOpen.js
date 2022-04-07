@@ -203,7 +203,7 @@ const MapContainerOpen = (props) => {
           <></>
          
         }
-        {tempMarker !== null? props.currentProject.title !== "project 2"? 
+        {tempMarker !== null? props.currentProject.id !== "parantolat"? 
           <Marker position={tempMarker} icon={tempIcon}></Marker>
           :
           <></>
@@ -215,7 +215,7 @@ const MapContainerOpen = (props) => {
         <FloatingSearch history={props.history}/>
       </div>
       <button className="overlayButtonLeft rippleButton" onClick={toListView}>{props.settings.strings["list_view"]}</button>
-      {tempMarker ?  props.user ? props.currentProject.title !== "project 2"? !followUser?
+      {tempMarker ?  props.user ? props.currentProject.id !== "parantolat"? !followUser?
       <button className="overlayButtonCenter pulsingButton rippleButton smallButton" onClick={confirmNewLocationMarker}>{props.settings.strings["new_post"]}</button>
       :
       <></>

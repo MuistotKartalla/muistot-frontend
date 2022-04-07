@@ -17,6 +17,7 @@ import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
 import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
 import {ReactComponent as InstagramIcon} from "../resources/instagram_icon.svg"
 import {getImageURL} from "../services/images";
+const ReactMarkdown = require('react-markdown')
 
 
 
@@ -67,7 +68,7 @@ export const PostViewMobile = (props) => {
     window.open(`https://instragram.com/sharer/sharer.php?u=${window.location.href}`, "_blank")
   }
 
-  if(post && props.currentProject.title !== "project 2"){
+  if(post && props.currentProject.id !== "parantolat"){
     //if post is defined return the actual post view else empty div.
 
     return(
@@ -98,10 +99,10 @@ export const PostViewMobile = (props) => {
             }
           </div>
           <div className="postButtonsContainer">
-
-            <TwitterIcon className="mobileIconSmall"/>
-            <FacebookIcon className="mobileIconSmall"/>
-            <InstagramIcon className="mobileIconSmall"/>
+         {/* 
+          <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
+          <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
+          <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/> */}
           </div>
         </div>
         <div className="postCloseContainer">
@@ -158,7 +159,7 @@ export const PostViewMobile = (props) => {
       </div>
 )
 }
-if(post && props.currentProject.title === "project 2"){
+if(post && props.currentProject.id === "parantolat"){
     
   return(
     <div className="postViewContainerMobile">
@@ -191,18 +192,19 @@ if(post && props.currentProject.title === "project 2"){
         </div>
         <div className="postButtonsContainer">
           <div className="postButtonsContainerInner">
-            <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
-            <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/>
+         {/* 
+          <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
+          <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
+          <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/> */}
           </div>
         </div>        
       </div>
       <div className="postCloseContainer">
       <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
       </div>
-      <div className="storyContainer">
-        <div className="normalText" style={{padding:"10px"}}>{post.description}</div>
-      </div>
+      <div className="storyContainer normalText" style={{padding:"10px"}}>
+		<ReactMarkdown source={post.description} />
+        </div>
     </div>
   )
 }
