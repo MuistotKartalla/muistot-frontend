@@ -36,7 +36,7 @@ export const ProjectInfo = (props) => {
     return(
       <div className="projectInfoContainer centerAlignWithPadding">
         <div className="postTitleContainer">
-          <h1 className="titleText centerAlignWithPadding">{props.settings.strings[props.active.id]}</h1>
+          <h1 className="titleText centerAlignWithPadding">{props.settings.strings[project.id]}</h1>
           <ClearIcon className="clearIcon" onClick={closeClick}/>
         </div>
         <div className="projectInfoContentContainer">
