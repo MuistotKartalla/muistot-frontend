@@ -87,7 +87,7 @@ export const PostViewLW = (props) => {
 
   
  //console.log(props)
-  if(post && props.currentProject.title !== "project 2"){
+  if(post && props.currentProject.id !== "parantolat"){
     //if post is defined return the actual post view else empty div.
     return(  
       <div className="postViewContainerLW">
@@ -175,7 +175,7 @@ export const PostViewLW = (props) => {
       </div>
     )
   }
-  if(post && props.currentProject.title === "project 2"){
+  if(post && props.currentProject.id === "parantolat"){
     //if post is defined return the actual post view else empty div.
     return(  
       <div className="postViewContainerLW">
