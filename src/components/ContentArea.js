@@ -22,6 +22,7 @@ import ImagelessPosts from "./ImagelessPosts"
 
 
 
+
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
   // Conditional rendering is done with react-router-dom Routes (URL address).
