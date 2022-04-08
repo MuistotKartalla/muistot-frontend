@@ -1,5 +1,5 @@
 import axios from "axios"
-import {convNOM, convNOS, convONM, convONS, OldMemory, OldMemoryOutbound, OldSite, SearchParams} from "./models";
+import {convNOM, convNOS, convONM, convONS, Image, OldMemory, OldMemoryOutbound, OldSite, SearchParams} from "./models";
 import {log} from "./settings";
 import {memories, memory as memoryPath, project, site as sitePath, sites} from "./paths";
 
@@ -81,4 +81,10 @@ export const toggleVerifyMemory = async (project_id: string, site: string, post:
           },
         publish: verify || false
     }
+)
+
+export const ChangeSitePicture = async (project: string, site: string, image: Image) => await sitePath(
+    async (url) => await axios.patch(url, {image:image, _method: 'patch'}),
+    project,
+    site
 )

@@ -17,6 +17,8 @@ import About from "./About"
 import ProjectInfo from "./ProjectInfo"
 import MapContainerOpen from "./MapContainerOpen"
 import UnverifiedPosts from "./UnverifiedPosts"
+import EditPost  from "./EditPost"
+import ImagelessPosts from "./ImagelessPosts"
 
 
 
@@ -55,6 +57,11 @@ const ContentArea = (props) => {
           <NewPostCombined history={history}/>
         </PopUpContainer>
       )}/>
+      <Route path="/edit-post/:id/" render={({match,history}) => (
+        <PopUpContainer history={history}>
+          <EditPost match={match} history={history}/>
+        </PopUpContainer>
+      )}/>
       <Route path="/new-memento/:id/" render={({match,history}) => (
         <PopUpContainer history={history}>
           <NewMemento match={match} history={history}/>
@@ -78,6 +85,11 @@ const ContentArea = (props) => {
       <Route path="/unverified-posts/" render={({history}) => (
         <PopUpContainer history={history}>
           <UnverifiedPosts history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/imageless-posts/" render={({history}) => (
+        <PopUpContainer history={history}>
+          <ImagelessPosts history={history}/>
         </PopUpContainer>
       )}/>
     </div>

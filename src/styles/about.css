@@ -1,11 +1,11 @@
 .aboutContainer{
   z-index: 4;
   background: var(--secondary-color);
-  max-width: 40%;
+  max-width: 50%;
   width: 100%;
   height: auto;
-  max-height: 70%;
-  border-radius: 5px;
+  max-height: 90%;
+  border-radius: 10px;
   margin:auto;
   display: flex;
   flex-direction: column;

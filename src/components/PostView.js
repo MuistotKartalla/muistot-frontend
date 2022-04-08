@@ -2,7 +2,7 @@
 import React, {useState} from "react"
 import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
-import {deletePost, toggleVerify} from "../reducers/postReducer"
+import {deletePost, toggleVerify, changeSitePicture} from "../reducers/postReducer"
 import {updateMapLocation} from "../reducers/mapLocationReducer"
 
 
@@ -20,6 +20,7 @@ import {ReactComponent as InstagramIcon} from "../resources/instagram_icon.svg"
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 import {getImageURL} from "../services/images";
 const ReactMarkdown = require('react-markdown')
+
 
 export const PostView = (props) => {
   const [deleteState, setDeleteState] = useState(false)
@@ -46,12 +47,15 @@ export const PostView = (props) => {
     props.notify(`${props.settings.strings["post"]}: "${post.title}" ${props.settings.strings["delete_success"]}`, false, 5)
 
   }
+  const editPostClick = (postId) =>{
+    props.history.push(`/edit-post/${postId}`)
+  }
 
   const closeClick = (event) => {
     //eventhandler for close button
     event.preventDefault()
     //console.log("closeClick")
-    props.history.push("/")
+    props.history.goBack()
   }
 
   const verifyClick = (event) => {
@@ -118,6 +122,7 @@ export const PostView = (props) => {
                     :
                     <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["unverify"]}</button>
                   }
+                  <button className="rippleButton Button negativeButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_image"]}</button>
                 </div>
                 :
                 (post.own === true? 
@@ -144,9 +149,10 @@ export const PostView = (props) => {
         <div className="postCloseContainer">
             <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button> 
         </div>
-        : 
-        <></>
-        }
+        :
+        <></>}
+  
+        
         <div className="storyContainer">
 	        <MementoList posts={post} history={props.history}/>
         </div>
@@ -219,6 +225,7 @@ const mapDispatchToProps = {
   deletePost,
   toggleVerify,
   updateMapLocation,
+  changeSitePicture
   
 
 }

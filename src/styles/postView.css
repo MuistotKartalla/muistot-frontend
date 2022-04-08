@@ -5,10 +5,10 @@
   width: -moz-available;
   height: -webkit-fill-available;
   height: -moz-available;
-  height: 90%;
+  height: 100%;
   width: 100%;
-  max-width: 600px;
-  max-height: 800px;
+  max-width: calc(50% - 20px);
+  max-height: calc(90% - 20px);;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -26,6 +26,7 @@
   display: flex;
   overflow-y: auto;
   overflow-x: hidden;
+  border-radius: 10px;
 }
 
 .postViewContainerMobile{
@@ -101,7 +102,7 @@
   height: -moz-available;
   max-width: 100%;
   max-height: 50%;
-  margin: 10px;
+  padding: 10px;
   display: flex;
 }
 

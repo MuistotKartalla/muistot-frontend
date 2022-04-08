@@ -9,14 +9,14 @@ import {getImageURL} from "../services/images";
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 
 
-export const UnverfiedPosts = (props) => {
+export const ImagelessPosts = (props) => {
   /*
-  Component that shows list of all posts that are waiting approval.
+  Component that shows list of all posts that don't have a picture.
   Clicking a post in the list redirects to the post page.
   Out of focus click closes the pop up.
   */
 
-  const posts = props.posts.filter(post => post.waiting_approval === true)
+  const posts = props.posts.filter(post => post.image === 'placeholder.jpg')
 
   const closeClick = (event) => {
       //go back to the previous page
@@ -42,7 +42,7 @@ export const UnverfiedPosts = (props) => {
     return(
       <div className="myPostsContainer centerAlignWithPadding">
         <div className="postTitleContainer">
-        <h1 className="titleText centerAlignWithPadding">{props.settings.strings["unverified-posts"]}</h1>
+        <h1 className="titleText centerAlignWithPadding">{props.settings.strings["imageless_posts"]}</h1>
         <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
         </div>
         <ul className="myPostsList">
@@ -64,7 +64,7 @@ export const UnverfiedPosts = (props) => {
   //if user doesn't have any posts, tell them
   return(
     <div className="myPostsContainer centerAlignWithPadding">
-      <h1 className="headerText">{props.settings.strings["unverified-posts"]}</h1>
+      <h1 className="headerText">{props.settings.strings["imageless_posts"]}</h1>
       <ul className="myPostsList">
         <li>
           <h2 className="headerText">{props.settings.strings["empty_list"]}</h2>
@@ -95,4 +95,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UnverfiedPosts)
+)(ImagelessPosts)

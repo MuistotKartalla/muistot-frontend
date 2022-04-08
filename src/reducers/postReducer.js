@@ -132,4 +132,27 @@ export const toggleVerifyMemento = (site, memento) => {
             }
     }
 }
+
+export const  changeSitePicture = (site, image) => {
+    // sends verify request to backend,
+    // backend returns the modified object,
+    // it is then updated to redux state
+    // post = {...post, verify: !post.verify}
+    return async dispatch => {
+        try {
+            const response = await postService.ChangeSitePicture(
+                getActiveProject(),
+                site.id,
+                image
+            )
+            dispatch({
+                type: EDIT_POST,
+                data: response.data
+            })
+        } catch (exeption) {
+            log(exeption)
+        }
+    }
+}
+
 export default postReducer

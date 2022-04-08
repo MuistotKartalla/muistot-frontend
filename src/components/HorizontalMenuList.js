@@ -61,6 +61,14 @@ const HorizontalMenuList = (props) => {
     }
   }
   
+  const ImagelessPostsClick = (event) => {
+    event.preventDefault()
+    props.history.push("/imageless-posts/")
+    if(isComponentVisible){
+      toggleDDV()
+    }
+  }
+
   const logoutClick = (event) => {
     event.preventDefault()
     //console.log("Logging out")
@@ -108,7 +116,7 @@ const HorizontalMenuList = (props) => {
           <div className="accountDropDownContainer">
             
             {props.currentProject.moderators.find(user => user === props.user.username)?
-              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick},{string:props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
                 <p className="userNameText">{props.user.username}</p>
                 <ThemeToggleSwitch/>
               </DropDownList>

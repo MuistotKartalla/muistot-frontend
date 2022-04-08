@@ -59,7 +59,7 @@ export const NewPostCombined = (props) => {
     setLocation(false)
     setImage(null)
     props.setTempSite({"title": "", "location":false, "image": null})
-
+    console.log({projectId:props.projects.active.id, title:titleField, location:location, image: image})
     props.history.push("/")
 
 

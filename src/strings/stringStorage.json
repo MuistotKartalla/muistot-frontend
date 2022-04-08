@@ -149,7 +149,9 @@
       "unverified-posts" : "Unverified Posts",
       "choose_on_map_mobile": "First choose location",
       "piiput": "Smokestack Memories",
-      "parantolat": "Sanatoriums"
+      "parantolat": "Sanatoriums",
+      "change_image": "Change Image",
+      "imageless_posts": "Imageless Posts"
     },
     "fi":{
       "look_at_mementos": "Katsele tälle kohteelle syötettyjä muistoja",
@@ -296,7 +298,9 @@
       "unverified-posts" : "Vahvistamattomat kohteet",
       "choose_on_map_mobile": "Valitse ensin sijainti",
       "piiput": "Piippumuistoja",
-      "parantolat": "Parantolat"
+      "parantolat": "Parantolat",
+      "change_image": "Vaihda kuva",
+      "imageless_posts": "Kuvattomat kohteet"
     }
   }
 }
