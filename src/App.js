@@ -21,6 +21,7 @@ import ContentArea from "./components/ContentArea"
 import ContentAreaMobile from "./componentsMobile/ContentAreaMobile"
 import NotificationMobile from "./componentsMobile/NotificationMobile"
 import {log} from "./services/settings";
+import {EMAIL_ONLY_EXCHANGE} from "./services/paths";
 
 const App = (props) => {
     const [postsInit, setPostsInitialized] = useState(false)
@@ -35,7 +36,7 @@ const App = (props) => {
     if (whash && whash.startsWith("#email-login:")) {
         const query = whash.replace("#email-login:", "").split("&");
         (async () => {
-            const token = (await axios.post("/login/email-only/exchange", null, {
+            const token = (await axios.post(EMAIL_ONLY_EXCHANGE, null, {
                     params: {
                         user: query.filter((o, _, __) => o.startsWith("user")).map(o => o.split("=")[1])[0],
                         token: query.filter((o, _, __) => o.startsWith("token")).map(o => o.split("=")[1])[0]

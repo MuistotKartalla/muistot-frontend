@@ -8,6 +8,7 @@ import "../styles/loginForm.css"
 import GoogleLogin from "react-google-login"
 import FacebookLogin from "react-facebook-login"
 import axios from "axios";
+import {EMAIL_ONLY_LOGIN} from "../services/paths";
 
 export const LoginForm = (props) => {
 
@@ -68,7 +69,7 @@ export const LoginForm = (props) => {
             <form className="loginForm" name="loginForm" onSubmit={e => {
                 e.preventDefault();
                 const email = document.getElementById("email-input-field-0").value;
-                (async () => await axios.post('/login/email-only', null, {params: {email: email}}))();
+                (async () => await axios.post(EMAIL_ONLY_LOGIN, null, {params: {email: email}}))();
                 setLoginSuccessful(true);
             }}>
                 <div className="inputContainer">
