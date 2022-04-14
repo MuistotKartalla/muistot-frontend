@@ -21,8 +21,8 @@ const initialState = {
 
 const changeThemeInCSS = (theme) => {
     if (theme === "dark"){
-        document.documentElement.style.setProperty("--primary-color", "#000000")
-        document.documentElement.style.setProperty("--secondary-color", "#202124")
+        document.documentElement.style.setProperty("--primary-color", "#181818")
+        document.documentElement.style.setProperty("--secondary-color", "#202020")
         document.documentElement.style.setProperty("--primary-text-color", "#ffffff")
         document.documentElement.style.setProperty("--secondary-text-color", "#a0a0a0")
         document.documentElement.style.setProperty("--accent-color", "#383838")
@@ -35,7 +35,7 @@ const changeThemeInCSS = (theme) => {
     }
     else{
         document.documentElement.style.setProperty("--primary-color", "#ffffff")
-        document.documentElement.style.setProperty("--secondary-color", "#e0e0e0")
+        document.documentElement.style.setProperty("--secondary-color", "#f9f9f9")
         document.documentElement.style.setProperty("--primary-text-color", "#000000")
         document.documentElement.style.setProperty("--secondary-text-color", "#505050")
         document.documentElement.style.setProperty("--accent-color", "#ffffff")

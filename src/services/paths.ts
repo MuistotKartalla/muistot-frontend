@@ -6,6 +6,7 @@ const SITES = 'sites'
 const MEMORIES = 'memories'
 const COMMENTS = 'comments'
 const USER = 'me'
+const USERNAME = 'username'
 
 const toUrl = (parts: string[]): string => ROOT + parts.join('/')
 
@@ -86,13 +87,13 @@ const project = async <T>(
 const login = async <T>(pathConsumer: ((url: string) => Promise<T>)) => await pathConsumer(toUrl([ LOGIN]))
 const register = async <T>(pathConsumer: ((url: string) => Promise<T>)) => await pathConsumer(toUrl([ REGISTER]))
 const user = async <T>(pathConsumer: ((url: string) => Promise<T>)) => await pathConsumer(toUrl([ USER]))
-
+const username = async <T>(pathConsumer: ((url: string) => Promise<T>)) => await pathConsumer(toUrl([ USER, USERNAME]))
 export {
     comments, comment,
     memories, memory,
     sites, site,
     projects, project,
     login, register,
-    user
+    user, username
 }
 

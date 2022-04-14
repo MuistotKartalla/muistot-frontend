@@ -19,6 +19,7 @@ import MapContainerOpen from "./MapContainerOpen"
 import UnverifiedPosts from "./UnverifiedPosts"
 import EditPost  from "./EditPost"
 import ImagelessPosts from "./ImagelessPosts"
+import UserSettings  from "./UserSettings"
 
 
 
@@ -92,6 +93,11 @@ const ContentArea = (props) => {
           <ImagelessPosts history={history}/>
         </PopUpContainer>
       )}/>
+      <Route path="/usersettings" render={({history}) => (
+        <PopUpContainer history={history}>
+          <UserSettings history={history}/>
+        </PopUpContainer>
+      )}/>      
     </div>
 
   )
