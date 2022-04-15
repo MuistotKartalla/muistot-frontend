@@ -21,7 +21,7 @@ import ContentArea from "./components/ContentArea"
 import ContentAreaMobile from "./componentsMobile/ContentAreaMobile"
 import NotificationMobile from "./componentsMobile/NotificationMobile"
 import {log} from "./services/settings";
-import {EMAIL_ONLY_EXCHANGE} from "./services/paths";
+import {checkLocation} from "./services/initialurl";
 
 const App = (props) => {
     const [postsInit, setPostsInitialized] = useState(false)
@@ -32,27 +32,7 @@ const App = (props) => {
     // Use local
     axios.defaults.baseURL = "http://localhost:5600"
 
-    const whash = window.location.hash
-    if (whash && whash.startsWith("#email-login:")) {
-        const query = whash.replace("#email-login:", "").split("&");
-        (async () => {
-            const token = (await axios.post(EMAIL_ONLY_EXCHANGE, null, {
-                    params: {
-                        user: query.filter((o, _, __) => o.startsWith("user")).map(o => o.split("=")[1])[0],
-                        token: query.filter((o, _, __) => o.startsWith("token")).map(o => o.split("=")[1])[0]
-                    }
-                })
-            ).headers.authorization
-            if (token) {
-                window.localStorage.setItem('ChimneysGoToken', token)
-            }
-        })();
-        if (window.history.replaceState) {
-            window.history.replaceState(null, null, "#");
-        } else {
-            window.location.hash = "#";
-        }
-    }
+    checkLocation(async () => console.log("User was not verified"))
 
     useEffect(() => {
         log("Pääsilmukka aktivoitu");

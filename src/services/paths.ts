@@ -8,6 +8,7 @@ const COMMENTS = 'comments'
 const USER = 'me'
 export const EMAIL_ONLY_LOGIN = '/auth/email'
 export const EMAIL_ONLY_EXCHANGE = '/auth/email/exchange'
+export const VERIFY_USER_EXCHANGE = '/auth/confirm'
 
 const toUrl = (parts: string[]): string => ROOT + parts.join('/')
 
