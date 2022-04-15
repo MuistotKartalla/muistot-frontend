@@ -15,6 +15,10 @@ export const getUser = async(): Promise<User> =>
 
 export const changeUsername = async (username:string) => 
     await usernamePath(
-    async (url) => await axios.post(url,null,{params:{username:username}})
+    async (url) => { const token = (await axios.post(url,null,{
+        params:{username:username}
+    })
+    ).headers.authorization
+    if (token){window.localStorage.setItem('ChimneysGoToken', token)}}
 )
 

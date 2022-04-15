@@ -1,12 +1,14 @@
 const ROOT = ''
-const LOGIN = 'login'
-const REGISTER = 'register'
+const LOGIN = '/auth/login'
+const REGISTER = '/auth/register'
 const PROJECTS = 'projects'
 const SITES = 'sites'
 const MEMORIES = 'memories'
 const COMMENTS = 'comments'
 const USER = 'me'
 const USERNAME = 'username'
+export const EMAIL_ONLY_LOGIN = '/auth/email'
+export const EMAIL_ONLY_EXCHANGE = '/auth/email/exchange'
 
 const toUrl = (parts: string[]): string => ROOT + parts.join('/')
 
