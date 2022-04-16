@@ -11,6 +11,7 @@ const LOGOUTS = "LOGOUTS"
 const INIT_USER = "INIT_USER"
 const RENEW_EXP = "RENEW_EXP"
 const RENEW_LINK = "RENEW_LINK"
+const EDIT_USER = "EDIT_USER"
 
 
 const loginReducer = (state = null, action) => {
@@ -27,7 +28,9 @@ const loginReducer = (state = null, action) => {
         case RENEW_EXP:
             return action.data
         case RENEW_LINK:
-            return null  
+            return null
+        case EDIT_USER:
+            return state.filter(user => user.id !== action.data)      
         default:
             return state
     }
@@ -122,5 +125,24 @@ export const sendverifylink = (email, notify) => {
         }
     }
 }
+
+export const changeUsernameReducer = (username) => {
+    // sends verify request to backend,
+    // backend returns the modified object,
+    // it is then updated to redux state
+    return async dispatch => {
+            try {
+                const response = await 
+                userService.changeUsername(username)
+                dispatch({
+                    type: EDIT_USER,
+                    data: response.data
+                })
+            } catch (error) {
+                console.log(error)
+            }
+    }
+}
+
 
 export default loginReducer

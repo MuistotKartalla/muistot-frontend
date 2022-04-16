@@ -1,9 +1,10 @@
 // By: Niklas Impiö
 // Edited:
 // - joniumGit
+// - Aapo2001
 import React, {useEffect, useState} from "react"
 import {connect} from "react-redux"
-import {BrowserRouter as Router, Route} from "react-router-dom"
+import {BrowserRouter as Router, Route, Redirect} from "react-router-dom"
 import axios from "axios"
 
 //import dispatch methods
@@ -28,11 +29,12 @@ const App = (props) => {
     const [projectsInit, setProjectsInitialized] = useState(false)
     const [settingsInit, setSettingsInitialized] = useState(false)
     const [userInit, setUserInitialized] = useState(false)
+    const [verified, setVerified] = useState(true)
     const isMobile = window.innerWidth <= 500
     // Use local
     axios.defaults.baseURL = "http://localhost:5600"
 
-    checkLocation(async () => console.log("User was not verified"))
+    checkLocation(async () => setVerified(false))
 
     useEffect(() => {
         log("Pääsilmukka aktivoitu");
@@ -89,6 +91,7 @@ const App = (props) => {
             <div className="appContainer">
                 <Router>
                     <Route path="/" render={({history}) => (<NavMenu history={history}/>)}/>
+                    {!verified? <Redirect to="/usersettings" /> : <></>} 
                     <ContentArea/>
                     {props.notification.message !== null ? <Notification/> : <div/>}
                 </Router>
@@ -125,4 +128,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(App)
-

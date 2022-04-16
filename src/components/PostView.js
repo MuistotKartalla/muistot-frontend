@@ -26,7 +26,7 @@ export const PostView = (props) => {
   const [deleteState, setDeleteState] = useState(false)
   //gets the post to show based on the id that is set on the url field.
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
-  //console.log(props) 
+  console.log(post) 
   post.uusi = 0
 
     /* const getDateFromUnixStamp = (unix) => {
@@ -101,11 +101,16 @@ export const PostView = (props) => {
         </div>
         <div className="postContextContainer">
           <div className="infoContainer">
-            {post.authorText?
-              <p className="normalText">{`${props.settings.strings["by"]}: ${post.authorText}`}</p>
+            {post.modifier?
+              (post.modifier === post.creator?
+              <p className="normalText">{`${props.settings.strings["by"]}: ${post.creator}`}</p>
+              :
+              <p className="normalText">{`${props.settings.strings["modified"]}: ${post.modifier}`}</p>
+              )
               :
               <p className="normalText">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
             }
+
           </div>
           <div className="postButtonsContainer">
           {props.user?
@@ -163,41 +168,28 @@ export const PostView = (props) => {
     
     return(
       <div className="postViewContainer centerAlignWithPaddingLean">
-      <div className="postTitleContainer">
-        {!post.waiting_approval?
-          <Verified className="verifiedIcon"/>
-          :
-          <br/>
-        }
-        <h1 className="titleText">{post.title}</h1>
-        <div className="postCloseButtonContainer">
-        <ClearIcon className="clearIcon" onClick={closeClick}/>
-        </div>
-      </div>
-      <div className="postImageContainer">
-
-       <img className="postImage" src={getImageURL(post.image)} alt=""></img>
-
-      </div>
-      <div className="postContextContainer">
-        <div className="infoContainer">
-          {post.authorText?
-            <p className="normalText">{`${props.settings.strings["by"]}: ${post.authorText}`}</p>
+        <div className="postTitleContainer">
+          {!post.waiting_approval?
+            <Verified className="verifiedIcon"/>
             :
-            <p className="normalText">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
+            <br/>
           }
+          <h1 className="titleText">{post.title}</h1>
+          <div className="postCloseButtonContainer">
+          <ClearIcon className="clearIcon" onClick={closeClick}/>
+          </div>
         </div>
-        <div className="postButtonsContainer">
-          <button className="rippleButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
-         {/* 
-          <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-          <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
-          <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/> */}
+        <div className="storyContainer normalText" style={{padding:"10px"}}>
+          <ReactMarkdown source={post.description} />
         </div>
-      </div>
-      <div className="storyContainer normalText" style={{padding:"10px"}}>
-		<ReactMarkdown source={post.description} />
-        </div>
+          <div className="postCloseContainer">
+            
+            <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
+            {/* 
+            <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
+            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
+            <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/> */}
+          </div>
     </div>
     )
   }
