@@ -152,7 +152,9 @@
       "parantolat": "Sanatoriums",
       "change_image": "Change Image",
       "imageless_posts": "Imageless Posts",
-      "change_username": "Change Username"
+      "change_username": "Change Username",
+      "set_username": "Set a Username",
+      "modified": "Modified by"
     },
     "fi":{
       "look_at_mementos": "Katsele tälle kohteelle syötettyjä muistoja",
@@ -302,7 +304,9 @@
       "parantolat": "Parantolat",
       "change_image": "Vaihda kuva",
       "imageless_posts": "Kuvattomat kohteet",
-      "change_username": "Vaihda Käyttäjänimeä"
+      "change_username": "Vaihda Käyttäjänimeä",
+      "set_username": "Aseta Käyttäjänimi",
+      "modified": "Muokannut"
     }
   }
 }

@@ -54,6 +54,8 @@ export interface Site {
     memories_count: number
     memories: Memory[]
     own?: boolean
+    creator: string
+    modifier: string
 }
 
 export interface Project {
@@ -115,6 +117,8 @@ export interface OldSite {
     projectId: string
     waiting_approval?: boolean
     own?: boolean
+    creator: string
+    modifier: string
    
 }
 
@@ -208,7 +212,9 @@ export function convONS(o: OldSite): Site {
         },
         image: o.image,
         waiting_approval: o.waiting_approval,
-        own: o.own
+        own: o.own,
+        creator: o.creator,
+        modifier: o.modifier
         
     } as Site
 }
@@ -229,7 +235,9 @@ export function convNOS(project: string, o: Site): OldSite {
         search: o.info.name,
         projectId: project,
         waiting_approval: o.waiting_approval,
-        own: o.own
+        own: o.own,
+        creator: o.creator,
+        modifier: o.modifier
     }
 }
 

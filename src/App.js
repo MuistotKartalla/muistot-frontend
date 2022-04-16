@@ -1,9 +1,10 @@
 // By: Niklas Impiö
 // Edited:
 // - joniumGit
+// - Aapo2001
 import React, {useEffect, useState} from "react"
 import {connect} from "react-redux"
-import {BrowserRouter as Router, Route} from "react-router-dom"
+import {BrowserRouter as Router, Route, Redirect} from "react-router-dom"
 import axios from "axios"
 
 //import dispatch methods
@@ -21,49 +22,23 @@ import ContentArea from "./components/ContentArea"
 import ContentAreaMobile from "./componentsMobile/ContentAreaMobile"
 import NotificationMobile from "./componentsMobile/NotificationMobile"
 import {log} from "./services/settings";
-import {EMAIL_ONLY_EXCHANGE} from "./services/paths";
+import {checkLocation} from "./services/initialurl";
 
 const App = (props) => {
     const [postsInit, setPostsInitialized] = useState(false)
     const [projectsInit, setProjectsInitialized] = useState(false)
     const [settingsInit, setSettingsInitialized] = useState(false)
     const [userInit, setUserInitialized] = useState(false)
+    const [verified, setVerified] = useState(true)
     const isMobile = window.innerWidth <= 500
     // Use local
     axios.defaults.baseURL = "http://localhost:5600"
 
-    const whash = window.location.hash
-    const is_verify = whash.startsWith("#verify-user:")
-    const is_email_login = whash.startsWith("#email-login:")
-    if (whash && (is_email_login || is_verify)) {
-        const query = is_verify
-            ? whash.replace("#verify-user:", "").split("&")
-            : whash.replace("#email-login:", "").split("&");
-        const verified = is_verify
-            ? false
-            : query.filter((o, _, __) => o.startsWith("verified")).map(o => o.split("=")[1])[0] === "true";
-        (async () => {
-            const token = (await axios.post(EMAIL_ONLY_EXCHANGE, null, {
-                    params: {
-                        user: query.filter((o, _, __) => o.startsWith("user")).map(o => o.split("=")[1])[0],
-                        token: query.filter((o, _, __) => o.startsWith("token")).map(o => o.split("=")[1])[0]
-                    }
-                })
-            ).headers.authorization
-            if (token) {
-                window.localStorage.setItem('ChimneysGoToken', token)
-            }
-        })();
-        if (window.history.replaceState) {
-            window.history.replaceState(null, null, "#");
-        } else {
-            window.location.hash = "#";
-        }
-    }
+    checkLocation(async () => setVerified(false))
+
     useEffect(() => {
         log("Pääsilmukka aktivoitu");
         log(props)
-        console.log(is_verify)
         const userToken = window.localStorage.getItem('ChimneysGoToken')        
         const activeProjectJSON = window.localStorage.getItem("ChimneysGoProject")
         const settingsJSON = {
@@ -76,14 +51,6 @@ const App = (props) => {
             props.initLoggedUser(userToken)
             setUserInitialized(true)          
         }
-        if (!settingsInit && !settingsJSON.language) {
-            const settings = {language: "fi", theme: "dark"}
-            props.initSettings(settings)
-            axios.defaults.headers.common['Accept-Language'] = settings.language
-            window.localStorage.setItem("ChimneysGoLanguage", "fi")
-            window.localStorage.setItem("ChimneysGoTheme", "dark")
-            setSettingsInitialized(true)
-        }
 
         if (!settingsInit && settingsJSON) {
             log("Aktivoidaan asetukset:")
@@ -91,7 +58,6 @@ const App = (props) => {
             props.initSettings(settingsJSON)
             setSettingsInitialized(true)
         }
-
 
         if (!projectsInit) {
             log("Ladataan projektit")
@@ -125,6 +91,7 @@ const App = (props) => {
             <div className="appContainer">
                 <Router>
                     <Route path="/" render={({history}) => (<NavMenu history={history}/>)}/>
+                    {!verified? <Redirect to="/usersettings" /> : <></>} 
                     <ContentArea/>
                     {props.notification.message !== null ? <Notification/> : <div/>}
                 </Router>
@@ -161,4 +128,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(App)
-

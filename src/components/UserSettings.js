@@ -28,7 +28,7 @@ export const UserSettings = (props) => {
     }
     return (
         <div className="loginContainer centerAlignWithPadding">
-            <h1 className="headerText bottomPadding30">{props.settings.strings["change_username"]}</h1>
+            <h1 className="headerText bottomPadding30">{props.settings.strings["set_username"]}</h1>
      <form className="loginForm" onSubmit={confirmUser}>
                 <div className="inputContainer">
                 <input name="username" id="username" className="input" placeholder={props.settings.strings["user_name"]} maxLength="100" autoComplete="off" onChange={UsernameChangeHandler} value={username}/>

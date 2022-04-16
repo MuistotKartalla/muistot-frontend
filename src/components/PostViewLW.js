@@ -111,10 +111,14 @@ export const PostViewLW = (props) => {
         
         <div className="postContextContainer">
           <div className="infoContainer">
-            {post.authorText?
-              <p className="normalTextNoMargin">{`${props.settings.strings["by"]}: ${post.authorText}`}</p>
+          {post.modifier?
+              (post.modifier === post.creator?
+              <p className="normalText">{`${props.settings.strings["by"]}: ${post.creator}`}</p>
               :
-              <p className="normalTextNoMargin">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
+              <p className="normalText">{`${props.settings.strings["modified"]}: ${post.modifier}`}</p>
+              )
+              :
+              <p className="normalText">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
             }
           </div>
           <div className="postButtonsContainer">
@@ -140,20 +144,14 @@ export const PostViewLW = (props) => {
                     <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   </div>
                   :
-                  (post.verified?
-                    <div/>
-                    :
-                    <div className="postButtonsContainerInner">
-                      <button className="rippleButton smallButton negativeButton" onClick={reportClick}>{props.settings.strings["report"]}</button>
-                    </div>
-                  )
+                  <></>
                 )
               )
             
               :
               <div/>
             }
-            <button className="rippleButton" onClick={copyclipboard}>Copy URI</button>
+            
         {/*             
             <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
             <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>  */}
@@ -198,21 +196,15 @@ export const PostViewLW = (props) => {
         </div>
 
         <div className="postContextContainer">
-          <div className="infoContainer">
-            {post.authorText?
-              <p className="normalTextNoMargin">{`${props.settings.strings["by"]}: ${post.authorText}`}</p>
-              :
-              <p className="normalTextNoMargin">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
-            }
-          </div>
-          <div className="postButtonsContainer">
 
-            <button className="rippleButton" onClick={copyclipboard}>Copy URI</button>
-        {/*             
-            <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>  */}
+         {/* <div className="postButtonsContainer">
+
             
-          </div>
+                  
+            <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
+            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>  
+            
+          </div>*/}
         </div>
         <div className="postCloseContainer">
           
