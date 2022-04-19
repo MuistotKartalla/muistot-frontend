@@ -144,7 +144,7 @@ export const changeUsernameReducer = (username) => {
                     type: EDIT_USER,
                     data: response.data
                 })
-            } catch (error) {
+            } catch (error) {              
                 log(error)
             }
     }
