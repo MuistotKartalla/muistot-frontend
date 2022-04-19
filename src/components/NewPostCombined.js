@@ -7,7 +7,8 @@ import "../styles/buttons.css"
 import {createSite} from "../reducers/postReducer"
 import {notify} from "../reducers/notificationReducer"
 import {setTempSite} from "../reducers/tempSiteReducer"
-import ImageUpload from "./ImageUpload"
+
+import SiteImageUpload from "./SiteImageUpload"
 
 //combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.
 // aka if "live location" button is highlighted the it uses your current location. if map button highlighted then it uses selected location.
@@ -22,7 +23,10 @@ export const NewPostCombined = (props) => {
     //console.log("NewPostCombined useEffect")      
     setLocation(props.tempSite.location)
     setTitleField(props.tempSite.title)
-    setImage(props.tempSite.image)
+    if(props.tempSite.image){
+      setImage(props.tempSite.image.data
+        )}else{setImage(props.tempSite.image)}
+        
   }, [props])
 
 
@@ -33,6 +37,7 @@ export const NewPostCombined = (props) => {
     setLocation(false)
     setImage(null)
     props.setTempSite({"title": "", "location":false, "image": null})
+  
   }
   const imageOnChangeHandler = (image) => {
     setImage(image)
@@ -96,7 +101,7 @@ export const NewPostCombined = (props) => {
 	  <p className="normalText textleft">{props.settings.strings["give_name_for_location"]}</p>
           <input name="title" id="titleField" className="input" placeholder={props.settings.strings["name"]} maxLength="100" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>
           <div className="inputFocusLine"/>
-          <ImageUpload change={imageOnChangeHandler}/>
+          <SiteImageUpload change={imageOnChangeHandler}/>
         </div>
         <div className="postFormButtonContainer">
           <button className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>

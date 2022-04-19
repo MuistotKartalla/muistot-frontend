@@ -94,16 +94,22 @@ export const logoutS = (notify) => {
 
 export const initLoggedUser = (user) =>{
     return async (dispatch) => {
-        const activeUser = await userService.getUser()
-        let currentUser = null
-        if(user){
-            currentUser = activeUser
-        }
-        dispatch({
-            type: INIT_USER,
-            data: currentUser
-        })
-        
+        const res = await userService.getUser()
+        if(res.status === 200 && user){
+            dispatch({
+                type: INIT_USER,
+                data: res.data
+            })
+            log(res.data)
+        }else {
+            delete axios.defaults.headers.common["Authorization"];
+            window.localStorage.removeItem('ChimneysGoToken')
+            dispatch({
+                type: "LOGOUT",
+                data: null
+            })
+            log(res.status)
+        }  
       
     }
 }
@@ -139,7 +145,7 @@ export const changeUsernameReducer = (username) => {
                     data: response.data
                 })
             } catch (error) {
-                console.log(error)
+                log(error)
             }
     }
 }
