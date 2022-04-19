@@ -8,7 +8,7 @@
 //          1 = waiting for the user to select coordinates from map.
 //          2 =
 
-const tempSiteReducer = (state = {"title": "", "location": null}, action) => {
+const tempSiteReducer = (state = {"title": "", "location": null, "image": null}, action) => {
     switch (action.type) {
         case "SET_TEMP_SITE":
             return action.data

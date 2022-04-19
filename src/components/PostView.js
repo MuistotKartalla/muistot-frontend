@@ -26,7 +26,7 @@ export const PostView = (props) => {
   const [deleteState, setDeleteState] = useState(false)
   //gets the post to show based on the id that is set on the url field.
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
-  console.log(post) 
+
   post.uusi = 0
 
     /* const getDateFromUnixStamp = (unix) => {

@@ -12,7 +12,7 @@ import {notify} from "./reducers/notificationReducer"
 import {initLoggedUser, login, logout} from "./reducers/loginReducer"
 import {initPosts} from "./reducers/postReducer"
 import {initProjects} from "./reducers/projectReducer"
-import {initSettings} from "./reducers/settingsReducer"
+import {initSettings, setActiveLanguage, setActiveTheme} from "./reducers/settingsReducer"
 
 //import components
 import Notification from "./components/Notification"
@@ -39,6 +39,9 @@ const App = (props) => {
     useEffect(() => {
         log("Pääsilmukka aktivoitu");
         log(props)
+        const hash = window.location.hash
+        const piiput = hash.startsWith("#init-project=piiput")
+        const parantolat = hash.startsWith("#init-project=parantolat")
         const userToken = window.localStorage.getItem('ChimneysGoToken')        
         const activeProjectJSON = window.localStorage.getItem("ChimneysGoProject")
         const settingsJSON = {
@@ -55,26 +58,50 @@ const App = (props) => {
         if (!settingsInit && settingsJSON) {
             log("Aktivoidaan asetukset:")
             log(settingsJSON)
-            props.initSettings(settingsJSON)
+            if(settingsJSON.language && settingsJSON.theme){
+                props.initSettings(settingsJSON)
+            }else{
+                const language = "fi"
+                const theme = "dark"
+                const settings = {
+                    language: language,
+                    theme: theme
+                }
+
+                props.initSettings(settings)
+                props.setActiveLanguage(language)
+                props.setActiveTheme(theme)
+
+            }
+
             setSettingsInitialized(true)
         }
 
-        if (!projectsInit) {
-            log("Ladataan projektit")
+        if(parantolat && !projectsInit){
+            window.localStorage.setItem("ChimneysGoProject", "parantolat")
+            props.initProjects("parantolat")
+            setProjectsInitialized(true)
+        }
+
+        if(piiput && !projectsInit){
+            window.localStorage.setItem("ChimneysGoProject", "piiput")
+            props.initProjects("piiput")
+            setProjectsInitialized(true)
+        }
+
+        if (!projectsInit && !parantolat && !piiput) {
             props.initProjects(activeProjectJSON)
             setProjectsInitialized(true)
         }
 
         if (!postsInit && props.projects.active && props.projects.active.title) {
-            //console.log("Ladataan aktiivisen projektin kohteet...")
-            //Rajattava vain kartalla näkyviin vielä!
             var params = {projectId: props.projects.active.id};
             props.initPosts(params)
             setPostsInitialized(true)
         }
 
         document.title = "Muistot kartalla"
-    }, [props, postsInit, projectsInit, settingsInit,userInit]) //Added seconds and minutes
+    }, [props, postsInit, projectsInit, settingsInit,userInit]) 
 
     if (isMobile) {
         return (
@@ -85,7 +112,7 @@ const App = (props) => {
                 </Router>
             </div>
         )
-    } else {
+    } else{
         return (
             //returns what to render
             <div className="appContainer">
@@ -122,6 +149,8 @@ const mapDispatchToProps = {
     initPosts,
     initProjects,
     initSettings,
+    setActiveLanguage,
+    setActiveTheme
 }
 
 export default connect(

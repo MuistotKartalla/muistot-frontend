@@ -84,10 +84,6 @@ export interface Register {
     password: string
 }
 
-export interface User{
-    username: string
-    email: string
-}
 
 export interface OldProject {
     id: string
@@ -224,7 +220,7 @@ export function convNOS(project: string, o: Site): OldSite {
         abstract: o.info.abstract,
         description: o.info.description,
         id: o.id,
-        image: o.image || 'placeholder.jpg',
+        image: o.image  || 'placeholder.jpg',
         title: o.info.name,
         uusi: false,
         muistoja: o.memories_count,
