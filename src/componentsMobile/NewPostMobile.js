@@ -7,7 +7,7 @@ import "../styles/buttons.css"
 import {createSite} from "../reducers/postReducer"
 import {notify} from "../reducers/notificationReducer"
 import {setTempSite} from "../reducers/tempSiteReducer"
-import ImageUploadMobile from "./ImageUploadMobile"
+import SiteImageUploadMobile from "./SiteImageUploadMobile"
 
 
 import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
@@ -24,16 +24,19 @@ export const NewPostMobile = (props) => {
   useEffect(() => {
     setLocation(props.tempSite.location)
     setTitleField(props.tempSite.title)
-    setImage(props.tempSite.image)
+    if(props.tempSite.image){
+      setImage(props.tempSite.image.data
+        )}else{setImage(props.tempSite.image)}
   }, [props])
 
 
   const cancelClick = (event) => {
     event.preventDefault()
-    props.history.push("/")
     setTitleField("")
     setLocation(false)
+    setImage(null)
     props.setTempSite({"title": "", "location":false, "image": null})
+    props.history.push("/")
   }
   const imageOnChangeHandler = (image) => {
     setImage(image)
@@ -109,7 +112,7 @@ export const NewPostMobile = (props) => {
 	          <p className="normalText textCenter">{props.settings.strings["give_name_for_location"]}</p>
       		    <input name="title" id="titleField" className="input" placeholder={props.settings.strings["title"]} maxLength="100" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>
       		    <div className="inputFocusLine"/>
-              <ImageUploadMobile change={imageOnChangeHandler}/>
+              <SiteImageUploadMobile change={imageOnChangeHandler}/>
       		  </div>
 
 	        <div className="postFormButtonContainer">

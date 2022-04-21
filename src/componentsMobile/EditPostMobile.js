@@ -1,3 +1,4 @@
+// By: Niklas Impiö
 import React, {useState, useEffect} from "react"
 import {connect} from "react-redux"
 
@@ -5,15 +6,20 @@ import "../styles/newPost.css"
 import "../styles/buttons.css"
 import {setTempSite} from "../reducers/tempSiteReducer"
 import { changeSitePicture } from "../reducers/postReducer"
-import SiteImageUpload from "./SiteImageUpload"
+import SiteImageUploadMobile from "./SiteImageUploadMobile"
 
 
+import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
 
-export const EditPost = (props) => {
+
+//combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.
+// aka if "live location" button is highlighted the it uses your current location. if map button highlighted then it uses selected location.
+
+export const EditPostMobile = (props) => {
   const [image, setImage] = useState(null)
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
-  
-  useEffect(() => {      
+
+  useEffect(() => {
     if(props.tempSite.image){
       setImage(props.tempSite.image.data
         )}else{setImage(props.tempSite.image)}
@@ -24,7 +30,7 @@ export const EditPost = (props) => {
     event.preventDefault()
     setImage(null)
     props.setTempSite({"title": "", "location":false, "image": null})
-    props.history.goBack()
+    props.history.push("/")
   }
 
   const imageOnChangeHandler = (image) => {
@@ -41,19 +47,28 @@ export const EditPost = (props) => {
 
 
   return(
-    <div className="newPostContainer centerAlignWithPaddingLean">
-    <h1 className="headerText">{props.settings.strings["change_image"]}</h1>
+    <div className="newPostContainerMobile">
+      <div>
+        <div className="titleContainerMobile">
+          <button className="mobileButtonContainer">
+            <ReturnIcon className="mobileIcon" onClick={cancelClick}/>
+          </button>
+          <h1 className="titleTextMobile">{props.settings.strings["change_image"]}</h1>
+        </div>
+
 	<div>
-      <form className="postForm" onSubmit={confirmPost}>
-        <div className="inputContainer">
-        <SiteImageUpload  change={imageOnChangeHandler}/>
-        </div>
-        <div className="postFormButtonContainer">
-          <button className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>
-          <button className="rippleButton negativeButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
-        </div>
-      </form>
+      		<form className="postFormMobile" onSubmit={confirmPost}>
+      		  <div className="inputContainer">
+              <SiteImageUploadMobile change={imageOnChangeHandler}/>
+      		  </div>
+	        <div className="postFormButtonContainer">
+	          <button className="rippleButton negativeButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
+	          <button className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>
+	        </div>
+	      </form>
 	</div>
+        
+      </div>
     </div>
   )
 
@@ -79,4 +94,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditPost)
+)(EditPostMobile)

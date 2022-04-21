@@ -18,7 +18,7 @@ import mapLocationReducer from "./reducers/mapLocationReducer"
 const persistConfig = {
     key: 'main-root',
     storage,
-    blacklist: ['tempPost','tempSite', 'mapLocation', 'notification', 'userLocation', 'user'] 
+    blacklist: ['tempPost','tempSite', 'mapLocation', 'notification', 'userLocation', 'user', 'settings'] 
 };
 
 const reducer = combineReducers({
