@@ -100,15 +100,13 @@ export const initLoggedUser = (user) =>{
                 type: INIT_USER,
                 data: res.data
             })
-            log(res.data)
         }else {
             delete axios.defaults.headers.common["Authorization"];
             window.localStorage.removeItem('ChimneysGoToken')
             dispatch({
-                type: "LOGOUT",
+                type: LOGOUTS,
                 data: null
             })
-            log(res.status)
         }  
       
     }

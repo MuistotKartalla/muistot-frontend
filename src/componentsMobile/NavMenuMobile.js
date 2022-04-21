@@ -62,6 +62,11 @@ export const NavMenuMobile = (props) => {
     toggleVisibity()
   }
 
+  const toUserSettings = (event) => {
+    event.preventDefault()
+    props.history.push("/usersettings/")
+    toggleVisibity()
+  }
   
 
   const toRoot = (event) => {
@@ -113,6 +118,7 @@ export const NavMenuMobile = (props) => {
           </div>
           {props.user?
             <div className="mobileMenuNavigationContainer">
+              <button className="mobileMenuButton" onClick={toUserSettings}>{props.settings.strings["change_username"]}</button>
               <button className="mobileMenuButton" onClick={logoutClick}>{props.settings.strings["log_out"]}</button>
               {props.currentProject.moderators.find(user => user === props.user.username)?
               <div className="mobileMenuUserNameContainer">

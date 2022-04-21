@@ -108,6 +108,7 @@ const App = (props) => {
             <div className="appContainer">
                 <Router>
                     <Route path="/" render={({history}) => (<ContentAreaMobile history={history}/>)}/>
+                    {!verified? <Redirect to="/usersettings" /> : <></>} 
                     {props.notification.message !== null ? <NotificationMobile/> : <div/>}
                 </Router>
             </div>

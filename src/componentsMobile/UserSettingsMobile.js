@@ -3,19 +3,17 @@ import {connect} from "react-redux"
 import {changeUsernameReducer} from "../reducers/loginReducer"
 import {initPosts} from "../reducers/postReducer"
 import {notify} from "../reducers/notificationReducer"
-
 import "../styles/loginForm.css"
 
 
-export const UserSettings = (props) => {
+export const UserSettingsMobile = (props) => {
 
     const [username, setUsername] = useState("")
-
+    
     const cancelClick = (event) => {
         event.preventDefault()
         props.history.goBack()
     }
-
     const UsernameChangeHandler = (event) => {
         event.preventDefault()
         setUsername(event.target.value)
@@ -26,10 +24,13 @@ export const UserSettings = (props) => {
         setUsername("")
         props.history.push("/")
     }
+
+
     return (
-        <div className="loginContainer centerAlignWithPadding">
-            <h1 className="headerText bottomPadding30">{props.settings.strings["set_username"]}</h1>
-     <form className="loginForm" onSubmit={confirmUser}>
+        <div className="loginContainerMobile">
+            <h1 className="headerText">{props.settings.strings["login_or_register"]}</h1>
+
+            <form className="loginForm" onSubmit={confirmUser}>
                 <div className="inputContainer">
                 <input name="username" id="username" className="input" placeholder={props.settings.strings["user_name"]} maxLength="100" autoComplete="off" onChange={UsernameChangeHandler} value={username}/>
                 </div>
@@ -43,6 +44,8 @@ export const UserSettings = (props) => {
         </div>
     )
 }
+    
+
 
 const mapStateToProps = (state) => {
     return {
@@ -64,4 +67,4 @@ const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(UserSettings)
+)(UserSettingsMobile)

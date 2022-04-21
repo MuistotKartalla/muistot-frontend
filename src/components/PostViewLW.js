@@ -66,6 +66,10 @@ export const PostViewLW = (props) => {
 
   }
 
+  const editPostClick = (postId) =>{
+    props.history.push(`/edit-post/${postId}`)
+  }
+
   const copyclipboard = (event) => {
     navigator.clipboard.writeText(window.location.href).then(function() {
       //console.log('Copying URI is successful');
@@ -93,7 +97,7 @@ export const PostViewLW = (props) => {
       <div className="postViewContainerLW">
         <div className="postTitleContainer">
           
-          {post.verified?
+          {!post.waiting_approval?
             <Verified className="verifiedIcon"/>
             :
             <div/>
@@ -122,7 +126,7 @@ export const PostViewLW = (props) => {
             }
           </div>
           <div className="postButtonsContainer">
-            {props.user !== null?
+            {props.user?
             // multilevel conditional rendering
             // visitor sees no buttons
             // author sees delete button
@@ -131,16 +135,17 @@ export const PostViewLW = (props) => {
               (props.currentProject.moderators.find(user => user === props.user.username)? 
                 <div className="postButtonsContainerInner">
                   <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
-                  
-                  {post.verified?
-                    <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["unverify"]}</button>
-                    :
+                  <button className="rippleButton Button negativeButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_image"]}</button>
+                  {post.waiting_approval?
                     <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["verify"]}</button>
+                    :
+                    <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["unverify"]}</button>
                   }
                 </div>
                 :
-                (props.user.username === post.author?
+                (post.own === true?
                   <div className="postButtonsContainerInner">
+                    <button className="rippleButton Button negativeButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_image"]}</button>
                     <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   </div>
                   :

@@ -50,6 +50,9 @@ export const PostViewMobile = (props) => {
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
   }*/
+  const editPostClick = (postId) =>{
+    props.history.push(`/edit-post/${postId}`)
+  }
   const verifyClick = (event) => {
     event.preventDefault()
     props.toggleVerify(post)
@@ -92,8 +95,12 @@ export const PostViewMobile = (props) => {
         </div>
         <div className="postContextContainer">
           <div className="infoContainer">
-            {post.authorText?
-              <p className="normalText">{`${props.settings.strings["by"]}: ${post.authorText}`}</p>
+          {post.modifier?
+              (post.modifier === post.creator?
+              <p className="normalText">{`${props.settings.strings["by"]}: ${post.creator}`}</p>
+              :
+              <p className="normalText">{`${props.settings.strings["modified"]}: ${post.modifier}`}</p>
+              )
               :
               <p className="normalText">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
             }
@@ -117,6 +124,8 @@ export const PostViewMobile = (props) => {
                   <div className="postButtonsContainerInnerMobile">
                     <button className="rippleButton fillButton bigButton"onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                     <div className="divider"/>
+                    <button className="rippleButton fillButton bigButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_image"]}</button>
+                    <div className="divider"/>
                   </div>
                   {!post.waiting_approval?
                   <div className="postButtonsContainerInnerMobile">
@@ -134,6 +143,8 @@ export const PostViewMobile = (props) => {
                 (post.own === true?
                   <div className="postButtonsContainerInnerMobile">
                     <button className="rippleButton fillButton bigButton"onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
+                    <div className="divider"/>
+                    <button className="rippleButton fillButton bigButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_image"]}</button>
                     <div className="divider"/>
                   </div>
                   :
@@ -177,19 +188,7 @@ if(post && props.currentProject.id === "parantolat"){
         </div>
 
       </div>
-      <div className="postImageContainer">
-
-      <img className="postImage" src={getImageURL(post.image)} alt=""></img>
-
-      </div>
       <div className="postContextContainer">
-        <div className="infoContainer">
-          {post.authorText?
-            <p className="normalText">{`${props.settings.strings["by"]}: ${post.authorText}`}</p>
-            :
-            <p className="normalText">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
-          }
-        </div>
         <div className="postButtonsContainer">
           <div className="postButtonsContainerInner">
          {/* 

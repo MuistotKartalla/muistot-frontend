@@ -17,6 +17,8 @@ import MyPostsMobile from "./MyPostsMobile"
 import ProjectInfoMobile from "./ProjectInfoMobile"
 import AboutMobile from "./AboutMobile"
 import UnverifiedPostsMobile from "./UnverifiedPostsMobile"
+import UserSettingsMobile from "./UserSettingsMobile"
+import EditPostMobile from "./EditPostMobile"
 
 const ContentAreaMobile = (props) => {
   // Ok this is just a container component for all the sub components except notification.
@@ -48,10 +50,12 @@ const ContentAreaMobile = (props) => {
       <Route path="/new-post/" render={({history}) => (
         <NewPostMobile history={history}/>
       )}/>
+      <Route path="/edit-post/:id/" render={({match,history}) => (
+          <EditPostMobile match={match} history={history}/>
+      )}/>
       <Route path="/new-memento/:id/" render={({match,history}) => (
           <NewMementoMobile match={match} history={history}/>
       )}/>
-
       <Route path="/unverified-posts/" render={({history}) => (
         <UnverifiedPostsMobile history={history}/>
       )}/>
@@ -63,6 +67,9 @@ const ContentAreaMobile = (props) => {
       )}/>
       <Route path="/project-info/" render={({history}) => (
         <ProjectInfoMobile history={history}/>
+      )}/>
+      <Route path="/usersettings/" render={({history}) => (
+        <UserSettingsMobile history={history}/>
       )}/>
     </div>
   )
