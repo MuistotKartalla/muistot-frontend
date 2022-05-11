@@ -3,19 +3,19 @@ Frontend is built with [React](https://reactjs.org/)
 
 ## Developement Setup 
 1. Install [Docker](https://www.docker.com/get-started/) if you don't have it installed
-2.
+2. Clone frontend repo
 ```shell
   git clone https://github.com/MuistotKartalla/muistot-frontend.git
 ```
-3.
+3. Install npm packages
 ```shell
 npm install
 ```
-4.
+4. Running local site
 ```shell
 npm start
 ```
-5.
+5. Clone backend repo 
 ```shell
 git clone https://github.com/MuistotKartalla/muistot-backend.git
 ```
@@ -38,7 +38,7 @@ sh scripts/run_alt_server.sh
 
 for new Docker versions.
 
-8. Filling local database with filler data
+8. Filling local database with filler data. Without this the local site wont work.
 ```shell
 python database/test/filler.py
 ```
