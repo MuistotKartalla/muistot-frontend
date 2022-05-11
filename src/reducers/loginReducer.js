@@ -107,6 +107,7 @@ export const initLoggedUser = (user) =>{
                 type: LOGOUTS,
                 data: null
             })
+
         }  
       
     }
