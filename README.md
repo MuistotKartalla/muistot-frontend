@@ -3,7 +3,10 @@ Frontend is built with [React](https://reactjs.org/)
 
 ## Developement Setup 
 1. Install [Docker](https://www.docker.com/get-started/) if you don't have it installed
-2. git clone https://github.com/MuistotKartalla/muistot-frontend.git
+2.
+```shell
+  git clone https://github.com/MuistotKartalla/muistot-frontend.git
+```
 3.
 ```shell
 npm install
@@ -12,9 +15,12 @@ npm install
 ```shell
 npm start
 ```
-5. git clone https://github.com/MuistotKartalla/muistot-backend.git
-
+5.
+```shell
+git clone https://github.com/MuistotKartalla/muistot-backend.git
+```
 6. Recreating database
+
 ```shell
 sh scripts/recreate_db.sh
 ```
