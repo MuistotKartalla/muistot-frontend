@@ -44,13 +44,13 @@ python database/test/filler.py
 ```
 ## Project Structure
 
-##### React Frontend Is Built With:
+#### React Frontend Is Built With:
 Redux for state managment,
 react-leaflet for the map,
 react-router-dom for routing,
 redux-persist for saving redux state to localstorage
 
-##### Folder Structure:
+#### Folder Structure:
 styles are for css,
 services are for api requests, data models and api paths,
 reducers are for reducers,
