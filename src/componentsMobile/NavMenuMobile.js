@@ -68,6 +68,11 @@ export const NavMenuMobile = (props) => {
     toggleVisibity()
   }
   
+  const toChangeUserName = (event) => {
+    event.preventDefault()
+    props.history.push("/change-username/")
+    toggleVisibity()
+  }
 
   const toRoot = (event) => {
     //pushes url route to root or "/", might change later when different projects implemented.
@@ -118,7 +123,8 @@ export const NavMenuMobile = (props) => {
           </div>
           {props.user?
             <div className="mobileMenuNavigationContainer">
-              <button className="mobileMenuButton" onClick={toUserSettings}>{props.settings.strings["change_username"]}</button>
+              <button className="mobileMenuButton" onClick={toUserSettings}>{props.settings.strings["account_settings"]}</button>
+              <button className="mobileMenuButton" onClick={toChangeUserName}>{props.settings.strings["change_username"]}</button>
               <button className="mobileMenuButton" onClick={logoutClick}>{props.settings.strings["log_out"]}</button>
               {props.currentProject.moderators.find(user => user === props.user.username)?
               <div className="mobileMenuUserNameContainer">

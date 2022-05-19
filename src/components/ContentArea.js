@@ -20,8 +20,8 @@ import UnverifiedPosts from "./UnverifiedPosts"
 import EditPost  from "./EditPost"
 import ImagelessPosts from "./ImagelessPosts"
 import UserSettings  from "./UserSettings"
-
-
+import ChangeUserName from "./ChangeUserName"
+import SetUserName from "./SetUserName"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -97,7 +97,17 @@ const ContentArea = (props) => {
         <PopUpContainer history={history}>
           <UserSettings history={history}/>
         </PopUpContainer>
-      )}/>      
+      )}/>
+      <Route path="/change-username" render={({history}) => (
+        <PopUpContainer history={history}>
+          <ChangeUserName history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/set-username" render={({history}) => (
+        <PopUpContainer history={history}>
+          <SetUserName history={history}/>
+        </PopUpContainer>
+      )}/>                  
     </div>
 
   )

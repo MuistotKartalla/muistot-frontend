@@ -144,6 +144,14 @@ export interface OldMemoryOutbound {
     waiting_approval?: boolean
 }
 
+export interface User{
+    first_name: string
+    last_name: string
+    country: string
+    city: string
+    birth_date: string
+}
+
 export function convONP(o: OldProject): Project {
     return {
         id: o.id,
