@@ -108,7 +108,7 @@ const App = (props) => {
             <div className="appContainer">
                 <Router>
                     <Route path="/" render={({history}) => (<ContentAreaMobile history={history}/>)}/>
-                    {!verified? <Redirect to="/usersettings" /> : <></>} 
+                    {!verified? <Redirect to="/set-username" /> : <></>} 
                     {props.notification.message !== null ? <NotificationMobile/> : <div/>}
                 </Router>
             </div>
@@ -119,7 +119,7 @@ const App = (props) => {
             <div className="appContainer">
                 <Router>
                     <Route path="/" render={({history}) => (<NavMenu history={history}/>)}/>
-                    {!verified? <Redirect to="/usersettings" /> : <></>} 
+                    {!verified? <Redirect to="/set-username" /> : <></>} 
                     <ContentArea/>
                     {props.notification.message !== null ? <Notification/> : <div/>}
                 </Router>

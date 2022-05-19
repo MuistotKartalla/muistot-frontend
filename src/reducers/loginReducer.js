@@ -149,5 +149,20 @@ export const changeUsernameReducer = (username) => {
     }
 }
 
+export const changeUserSettings = (first_name, last_name, country, city, birth_date) => {
+    return async dispatch => {
+        try{
+            const userSettings = await userService.changeUserSettings(
+                first_name, last_name, country, city, birth_date)
+            dispatch({
+                type: EDIT_USER,
+                data: userSettings
+            })
+        }catch (error) {              
+            log(error)
+        }
+    }
+}
+
 
 export default loginReducer
