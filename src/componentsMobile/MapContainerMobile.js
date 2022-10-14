@@ -1,11 +1,13 @@
 // By: Niklas Impiö
 import React, {useState, useEffect} from "react"
 import {connect} from "react-redux"
-import {Map, TileLayer, Marker} from "react-leaflet"
+import {MapContainer, TileLayer, Marker} from "react-leaflet"
+import MarkerClusterGroup from "react-leaflet-markercluster"
 import L from "leaflet"
 
 import "../stylesMobile/mapContainerMobile.css"
 import "leaflet/dist/leaflet.css"
+import "../styles/markerCluster.css"
 
 import icon from "../resources/marker-icon.png"
 import iconN from "../resources/marker-icon-new.png"
@@ -175,16 +177,28 @@ const MapContainerMobile = (props) => {
   }
   return(
     <div className="mapContainerMobile">
-      <Map className="fullscreenMap" zoomControl={false} center={position} zoom={zoom} onClick={leftClick} oncontextmenu={rightClick} onZoom={scrollListener} ondrag={dragEvent}>
+      <MapContainer className="fullscreenMap" zoomControl={false} center={position} zoom={zoom} onClick={leftClick} oncontextmenu={rightClick} onZoom={scrollListener} ondrag={dragEvent}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {posts.map((element, index) =>
-         <Marker key={index} position={element.location} icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} onClick={() => onPostClick(element)}>
-          </Marker>
-        )}
+        <MarkerClusterGroup maxClusterRadius="40">
+          {posts.map((element, index) =>
+            <Marker key={index} 
+              position={element.location} 
+              icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} 
+              eventHandlers={{
+                click: (e) => {
+                  props.history.push(`/post-view/${element.id}/`)
+                  setFollowUser(false)
+                  setPosition(element.location)
+                  setTempMarker(null)
+                },
+              }}>
+            </Marker>
+          )}
+        </MarkerClusterGroup>
         {userLocation !== null? 
           <Marker position={userLocation} icon={userIcon} onClick={userClick}>
           </Marker>
@@ -198,7 +212,7 @@ const MapContainerMobile = (props) => {
           <></>
          
         }
-      </Map>
+      </MapContainer>
       <div className="floatingSearchContainerMapMobile">
         <FloatingSearch history={props.history}/>
       </div>
