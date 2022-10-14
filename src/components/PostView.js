@@ -16,7 +16,7 @@ import MementoList from "./MementoList"
 import {ReactComponent as Verified} from "../resources/verified.svg"
 import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
 import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
-import {ReactComponent as InstagramIcon} from "../resources/instagram_icon.svg"
+//import {ReactComponent as InstagramIcon} from "../resources/instagram_icon.svg"
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 import {getImageURL} from "../services/images";
 const ReactMarkdown = require('react-markdown')
@@ -70,11 +70,11 @@ export const PostView = (props) => {
   const facebookShareClick = (event) => {
     event.preventDefault()
     window.open(`https://facebook.com/sharer/sharer.php?u=${window.location.href}`, "_blank")
-  }
+  }/*
   const instagramShareClick = (event) => {
     event.preventDefault()
     window.open(`https://instragram.com/sharer/sharer.php?u=${window.location.href}`, "_blank")
-  }
+  }*/
 
 // Päivämäärät: <p className="normalTextNoMargin">{getDateFromUnixStamp(post.date)}</p>
 
@@ -145,10 +145,8 @@ export const PostView = (props) => {
             }
 
             <button className="rippleButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
-         {/* 
           <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
           <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
-          <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/> */}
           </div>
         </div>
         {deleteState? 
@@ -166,7 +164,6 @@ export const PostView = (props) => {
     )
   }
   if(post && props.currentProject.id === "parantolat"){
-    
     return(
       <div className="postViewContainer centerAlignWithPaddingLean">
         <div className="postTitleContainer">
@@ -184,12 +181,12 @@ export const PostView = (props) => {
           <ReactMarkdown source={post.description} />
         </div>
           <div className="postCloseContainer">
-            
+            <hr></hr>
             <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
-            {/* 
-            <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
-            <InstagramIcon className="mobileIconSmall" onClick={instagramShareClick}/> */}
+            <div className="postButtonsParantolat">
+              <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
+              <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
+            </div>
           </div>
     </div>
     )
