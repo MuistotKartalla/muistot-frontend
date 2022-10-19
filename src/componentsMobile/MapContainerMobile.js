@@ -62,6 +62,7 @@ const MapContainerMobile = (props) => {
   const [tempMarker, setTempMarker] = useState(null)
   const [zoom, setZoom] = useState(5)
   const [posts, setPosts] = useState([])
+  const [moveToPosition, setmoveToPosition] = useState(false)
 
 
   //Wheather the map constantly centers to user location. Enabled when user clics their own avatar. Disabled when map manually moved.
@@ -85,9 +86,10 @@ const MapContainerMobile = (props) => {
 
     if(props.mapLocation !== null){
       //console.log("setting map to location")
-      setZoom(14)
+      setZoom(13)
       setPosition(props.mapLocation)
       props.updateMapLocation(null)
+      setmoveToPosition(true)
     }
 
   }, [props, posts, followUser,userLocation ])
@@ -183,7 +185,10 @@ const MapContainerMobile = (props) => {
           setTempMarker(e.latlng)
           setPosition(e.latlng)
         }
-        else{setPosition(e.latlng)}
+        else{
+          setPosition(e.latlng)
+        }
+        setmoveToPosition(true)
       },
       drag: (e) => {
         //if followUser is active, disable it.
@@ -191,26 +196,31 @@ const MapContainerMobile = (props) => {
           setFollowUser(false)
           setTempMarker(null)
         }
-        setPosition(e.target.getCenter())
+        //setPosition(e.target.getCenter())
         setTempMarker(null)
       },
       zoomend: (e) => {
         setZoom(map.getZoom())
-        setPosition(e.target.getCenter())
+        //setPosition(e.target.getCenter())
         setTempMarker(null)
       }
     });
     return null;
   }
-  //function for updating map center, when position or zoom values change
+  //function for updating map center
   const UpdateMapCenter = () => {
     const map = useMap()
     useEffect(() => {
+      //do it only if moveToPosition is true
+      if (moveToPosition) {
+        console.log("Setting new center, bool: ", moveToPosition)
         map.setView(position, zoom, {
           "animate": true,
           "pan": {
             "duration": 0.5
         }})
+        setmoveToPosition(false)
+      }
     }, [position, zoom])
     return null;
   }
@@ -236,6 +246,7 @@ const MapContainerMobile = (props) => {
                   props.history.push(`/post-view/${element.id}/`)
                   setFollowUser(false)
                   setPosition(element.location)
+                  setmoveToPosition(true)
                   setTempMarker(null)
                 }
               }}>
@@ -253,6 +264,7 @@ const MapContainerMobile = (props) => {
                 props.notify(props.settings.strings["user_follow"], false, 5)
               }
               setPosition(userLocation)
+              setmoveToPosition(true)
             }
           }}>
           </Marker>
