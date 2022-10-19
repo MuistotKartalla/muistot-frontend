@@ -1,7 +1,7 @@
 // By: Niklas Impiö
 import React, {useState, useEffect} from "react"
 import {connect} from "react-redux"
-import {MapContainer, TileLayer, Marker} from "react-leaflet"
+import {MapContainer, TileLayer, Marker, useMapEvents, useMap} from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster"
 import L from "leaflet"
 
@@ -91,10 +91,7 @@ const MapContainerMobile = (props) => {
     }
 
   }, [props, posts, followUser,userLocation ])
-
-
-
-
+/*
   const onPostClick = (post) => {
     //event handler for post marker clicks. Routes to post view.
     //console.log(`Clicked post: ${post}`, post)
@@ -119,6 +116,31 @@ const MapContainerMobile = (props) => {
     setFollowUser(false)
   }
 
+  const userClick = () => {
+    //when user avatar clicked the map centers to user and followUser is activated.
+    if(!followUser){
+      //console.log("Following User")
+      setFollowUser(true)
+      props.notify(props.settings.strings["user_follow"], false, 5)
+    }
+    setPosition(userLocation)
+  }
+
+  const dragEvent = (event) => {
+    //if followUser is active, disable it.
+    if(followUser){
+      //console.log("Disabling Follow User")
+      setFollowUser(false)
+    }
+    setPosition(event.target.getCenter())
+  }
+
+  const scrollListener = (event) => {
+    //dunno if needed updates the state for the zoom level.
+    //console.log(`Setting zoom to ${event.target._zoom}`)
+    setZoom(event.target._zoom)
+  }
+*/
 
   const confirmNewLocationMarker = () => {
     //confirm select on map event handler. Button is visible only when correct url.
@@ -151,56 +173,88 @@ const MapContainerMobile = (props) => {
     }
   }
 
-  const userClick = () => {
-    //when user avatar clicked the map centers to user and followUser is activated.
-    if(!followUser){
-      //console.log("Following User")
-      setFollowUser(true)
-      props.notify(props.settings.strings["user_follow"], false, 5)
-    }
-    setPosition(userLocation)
+  //function for handling events on the map
+  const HandleMapEvents = () => {
+    const map = useMapEvents({
+      click: (e) => {
+        //unfocus click or logo click doesn't reset TempMarker.
+        setFollowUser(false)
+        if(props.history.location.pathname === "/select-location/"){
+          setTempMarker(e.latlng)
+          setPosition(e.latlng)
+        }
+        else{setPosition(e.latlng)}
+      },
+      drag: (e) => {
+        //if followUser is active, disable it.
+        if(followUser){
+          setFollowUser(false)
+          setTempMarker(null)
+        }
+        setPosition(e.target.getCenter())
+        setTempMarker(null)
+      },
+      zoomend: (e) => {
+        setZoom(map.getZoom())
+        setPosition(e.target.getCenter())
+        setTempMarker(null)
+      }
+    });
+    return null;
+  }
+  //function for updating map center, when position or zoom values change
+  const UpdateMapCenter = () => {
+    const map = useMap()
+    useEffect(() => {
+        map.setView(position, zoom, {
+          "animate": true,
+          "pan": {
+            "duration": 0.5
+        }})
+    }, [position, zoom])
+    return null;
   }
 
-  const dragEvent = (event) => {
-    //if followUser is active, disable it.
-    if(followUser){
-      //console.log("Disabling Follow User")
-      setFollowUser(false)
-    }
-    setPosition(event.target.getCenter())
-  }
-
-  const scrollListener = (event) => {
-    //dunno if needed updates the state for the zoom level.
-    //console.log(`Setting zoom to ${event.target._zoom}`)
-    setZoom(event.target._zoom)
-  }
   return(
     <div className="mapContainerMobile">
-      <MapContainer className="fullscreenMap" zoomControl={false} center={position} zoom={zoom} onClick={leftClick} oncontextmenu={rightClick} onZoom={scrollListener} ondrag={dragEvent}>
+      <MapContainer className="fullscreenMap" zoomControl={false} center={position} zoom={zoom}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
+        <UpdateMapCenter/>
+        <HandleMapEvents/>
+        
         <MarkerClusterGroup maxClusterRadius="40">
           {posts.map((element, index) =>
             <Marker key={index} 
               position={element.location} 
               icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} 
               eventHandlers={{
+                //handle click event on marker
                 click: (e) => {
                   props.history.push(`/post-view/${element.id}/`)
                   setFollowUser(false)
                   setPosition(element.location)
                   setTempMarker(null)
-                },
+                }
               }}>
             </Marker>
           )}
         </MarkerClusterGroup>
         {userLocation !== null? 
-          <Marker position={userLocation} icon={userIcon} onClick={userClick}>
+          <Marker position={userLocation} icon={userIcon}
+          eventHandlers={{
+            click: (e) => {
+              //when user avatar clicked the map centers to user and followUser is activated.
+              if(!followUser){
+                //console.log("Following User")
+                setFollowUser(true)
+                props.notify(props.settings.strings["user_follow"], false, 5)
+              }
+              setPosition(userLocation)
+            }
+          }}>
           </Marker>
           :
           <></>
