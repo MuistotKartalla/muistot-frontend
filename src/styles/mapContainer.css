@@ -51,9 +51,3 @@
   top:1em;
   left: 4em;
 }
-
-.debugPosition{
-  z-index: 99;
-  font-size: 20px;
-  color: red;
-}
