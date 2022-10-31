@@ -68,6 +68,7 @@
       "search": "Search",
       "anonymous": "Anonymous",
       "by": "Author",
+      "profile": "Account",
 
       "go_to_signup_instead": "Create new account",
       "report": "Report",
@@ -157,7 +158,11 @@
       "imageless_posts": "Imageless Posts",
       "change_username": "Change Username",
       "set_username": "Set a Username",
-      "modified": "Modified by"
+      "modified": "Modified by",
+      "birthday": "Date of birth",
+      "change_information": "Change information",
+      "download_info": "Download information",
+      "country_name": "Country"
     },
     "fi":{
       "look_at_mementos": "Katsele tälle kohteelle syötettyjä muistoja",
@@ -238,6 +243,7 @@
       "description_optional": "Kuvaus (valinnainen)",
       "anonymous": "ei julkinen",
       "by": "Osallistuja",
+      "profile": "Tili",
 
 
       "delete_post": "Poista",
@@ -312,7 +318,11 @@
       "imageless_posts": "Kuvattomat kohteet",
       "change_username": "Vaihda Käyttäjänimeä",
       "set_username": "Aseta Käyttäjänimi",
-      "modified": "Muokannut"
+      "modified": "Muokannut",
+      "birthday": "Syntymäaika",
+      "change_information": "Muuta tietoja",
+      "download_info": "Lataa tiedot",
+      "country_name": "Maa"
     }
   }
 }

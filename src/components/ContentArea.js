@@ -22,6 +22,7 @@ import ImagelessPosts from "./ImagelessPosts"
 import UserSettings  from "./UserSettings"
 import ChangeUserName from "./ChangeUserName"
 import SetUserName from "./SetUserName"
+import AccountInfo from "./AccountInfo"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -107,7 +108,12 @@ const ContentArea = (props) => {
         <PopUpContainer history={history}>
           <SetUserName history={history}/>
         </PopUpContainer>
-      )}/>                  
+      )}/> 
+      <Route path="/my-account" render={({history}) => (
+        <PopUpContainer history={history}>
+          <AccountInfo history={history}/>
+        </PopUpContainer>
+      )}/>              
     </div>
 
   )

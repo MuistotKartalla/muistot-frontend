@@ -14,6 +14,7 @@ import iconN from "../resources/marker-icon-new.png"
 import iconT from "../resources/marker-transp.png"
 import iconTN from "../resources/marker-transp-new.png"
 import iconShadow from "../resources/marker-shadow.png"
+import iconGreen from "../resources/marker-green.png"
 //import iconY from "../resources/marker-yellow.png"
 //import iconH from "../resources/marker-hilite.png"
 //import iconP from "../resources/marker-piippu.png"
@@ -53,6 +54,7 @@ L.Marker.prototype.options.icon = defaultIcon
 const emptyIcon = new IconMarker({iconUrl: iconT})
 const emptyIconNew = new IconMarker({iconUrl: iconTN})
 const newIcon = new IconMarker({iconUrl: iconN})
+const greenIcon = new IconMarker({iconUrl: iconGreen})
 
 const userIcon = L.icon({
   iconUrl: userIconMarker,
@@ -184,10 +186,15 @@ const MapContainerOpen = (props) => {
           {posts.map((element, index) =>
             <Marker key={index} 
               position={element.location} 
-              icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} 
+              //if site is created by current user, use green marker. else, use default marker
+              icon={props.user===null?defaultIcon:(element.own?greenIcon:defaultIcon)}
+              //for testing purposes:
+              //icon={element.id==="74b2332118cb"?greenIcon:defaultIcon}
+              //icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} 
               eventHandlers={{
                 click: (e) => {
                   //handle click event on marker
+                  console.log(element.id)
                   props.history.push(`/post-view/${element.id}/`)
                   setFollowUser(false)
                   setPosition(element.location)
