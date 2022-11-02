@@ -264,7 +264,7 @@ export const UserSettings = (props) => {
 
               <div className="dualButtonContainer">
                 <button className="positiveButton rippleButton fillButton">{props.settings.strings["confirm"]}</button>
-                <button className="negativeButton rippleButton fillButton" onClick={() => props.history.goBack()}>{props.settings.strings["cancel"]}</button>
+                <button className="negativeButton rippleButton fillButton" onClick={() => props.history.push("/my-account/")}>{props.settings.strings["cancel"]}</button>
               </div>
 
 

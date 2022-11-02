@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import {connect} from "react-redux"
 import "../styles/accountInfo.css"
 import "../styles/buttons.css"
+import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
 import {ReactComponent as EditIcon} from "../resources/edit-icon.svg"
 //edit-icon from https://www.flaticon.com/free-icons/edit
 
@@ -22,10 +23,13 @@ export const AccountInfo = (props) => {
     }
 
     return(
-        <div className="userInformationContainer">
-            <div className="userInformation">
-                <h1 className="TitleText">{props.user !== null && props.user.username !== "" ? props.user.username : props.settings.strings["profile"]}</h1>
-                <EditIcon className="editIcon" onClick={editUsername}/>
+        <div className="userInformationContainerMobile">
+            <div className="userInformationMobile">
+                <button className="mobileButtonContainer">
+                        <ReturnIcon className="mobileIcon" onClick={() => props.history.push("/")}/>
+                </button>
+                <h1 className="titleTextMobile">{props.user !== null && props.user.username !== "" ? props.user.username : props.settings.strings["profile"]}</h1>
+                <EditIcon className="editIconMobile" onClick={editUsername}/>
             </div>
             <div className="userInformation">
                 <table>

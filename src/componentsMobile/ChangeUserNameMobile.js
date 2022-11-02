@@ -22,7 +22,7 @@ export const ChangeUserNameMobile = (props) => {
         event.preventDefault()
         props.changeUsernameReducer(username)
         setUsername("")
-        props.history.push("/")
+        props.history.push("/my-account/")
     }
 
 
