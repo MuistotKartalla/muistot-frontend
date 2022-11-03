@@ -43,7 +43,10 @@ export const MyPostsMobile = (props) => {
           <button className="mobileButtonContainer">
             <ReturnIcon className="mobileIcon" onClick={() => props.history.goBack()}/>
           </button>
-          <h1 className="titleTextMobile">{props.settings.strings["my_posts"]}</h1>
+          <div className="titleHeaderMobile">
+            <h1 className="titleTextMobile">{props.settings.strings["my_posts"]}</h1>
+          </div>
+          
         </div>
 
         <ul className="myPostsList">
@@ -70,7 +73,9 @@ export const MyPostsMobile = (props) => {
         <button className="mobileButtonContainer">
           <ReturnIcon className="mobileIcon" onClick={() => props.history.goBack()}/>
         </button>
-        <h1 className="titleTextMobile">{props.settings.strings["my_posts"]}</h1>
+        <div className="titleHeaderMobile">
+            <h1 className="titleTextMobile">{props.settings.strings["my_posts"]}</h1>
+        </div>
       </div>
       <ul className="myPostsList">
         <li>

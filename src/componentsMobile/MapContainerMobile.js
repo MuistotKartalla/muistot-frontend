@@ -14,6 +14,7 @@ import iconN from "../resources/marker-icon-new.png"
 import iconT from "../resources/marker-transp.png"
 import iconTN from "../resources/marker-transp-new.png"
 import iconShadow from "../resources/marker-shadow.png"
+import iconGreen from "../resources/marker-green.png"
 
 import userIconMarker from "../resources/user_icon_custom.svg"
 import tempIconMarker from "../resources/temp_marker.svg"
@@ -43,6 +44,7 @@ L.Marker.prototype.options.icon = defaultIcon
 const emptyIcon = new IconMarker({iconUrl: iconT})
 const emptyIconNew = new IconMarker({iconUrl: iconTN})
 const newIcon = new IconMarker({iconUrl: iconN})
+const greenIcon = new IconMarker({iconUrl: iconGreen})
 
 const userIcon = L.icon({
   iconUrl: userIconMarker,
@@ -180,8 +182,10 @@ const MapContainerMobile = (props) => {
         <MarkerClusterGroup maxClusterRadius="60">
           {posts.map((element, index) =>
             <Marker key={index} 
-              position={element.location} 
-              icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} 
+              position={element.location}
+              //if site is created by current user, use green marker. else, use default marker
+              icon={props.user===null?defaultIcon:(element.own?greenIcon:defaultIcon)}
+              //icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} 
               eventHandlers={{
                 //handle click event on marker
                 click: (e) => {

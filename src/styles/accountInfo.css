@@ -29,7 +29,7 @@
     font-weight: 500;
     font-size: 1em;
     text-align: center;
-    padding: 20px;
+    padding: 20px 8% 20px 8%;
     display: flex;
     justify-content: center;
 }
@@ -39,9 +39,20 @@
     color: var(--primary-text-color);
     font-weight: 500;
     font-size: 1em;
-    padding: 20px;
+    padding: 5%;
     display: flex;
     justify-content: space-between;
+}
+
+.userInformationTitleMobile{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+}
+
+.userInformationButtonMobile{
+    width: 15%;
+    justify-content: start;
 }
 
 .editIcon{
@@ -72,7 +83,7 @@ table {
     border-collapse: collapse;
 	vertical-align: middle;
     text-align: left;
-    width: 95%;
+    width: 100%;
 }
   
 th, td {

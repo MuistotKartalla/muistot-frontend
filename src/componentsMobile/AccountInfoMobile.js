@@ -24,14 +24,20 @@ export const AccountInfo = (props) => {
 
     return(
         <div className="userInformationContainerMobile">
-            <div className="userInformationMobile">
-                <button className="mobileButtonContainer">
-                        <ReturnIcon className="mobileIcon" onClick={() => props.history.push("/")}/>
-                </button>
-                <h1 className="titleTextMobile">{props.user !== null && props.user.username !== "" ? props.user.username : props.settings.strings["profile"]}</h1>
-                <EditIcon className="editIconMobile" onClick={editUsername}/>
+            <div className="titleContainerMobile">
+                <div className="userInformationButtonMobile">
+                    <button className="mobileButtonContainer">
+                            <ReturnIcon className="mobileIcon" onClick={() => props.history.push("/")}/>
+                    </button>
+                </div>
+                <div className="userInformationTitleMobile">
+                    <h1 className="titleTextMobile">{props.user !== null && props.user.username !== "" ? props.user.username : props.settings.strings["profile"]}</h1>
+                </div> 
+                <div className="userInformationButtonMobile">
+                    <EditIcon className="editIconMobile" onClick={editUsername}/>
+                </div>  
             </div>
-            <div className="userInformation">
+            <div className="userInformationMobile">
                 <table>
                     <tbody>
                         <tr className="userInfoRows">
