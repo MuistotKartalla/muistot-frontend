@@ -52,11 +52,6 @@ export const PostViewLW = (props) => {
     props.history.push("/")
   }
 
-  const reportClick = (event) => {
-    event.preventDefault()
-    props.history.push(`/post-view/${post.id}/report/`)
-  }
-
   const verifyClick = (event) => {
     event.preventDefault()
     props.toggleVerify(post)
@@ -66,6 +61,11 @@ export const PostViewLW = (props) => {
   const editPostClick = (postId) =>{
     props.history.push(`/edit-post/${postId}`)
   }
+/*
+  const reportClick = (event) => {
+    event.preventDefault()
+    props.history.push(`/post-view/${post.id}/report/`)
+  }
 
   const copyclipboard = (event) => {
     navigator.clipboard.writeText(window.location.href).then(function() {
@@ -73,8 +73,8 @@ export const PostViewLW = (props) => {
     }, function(err) {
       console.error('Copying URI is unseccessful', err);
     });
-  
   }
+  */
 
   const twitterShareClick = (event) => {
     event.preventDefault()

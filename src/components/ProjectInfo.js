@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import {connect} from "react-redux"
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink } from "react-csv";
 
 import {notify} from "../reducers/notificationReducer"
 import "../styles/projectInfo.css"
@@ -31,7 +31,7 @@ export const ProjectInfo = (props) => {
     if(csvData.length <= 1){
       GenerateCSVData()
     }
-  }, [props, project.title])
+  }, [props, project.title, posts, csvData.length])
 
   const closeClick = (event) => {
     //go back to the previous page

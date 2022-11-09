@@ -61,7 +61,7 @@ export const NavMenuMobile = (props) => {
     props.history.push("/project-info/")
     toggleVisibity()
   }
-
+/*
   const toUserSettings = (event) => {
     event.preventDefault()
     props.history.push("/usersettings/")
@@ -73,7 +73,7 @@ export const NavMenuMobile = (props) => {
     props.history.push("/change-username/")
     toggleVisibity()
   }
-
+*/
   const toRoot = (event) => {
     //pushes url route to root or "/", might change later when different projects implemented.
     event.preventDefault()

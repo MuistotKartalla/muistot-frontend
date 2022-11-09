@@ -6,8 +6,8 @@ import {notify} from "../reducers/notificationReducer"
 import "../styles/loginForm.css"
 
 
-import GoogleLogin from "react-google-login"
-import FacebookLogin from "react-facebook-login"
+//import GoogleLogin from "react-google-login"
+//import FacebookLogin from "react-facebook-login"
 import axios from "axios";
 import {EMAIL_ONLY_LOGIN} from "../services/paths";
 
@@ -19,7 +19,7 @@ export const LoginForm = (props) => {
         event.preventDefault()
         props.history.goBack()
     }
-
+/*
     const someFail = () => {
         props.history.push("/" + props.settings.strings["cancel"])
         props.notify("Social media authentication failed please try again", false, 5)
@@ -30,7 +30,7 @@ export const LoginForm = (props) => {
 
     const responseFacebook = async (response) => {
     }
-
+*/
     if (loginSuccessful) {
         return (
             <div className="loginContainerMobile">

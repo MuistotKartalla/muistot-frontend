@@ -10,9 +10,9 @@ import "leaflet/dist/leaflet.css"
 import "../styles/markerCluster.css"
 
 import icon from "../resources/marker-icon.png"
-import iconN from "../resources/marker-icon-new.png"
-import iconT from "../resources/marker-transp.png"
-import iconTN from "../resources/marker-transp-new.png"
+//import iconN from "../resources/marker-icon-new.png"
+//import iconT from "../resources/marker-transp.png"
+//import iconTN from "../resources/marker-transp-new.png"
 import iconShadow from "../resources/marker-shadow.png"
 import iconGreen from "../resources/marker-green.png"
 
@@ -41,9 +41,9 @@ var IconMarker = L.Icon.extend({
 let defaultIcon = new IconMarker({iconUrl: icon})
 L.Marker.prototype.options.icon = defaultIcon
 
-const emptyIcon = new IconMarker({iconUrl: iconT})
-const emptyIconNew = new IconMarker({iconUrl: iconTN})
-const newIcon = new IconMarker({iconUrl: iconN})
+//const emptyIcon = new IconMarker({iconUrl: iconT})
+//const emptyIconNew = new IconMarker({iconUrl: iconTN})
+//const newIcon = new IconMarker({iconUrl: iconN})
 const greenIcon = new IconMarker({iconUrl: iconGreen})
 
 const userIcon = L.icon({
@@ -165,7 +165,7 @@ const MapContainerMobile = (props) => {
         }})
         setmoveToPosition(false)
       }
-    }, [position, zoom])
+    }, [map])
     return null;
   }
 
