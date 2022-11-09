@@ -129,7 +129,7 @@
       "only_users_can_post": "Only Users Can Post New Content (Default)",
       "visitors_can_post": "Visitors Can Post New Content",
       "statistics": "Statistics",
-      "download_project": "Download Project Data",
+      "download_project": "Download data",
 
       "version_update_text": "The muistotkartalla.fi application you are running is outdated and needs to be updated",
 
@@ -286,7 +286,7 @@
       "only_users_can_post": "Vain rekisteröityneet käyttäjät voivat lähettää sisältöä (oletus)",
       "visitors_can_post": "Vierailijat voivat lähettää sisältöä",
       "statistics": "Tilastot",
-      "download_project": "Lataa projektin tietokanta",
+      "download_project": "Lataa tietokanta",
 
       "version_update_text": "Selaimessasi pyörivä muistotkartalla.fi -sovellus on vanhentunut, ja on aika ladata päivitetty versio",
       "go_to_signup_instead": "Luo uusi tili",

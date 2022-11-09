@@ -62,7 +62,7 @@ export const AccountInfo = (props) => {
                         </tr>
                         <tr className="userInfoRows">
                             <th className="userInfoValues">{props.settings.strings["birthday"]}</th>
-                            <th className="userInfoValues">{props.user !== null && props.user.dob !== null ? props.user.dob : "-"}</th>
+                            <th className="userInfoValues">{props.user !== null && props.user.birth_date !== null ? props.user.birth_date : "-"}</th>
                         </tr>
                     </tbody>
                 </table>
