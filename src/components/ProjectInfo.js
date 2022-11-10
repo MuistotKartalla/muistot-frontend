@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import {connect} from "react-redux"
-import { CSVLink } from "react-csv";
+import { CSVLink } from "react-csv"
 
 import {notify} from "../reducers/notificationReducer"
 import "../styles/projectInfo.css"
@@ -25,27 +25,23 @@ export const ProjectInfo = (props) => {
     if(!project.title){
       setProject(props.projects.active)
     }
+    //check that we have all correct posts
     if(props.posts !== posts){
       setPosts(props.posts)
     }
+    //if there is no csv data, generate it
     if(csvData.length <= 1){
-      GenerateCSVData()
+      const postsData = [["Project", "Project moderator", "Site ID", "Site title", "Site creator", "Last modifier", "Memories", "Location latitude", "Location longitude", "Abstract"]]
+      posts.map((post) => postsData.push([project.title, project.moderators, post.id, post.title, post.creator, post.modifier, post.muistoja, post.location.lat, post.location.lng, post.abstract]))
+      //update data to csvData variable
+      setCsvData(postsData)
     }
-  }, [props, project.title, posts, csvData.length])
+  }, [props, project.title, posts, csvData.length, project.moderators])
 
   const closeClick = (event) => {
     //go back to the previous page
     event.preventDefault()
     props.history.goBack()
-  }
-
-  //generate csv data from current project's sites
-  const GenerateCSVData = () => {
-    const postsData = [["Project", "Project moderator", "Site ID", "Site title", "Site creator", "Last modifier", "Memories", "Location latitude", "Location longitude", "Abstract"]]
-    posts.map((post) => postsData.push([project.title, project.moderators, post.id, post.title, post.creator, post.modifier, post.muistoja, post.location.lat, post.location.lng, post.abstract]))
-    //update data to csvData variable
-    setCsvData(postsData)
-    return null
   }
   
   //check if current user is project moderator

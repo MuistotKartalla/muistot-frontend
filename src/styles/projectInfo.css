@@ -61,3 +61,8 @@
   overflow:hidden;
   overflow-y:auto;
 }
+
+.projectInfoDownloadButton{
+  text-align: center;
+  margin-top: 2em;
+}
