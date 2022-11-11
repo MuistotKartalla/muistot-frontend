@@ -1,7 +1,7 @@
 // By: Niklas Impiö
 import React from "react"
 import {connect} from "react-redux"
-import {Route} from "react-router-dom"
+import {Route, Link} from "react-router-dom"
 
 import "../styles/containers.css"
 
@@ -23,6 +23,7 @@ import UserSettings  from "./UserSettings"
 import ChangeUserName from "./ChangeUserName"
 import SetUserName from "./SetUserName"
 import AccountInfo from "./AccountInfo"
+import CookieConsent, { Cookies } from "react-cookie-consent";
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -113,7 +114,18 @@ const ContentArea = (props) => {
         <PopUpContainer history={history}>
           <AccountInfo history={history}/>
         </PopUpContainer>
-      )}/>              
+      )}/>     
+        <CookieConsent  //TODO: modelize, styles
+          location="bottom"
+          buttonText="I understand"
+          cookieName="consentCookie"
+          style={{ background: "#181818" }}
+          buttonStyle={{ background: "#03FFFF", fontSize: "14px" }}>
+          This website uses cookies to enhance the user experience.
+          <Link to="/about">
+              <span style={{float: "right", color: "#FFFFFF"}}>Privacy Policy</span> 
+          </Link>
+        </CookieConsent>         
     </div>
 
   )
