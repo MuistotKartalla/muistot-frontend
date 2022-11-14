@@ -92,6 +92,12 @@ export const NavMenuMobile = (props) => {
     props.history.push("/my-account/")
     toggleVisibity()
   }
+
+  const toManagementClick = (event) => {
+    event.preventDefault()
+    props.history.push("/project-management/")
+    toggleVisibity()
+  }
   
   if(visible){
     return (
@@ -134,6 +140,7 @@ export const NavMenuMobile = (props) => {
               <div className="mobileMenuUserNameContainer">
               <div className="divider"/>
               <button className="mobileMenuButton" onClick={toUnverifiedPostsClick}>{props.settings.strings["unverified-posts"]}</button>
+              <button className="mobileMenuButton" onClick={toManagementClick}>{props.settings.strings["project_management"]}</button>
               </div>
               :
               <></>

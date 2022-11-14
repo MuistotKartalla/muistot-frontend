@@ -3,11 +3,12 @@ import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
 import { CSVLink } from "react-csv"
 
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 import "../styles/postView.css"
 import "../styles/accountInfo.css"
+import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
+import {ReactComponent as EditIcon} from "../resources/edit-icon.svg"
 
-export const ProjectManagement = (props) => {
+export const ProjectManagementMobile = (props) => {
   //declare some variables
   const [project, setProject] = useState(props.projects.active)
   const [posts, setPosts] = useState(props.posts)
@@ -31,20 +32,20 @@ export const ProjectManagement = (props) => {
     }
   }, [props, project.title, posts, csvData.length, project.moderators])
 
-  const closeClick = (event) => {
-    //go back to the previous page
-    event.preventDefault()
-    props.history.push("/")
-  }
-
   if(props.user && project.moderators.find(user => user === props.user.username)){
     return (
-      <div className="userInformationContainer centerAlignWithPadding">
-        <div className="postTitleContainer">
-          <h1 className="titleText centerAlignWithPadding">{props.settings.strings["project_management"]}</h1>
-          <ClearIcon className="clearIcon" onClick={closeClick}/>
+      <div className="userInformationContainerMobile">
+        <div className="titleContainerMobile">
+          <div className="userInformationButtonMobile">
+            <button className="mobileButtonContainer">
+              <ReturnIcon className="mobileIcon" onClick={() => props.history.push("/")}/>
+            </button>
+          </div>
+          <div className="userInformationTitleMobile">
+            <h1 className="titleTextMobile">{props.settings.strings["project_management"]}</h1>
+          </div>
         </div>
-        <div className="userInformation">
+        <div className="userInformationMobile">
           <table>
               <tbody>
                 <tr className="userInfoRows">
@@ -80,10 +81,16 @@ export const ProjectManagement = (props) => {
   }
   else {
     return (
-      <div className="userInformationContainer centerAlignWithPadding">
-        <div className="postTitleContainer">
-          <h1 className="titleText centerAlignWithPadding" onClick={() => props.history.push("/login")}>{props.settings.strings["login_or_register"]}</h1>
-          <ClearIcon className="clearIcon" onClick={closeClick}/>
+      <div className="userInformationContainerMobile">
+        <div className="titleContainerMobile">
+        <div className="userInformationButtonMobile">
+          <button className="mobileButtonContainer">
+            <ReturnIcon className="mobileIcon" onClick={() => props.history.push("/")}/>
+          </button>
+          </div>
+          <div className="userInformationTitleMobile">
+            <h1 className="titleTextMobile" onClick={() => props.history.push("/login")}>{props.settings.strings["login_or_register"]}</h1>
+          </div>
         </div>
       </div>
     );
@@ -111,4 +118,4 @@ const mapStateToProps = (state) => {
   export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(ProjectManagement)
+  )(ProjectManagementMobile)
