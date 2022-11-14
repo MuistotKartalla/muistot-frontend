@@ -52,11 +52,17 @@
   border-radius: 5px;
 }
 
+.settingIcon{
+  cursor: pointer;
+  width: 2.2em;
+  height: 2.2em;
+  margin: 2px 0 0 10px;
+}
 
 .projectInfoContentContainer{
   height: 100%;
   list-style-type: none;
-  padding: 0 20px;
+  padding: 2%;
   max-height: auto;
   overflow:hidden;
   overflow-y:auto;

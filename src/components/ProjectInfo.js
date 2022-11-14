@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react"
 import {connect} from "react-redux"
-import { CSVLink } from "react-csv"
 
 import {notify} from "../reducers/notificationReducer"
 import "../styles/projectInfo.css"
 import "../styles/containers.css"
 import "../styles/postView.css"
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
+import {ReactComponent as SettingIcon} from "../resources/setting_cog.svg"
 import {getImageURL} from "../services/images";
 
 const ReactMarkdown = require('react-markdown')
@@ -17,31 +17,22 @@ export const ProjectInfo = (props) => {
   */
   //declare some variables
   const [project, setProject] = useState(props.projects.active)
-  const [posts, setPosts] = useState(props.posts)
-  const [csvData, setCsvData] = useState([])
 
-  //in useEffect, check if we have some active project, check its posts and update data for csv download
   useEffect(() => {
     if(!project.title){
       setProject(props.projects.active)
     }
-    //check that we have all correct posts
-    if(props.posts !== posts){
-      setPosts(props.posts)
-    }
-    //if there is no csv data, generate it
-    if(csvData.length <= 1){
-      const postsData = [["Project", "Project moderator", "Site ID", "Site title", "Site creator", "Last modifier", "Memories", "Location latitude", "Location longitude", "Abstract"]]
-      posts.map((post) => postsData.push([project.title, project.moderators, post.id, post.title, post.creator, post.modifier, post.muistoja, post.location.lat, post.location.lng, post.abstract]))
-      //update data to csvData variable
-      setCsvData(postsData)
-    }
-  }, [props, project.title, posts, csvData.length, project.moderators])
+  }, [props, project.title])
 
   const closeClick = (event) => {
-    //go back to the previous page
     event.preventDefault()
-    props.history.goBack()
+    props.history.push("/")
+  }
+
+  //go to project management page
+  const toManagement = (event) => {
+    event.preventDefault()
+    props.history.push("/project-management")
   }
   
   //check if current user is project moderator
@@ -49,13 +40,7 @@ export const ProjectInfo = (props) => {
     return(
       <div className="projectInfoContainer centerAlignWithPadding">
         <div className="postTitleContainer">
-        <CSVLink
-              data={csvData}
-              filename={project.id + '-sites.csv'}
-              className='rippleButton'
-              target='_blank'
-            >{props.settings.strings["download_project"]}
-        </CSVLink>
+          <SettingIcon className="settingIcon" onClick={toManagement}></SettingIcon>
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings[project.id]}</h1>
           <ClearIcon className="clearIcon" onClick={closeClick}/>
         </div>
@@ -115,7 +100,6 @@ const mapStateToProps = (state) => {
     projects: state.projects,
     settings: state.settings,
     user: state.user,
-    posts: state.posts
   }
 }
 

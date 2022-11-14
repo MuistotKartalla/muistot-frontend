@@ -2,7 +2,9 @@ import React from "react"
 import {connect} from "react-redux"
 import "../styles/accountInfo.css"
 import "../styles/buttons.css"
+import "../styles/postView.css"
 import {ReactComponent as EditIcon} from "../resources/edit-icon.svg"
+import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 //edit-icon from https://www.flaticon.com/free-icons/edit
 
 export const AccountInfo = (props) => {
@@ -21,11 +23,18 @@ export const AccountInfo = (props) => {
         props.history.push("/my-posts/")
     }
 
+    const closeClick = (event) => {
+      //go back to the previous page
+      event.preventDefault()
+      props.history.push("/")
+    }
+
     return(
-        <div className="userInformationContainer">
-            <div className="userInformation">
-                <h1 className="TitleText">{props.user !== null && props.user.username !== "" ? props.user.username : props.settings.strings["profile"]}</h1>
-                <EditIcon className="editIcon" onClick={editUsername}/>
+        <div className="userInformationContainer centerAlignWithPadding">
+            <div className="postTitleContainer">
+              <EditIcon className="editIcon" onClick={editUsername}/>
+              <h1 className="titleText centerAlignWithPadding">{props.user !== null && props.user.username !== "" ? props.user.username : props.settings.strings["profile"]}</h1>
+              <ClearIcon className="clearIcon" onClick={closeClick}/>
             </div>
             <div className="userInformation">
                 <table>

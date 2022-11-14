@@ -137,6 +137,11 @@
       "reports": "Reports",
       "configure_project": "Configure Project",
       "project_statistics": "Project Statistics",
+      "project_management": "Project management",
+      "project_id": "Project ID",
+      "project_title": "Title",
+      "project_mod": "Moderators",
+      "project_sites": "Number of sites",
       
       "activity": "Are you there?",
       "activity_text": "Automatic logout in:",
@@ -297,6 +302,11 @@
       "reports": "Raportit",
       "configure_project": "Muokkaa projektin asetuksia",
       "project_statistics": "Projektin tilastot",
+      "project_management": "Projektin hallinta",
+      "project_id": "Projektin ID",
+      "project_title": "Otsikko",
+      "project_mod": "Vastuukäyttäjät",
+      "project_sites": "Kohteiden määrä",
       
       "activity": "Oletko paikalla?",
       "activity_text": "Automaattinen uloskirjautuminen:",
