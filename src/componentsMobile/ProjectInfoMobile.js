@@ -16,13 +16,22 @@ export const ProjectInfoMobile = (props) => {
   */
 
   const [project, setProject] = useState(props.projects.active)
+  const [projectTitle, setProjectTitle] = useState(props.projects.active.title)
 
   useEffect(() => {
     if(!project.title){
       //console.log("no active project")
       setProject(props.projects.active)
     }
-  }, [props, project.title])
+    //if active project is piiput or parantolat, set title according to stringStorage
+    if (project.id === "piiput" || project.id === "parantolat"){
+      setProjectTitle(props.settings.strings[project.id])
+    }
+    //for other projects use project title determined in the database
+    else {
+      setProjectTitle(props.projects.active.title)
+    }
+  }, [props, project.title, project.id])
 
   // const closeClick = (event) => {
   //   //go back to the previous page
@@ -40,7 +49,7 @@ export const ProjectInfoMobile = (props) => {
             <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); props.history.goBack()}}/>
           </button>
           <div className="titleHeaderMobile">
-            <h1 className="titleTextMobile">{props.settings.strings[project.id]}</h1>
+            <h1 className="titleTextMobile">{projectTitle}</h1>
           </div>
         </div>
         <div className="projectInfoContentContainer">
@@ -70,7 +79,7 @@ export const ProjectInfoMobile = (props) => {
             <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); props.history.goBack()}}/>
           </button>
           <div className="titleHeaderMobile">
-            <h1 className="titleTextMobile">{props.settings.strings[project.id]}</h1>
+            <h1 className="titleTextMobile">{projectTitle}</h1>
           </div>
         </div>
         <div className="projectInfoContentContainer">

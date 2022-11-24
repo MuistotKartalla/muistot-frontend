@@ -4,8 +4,9 @@ import {connect} from "react-redux"
 import {Route, Link} from "react-router-dom"
 
 import "../styles/containers.css"
+import "../styles/texts.css"
 
-import {notify} from "../reducers/notificationReducer"
+import notificationReducer, {notify} from "../reducers/notificationReducer"
 import NewPostCombined from "./NewPostCombined"
 import NewMemento from "./NewMemento"
 import PostView from "./PostView"
@@ -125,11 +126,11 @@ const ContentArea = (props) => {
           location="bottom"
           buttonText="I understand"
           cookieName="consentCookie"
-          style={{ background: "#181818" }}
-          buttonStyle={{ background: "#03FFFF", fontSize: "14px" }}>
+          style={{ background: "#181818", fontFamily: "sans-serif"}}
+          buttonStyle={{ background: "#03FFFF", fontSize: "1em", border: "none", borderRadius: "7px", fontWeight: "700", padding: "0.5em 1em 0.5em 1em"}}>
           This website uses cookies to enhance the user experience.
           <Link to="/about">
-              <span style={{float: "right", color: "#FFFFFF"}}>Privacy Policy</span> 
+              <span style={{float: "right", color: "#FFFFFF", textDecoration: "underline"}}>Privacy Policy</span> 
           </Link>
         </CookieConsent>         
     </div>
