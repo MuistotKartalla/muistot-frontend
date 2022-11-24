@@ -194,7 +194,7 @@ const MapContainerOpen = (props) => {
               eventHandlers={{
                 click: (e) => {
                   //handle click event on marker
-                  console.log(element.id)
+                  //console.log(element.id)
                   props.history.push(`/post-view/${element.id}/`)
                   setFollowUser(false)
                   setPosition(element.location)

@@ -6,7 +6,6 @@ import { CSVLink } from "react-csv"
 import "../styles/postView.css"
 import "../styles/accountInfo.css"
 import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
-import {ReactComponent as EditIcon} from "../resources/edit-icon.svg"
 
 export const ProjectManagementMobile = (props) => {
   //declare some variables

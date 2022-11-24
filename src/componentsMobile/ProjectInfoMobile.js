@@ -22,7 +22,7 @@ export const ProjectInfoMobile = (props) => {
       //console.log("no active project")
       setProject(props.projects.active)
     }
-  }, [props, , project.title])
+  }, [props, project.title])
 
   // const closeClick = (event) => {
   //   //go back to the previous page

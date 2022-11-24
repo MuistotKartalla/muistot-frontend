@@ -83,7 +83,7 @@ export const UserSettings = (props) => {
         
           // const ok = await modifyService.modifyRequest(modifiedUser)
           props.changeUserSettings(modifiedUser.new_firstName, modifiedUser.new_lastName, modifiedUser.new_country, modifiedUser.new_city, modifiedUser.new_dob)
-          console.log(modifiedUser)
+          //console.log(modifiedUser)
           props.notify(props.settings.strings["account_modify_ok"], false, 8)
           props.history.push("/my-account/")
 

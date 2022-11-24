@@ -17,7 +17,6 @@ export const DropDownSelectProject = (props) => {
   const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false)
 
   const toggleVisibility = () => {
-
     //console.log("toggling visibility")
     setIsComponentVisible(!isComponentVisible)
   }
@@ -29,32 +28,39 @@ export const DropDownSelectProject = (props) => {
       if(element ==="divider"){
         //if the element name is "divider" dropdownlist adds divider there.
         list.push({divider:true})
-      }else if (element === props.settings.strings["new_project"]){
+      }
+      else if (element === props.settings.strings["new_project"]){
         list.push({string: element, onClickHandler: () => {
           props.change(element)
           setIsComponentVisible(!isComponentVisible)
         }
         })
-
-      }else{
+      }
+      else if (element.id === "piiput" || element.id === "parantolat"){
         list.push({string: props.settings.strings[element.id], onClickHandler: () => {
           props.change(element)
           setIsComponentVisible(!isComponentVisible)
           //console.log(element.title, " clicked")
         }
         })
-
+      }
+      else{
+        list.push({string: element.title, onClickHandler: () => {
+          props.change(element)
+          setIsComponentVisible(!isComponentVisible)
+        }
+      })
       }
     })
     return list
   }
 
-
+  
   if(!isComponentVisible){
     return(
       <div className="dropDownSelectHidden" ref={ref}>
         <div className="dropDownSelectCurrentItem" onClick={toggleVisibility}>
-          <span className="activeItemText">{props.settings.strings[props.active.id]}</span> 
+          <span className="activeItemText">{props.active.id==="piiput" || props.active.id==="parantolat"?props.settings.strings[props.active.id]:props.active.title}</span> 
           <DropDownIcon className="dropDownIcon"></DropDownIcon>
         </div>
       </div>
@@ -63,7 +69,7 @@ export const DropDownSelectProject = (props) => {
     return(
       <div className="dropDownSelectVisible" ref={ref}>
         <div className="dropDownSelectCurrentItem" onClick={toggleVisibility}>
-          <span className="activeItemText">{props.settings.strings[props.active.id]}</span>
+          <span className="activeItemText">{props.active.id==="piiput" || props.active.id==="parantolat"?props.settings.strings[props.active.id]:props.active.title}</span>
           <DropDownIcon className="dropDownIconActive"></DropDownIcon>
         </div>
         <DropDownList items={genListOptions()}/>
