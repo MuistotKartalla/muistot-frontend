@@ -68,6 +68,7 @@
       "search": "Search",
       "anonymous": "Anonymous",
       "by": "Author",
+      "profile": "Account",
 
       "go_to_signup_instead": "Create new account",
       "report": "Report",
@@ -128,7 +129,7 @@
       "only_users_can_post": "Only Users Can Post New Content (Default)",
       "visitors_can_post": "Visitors Can Post New Content",
       "statistics": "Statistics",
-      "download_project": "Download Project Data",
+      "download_project": "Download database",
 
       "version_update_text": "The muistotkartalla.fi application you are running is outdated and needs to be updated",
 
@@ -136,6 +137,11 @@
       "reports": "Reports",
       "configure_project": "Configure Project",
       "project_statistics": "Project Statistics",
+      "project_management": "Project management",
+      "project_id": "Project ID",
+      "project_title": "Title",
+      "project_mod": "Moderators",
+      "project_sites": "Number of sites",
       
       "activity": "Are you there?",
       "activity_text": "Automatic logout in:",
@@ -157,7 +163,11 @@
       "imageless_posts": "Imageless Posts",
       "change_username": "Change Username",
       "set_username": "Set a Username",
-      "modified": "Modified by"
+      "modified": "Modified by",
+      "birthday": "Date of birth",
+      "change_information": "Change information",
+      "download_info": "Download information",
+      "country_name": "Country"
     },
     "fi":{
       "look_at_mementos": "Katsele tälle kohteelle syötettyjä muistoja",
@@ -238,6 +248,7 @@
       "description_optional": "Kuvaus (valinnainen)",
       "anonymous": "ei julkinen",
       "by": "Osallistuja",
+      "profile": "Tili",
 
 
       "delete_post": "Poista",
@@ -280,7 +291,7 @@
       "only_users_can_post": "Vain rekisteröityneet käyttäjät voivat lähettää sisältöä (oletus)",
       "visitors_can_post": "Vierailijat voivat lähettää sisältöä",
       "statistics": "Tilastot",
-      "download_project": "Lataa projektin tietokanta",
+      "download_project": "Lataa tietokanta",
 
       "version_update_text": "Selaimessasi pyörivä muistotkartalla.fi -sovellus on vanhentunut, ja on aika ladata päivitetty versio",
       "go_to_signup_instead": "Luo uusi tili",
@@ -291,6 +302,11 @@
       "reports": "Raportit",
       "configure_project": "Muokkaa projektin asetuksia",
       "project_statistics": "Projektin tilastot",
+      "project_management": "Projektin hallinta",
+      "project_id": "Projektin ID",
+      "project_title": "Otsikko",
+      "project_mod": "Vastuukäyttäjät",
+      "project_sites": "Kohteiden määrä",
       
       "activity": "Oletko paikalla?",
       "activity_text": "Automaattinen uloskirjautuminen:",
@@ -312,7 +328,11 @@
       "imageless_posts": "Kuvattomat kohteet",
       "change_username": "Vaihda Käyttäjänimeä",
       "set_username": "Aseta Käyttäjänimi",
-      "modified": "Muokannut"
+      "modified": "Muokannut",
+      "birthday": "Syntymäaika",
+      "change_information": "Muuta tietoja",
+      "download_info": "Lataa tiedot",
+      "country_name": "Maa"
     }
   }
 }

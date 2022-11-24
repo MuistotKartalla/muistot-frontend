@@ -24,7 +24,7 @@ export const ChangeUserName = (props) => {
         event.preventDefault()
         props.changeUsernameReducer(username)
         setUsername("")
-        props.history.push("/")
+        props.history.push("/my-account/")
     }
     return (
         <div className="loginContainer centerAlignWithPadding">

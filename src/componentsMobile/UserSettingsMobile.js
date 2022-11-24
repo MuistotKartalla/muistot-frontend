@@ -20,7 +20,7 @@ export const UserSettingsMobile = (props) => {
   }
   const deleteAccountConfirmClick = (event) => {
     event.preventDefault()
-    console.log("deleting account")
+    //console.log("deleting account")
     //TODO
   }
 
@@ -46,9 +46,9 @@ export const UserSettingsMobile = (props) => {
         
           // const ok = await modifyService.modifyRequest(modifiedUser)
           props.changeUserSettings(modifiedUser.new_firstName, modifiedUser.new_lastName, modifiedUser.new_country, modifiedUser.new_city, modifiedUser.new_dob)
-          console.log(modifiedUser)
+          //console.log(modifiedUser)
           props.notify(props.settings.strings["account_modify_ok"], false, 8)
-          props.history.push("/")
+          props.history.push("/my-account/")
 
     }
 
@@ -140,7 +140,7 @@ export const UserSettingsMobile = (props) => {
         
         <div className="dualButtonContainer">
           <button className="positiveButton rippleButton fillButton">{props.settings.strings["confirm"]}</button>
-          <button className="negativeButton rippleButton fillButton" onClick={() => props.history.push("/")}>{props.settings.strings["cancel"]}</button>
+          <button className="negativeButton rippleButton fillButton" onClick={() => props.history.push("/my-account/")}>{props.settings.strings["cancel"]}</button>
         </div>
         </form>
       </div>

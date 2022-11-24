@@ -66,8 +66,7 @@ html, body, #root, #app, #app>div {
 
 .titleHeaderMobile{
   display: flex;
-  width: -webkit-fill-available;
-  width: -moz-available;
+  width: 75%;
 }
 
 .dualButtonContainer{

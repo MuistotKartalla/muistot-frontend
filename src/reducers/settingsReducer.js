@@ -35,14 +35,14 @@ const changeThemeInCSS = (theme) => {
     }
     else{
         document.documentElement.style.setProperty("--primary-color", "#ffffff")
-        document.documentElement.style.setProperty("--secondary-color", "#f9f9f9")
+        document.documentElement.style.setProperty("--secondary-color", "#e8e8e8")
         document.documentElement.style.setProperty("--primary-text-color", "#000000")
         document.documentElement.style.setProperty("--secondary-text-color", "#505050")
         document.documentElement.style.setProperty("--accent-color", "#ffffff")
         document.documentElement.style.setProperty("--accent-color-dark", "#e0e0e0")
         document.documentElement.style.setProperty("--accent-color-light", "#ffffff")
         document.documentElement.style.setProperty("--activity-color", "#ddaadd")
-        document.documentElement.style.setProperty("--title-color", "#000000")
+        document.documentElement.style.setProperty("--title-color", "#2b2b2b")
         document.documentElement.style.setProperty("--hover-text-color", "#ffffff")
     }
 }

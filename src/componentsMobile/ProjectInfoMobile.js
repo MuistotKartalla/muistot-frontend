@@ -22,7 +22,6 @@ export const ProjectInfoMobile = (props) => {
       //console.log("no active project")
       setProject(props.projects.active)
     }
-
   }, [props, project.title])
 
   // const closeClick = (event) => {
@@ -32,7 +31,8 @@ export const ProjectInfoMobile = (props) => {
   //   props.history.goBack()
   // }
 
-  if(project.title){
+  //check if current user is project moderator
+  if(props.user && project.moderators.find(user => user === props.user.username)){
     return(
       <div className="projectInfoContainerMobile">
         <div className="titleContainerMobile">
@@ -40,21 +40,51 @@ export const ProjectInfoMobile = (props) => {
             <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); props.history.goBack()}}/>
           </button>
           <div className="titleHeaderMobile">
-            <h1 className="titleTextMobile">{project.title}</h1>
+            <h1 className="titleTextMobile">{props.settings.strings[project.id]}</h1>
           </div>
         </div>
         <div className="projectInfoContentContainer">
-        <div className="projectInfoDescriptionContainer normalText">
-		<ReactMarkdown source={project.description} />
+          <div className="projectInfoDescriptionContainer normalText">
+            <ReactMarkdown source={project.description} />
+          </div>
+          <div className="projectInfoImageContainer">
+            <img className="projectInfoImage" src={getImageURL(project.image)} alt=""></img>
+          </div>
+          <div className="projectInfoContentDescriptionContainer normalText">
+            <ReactMarkdown source={project.contentDescription} />
+          </div>
+          <div className="projectInfoDownloadButton">
+            <button className="rippleButton" onClick={(event) => {event.preventDefault(); props.history.push("/project-management/")}}>
+              {props.settings.strings["project_management"]}
+            </button>
+          </div>
         </div>
-        <div className="projectInfoImageContainer">
-        <img className="projectInfoImage" src={getImageURL(project.image)} alt=""></img>
+      </div> 
+    )
+  }
+  else if(project.title){
+    return(
+      <div className="projectInfoContainerMobile">
+        <div className="titleContainerMobile">
+          <button className="mobileButtonContainer">
+            <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); props.history.goBack()}}/>
+          </button>
+          <div className="titleHeaderMobile">
+            <h1 className="titleTextMobile">{props.settings.strings[project.id]}</h1>
+          </div>
         </div>
-        <div className="projectInfoContentDescriptionContainer normalText">
-		<ReactMarkdown source={project.contentDescription} />
+        <div className="projectInfoContentContainer">
+          <div className="projectInfoDescriptionContainer normalText">
+            <ReactMarkdown source={project.description} />
+          </div>
+          <div className="projectInfoImageContainer">
+            <img className="projectInfoImage" src={getImageURL(project.image)} alt=""></img>
+          </div>
+          <div className="projectInfoContentDescriptionContainer normalText">
+            <ReactMarkdown source={project.contentDescription} />
+          </div>
         </div>
-        </div>
-      </div>
+      </div> 
     )
   }else{
     return(
@@ -77,7 +107,8 @@ const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
     projects: state.projects,
-    settings: state.settings
+    settings: state.settings,
+    user: state.user,
   }
 }
 

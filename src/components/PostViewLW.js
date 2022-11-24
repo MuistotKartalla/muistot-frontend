@@ -5,8 +5,6 @@ import {notify} from "../reducers/notificationReducer"
 import {deletePost, toggleVerify,} from "../reducers/postReducer"
 import {updateMapLocation} from "../reducers/mapLocationReducer"
 
-
-
 import "../styles/postView.css"
 import "../styles/buttons.css"
 import "../styles/texts.css"
@@ -18,7 +16,6 @@ import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 import {getImageURL} from "../services/images";
 const ReactMarkdown = require('react-markdown')
-
 
 export const PostViewLW = (props) => {
   const [deleteState, setDeleteState] = useState(false)
@@ -55,11 +52,6 @@ export const PostViewLW = (props) => {
     props.history.push("/")
   }
 
-  const reportClick = (event) => {
-    event.preventDefault()
-    props.history.push(`/post-view/${post.id}/report/`)
-  }
-
   const verifyClick = (event) => {
     event.preventDefault()
     props.toggleVerify(post)
@@ -69,6 +61,11 @@ export const PostViewLW = (props) => {
   const editPostClick = (postId) =>{
     props.history.push(`/edit-post/${postId}`)
   }
+/*
+  const reportClick = (event) => {
+    event.preventDefault()
+    props.history.push(`/post-view/${post.id}/report/`)
+  }
 
   const copyclipboard = (event) => {
     navigator.clipboard.writeText(window.location.href).then(function() {
@@ -76,8 +73,8 @@ export const PostViewLW = (props) => {
     }, function(err) {
       console.error('Copying URI is unseccessful', err);
     });
-  
   }
+  */
 
   const twitterShareClick = (event) => {
     event.preventDefault()
@@ -86,7 +83,7 @@ export const PostViewLW = (props) => {
 
   const facebookShareClick = (event) => {
     event.preventDefault()
-    window.open(`https://facebook.com/sharer/sharer.php?text=${window.location.href}`, "_blank")
+    window.open(`https://facebook.com/sharer/sharer.php?u=${window.location.href}`, "_blank")
   }
 
   
@@ -156,10 +153,9 @@ export const PostViewLW = (props) => {
               :
               <div/>
             }
-            
-        {/*             
+
             <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>  */}
+            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
           </div>
         </div>
         {deleteState?
@@ -171,7 +167,7 @@ export const PostViewLW = (props) => {
           
             <button className="rippleButton fillButton" onClick={showDetails}>{props.settings.strings["look_at_mementos"]}</button>
  
-		<hr></hr>
+		    <hr></hr>
             <button className="rippleButton fillButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>        
         </div>
           }
@@ -191,9 +187,9 @@ export const PostViewLW = (props) => {
           }
           <h1 className="titleText">{post.title}</h1>
 
-        <div className="postCloseButtonContainer">
-        <ClearIcon className="clearIcon" onClick={closeClick}/>
-        </div>
+          <div className="postCloseButtonContainer">
+            <ClearIcon className="clearIcon" onClick={closeClick}/>
+          </div>
         </div>
         
         <div className="storyContainer normalText" style={{padding:"20px"}}>
@@ -201,31 +197,23 @@ export const PostViewLW = (props) => {
         </div>
 
         <div className="postContextContainer">
-
-         {/* <div className="postButtonsContainer">
-
-            
-                  
-            <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>  
-            
-          </div>*/}
-        </div>
-        <div className="postCloseContainer">
-          
-            
-          : <div/>
-		<hr></hr>
-            <button className="rippleButton fillButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>        
-        </div>
-          
+          <div className="postCloseContainer">
+            <hr></hr>
+              <button className="rippleButton fillButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
+              <div className="postButtonsParantolat">
+                <div className="postButtonsContainer">
+                  <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
+                  <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
+                </div>
+              </div>
+          </div>
+        </div>   
       </div>
     )
   }
   return(
-  <></>
+    <></>
   )
-
 }
 
 const mapStateToProps = (state) => {
@@ -252,5 +240,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PostViewLW)
-
-

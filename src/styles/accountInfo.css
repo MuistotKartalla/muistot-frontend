@@ -1,0 +1,87 @@
+.userInformationContainer{
+    z-index: 4;
+    background: var(--secondary-color);
+    width: 100%;
+    max-width: 45%;
+    height: auto;
+    border-radius: 10px;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 15px 5px grey;
+}
+
+.userInformationContainerMobile{
+    z-index: 4;
+    background: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+    width: 100%;
+}
+
+.userInformation{
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    color: var(--primary-text-color);
+    font-weight: 500;
+    font-size: 1em;
+    text-align: center;
+    display: flex;
+    padding:5%;
+    justify-content: center;
+}
+
+.userInformationMobile{
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    color: var(--primary-text-color);
+    font-weight: 500;
+    font-size: 1em;
+    padding: 3%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.userInformationTitleMobile{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+}
+
+.userInformationButtonMobile{
+    width: 15%;
+    justify-content: start;
+}
+
+.editIcon{
+    cursor: pointer;
+    width: 2.2em;
+    height: 2.2em;
+    margin: 5px 0px 0px 5%;
+}
+
+.editIconMobile{
+    cursor: pointer;
+    width: 2em;
+    height: 2em;
+    margin: 11px 0px 0px 0px;
+}
+
+.userInfoButtonsContainer{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0px 20px 0px;
+    z-index: 5;
+}
+
+table {
+    border-collapse: collapse;
+	  vertical-align: middle;
+    text-align: left;
+    width: 100%;
+}
+  
+th, td {
+    border-bottom: 2px solid var(--secondary-text-color);
+    border-top: 2px solid var(--secondary-text-color);
+    padding: 10px;
+}

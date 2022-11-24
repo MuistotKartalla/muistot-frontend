@@ -61,7 +61,7 @@ export const NavMenuMobile = (props) => {
     props.history.push("/project-info/")
     toggleVisibity()
   }
-
+/*
   const toUserSettings = (event) => {
     event.preventDefault()
     props.history.push("/usersettings/")
@@ -73,7 +73,7 @@ export const NavMenuMobile = (props) => {
     props.history.push("/change-username/")
     toggleVisibity()
   }
-
+*/
   const toRoot = (event) => {
     //pushes url route to root or "/", might change later when different projects implemented.
     event.preventDefault()
@@ -87,6 +87,17 @@ export const NavMenuMobile = (props) => {
     props.initPosts(params)
   }
 
+  const toProfileClick = (event) => {
+    event.preventDefault()
+    props.history.push("/my-account/")
+    toggleVisibity()
+  }
+
+  const toManagementClick = (event) => {
+    event.preventDefault()
+    props.history.push("/project-management/")
+    toggleVisibity()
+  }
   
   if(visible){
     return (
@@ -123,13 +134,13 @@ export const NavMenuMobile = (props) => {
           </div>
           {props.user?
             <div className="mobileMenuNavigationContainer">
-              <button className="mobileMenuButton" onClick={toUserSettings}>{props.settings.strings["account_settings"]}</button>
-              <button className="mobileMenuButton" onClick={toChangeUserName}>{props.settings.strings["change_username"]}</button>
+              <button className="mobileMenuButton" onClick={toProfileClick}>{props.settings.strings["profile"]}</button>
               <button className="mobileMenuButton" onClick={logoutClick}>{props.settings.strings["log_out"]}</button>
               {props.currentProject.moderators.find(user => user === props.user.username)?
               <div className="mobileMenuUserNameContainer">
               <div className="divider"/>
               <button className="mobileMenuButton" onClick={toUnverifiedPostsClick}>{props.settings.strings["unverified-posts"]}</button>
+              <button className="mobileMenuButton" onClick={toManagementClick}>{props.settings.strings["project_management"]}</button>
               </div>
               :
               <></>

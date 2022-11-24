@@ -92,7 +92,7 @@
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   color: var(--title-color);
   font-weight: 700;
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
   margin: auto;
 }
@@ -167,7 +167,10 @@
   padding: 10px;
 }
 
-
-
-
+.postButtonsParantolat{
+  padding-top: 20px;
+  justify-content: center;
+  display: flex;
+  max-width: 100%;
+}
 
