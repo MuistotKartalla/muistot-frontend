@@ -17,6 +17,7 @@
     "react-google-login": "^5.1.25",
     "react-lazy-load-image-component": "^1.5.1",
     "react-leaflet": "^3.2.2",
+    "react-leaflet-editable-popup": "^2.0.3",
     "react-leaflet-markercluster": "^3.0.0-rc1",
     "react-markdown": "^4.3.1",
     "react-recaptcha": "^2.3.10",

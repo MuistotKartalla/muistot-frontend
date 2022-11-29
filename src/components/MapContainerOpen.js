@@ -1,14 +1,14 @@
 // By: Niklas Impiö, Lassi Tölli
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import {connect} from "react-redux"
-import {MapContainer, TileLayer, Marker, useMapEvents, useMap} from "react-leaflet"
+import {MapContainer, TileLayer, Marker, useMapEvents, useMap,Popup} from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster"
 import L from "leaflet"
 import "../styles/mapContainer.css"
 import "leaflet/dist/leaflet.css"
 import "../styles/buttons.css"
 import "../styles/markerCluster.css"
-
+import "../styles/popupContainer.css"
 import icon from "../resources/marker-icon.png"
 import iconShadow from "../resources/marker-shadow.png"
 import iconGreen from "../resources/marker-green.png"
@@ -34,7 +34,6 @@ import tempIconMarker from "../resources/temp_marker.svg"
 import {notify} from "../reducers/notificationReducer"
 import {createSite} from "../reducers/postReducer"
 import {updateUserLocation} from "../reducers/userLocationReducer"
-
 import {usePosition} from "../hooks/LocationHook"
 import {setTempSite} from "../reducers/tempSiteReducer"
 import {updateMapLocation} from "../reducers/mapLocationReducer"
@@ -66,10 +65,13 @@ const tempIcon = L.icon({
   iconAnchor: [16,32]
 })
 
+
+
 const MapContainerOpen = (props) => {
   //state variables
   const [position, setPosition] = useState({lat: 65.01157565139543, lng: 25.470943450927738})
   const [tempMarker, setTempMarker] = useState(null)
+  const itemsRef = useRef([]);
   const [zoom, setZoom] = useState(5)
   const [posts, setPosts] = useState([])
   const [moveToPosition, setmoveToPosition] = useState(false)
@@ -95,6 +97,7 @@ const MapContainerOpen = (props) => {
       props.updateMapLocation(null)
       setmoveToPosition(true)
     }
+
   }, [props, posts, followUser, userLocation])
 
     // Erilaisia ikonivalintoja:
@@ -115,7 +118,7 @@ const MapContainerOpen = (props) => {
     }
 
   }
-
+ 
   //open list view
   const toListView = (event) => {
     event.preventDefault()
@@ -172,6 +175,49 @@ const MapContainerOpen = (props) => {
     return null;
   }
 
+
+
+  
+
+
+  // Handles visualizing the location names 
+  const UpdatePopups = () => {
+    const map = useMap()
+    var visible = [];
+    useEffect(() => {
+      
+      var i ;
+      var j;
+
+      // close previous popups
+      for(i=0; i < itemsRef.current.length; i++){
+        const marker = itemsRef.current[i]
+        marker.closePopup();
+        visible = [];
+        }
+      
+      // If user enables location names, get markers that are visible on the screen.
+      if(props.popups) {
+        for(i=0; i < itemsRef.current.length; i++){   
+          if(map.getBounds().contains(itemsRef.current[i].getLatLng()))
+            visible.push(itemsRef.current[i]); }
+      // Take the pixel distance between all visible markers and open their corresponding popups if they are not too close to eachother
+        loop1:
+          for(i=0; i < visible.length; i++){  
+        loop2:
+            for(j=0; j < visible.length; j++){  
+              if(i!=j && visible.length > 1){
+                if (map.latLngToLayerPoint(visible[i].getLatLng()).distanceTo(map.latLngToLayerPoint(visible[j].getLatLng())) < 125) { continue loop1; }
+              }
+            }
+            const marker = visible[i]
+            marker.openPopup()}
+          }
+
+    }, [map,props.popups,zoom])
+    return null;
+  }
+
   return(
     <div className="mapContainer">
       <MapContainer className="fullscreenMap" center={position} zoom={zoom}>
@@ -181,10 +227,11 @@ const MapContainerOpen = (props) => {
         />
         <UpdateMapCenter/>
         <HandleMapEvents/>
+        <UpdatePopups/>
 
         <MarkerClusterGroup className="markerCluster" maxClusterRadius="60">
           {posts.map((element, index) =>
-            <Marker key={index} 
+            <Marker key={index} ref={el => itemsRef.current[index] = el}
               position={element.location} 
               //if site is created by current user, use green marker. else, use default marker
               icon={props.user===null?defaultIcon:(element.own?greenIcon:defaultIcon)}
@@ -200,8 +247,19 @@ const MapContainerOpen = (props) => {
                   setPosition(element.location)
                   setmoveToPosition(true)
                   setTempMarker(null)
+                  
                 },
               }}>
+            <Popup className="popupContainer"
+                autoClose={false}
+                autoPan={false}
+                closeOnClick={false}
+                offset = {[0,-40]}
+                maxWidth = "element.abstract.length"
+                closeButton={false}
+                >     
+                <b>Kajaanin SuurTehtaanPiippu</b>
+                </Popup> 
             </Marker>
           )}
         </MarkerClusterGroup>
@@ -234,8 +292,8 @@ const MapContainerOpen = (props) => {
       </MapContainer>
       <div className="floatingSearchContainerMap">
         <FloatingSearch history={props.history}/>
-      </div>
-      
+      </div>test site 9e1767bd1bce892ccef23e2f0ab76faef0820e45b5433210bf5f9bfda453ba393edf602afc40c350f37fbc0652972037cc14
+test site 
       <button className="overlayButtonLeft rippleButton" onClick={toListView}>{props.settings.strings["list_view"]}</button>
       {tempMarker ?  props.user ? props.currentProject.id !== "parantolat"? !followUser?
       <button className="overlayButtonCenter pulsingButton rippleButton smallButton" onClick={confirmNewLocationMarker}>{props.settings.strings["new_post"]}</button>
@@ -261,7 +319,8 @@ const mapStateToProps = (state) => {
     posts: state.posts,
     user: state.user,
     mapLocation: state.mapLocation,
-    currentProject: state.projects.active
+    currentProject: state.projects.active,
+    popups: state.popups
   }
 }
 

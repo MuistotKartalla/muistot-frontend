@@ -13,6 +13,7 @@ import DropDownList from "./DropDownList"
 import {ReactComponent as DropDownIcon} from "../resources/arrow_drop_down-24px.svg"
 import {ReactComponent as PersonIcon} from "../resources/person.svg"
 import ThemeToggleSwitch from "./ThemeToggleSwitch"
+import NameToggleSwitch from "./NameToggleSwitch"
 import LanguageDropDown from "./LanguageDropDown"
 
 
@@ -150,12 +151,14 @@ const HorizontalMenuList = (props) => {
               <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick},{string:props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["profile"], onClickHandler:ProfileClick}, {string:props.settings.strings["project_management"], onClickHandler:ManagementClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
                 <p className="userNameText">{props.user.username}</p>
                 <ThemeToggleSwitch/>
+                <NameToggleSwitch/>
               </DropDownList>
               :
               <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["profile"], onClickHandler:ProfileClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
                 <p className="userNameText">{props.user.username}</p>
 
                 <ThemeToggleSwitch/>
+                <NameToggleSwitch/>
               </DropDownList>
             }
           </div>
@@ -197,6 +200,7 @@ const HorizontalMenuList = (props) => {
           <div className="accountDropDownContainer">
               <DropDownList  items={[{string:props.settings.strings["about"], onClickHandler:aboutClick}]}>
                 <ThemeToggleSwitch/>
+                <NameToggleSwitch/>
               </DropDownList>
           </div>
           :

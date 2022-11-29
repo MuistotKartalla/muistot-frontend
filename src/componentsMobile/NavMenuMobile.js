@@ -14,6 +14,7 @@ import ThemeToggleSwitch from "../components/ThemeToggleSwitch"
 import DropDownSelectProject from "../components/DropDownSelectProject"
 import {setActiveProject} from "../reducers/projectReducer"
 import {initPosts} from "../reducers/postReducer"
+import NameToggleSwitch from "../components/NameToggleSwitch"
 
 
 export const NavMenuMobile = (props) => {
@@ -129,6 +130,7 @@ export const NavMenuMobile = (props) => {
           <div className="preferencesContainer">
             <LanguageDropDown/>
             <ThemeToggleSwitch/>
+            <NameToggleSwitch/>
           </div>
           <div className="divider"/>
           </div>

@@ -1,13 +1,14 @@
 // By: Niklas Impiö, Lassi Tölli
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import {connect} from "react-redux"
-import {MapContainer, TileLayer, Marker, useMapEvents, useMap} from "react-leaflet"
+import {MapContainer, TileLayer, Marker, useMapEvents, useMap, Popup} from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster"
 import L from "leaflet"
 
 import "../stylesMobile/mapContainerMobile.css"
 import "leaflet/dist/leaflet.css"
 import "../styles/markerCluster.css"
+import "../styles/popupContainer.css"
 
 import icon from "../resources/marker-icon.png"
 //import iconN from "../resources/marker-icon-new.png"
@@ -63,6 +64,7 @@ const MapContainerMobile = (props) => {
   const [zoom, setZoom] = useState(5)
   const [posts, setPosts] = useState([])
   const [moveToPosition, setmoveToPosition] = useState(false)
+  const itemsRef = useRef([]);
 
   //Wheather the map constantly centers to user location. Enabled when user clics their own avatar. Disabled when map manually moved.
   const [followUser, setFollowUser] = useState(true)
@@ -169,6 +171,43 @@ const MapContainerMobile = (props) => {
     return null;
   }
 
+  const UpdatePopups = () => {
+    const map = useMap()
+    var visible = [];
+    useEffect(() => {
+      
+      var i ;
+      var j;
+
+      // close previous popups
+      for(i=0; i < itemsRef.current.length; i++){
+        const marker = itemsRef.current[i]
+        marker.closePopup();
+        visible = [];
+        }
+      
+      // If user enables location names, get markers that are visible on the screen.
+      if(props.popups) {
+        for(i=0; i < itemsRef.current.length; i++){   
+          if(map.getBounds().contains(itemsRef.current[i].getLatLng()))
+            visible.push(itemsRef.current[i]); }
+      // Take the pixel distance between all visible markers and open their corresponding popups if they are not too close to eachother
+        loop1:
+          for(i=0; i < visible.length; i++){  
+        loop2:
+            for(j=0; j < visible.length; j++){  
+              if(i!=j && visible.length > 1){
+                if (map.latLngToLayerPoint(visible[i].getLatLng()).distanceTo(map.latLngToLayerPoint(visible[j].getLatLng())) < 110) { continue loop1; }
+              }
+            }
+            const marker = visible[i]
+            marker.openPopup()}
+          }
+
+    }, [map,props.popups,zoom])
+    return null;
+  }
+
   return(
     <div className="mapContainerMobile">
       <MapContainer className="fullscreenMap" zoomControl={false} center={position} zoom={zoom}>
@@ -178,10 +217,11 @@ const MapContainerMobile = (props) => {
         />
         <UpdateMapCenter/>
         <HandleMapEvents/>
+        <UpdatePopups/>
         
         <MarkerClusterGroup maxClusterRadius="60">
           {posts.map((element, index) =>
-            <Marker key={index} 
+            <Marker key={index} ref={el => itemsRef.current[index] = el}
               position={element.location}
               //if site is created by current user, use green marker. else, use default marker
               icon={props.user===null?defaultIcon:(element.own?greenIcon:defaultIcon)}
@@ -196,6 +236,16 @@ const MapContainerMobile = (props) => {
                   setTempMarker(null)
                 }
               }}>
+                <Popup className="popupContainer"
+                autoClose={false}
+                autoPan={false}
+                closeOnClick={false}
+                offset = {[0,-40]}
+                maxWidth = "element.abstract.length"
+                closeButton={false}
+                >     
+                <i><b>{element.abstract}</b></i>
+                </Popup> 
             </Marker>
           )}
         </MarkerClusterGroup>
@@ -259,7 +309,8 @@ const mapStateToProps = (state) => {
     posts: state.posts,
     user: state.user,
     mapLocation: state.mapLocation,
-    currentProject: state.projects.active
+    currentProject: state.projects.active,
+    popups: state.popups
 
   }
 }
