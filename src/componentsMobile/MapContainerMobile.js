@@ -182,15 +182,22 @@ const MapContainerMobile = (props) => {
       // close previous popups
       for(i=0; i < itemsRef.current.length; i++){
         const marker = itemsRef.current[i]
-        marker.closePopup();
+        //to prevent errors, make sure marker isn't null
+        if (marker !== null){
+          marker.closePopup();
+        }
         visible = [];
         }
       
       // If user enables location names, get markers that are visible on the screen.
       if(props.popups) {
-        for(i=0; i < itemsRef.current.length; i++){   
-          if(map.getBounds().contains(itemsRef.current[i].getLatLng()))
-            visible.push(itemsRef.current[i]); }
+        for(i=0; i < itemsRef.current.length; i++){
+          //to prevent errors, make sure itemsRef.current[i] isn't null
+          if (itemsRef.current[i] !== null) {
+            if(map.getBounds().contains(itemsRef.current[i].getLatLng()))
+              visible.push(itemsRef.current[i]);
+          }
+        }
       // Take the pixel distance between all visible markers and open their corresponding popups if they are not too close to eachother
         loop1:
           for(i=0; i < visible.length; i++){  
@@ -241,10 +248,10 @@ const MapContainerMobile = (props) => {
                 autoPan={false}
                 closeOnClick={false}
                 offset = {[0,-40]}
-                maxWidth = "element.abstract.length"
+                maxWidth = "element.title.length"
                 closeButton={false}
                 >     
-                <i><b>{element.abstract}</b></i>
+                <i><b>{element.title}</b></i>
                 </Popup> 
             </Marker>
           )}

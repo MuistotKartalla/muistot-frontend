@@ -29,7 +29,7 @@ export const UserSettingsMobile = (props) => {
     event.preventDefault()
     if(event.target.firstName.value === "" && event.target.lastName.value === "" && event.target.email.value === "" && event.target.city.value === "" && event.target.dob.value === "")
     {
-       props.notify("No changes to make.", false, 5)
+       props.notify(props.settings.strings["no_new_changes"], false, 5)
     }
     else
     {

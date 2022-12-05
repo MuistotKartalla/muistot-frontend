@@ -4,6 +4,7 @@ import {log} from "../services/settings";
 const INIT_PROJECT = "INIT_PROJECTS"
 const CREATE_PROJECT = "CREATE_PROJECT"
 const SET_ACTIVE_PROJECT = "SET_ACTIVE_PROJECT"
+const EDIT_PROJECT = "EDIT_PROJECT"
 
 
 const projectReducer = (state = {projects: [], active: {}}, action) => {
@@ -24,6 +25,11 @@ const projectReducer = (state = {projects: [], active: {}}, action) => {
                 projects: state.projects,
                 active: action.data
             }
+        case EDIT_PROJECT:
+          return {
+              projects: action.data.projects,
+              active: action.data.active
+          }
         default:
             return state
     }
@@ -82,6 +88,35 @@ export const createProject = (object) => {
             log(exception)
         }
     }
+}
+
+export const changeProjectSettings = (project_id, lang, name, abstract, description, admins, admin_posting, auto_publish, sites_count) => {
+  return async dispatch => {
+      try{
+          const projectSettings = await projectService.changeProjectSettings(
+            project_id, lang, name, abstract, description, admins)
+          const projects = (await projectService.getAllProjects())
+          let activeProject = null
+  
+          if (project_id) {
+              activeProject = projects.find(project => project.id.toString() === project_id)
+          }
+  
+          if (!activeProject) {
+              activeProject = projects[0]
+              log("Active project not found")
+          }
+          dispatch({
+              type: EDIT_PROJECT,
+              data: {
+                projects,
+                active: activeProject
+              }
+          })
+      }catch (error) {       
+          log(error)
+      }
+  }
 }
 
 export default projectReducer

@@ -60,7 +60,7 @@ export const DropDownSelectProject = (props) => {
     return(
       <div className="dropDownSelectHidden" ref={ref}>
         <div className="dropDownSelectCurrentItem" onClick={toggleVisibility}>
-          <span className="activeItemText">{props.active.id==="piiput" || props.active.id==="parantolat"?props.settings.strings[props.active.id]:props.active.title}</span> 
+          <span className="activeItemText">{props.active?.id==="piiput" || props.active?.id==="parantolat"?props.settings.strings[props.active?.id]:props.active?.title}</span> 
           <DropDownIcon className="dropDownIcon"></DropDownIcon>
         </div>
       </div>
@@ -69,7 +69,7 @@ export const DropDownSelectProject = (props) => {
     return(
       <div className="dropDownSelectVisible" ref={ref}>
         <div className="dropDownSelectCurrentItem" onClick={toggleVisibility}>
-          <span className="activeItemText">{props.active.id==="piiput" || props.active.id==="parantolat"?props.settings.strings[props.active.id]:props.active.title}</span>
+          <span className="activeItemText">{props.active?.id==="piiput" || props.active?.id==="parantolat"?props.settings.strings[props.active?.id]:props.active?.title}</span>
           <DropDownIcon className="dropDownIconActive"></DropDownIcon>
         </div>
         <DropDownList items={genListOptions()}/>

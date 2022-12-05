@@ -3,8 +3,6 @@ import {connect} from "react-redux"
 import "../styles/accountInfo.css"
 import "../styles/buttons.css"
 import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
-import {ReactComponent as EditIcon} from "../resources/edit-icon.svg"
-//edit-icon from https://www.flaticon.com/free-icons/edit
 
 export const AccountInfo = (props) => {
     const changeInfo = (event) => {
@@ -32,10 +30,7 @@ export const AccountInfo = (props) => {
                 </div>
                 <div className="userInformationTitleMobile">
                     <h1 className="titleTextMobile">{props.user !== null && props.user.username !== "" ? props.user.username : props.settings.strings["profile"]}</h1>
-                </div> 
-                <div className="userInformationButtonMobile">
-                    <EditIcon className="editIconMobile" onClick={editUsername}/>
-                </div>  
+                </div>
             </div>
             <div className="userInformationMobile">
                 <table>
@@ -67,10 +62,10 @@ export const AccountInfo = (props) => {
                     </tbody>
                 </table>
             </div>
-            <div className="userInfoButtonsContainer">
+            <div className="userInfoButtonsContainerMobile">
+                <button className="rippleButton" onClick={editUsername}>{props.settings.strings["change_username"]}</button>
                 <button className="rippleButton" onClick={changeInfo}>{props.settings.strings["change_information"]}</button>
                 <button className="rippleButton" onClick={goToMyPosts}>{props.settings.strings["my_posts"]}</button>
-                {/*<button className="userInfoButton" onClick={changeInfo}>{props.settings.strings["download_info"]}</button>*/}
             </div>
         </div>
     )
