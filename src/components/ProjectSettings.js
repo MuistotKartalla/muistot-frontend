@@ -84,11 +84,6 @@ export const ProjectSettings = (props) => {
               <input name="project_language" className="input" placeholder={props.settings.strings["choose_language"]} maxLength="2"/>
               <div className="inputFocusLine"/>
             </div>
-            {/* fix pls, don't know how to change array datatype in database
-            <div className="inputContainer">
-              <input name="project_moderators" className="input" placeholder={project.moderators !== null ? props.settings.strings["project_mod"] + ": " + project.moderators : props.settings.strings["project_mod"]} maxLength="150"/>
-              <div className="inputFocusLine"/>
-            </div>*/}
             <div className="inputContainer">
               <input name="project_abstract" className="input" placeholder={project.description !== null ? props.settings.strings["abstract"] + ": " + project.description : props.settings.strings["abstract"]} maxLength="500"/>
               <div className="inputFocusLine"/>
