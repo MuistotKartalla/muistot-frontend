@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import {connect} from "react-redux"
-import { changeProjectSettings , createProject} from "../reducers/projectReducer"
+import { changeProjectSettings} from "../reducers/projectReducer"
 import {notify} from "../reducers/notificationReducer"
 import "../styles/userSettings.css"
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
@@ -27,10 +27,10 @@ export const ProjectSettings = (props) => {
     let new_abs = project.description
     let new_desc = project.contentDescription
     //set default language to the language that the user has chosen on website
-    let new_lang = window.localStorage.getItem("ChimneysGoLanguage")
+    let new_lang = props.settings.activeLanguage
     if(event.target.project_title.value === "" && event.target.project_abstract.value === "" && event.target.project_description.value === "" && event.target.project_language.value === "")
     {
-       props.notify(props.settings.strings["no_new_changes"], false, 5)
+      props.notify(props.settings.strings["no_new_changes"], false, 5)
     }
     else
     {
@@ -57,14 +57,9 @@ export const ProjectSettings = (props) => {
         "lang": new_lang,
         "name": new_title,
         "abstract": new_abs,
-        "description": new_desc,
-        "admins": project.moderators, 
-        "admin_posting": false,
-        "auto_publish": false,
-        "sites_count": posts.length
+        "description": new_desc
       }
-      props.changeProjectSettings(modifiedProject.id, modifiedProject.lang, modifiedProject.name, modifiedProject.abstract, modifiedProject.description, 
-        modifiedProject.admins, modifiedProject.admin_posting, modifiedProject.auto_publish, modifiedProject.sites_count)
+      props.changeProjectSettings(modifiedProject)
       props.notify(props.settings.strings["project_modify_ok"], false, 8)
       props.history.push("/project-management")
     }
@@ -135,8 +130,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   notify,
-  changeProjectSettings,
-  createProject
+  changeProjectSettings
 }
 
 export default connect(

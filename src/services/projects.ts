@@ -6,25 +6,46 @@ import {convNOP, OldProject} from "./models";
 export async function getAllProjects(): Promise<OldProject[]> {
     return [...(await projects(async (url) => await axios.get(url))).data.items].map(p => convNOP(p))
 }
-
+/*
 export async function changeSettings(project: object, project_id: string): Promise<OldProject[]> {
   return (await projectPath(async (url) => await axios.patch(url, {project}), project_id))
-}
+}*/
 
-//async function for changing project settings with patch request
-//for some reason returns "204 No Content" and doesn't work 100% of the time
-export async function changeProjectSettings (
+//async function for changing project basic information with patch request
+export async function changeSettings(
   project_id: string, 
   lang: string, 
   name: string, 
   abstract: string, 
-  description: string) {
-  await projectPath(async (url) => await axios.patch(url, {
+  description: string): Promise<OldProject[]> {
+    return (await projectPath(async (url) => await axios.patch(url, {
     "id":project_id,
     "info":{
       "lang":lang,
       "name":name,
       "abstract":abstract,
-      "description":description},
-    }), project_id)
+      "description":description}}), project_id))
+}
+
+//async function for creating a new project
+export async function createNewProject (
+  project: object): Promise<OldProject[]>  {
+    return [... (await projects(async (url) => await axios.patch(url, {project}))).data.items]
+}
+
+//async function for getting a single project
+export async function getSingleProject (
+  project_id: string): Promise<OldProject[]>  {
+    return (await projectPath(async (url) => await axios.get(url), project_id)).data
+}
+
+//async function for adding new project moderator with patch request
+export async function addNewMod (
+  project_id: string, 
+  mods: string[]): Promise<OldProject[]>  {
+    console.log("new admins: ", mods)
+    return (await projectPath(async (url) => await axios.patch(url, {
+      "id":project_id,
+      "admins": mods
+      }), project_id))
 }

@@ -134,6 +134,9 @@
       "download_project": "Download database",
       "choose_language": "Language: Type fi or en",
       "invalid_language": "Chosen language isn't supported. Choose one of the following: fi = Finnish, en = English",
+      "add_new_moderator": "Add moderator",
+      "new_moderator_instructions": "Write the username of the user you want to add as a moderator.",
+      "new_mod_placeholder": "Username of the new moderator",
 
       "version_update_text": "The muistotkartalla.fi application you are running is outdated and needs to be updated",
 
@@ -302,6 +305,9 @@
       "download_project": "Lataa tietokanta",
       "choose_language": "Kieli: Kirjoita fi or en",
       "invalid_language": "Kielivalintaasi on virheellinen. Valitse jokin seuraavista: fi = suomi, en = englanti",
+      "add_new_moderator": "Lisää vastuukäyttäjä",
+      "new_moderator_instructions": "Kirjoita henkilön käyttäjänimi, kenet haluat lisätä vastuukäyttäjäksi.",
+      "new_mod_placeholder": "Uuden vastuukäyttäjän käyttäjänimi",
 
       "version_update_text": "Selaimessasi pyörivä muistotkartalla.fi -sovellus on vanhentunut, ja on aika ladata päivitetty versio",
       "go_to_signup_instead": "Luo uusi tili",

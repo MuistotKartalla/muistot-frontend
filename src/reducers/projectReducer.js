@@ -77,12 +77,27 @@ export const getActiveProject = () => {
     return window.localStorage.getItem("ChimneysGoProject")
 }
 
-export const createProject = (object) => {
+export const createProject = (project_id, object) => {
     return async dispatch => {
         try {
-            dispatch({
-                type: CREATE_PROJECT,
-                data: object
+          const projects = (await projectService.getAllProjects())
+          projects.push(object)
+          console.log("New projects: ", projects)
+          const newProject = await projectService.createNewProject(projects)
+          let activeProject = null
+          if (project_id) {
+              activeProject = projects.find(project => project.id.toString() === project_id)
+          }
+          if (!activeProject) {
+              activeProject = projects[0]
+              log("Active project not found")
+          }
+          dispatch({
+                type: INIT_PROJECT,
+                data: {
+                  projects,
+                  active: activeProject
+                }
             })
         } catch (exception) {
             log(exception)
@@ -90,18 +105,16 @@ export const createProject = (object) => {
     }
 }
 
-export const changeProjectSettings = (project_id, lang, name, abstract, description, admins, admin_posting, auto_publish, sites_count) => {
+export const changeProjectSettings = (modifiedproject) => {
   return async dispatch => {
       try{
-          const projectSettings = await projectService.changeProjectSettings(
-            project_id, lang, name, abstract, description, admins)
+          const projectSettings = await projectService.changeSettings(
+            modifiedproject.id, modifiedproject.lang, modifiedproject.name, modifiedproject.abstract, modifiedproject.description)
           const projects = (await projectService.getAllProjects())
           let activeProject = null
-  
-          if (project_id) {
-              activeProject = projects.find(project => project.id.toString() === project_id)
+          if (modifiedproject.id) {
+              activeProject = projects.find(project => project.id.toString() === modifiedproject.id)
           }
-  
           if (!activeProject) {
               activeProject = projects[0]
               log("Active project not found")
@@ -113,6 +126,37 @@ export const changeProjectSettings = (project_id, lang, name, abstract, descript
                 active: activeProject
               }
           })
+      }catch (error) {
+          log(error)
+      }
+  }
+}
+
+export const addNewModerator = (project_id, moderators) => {
+  return async dispatch => {
+      try{
+        //const singleProject = await projectService.getSingleProject(project_id)
+        //console.log("Single project1: ", singleProject)
+        //singleProject.admins = moderators
+        //console.log("Single project2: ", singleProject)
+        const projectSettings = await projectService.addNewMod(
+          project_id, moderators)
+        const projects = (await projectService.getAllProjects())
+        let activeProject = null
+        if (project_id) {
+            activeProject = projects.find(project => project.id.toString() === project_id)
+        }
+        if (!activeProject) {
+            activeProject = projects[0]
+            log("Active project not found")
+        }
+        dispatch({
+            type: EDIT_PROJECT,
+            data: {
+              projects,
+              active: activeProject
+            }
+        })
       }catch (error) {       
           log(error)
       }
