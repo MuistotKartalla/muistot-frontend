@@ -98,7 +98,7 @@ export const PostViewLW = (props) => {
         <div className="postTitleContainer">
           
           {!post.waiting_approval?
-            <Verified className="verifiedIcon"/>
+            <Verified className="verifiedIconListView"/>
             :
             <div/>
           }
@@ -185,7 +185,7 @@ export const PostViewLW = (props) => {
         <div className="postTitleContainer">
           
           {post.published?
-            <Verified className="verifiedIcon"/>
+            <Verified className="verifiedIconListView"/>
             :
             <div/>
           }

@@ -99,16 +99,17 @@ export const PostView = (props) => {
       <div className="postViewContainer centerAlignWithPaddingLean">
         <div className="postTitleContainer">
         <div className="postCloseButtonContainer">
-            <Arrow className="arrow_back" onClick={backClick}y/>
+        <Arrow className="clearIcon" onClick={backClick}y/>
             
             <br/>
             </div>
-          <h1 className="titleText">{post.title}</h1>
+          <h1 className="titleText">{post.title}
           {!post.waiting_approval?
             <Verified className="verifiedIcon"/>
             :
             <br/>
           }
+          </h1>
           <div className="postCloseButtonContainer">
           <ClearIcon className="clearIcon" onClick={closeClick}/>
           </div>
