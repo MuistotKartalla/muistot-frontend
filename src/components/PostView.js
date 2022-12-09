@@ -99,7 +99,7 @@ export const PostView = (props) => {
       <div className="postViewContainer centerAlignWithPaddingLean">
         <div className="postTitleContainer">
         <div className="postCloseButtonContainer">
-        <Arrow className="clearIcon" onClick={backClick}y/>
+        <Arrow className="clearIcon" onClick={backClick}/>
             
             <br/>
             </div>

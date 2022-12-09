@@ -38,7 +38,7 @@ export const PostList = (props) => {
     <div className="postListContainer">
       <ul className="postSearchList">
         {props.posts.map((post,index) =>
-          <li key={index} tabindex="1" ref={el => itemsRef.current[index] = el} className="postViewListItem"
+          <li key={index} tabIndex="1" ref={el => itemsRef.current[index] = el} className="postViewListItem"
           onClick={() => {props.click(post); itemsRef.current[index].scrollIntoView({behavior: 'smooth'}); props.updateListView(index); console.log(post)}}>
             <div className="postListItemImageContainer">
               <LazyLoadImage height={75} width={75} src={getImageURL(post.image)} alt=""/>
