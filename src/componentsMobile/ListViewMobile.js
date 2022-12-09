@@ -92,7 +92,7 @@ export const ListViewMobile = (props) => {
       <div className="postListContainerInner">
         <ul className="postSearchList">
           {posts.map((post,index) =>
-            <li key={index} tabindex="1" ref={el => itemsRef.current[index] = el} className="postViewListItem" 
+            <li key={index} tabIndex="1" ref={el => itemsRef.current[index] = el} className="postViewListItem" 
             onClick={() => {onItemClick(post); itemsRef.current[index].scrollIntoView({behavior: 'smooth'}); props.updateListView(index)}}>
               <div className="postListItemImageContainer">
                 <img className="postListImagePreview" src={getImageURL(post.image)} alt=""></img>
