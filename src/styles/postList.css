@@ -28,7 +28,7 @@
   width: 97.5%;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
   padding: 0px;
   margin: 10px;
@@ -63,8 +63,7 @@
   border-radius: 10px;
   width: calc(100% - 40px);
 }
-.postListItem:hover{
-  transition: 0.2s;
+.postViewListItem:focus{
   border: 5px solid var(--title-color);
   border-radius: 10px;
 }
@@ -131,6 +130,9 @@
   font-weight: 500;
   font-size: .8em;
   margin: 0;
+}
+#output {
+  padding: 1rem 0;
 }
 
 

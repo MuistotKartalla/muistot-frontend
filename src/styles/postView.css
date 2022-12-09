@@ -72,6 +72,12 @@
   width: 2em;
 }
 
+.arrow_back{
+  fill: var(--secondary-text-color);
+  height: 2em;
+  width: 2em;
+}
+
 .verifiedIconMobile{
   fill: var(--primary-text-color);
   height: 3em;

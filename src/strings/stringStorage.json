@@ -69,6 +69,7 @@
       "search": "Search",
       "anonymous": "Anonymous",
       "by": "Author",
+      "number_of_memories": "Number of mementos",
       "profile": "Account",
 
       "go_to_signup_instead": "Create new account",
@@ -258,6 +259,7 @@
       "description_optional": "Kuvaus (valinnainen)",
       "anonymous": "ei julkinen",
       "by": "Osallistuja",
+      "number_of_memories": "Muistojen määrä",
       "profile": "Tili",
 
 

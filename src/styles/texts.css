@@ -19,7 +19,7 @@
 
 .titleText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(---text-color);
   font-weight: 700;
   font-size: 1.75em;
   text-align: center;

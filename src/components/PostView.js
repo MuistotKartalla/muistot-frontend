@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
 import {deletePost, toggleVerify, changeSitePicture} from "../reducers/postReducer"
 import {updateMapLocation} from "../reducers/mapLocationReducer"
-
+import {updateListView} from "../reducers/listViewReducer"
 
 import "../styles/postView.css"
 import "../styles/buttons.css"
@@ -14,6 +14,7 @@ import "../styles/projectInfo.css"
 
 import MementoList from "./MementoList"
 import {ReactComponent as Verified} from "../resources/verified.svg"
+import {ReactComponent as Arrow} from "../resources/arrow_back.svg"
 import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
 import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
 //import {ReactComponent as InstagramIcon} from "../resources/instagram_icon.svg"
@@ -51,11 +52,19 @@ export const PostView = (props) => {
     props.history.push(`/edit-post/${postId}`)
   }
 
-  const closeClick = (event) => {
+  const backClick = (event) => {
     //eventhandler for close button
     event.preventDefault()
     //console.log("closeClick")
     props.history.goBack()
+  }
+
+  const closeClick = (event) => {
+    //eventhandler for close button
+    event.preventDefault()
+    //console.log("closeClick")
+    props.history.push("/")
+    props.updateListView(0)
   }
 
   const verifyClick = (event) => {
@@ -77,6 +86,11 @@ export const PostView = (props) => {
   }*/
 
 // Päivämäärät: <p className="normalTextNoMargin">{getDateFromUnixStamp(post.date)}</p>
+//          {!post.waiting_approval?
+//<Verified className="verifiedIcon"/>
+//:
+//<br/>
+//}
 
   if(post && props.currentProject.id !== "parantolat"){
     //if post is defined return the actual post view else empty div.
@@ -84,12 +98,17 @@ export const PostView = (props) => {
     return(
       <div className="postViewContainer centerAlignWithPaddingLean">
         <div className="postTitleContainer">
+        <div className="postCloseButtonContainer">
+            <Arrow className="arrow_back" onClick={backClick}y/>
+            
+            <br/>
+            </div>
+          <h1 className="titleText">{post.title}</h1>
           {!post.waiting_approval?
             <Verified className="verifiedIcon"/>
             :
             <br/>
           }
-          <h1 className="titleText">{post.title}</h1>
           <div className="postCloseButtonContainer">
           <ClearIcon className="clearIcon" onClick={closeClick}/>
           </div>
@@ -215,8 +234,8 @@ const mapDispatchToProps = {
   deletePost,
   toggleVerify,
   updateMapLocation,
-  changeSitePicture
-  
+  changeSitePicture,
+  updateListView
 
 }
 

@@ -1,7 +1,7 @@
 // By: Niklas Impiö
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect,useRef} from "react"
 import {connect} from "react-redux"
-
+import {updateListView} from "../reducers/listViewReducer"
 import {logout} from "../reducers/loginReducer"
 import {notify} from "../reducers/notificationReducer"
 
@@ -27,6 +27,18 @@ export const ListViewMobile = (props) => {
     navigate to relevant postview id via router.
   */
   const [posts, setPosts] = useState(props.posts)
+  const myRef = useRef(props.listView)
+  const itemsRef = useRef([]);
+
+  useEffect(() => {
+    if(itemsRef != [] && props.listView != 0)
+    {
+      console.log(props.listView);
+      itemsRef.current[props.listView].scrollIntoView()
+    }
+
+  
+  }, [])
 
   useEffect(() => {
     if(posts.length === 0){
@@ -49,6 +61,7 @@ export const ListViewMobile = (props) => {
   const toMapView = (event) => {
     event.preventDefault()
     props.history.push("/")
+    props.updateListView(0)
   }
   const newPostClick = (event) => {
     //New post onClick event handler.
@@ -79,12 +92,14 @@ export const ListViewMobile = (props) => {
       <div className="postListContainerInner">
         <ul className="postSearchList">
           {posts.map((post,index) =>
-            <li key={index} className="postViewListItem" onClick={() => onItemClick(post)}>
+            <li key={index} tabindex="1" ref={el => itemsRef.current[index] = el} className="postViewListItem" 
+            onClick={() => {onItemClick(post); itemsRef.current[index].scrollIntoView({behavior: 'smooth'}); props.updateListView(index)}}>
               <div className="postListItemImageContainer">
                 <img className="postListImagePreview" src={getImageURL(post.image)} alt=""></img>
               </div>
               <div className="postListItemInfo">
                 <h2 className="postListTitle">{post.title}</h2>
+                <p className="normalText">{`${props.settings.strings["number_of_memories"]}: ${post.muistoja}`}</p>
               </div>
             </li>
           )}
@@ -113,7 +128,8 @@ const mapStateToProps = (state) => {
     user: state.user,
     settings: state.settings,
     posts: state.posts,
-    currentProject: state.projects.active
+    currentProject: state.projects.active,
+    listView: state.listView
   }
 }
 
@@ -121,7 +137,8 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   //notify (for example)
   notify,
-  logout
+  logout,
+  updateListView
 }
 
 export default connect(
