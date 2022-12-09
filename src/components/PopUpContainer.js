@@ -2,7 +2,8 @@
 import React from "react"
 
 import "../styles/containers.css"
-
+import {updateListView} from "../reducers/listViewReducer"
+import {connect} from "react-redux"
 
 
 const PopUpContainer = (props) => {
@@ -15,6 +16,7 @@ const PopUpContainer = (props) => {
     //background click
     if(event.target.id === "popUpBackground"){
       props.history.push("/")
+      props.updateListView(0)
       //console.log("unfocus click")
     }
   }
@@ -29,4 +31,21 @@ const PopUpContainer = (props) => {
 
 }
 
-export default PopUpContainer
+
+const mapStateToProps = (state) => {
+  return {
+    //maps state to props, after this you can for example call props.notification
+    ListView: state.ListView
+
+  }
+}
+const mapDispatchToProps = {
+  //connect reducer functions/dispatchs to props
+  //notify (for example)
+  updateListView
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PopUpContainer)

@@ -82,12 +82,13 @@ export const PostViewMobile = (props) => {
             <ReturnIcon className="mobileIcon" onClick={() => props.history.goBack()}/>
           </button>
           <div className="postTitleHeader">
+            <h1 className="postTitleTextMobile noHorizontalMargin">{post.title}
             {!post.waiting_approval?
               <Verified className="verifiedIconMobile"/>
               :
               <div/>
             }
-            <h1 className="postTitleTextMobile noHorizontalMargin">{post.title}</h1>
+            </h1>
           </div>
 
         </div>

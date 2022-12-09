@@ -1,14 +1,14 @@
-import React, {useState} from "react"
-import {connect} from "react-redux"
-import {login, sendverifylink} from "../reducers/loginReducer"
-import {initPosts} from "../reducers/postReducer"
-import {notify} from "../reducers/notificationReducer"
+import { useState } from "react"
+import { connect } from "react-redux"
+import { login, sendverifylink } from "../reducers/loginReducer"
+import { notify } from "../reducers/notificationReducer"
+import { initPosts } from "../reducers/postReducer"
 import "../styles/loginForm.css"
 
 //import GoogleLogin from "react-google-login"
 //import FacebookLogin from "react-facebook-login"
-import axios from "axios";
-import {EMAIL_ONLY_LOGIN} from "../services/paths";
+import axios from "axios"
+import { EMAIL_ONLY_LOGIN } from "../services/paths"
 
 export const LoginForm = (props) => {
 

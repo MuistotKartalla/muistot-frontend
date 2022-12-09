@@ -68,15 +68,36 @@
 
 .verifiedIcon{
   fill: var(--primary-text-color);
+  height: 1em;
+  width: 1em;
+  padding-left: 1em;
+}
+
+.verifiedIconListView{
+  fill: var(--primary-text-color);
+  height: 2em;
+  width: 2em;
+}
+
+.verifiedIcon{
+  fill: var(--primary-text-color);
+  height: 1em;
+  width: 1em;
+  padding-left: 0.4em;
+}
+
+.arrow_back{
+  fill: var(--secondary-text-color);
   height: 2em;
   width: 2em;
 }
 
 .verifiedIconMobile{
   fill: var(--primary-text-color);
-  height: 3em;
-  width: 3em;
-  margin: auto 0;
+  height: 1,5em;
+  width: 1,5em;
+  padding-left: 0.4em;
+  
 }
 
 .postTitleHeader{

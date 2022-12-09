@@ -4,8 +4,9 @@ import {connect} from "react-redux"
 import {Route, Link} from "react-router-dom"
 
 import "../styles/containers.css"
+import "../styles/texts.css"
 
-import {notify} from "../reducers/notificationReducer"
+import notificationReducer, {notify} from "../reducers/notificationReducer"
 import NewPostCombined from "./NewPostCombined"
 import NewMemento from "./NewMemento"
 import PostView from "./PostView"
@@ -25,6 +26,7 @@ import SetUserName from "./SetUserName"
 import AccountInfo from "./AccountInfo"
 import CookieConsent, { Cookies } from "react-cookie-consent";
 import ProjectManagement from "./ProjectManagement"
+import ProjectSettings from "./ProjectSettings"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -121,17 +123,22 @@ const ContentArea = (props) => {
           <ProjectManagement history={history}/>
         </PopUpContainer>
       )}/>
-        <CookieConsent  //TODO: modelize, styles
-          location="bottom"
-          buttonText="I understand"
-          cookieName="consentCookie"
-          style={{ background: "#181818" }}
-          buttonStyle={{ background: "#03FFFF", fontSize: "14px" }}>
-          This website uses cookies to enhance the user experience.
-          <Link to="/about">
-              <span style={{float: "right", color: "#FFFFFF"}}>Privacy Policy</span> 
-          </Link>
-        </CookieConsent>         
+      <Route path="/project-settings" render={({history}) => (
+        <PopUpContainer history={history}>
+          <ProjectSettings history={history}/>
+        </PopUpContainer>
+      )}/>
+      <CookieConsent  //TODO: modelize, styles, add to mobile as well
+        location="bottom"
+        buttonText="I understand"
+        cookieName="consentCookie"
+        style={{ background: "#181818", fontFamily: "sans-serif"}}
+        buttonStyle={{ background: "#03FFFF", fontSize: "1em", border: "none", borderRadius: "7px", fontWeight: "700", padding: "0.5em 1em 0.5em 1em"}}>
+        This website uses cookies to enhance the user experience.
+        <Link to="/about">
+            <span style={{float: "right", color: "#FFFFFF", textDecoration: "underline"}}>Privacy Policy</span> 
+        </Link>
+      </CookieConsent>         
     </div>
 
   )

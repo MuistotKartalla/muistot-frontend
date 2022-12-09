@@ -14,6 +14,9 @@ import tempSiteReducer from "./reducers/tempSiteReducer"
 import projectReducer from "./reducers/projectReducer"
 import settingsReducer from "./reducers/settingsReducer"
 import mapLocationReducer from "./reducers/mapLocationReducer"
+import popupReducer from "./reducers/popupReducer";
+import listViewReducer from "./reducers/listViewReducer";
+
 
 const persistConfig = {
     key: 'main-root',
@@ -32,7 +35,9 @@ const reducer = combineReducers({
     tempSite: tempSiteReducer,
     projects: projectReducer,
     settings: settingsReducer,
-    mapLocation: mapLocationReducer
+    mapLocation: mapLocationReducer,
+    popups: popupReducer,
+    listView: listViewReducer
 
 })
 const persistedReducer = persistReducer(persistConfig, reducer);

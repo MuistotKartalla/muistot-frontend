@@ -31,6 +31,12 @@ export const ProjectManagementMobile = (props) => {
     }
   }, [props, project.title, posts, csvData.length, project.moderators])
 
+  const changeProjectInfo = (event) => {
+    //go to project settings page
+    event.preventDefault()
+    props.history.push("/project-settings")
+  }
+
   if(props.user && project.moderators.find(user => user === props.user.username)){
     return (
       <div className="userInformationContainerMobile">
@@ -63,10 +69,19 @@ export const ProjectManagementMobile = (props) => {
                   <th className="userInfoValues">{props.settings.strings["project_sites"]}</th>
                   <th className="userInfoValues">{csvData.length  > 1 ? csvData.length - 1 : "-"}</th>
                 </tr>
+                <tr className="userInfoRows">
+                  <th className="userInfoValues">{props.settings.strings["abstract"]}</th>
+                  <th className="userInfoValues">{project.description !== null ? (project.description.length > 70 ? project.description.slice(0, 70) + '...': project.description) : "-"}</th>
+                </tr>
+                <tr className="userInfoRows">
+                  <th className="userInfoValues">{props.settings.strings["description"]}</th>
+                  <th className="userInfoValues">{project.contentDescription !== null ? (project.contentDescription.length > 70 ? project.contentDescription.slice(0, 70) + '...': project.contentDescription) : "-"}</th>
+                </tr>
                 </tbody>
             </table>
           </div>
-          <div className="userInfoButtonsContainer">
+          <div className="userInfoButtonsContainerMobile">
+          <button className="rippleButton" onClick={changeProjectInfo}>{props.settings.strings["change_information"]}</button>
           <CSVLink
                 data={csvData}
                 filename={project.id + '-sites.csv'}

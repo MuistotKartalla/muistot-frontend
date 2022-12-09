@@ -1,10 +1,11 @@
 // By: Niklas Impiö
+// In the list view handles the right side
 import React, {useState} from "react"
 import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
 import {deletePost, toggleVerify,} from "../reducers/postReducer"
 import {updateMapLocation} from "../reducers/mapLocationReducer"
-
+import {updateListView} from "../reducers/listViewReducer"
 import "../styles/postView.css"
 import "../styles/buttons.css"
 import "../styles/texts.css"
@@ -21,6 +22,7 @@ export const PostViewLW = (props) => {
   const [deleteState, setDeleteState] = useState(false)
   //gets the post to show based on the id that is set on the url field.
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
+
 
     /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)
@@ -50,6 +52,7 @@ export const PostViewLW = (props) => {
     event.preventDefault()
     //console.log("closeClick")
     props.history.push("/")
+    props.updateListView(0)
   }
 
   const verifyClick = (event) => {
@@ -95,7 +98,7 @@ export const PostViewLW = (props) => {
         <div className="postTitleContainer">
           
           {!post.waiting_approval?
-            <Verified className="verifiedIcon"/>
+            <Verified className="verifiedIconListView"/>
             :
             <div/>
           }
@@ -121,6 +124,7 @@ export const PostViewLW = (props) => {
               :
               <p className="normalText">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
             }
+          <p className="normalText">{`${props.settings.strings["number_of_memories"]}: ${post.muistoja}`}</p>
           </div>
           <div className="postButtonsContainer">
             {props.user?
@@ -181,7 +185,7 @@ export const PostViewLW = (props) => {
         <div className="postTitleContainer">
           
           {post.published?
-            <Verified className="verifiedIcon"/>
+            <Verified className="verifiedIconListView"/>
             :
             <div/>
           }
@@ -233,7 +237,8 @@ const mapDispatchToProps = {
   notify,
   deletePost,
   toggleVerify,
-  updateMapLocation
+  updateMapLocation,
+  updateListView
 }
 
 export default connect(

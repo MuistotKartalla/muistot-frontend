@@ -3,9 +3,7 @@ import {connect} from "react-redux"
 import "../styles/accountInfo.css"
 import "../styles/buttons.css"
 import "../styles/postView.css"
-import {ReactComponent as EditIcon} from "../resources/edit-icon.svg"
 import {ReactComponent as ClearIcon} from "../resources/clear.svg"
-//edit-icon from https://www.flaticon.com/free-icons/edit
 
 export const AccountInfo = (props) => {
     const changeInfo = (event) => {
@@ -32,7 +30,6 @@ export const AccountInfo = (props) => {
     return(
         <div className="userInformationContainer centerAlignWithPadding">
             <div className="postTitleContainer">
-              <EditIcon className="editIcon" onClick={editUsername}/>
               <h1 className="titleText centerAlignWithPadding">{props.user !== null && props.user.username !== "" ? props.user.username : props.settings.strings["profile"]}</h1>
               <ClearIcon className="clearIcon" onClick={closeClick}/>
             </div>
@@ -69,7 +66,7 @@ export const AccountInfo = (props) => {
             <div className="userInfoButtonsContainer">
                 <button className="rippleButton" onClick={changeInfo}>{props.settings.strings["change_information"]}</button>
                 <button className="rippleButton" onClick={goToMyPosts}>{props.settings.strings["my_posts"]}</button>
-                {/*<button className="userInfoButton" onClick={changeInfo}>{props.settings.strings["download_info"]}</button>*/}
+                <button className="rippleButton" onClick={editUsername}>{props.settings.strings["change_username"]}</button>
             </div>
         </div>
     )

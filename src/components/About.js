@@ -1,10 +1,9 @@
-import React from "react"
-import {connect} from "react-redux"
-import "../styles/about.css"
-import "../styles/texts.css"
+import { connect } from "react-redux";
+import "../styles/about.css";
+import "../styles/texts.css";
 
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
-const ReactMarkdown = require('react-markdown')
+import { ReactComponent as ClearIcon } from "../resources/clear.svg";
+const ReactMarkdown = require("react-markdown");
 //probably make individual css files for all you use here.
 
 export const About = (props) => {
@@ -13,36 +12,36 @@ export const About = (props) => {
   // just write some placeholder strings on variables.
   const closeClick = (event) => {
     //go back to the previous page
-    event.preventDefault()
-    props.history.push("/")
-  }
+    event.preventDefault();
+    props.history.push("/");
+  };
 
   //html stuff here
-  return(
+  return (
     <div className="aboutContainer centerAlignWithPadding">
       <div className="postTitleContainer">
-        <h1 className="titleText centerAlignWithPadding">{props.settings.strings["about"]}</h1>
-        <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
+        <h1 className="titleText centerAlignWithPadding">
+          {props.settings.strings["about"]}
+        </h1>
+        <ClearIcon
+          className="clearIcon rightAlignWithPadding"
+          onClick={closeClick}
+        />
       </div>
       <div className="aboutContentContainer normalText">
-		<ReactMarkdown source={props.settings.strings["about_text"]} />
-            <h2 className="titleText">{props.settings.strings["tos_title"]}</h2>
-		<ReactMarkdown source={props.settings.strings["tos_text"]} />    
+        <ReactMarkdown source={props.settings.strings["about_text"]} />
+        <h2 className="titleText">{props.settings.strings["tos_title"]}</h2>
+        <ReactMarkdown source={props.settings.strings["tos_text"]} />
       </div>
     </div>
-
-  )
-}
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
-    settings: state.settings
-  }
-}
+    settings: state.settings,
+  };
+};
 
-
-export default connect(
-  mapStateToProps,
-  null
-)(About)
+export default connect(mapStateToProps, null)(About);

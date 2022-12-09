@@ -37,6 +37,12 @@ export const ProjectManagement = (props) => {
     props.history.push("/")
   }
 
+  const changeProjectInfo = (event) => {
+    //go to project settings page
+    event.preventDefault()
+    props.history.push("/project-settings")
+  }
+
   if(props.user && project.moderators.find(user => user === props.user.username)){
     return (
       <div className="userInformationContainer centerAlignWithPadding">
@@ -61,12 +67,21 @@ export const ProjectManagement = (props) => {
                 </tr>
                 <tr className="userInfoRows">
                   <th className="userInfoValues">{props.settings.strings["project_sites"]}</th>
-                  <th className="userInfoValues">{csvData.length  > 1 ? csvData.length - 1 : "-"}</th>
+                  <th className="userInfoValues">{posts.length  > 1 ? posts.length : "-"}</th>
+                </tr>
+                <tr className="userInfoRows">
+                  <th className="userInfoValues">{props.settings.strings["abstract"]}</th>
+                  <th className="userInfoValues">{project.description !== null ? (project.description.length > 150 ? project.description.slice(0, 150) + '...': project.description) : "-"}</th>
+                </tr>
+                <tr className="userInfoRows">
+                  <th className="userInfoValues">{props.settings.strings["description"]}</th>
+                  <th className="userInfoValues">{project.contentDescription !== null ? (project.contentDescription.length > 150 ? project.contentDescription.slice(0, 150) + '...': project.contentDescription) : "-"}</th>
                 </tr>
                 </tbody>
             </table>
           </div>
           <div className="userInfoButtonsContainer">
+          <button className="rippleButton" onClick={changeProjectInfo}>{props.settings.strings["change_information"]}</button>
           <CSVLink
                 data={csvData}
                 filename={project.id + '-sites.csv'}
@@ -105,7 +120,6 @@ const mapStateToProps = (state) => {
   const mapDispatchToProps = {
     //connect reducer functions/dispatchs to props
     notify,
-  
   }
   
   export default connect(

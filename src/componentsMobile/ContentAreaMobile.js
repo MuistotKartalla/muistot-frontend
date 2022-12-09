@@ -23,6 +23,7 @@ import ChangeUserNameMobile from "./ChangeUserNameMobile"
 import SetUserNameMobile from "./SetUserNameMobile"
 import AccountInfoMobile from "./AccountInfoMobile"
 import ProjectManagementMobile from "./ProjectManagementMobile"
+import ProjectSettingsMobile from "./ProjectSettingsMobile"
 
 const ContentAreaMobile = (props) => {
   // Ok this is just a container component for all the sub components except notification.
@@ -86,6 +87,9 @@ const ContentAreaMobile = (props) => {
       )}/>
       <Route path="/project-management/" render={({history}) => (
         <ProjectManagementMobile history={history}/>
+      )}/>
+            <Route path="/project-settings/" render={({history}) => (
+        <ProjectSettingsMobile history={history}/>
       )}/>
     </div>
   )
