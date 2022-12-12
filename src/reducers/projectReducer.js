@@ -108,8 +108,7 @@ export const createProject = (project_id, object) => {
 export const changeProjectSettings = (modifiedproject) => {
   return async dispatch => {
       try{
-          const projectSettings = await projectService.changeSettings(
-            modifiedproject.id, modifiedproject.lang, modifiedproject.name, modifiedproject.abstract, modifiedproject.description)
+          await projectService.changeSettings(modifiedproject.id, modifiedproject.lang, modifiedproject.name, modifiedproject.abstract, modifiedproject.description)
           const projects = (await projectService.getAllProjects())
           let activeProject = null
           if (modifiedproject.id) {
@@ -132,15 +131,10 @@ export const changeProjectSettings = (modifiedproject) => {
   }
 }
 
-export const addNewModerator = (project_id, moderators) => {
+export const addNewModerator = (project_id, new_moderator) => {
   return async dispatch => {
       try{
-        //const singleProject = await projectService.getSingleProject(project_id)
-        //console.log("Single project1: ", singleProject)
-        //singleProject.admins = moderators
-        //console.log("Single project2: ", singleProject)
-        const projectSettings = await projectService.addNewMod(
-          project_id, moderators)
+        await projectService.addNewMod(project_id, new_moderator)
         const projects = (await projectService.getAllProjects())
         let activeProject = null
         if (project_id) {

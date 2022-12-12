@@ -208,7 +208,7 @@ const MapContainerOpen = (props) => {
           for(i=0; i < visible.length; i++){  
         loop2:
             for(j=0; j < visible.length; j++){  
-              if(i!=j && visible.length > 1){
+              if(i !== j && visible.length > 1){
                 if (map.latLngToLayerPoint(visible[i].getLatLng()).distanceTo(map.latLngToLayerPoint(visible[j].getLatLng())) < 125) { continue loop1; }
               }
             }

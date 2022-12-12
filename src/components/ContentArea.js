@@ -27,6 +27,7 @@ import AccountInfo from "./AccountInfo"
 import CookieConsent, { Cookies } from "react-cookie-consent";
 import ProjectManagement from "./ProjectManagement"
 import ProjectSettings from "./ProjectSettings"
+import ProjectModerators from "./ProjectModerators"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -126,6 +127,11 @@ const ContentArea = (props) => {
       <Route path="/project-settings" render={({history}) => (
         <PopUpContainer history={history}>
           <ProjectSettings history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/project-moderators" render={({history}) => (
+        <PopUpContainer history={history}>
+          <ProjectModerators history={history}/>
         </PopUpContainer>
       )}/>
       <CookieConsent  //TODO: modelize, styles, add to mobile as well

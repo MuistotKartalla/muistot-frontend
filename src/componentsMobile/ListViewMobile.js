@@ -31,7 +31,7 @@ export const ListViewMobile = (props) => {
   const itemsRef = useRef([]);
 
   useEffect(() => {
-    if(itemsRef != [] && props.listView != 0)
+    if(itemsRef !== [] && props.listView !== 0)
     {
       console.log(props.listView);
       itemsRef.current[props.listView].scrollIntoView()

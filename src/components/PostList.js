@@ -7,7 +7,7 @@ import { LazyLoadImage} from 'react-lazy-load-image-component'
 import {notify} from "../reducers/notificationReducer"
 import {updateListView} from "../reducers/listViewReducer"
 
-import React, {useState, useEffect, useRef} from "react"
+import React, {useEffect, useRef} from "react"
 import "../styles/listView.css"
 import "../styles/postList.css"
 import {getImageURL} from "../services/images";
@@ -23,15 +23,13 @@ export const PostList = (props) => {
  
 
   useEffect(() => {
-    if(itemsRef != [] && props.listView != 0)
+    if(itemsRef !== [] && props.listView !== 0)
     {
       itemsRef.current[props.listView].scrollIntoView()
       itemsRef.current[props.listView].focus()
       
     }
-
-  
-  }, [])
+  }, [props.listView])
 
   return (
 
