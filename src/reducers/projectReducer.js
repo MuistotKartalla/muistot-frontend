@@ -108,7 +108,9 @@ export const createProject = (project_id, object) => {
 export const changeProjectSettings = (modifiedproject) => {
   return async dispatch => {
       try{
-          await projectService.changeSettings(modifiedproject.id, modifiedproject.lang, modifiedproject.name, modifiedproject.abstract, modifiedproject.description)
+          //get language from current project settings
+          const oldProject = await projectService.getSingleProject(modifiedproject.id)
+          await projectService.changeSettings(modifiedproject.id, oldProject.info.lang, modifiedproject.name, modifiedproject.abstract, modifiedproject.description)
           const projects = (await projectService.getAllProjects())
           let activeProject = null
           if (modifiedproject.id) {

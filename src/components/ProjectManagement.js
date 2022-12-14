@@ -114,7 +114,7 @@ export const ProjectManagement = (props) => {
     return (
       <div className="userInformationContainer centerAlignWithPadding">
         <div className="postTitleContainer">
-          <h1 className="titleText centerAlignWithPadding" onClick={() => props.history.push("/login")}>{props.settings.strings["login_or_register"]}</h1>
+          <h1 className="titleText centerAlignWithPadding">{props.settings.strings["not_moderator"]}</h1>
           <ClearIcon className="clearIcon" onClick={closeClick}/>
         </div>
       </div>

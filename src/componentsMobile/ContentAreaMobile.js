@@ -25,6 +25,9 @@ import AccountInfoMobile from "./AccountInfoMobile"
 import ProjectManagementMobile from "./ProjectManagementMobile"
 import ProjectSettingsMobile from "./ProjectSettingsMobile"
 import ProjectModeratorsMobile from "./ProjectModeratorsMobile"
+import EditImageMobile from "./EditImageMobile"
+import EditSiteTitleMobile from "./EditSiteTitleMobile"
+import EditLocationMobile from "./EditLocationMobile"
 
 const ContentAreaMobile = (props) => {
   // Ok this is just a container component for all the sub components except notification.
@@ -58,6 +61,15 @@ const ContentAreaMobile = (props) => {
       )}/>
       <Route path="/edit-post/:id/" render={({match,history}) => (
           <EditPostMobile match={match} history={history}/>
+      )}/>
+      <Route path="/edit-image/:id/" render={({match,history}) => (
+          <EditImageMobile match={match} history={history}/>
+      )}/>
+      <Route path="/edit-title/:id/" render={({match,history}) => (
+          <EditSiteTitleMobile match={match} history={history}/>
+      )}/>
+      <Route path="/edit-location/:id/" render={({match,history}) => (
+          <EditLocationMobile match={match} history={history}/>
       )}/>
       <Route path="/new-memento/:id/" render={({match,history}) => (
           <NewMementoMobile match={match} history={history}/>

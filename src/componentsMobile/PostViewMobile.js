@@ -13,6 +13,7 @@ import MementoList from "../components/MementoList"
 
 import {ReactComponent as Verified} from "../resources/verified.svg"
 import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
+import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
 import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
 //import {ReactComponent as InstagramIcon} from "../resources/instagram_icon.svg"
@@ -90,6 +91,9 @@ export const PostViewMobile = (props) => {
             }
             </h1>
           </div>
+          <button className="mobileButtonContainer">
+            <ClearIcon className="mobileIconSmall" onClick={() => props.history.push("/")}/>
+          </button>
 
         </div>
         <div className="postImageContainer">
@@ -124,7 +128,7 @@ export const PostViewMobile = (props) => {
                   <div className="postButtonsContainerInnerMobile">
                     <button className="rippleButton fillButton bigButton"onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                     <div className="divider"/>
-                    <button className="rippleButton fillButton bigButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_image"]}</button>
+                    <button className="rippleButton fillButton bigButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_information"]}</button>
                     <div className="divider"/>
                   </div>
                   {!post.waiting_approval?
@@ -144,7 +148,7 @@ export const PostViewMobile = (props) => {
                   <div className="postButtonsContainerInnerMobile">
                     <button className="rippleButton fillButton bigButton"onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                     <div className="divider"/>
-                    <button className="rippleButton fillButton bigButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_image"]}</button>
+                    <button className="rippleButton fillButton bigButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_information"]}</button>
                     <div className="divider"/>
                   </div>
                   :

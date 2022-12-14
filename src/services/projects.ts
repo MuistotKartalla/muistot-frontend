@@ -28,6 +28,12 @@ export async function changeSettings(
     }), project_id))
 }
 
+//async function for getting a single project
+export async function getSingleProject (
+  project_id: string): Promise<OldProject[]>  {
+    return (await projectPath(async (url) => await axios.get(url), project_id)).data
+}
+
 //async function for creating a new project
 export async function createNewProject (
   project: object): Promise<OldProject[]>  {

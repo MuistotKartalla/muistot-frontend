@@ -120,7 +120,7 @@ export const ProjectManagementMobile = (props) => {
           </button>
           </div>
           <div className="userInformationTitleMobile">
-            <h1 className="titleTextMobile" onClick={() => props.history.push("/login")}>{props.settings.strings["login_or_register"]}</h1>
+            <h1 className="titleTextMobile">{props.settings.strings["not_moderator"]}</h1>
           </div>
         </div>
       </div>

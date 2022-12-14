@@ -92,6 +92,7 @@
       "verify": "Verify",
       "unverify": "Unverify",
       "confirm_delete": "Permanently Remove This Post",
+      "confirm_delete_memory": "Permanently Remove This Memory",
       "post": "Post",
       "delete_success": "Succesfully Deleted.",
 
@@ -113,7 +114,8 @@
 
       "choose_location_first": "Choose your location on the map by clicking the left mouse button",
       "give_name_for_location": "Give a generally known name for the location",
-     "unfilled_fields": "Some of the Fields Are Still Empty. Fill Those and Try Again.",
+      "unfilled_fields": "Some of the Fields Are Still Empty. Fill Those and Try Again.",
+      "invalid_new_location": "New coordinates are invalid, try again.",
       "tos_unchecked": "You Need to Read and Accept the Terms of Service Before Creating an Account.",
       "password_reqs_not_met": "Password Needs to be at least 8 Characters Long.",
       "passwords_dont_match": "Password Fields Values Are not the Same.",
@@ -170,6 +172,10 @@
       "piiput": "Smokestack Memories",
       "parantolat": "Tuberculosis treatment facilities 1900-1970",
       "change_image": "Change Image",
+      "change_title": "Change Title",
+      "change_location": "Change Location",
+      "edit_post": "Change site information",
+      "no_permission": "You don't have permission for this page",
       "imageless_posts": "Imageless Posts",
       "change_username": "Change Username",
       "set_username": "Set a Username",
@@ -265,6 +271,7 @@
 
       "delete_post": "Poista",
       "confirm_delete": "Poista tämä kohde lopullisesti",
+      "confirm_delete_memory": "Poista tämä muisto lopullisesti",
       "post": "Kohde",
       "delete_success": "Poistettu.",
 
@@ -286,6 +293,7 @@
       "tos_text": "Muistotkartalla.fi -palvelu on arkeologisen muistojen ja niihin liittyvien kuvien keräyspalvelu tutkimusprojektien käyttöön. Nämä käyttöehdot kertovat, miten tietojasi käytetään palvelussa.\nREKISTERINPITÄJÄ JA TIETOJENKÄSITTELIJÄ\n---------------------------------------\nMuistotkartalla.fi palvelusta vastaa NeljäT Oy (2197596-6), joka toimii palvelussa rekisterinpitäjänä ja tietojenkäsittelijänä.\nKERÄTYT TIEDOT, NIIDEN KÄYTTÖ JA TIEDONKERUUN PERUSTEET\n------------------------------------------------------------------\nOmalle laitteellesi tallentuva eväste sisältää tietoa sivustolla käyttämistäsi asetuksista ja mahdollistaa sen, että valitsemasi asetukset ovat käytössä myös palatessasi sivustolle myöhemmin sekä sen, että pysyt kirjautuneena sisään palveluun, mikäli sinulla on käyttäjätunnus.\n\nSinusta kerätään palvelimellemme henkilökohtaisia tietoja vain, mikäli kirjaudut palveluun käyttäjäksi. Palveluun kirjautuvilta käyttäjiltä keräämme nimen, sukunimen, sähköpostiosoitteen, asuinpaikan ja syntymävuoden käyttäjän valitseman käyttäjätunnuksen lisäksi. Edellytämme palvelun käyttäjiltä 13 vuoden ikää.\n\nSähköpostiosoitetta voidaan käyttää kirjautumisten varmentamiseksi ja jotta tutkimusprojektien tutkijat voivat ottaa sinuun yhteyttä palvelun kautta, mikäli annat siihen projektikohtaisen luvan. Tutkijat eivät kuitenkaan näe sähköpostiosoitettasi, ellet vastaa heidän viestiinsä.\n\nPalvelun toteuttamiseksi keräämme käyttäjiltä kuvia ja muistoja kunkin tutkimusprojektin kohteista. Käyttäjä antaa luvan palveluun syötettyjen kuvien, tekstien ja nauhoitteiden käyttöön tutkimustarkoituksiin projektikohtaisten ehtojen mukaisesti. Projektikohtaiset ehdot, ja kunkin muiston lataajasta projektille toimitettavat tiedot hyväksytään aina kunkin projektin kohdalla erikseen.\nTIETOJEN POISTAMINEN\n--------------------\nKäyttäjätunnustasi sekä siihen liittyviä tietoja säilytetään kunnes\n * Viimeisestä kirjautumisestasi on kulunut kaksi vuotta JA\n * jokainen tutkimusprojekti jonka tiedonkeruuseen olet osallistunut, on päättynyt.\n\nKunkin tutkimusprojektin voimassaoloaika näkyy projektin *_Tietoa projektista_*-sivulta. Projektin päättyessä siihen ladatut muistotiedot tuhoutuvat pysyvästi _muistotkartalla.fi-palvelusta_. Projektikohtaisten ehtojen mukaisesti muistotiedot saatetaan siirtää arkistoitavaksi johonkin muuhun arkistoon tutkimusta varten.\n\nVoit missä vaiheessa vain poistaa omat tietosi, käyttäjätunnuksesi sekä lataamiasi muistoja palvelusta. Käyttäjätunnuksen poistaminen poistaa myös kaikki lataamasi muistot.\nYHTEYSTIEDOT\n------------\nLisätietoja ja kysymykset muistotkartalla.fi -palvelusta sähköpostitse osoitteeseen gdpr@muistotkartalla.fi\nYksittäisten tutkimusprojektien yhteystiedot ja käyttöehdot löytyvät kunkin projektin *_Tietoa projektista_*-sivulta.\n",
 
       "unfilled_fields": "Täytä loputkin kentät.",
+      "invalid_new_location": "Syötetyt koordinaatit ovat virheellisiä, kokeile uudestaan.",
       "tos_unchecked": "Sinun on hyväksyttävä käyttöehdot edetäksesi",
       "password_reqs_not_met": "Salasanan oltava vähintään 8 merkkiä",
       "passwords_dont_match": "Salasanat eivät täsmää.",
@@ -346,6 +354,10 @@
       "piiput": "Piippumuistoja",
       "parantolat": "Tuberkuloosiparantolat 1900-1970",
       "change_image": "Vaihda kuva",
+      "change_title": "Vaihda otsikko",
+      "change_location": "Vaihda lokaatio",
+      "edit_post": "Vaihda kohteen tietoja",
+      "no_permission": "Sinulla ei ole vaadittavia oikeuksia",
       "imageless_posts": "Kuvattomat kohteet",
       "change_username": "Vaihda Käyttäjänimeä",
       "set_username": "Aseta Käyttäjänimi",

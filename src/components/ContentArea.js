@@ -28,6 +28,9 @@ import CookieConsent, { Cookies } from "react-cookie-consent";
 import ProjectManagement from "./ProjectManagement"
 import ProjectSettings from "./ProjectSettings"
 import ProjectModerators from "./ProjectModerators"
+import EditImage from "./EditImage"
+import EditSiteTitle from "./EditSiteTitle"
+import EditLocation from "./EditLocation"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -67,6 +70,21 @@ const ContentArea = (props) => {
       <Route path="/edit-post/:id/" render={({match,history}) => (
         <PopUpContainer history={history}>
           <EditPost match={match} history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/edit-image/:id/" render={({match,history}) => (
+        <PopUpContainer history={history}>
+          <EditImage match={match} history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/edit-title/:id/" render={({match,history}) => (
+        <PopUpContainer history={history}>
+          <EditSiteTitle match={match} history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/edit-location/:id/" render={({match,history}) => (
+        <PopUpContainer history={history}>
+          <EditLocation match={match} history={history}/>
         </PopUpContainer>
       )}/>
       <Route path="/new-memento/:id/" render={({match,history}) => (

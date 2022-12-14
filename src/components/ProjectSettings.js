@@ -26,19 +26,12 @@ export const ProjectSettings = (props) => {
     let new_title = project.title
     let new_abs = project.description
     let new_desc = project.contentDescription
-    //set default language to the language that the user has chosen on website
-    let new_lang = props.settings.activeLanguage
-    if(event.target.project_title.value === "" && event.target.project_abstract.value === "" && event.target.project_description.value === "" && event.target.project_language.value === "")
+    if(event.target.project_title.value === "" && event.target.project_abstract.value === "" && event.target.project_description.value === "")
     {
       props.notify(props.settings.strings["no_new_changes"], false, 5)
     }
     else
     {
-      //check that the chosen language is supported
-      if (event.target.project_language.value !== "en" && event.target.project_language.value !== "fi" && event.target.project_language.value !== ""){
-        props.notify(props.settings.strings["invalid_language"], false, 8)
-        props.history.push("/project-management")
-      }
       //replace old value with new value, if new value isn't empty
       if(event.target.project_title.value !== "") {
         new_title = event.target.project_title.value 
@@ -49,12 +42,8 @@ export const ProjectSettings = (props) => {
       if(event.target.project_description.value !== "") {
         new_desc = event.target.project_description.value 
       }
-      if(event.target.project_language.value !== "") {
-        new_lang = event.target.project_language.value 
-      }
       const modifiedProject = {
         "id": project.id,
-        "lang": new_lang,
         "name": new_title,
         "abstract": new_abs,
         "description": new_desc
@@ -78,10 +67,6 @@ export const ProjectSettings = (props) => {
             </div>
             <div className="inputContainer">
               <input name="project_title" className="input" placeholder={project.title !== null ?  props.settings.strings["project_title"] + ": " + project.title : props.settings.strings["project_title"]} maxLength="150"/>
-              <div className="inputFocusLine"/>
-            </div>
-            <div className="inputContainer">
-              <input name="project_language" className="input" placeholder={props.settings.strings["choose_language"]} maxLength="2"/>
               <div className="inputFocusLine"/>
             </div>
             <div className="inputContainer">
