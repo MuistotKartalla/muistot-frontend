@@ -92,7 +92,7 @@ export const PostViewMobile = (props) => {
             </h1>
           </div>
           <button className="mobileButtonContainer">
-            <ClearIcon className="mobileIconSmall" onClick={() => props.history.push("/")}/>
+            <ClearIcon className="mobileIcon" onClick={() => props.history.push("/")}/>
           </button>
 
         </div>

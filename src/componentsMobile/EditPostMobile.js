@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React from "react"
 import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
 
@@ -51,7 +51,7 @@ export const PostView = (props) => {
             <h1 className="titleTextMobile">{props.settings.strings["edit_post"]}</h1>
           </div>
           <button className="mobileButtonContainer">
-            <ClearIcon className="mobileIconSmall" onClick={closeClick}/>
+            <ClearIcon className="mobileIcon" onClick={closeClick}/>
           </button>
         </div>
           <div className="userInfoButtonsContainerMobile">
@@ -70,7 +70,7 @@ export const PostView = (props) => {
           <h1 className="titleTextMobile">{props.settings.strings["no_permission"]}</h1>
         </div>
         <button className="mobileButtonContainer">
-          <ClearIcon className="mobileIconSmall" onClick={closeClick}/>
+          <ClearIcon className="mobileIcon" onClick={closeClick}/>
         </button>
         </div>
       </div>

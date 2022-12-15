@@ -83,7 +83,7 @@ export const createProject = (project_id, object) => {
           const projects = (await projectService.getAllProjects())
           projects.push(object)
           console.log("New projects: ", projects)
-          const newProject = await projectService.createNewProject(projects)
+          await projectService.createNewProject(projects)
           let activeProject = null
           if (project_id) {
               activeProject = projects.find(project => project.id.toString() === project_id)

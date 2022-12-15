@@ -112,7 +112,9 @@
       "tos_title": "Terms of Service",
       "tos_text": "Muistotkartalla.fi -service is a crowdsourced memento collection service for research projects. These terms outline how your information is used in the service.\nDATA PROCESSOR\n--------------\nThe service is provided by NeljäT Oy (2197596-6), who acts as a data processor and controller. Note that per project terms, your data may move, under your permission, beyond the control of this service.\nCOLLECTED DATA, DATA USE AND JUSTIFICATION\n------------------------------------------\nA cookie stored on your device is used to store your personal preferences regarding the service and to allow automatic login in case you have created an account\n\nPersonal information is stored on the server only if you create an account. For the account we require a minimum age of 13 years. Collected personal information is name, surname, email address, place of residence and year of birth in addition to the username of your choice.\n\nEmail address can be used for login purposes and to allow researchers of individual projects to send you messages, if you have given a per-project permission for it. Researchers will not be able to see your email address unless you respond to their message.\n\nFor implementing the service, we collect pictures and memories from the users for individual projects. The user grants permission to use the images, texts and recordings for research purposes in accordance with the per-project terms. The per-project terms, including what information you consent to provide the researchers, are agreed to separately for each project.\nDATA ERASURE\n------------\nYour username and the related information is held until:\n * Two years have passed since your most recent login AND\n * Every project that you have participated in, has finished.\nThe removal date of each project is shown on the project info page. When project is removed from the _muistotkartalla.fi_-service, they are removed permanently. Depending on per-project terms, data may be transferred outside the service for archive purposes.\n\nYou can at any point remove your information, your account and any uploaded memories from the service. Removing your account removes all uploaded data.\nCONTACT\n-------\nFor more information, contact gdpr@muistotkartalla.fi\n\nIndividual project contact information available from each projects *_Project Info_* page.\n",
 
-      "choose_location_first": "Choose your location on the map by clicking the left mouse button",
+      "choose_location_first": "Choose your location on the map by clicking the left mouse button", 
+      "choose_new_location": "Choose new location on the map",
+      "new_coordinates": "New coordinates:",
       "give_name_for_location": "Give a generally known name for the location",
       "unfilled_fields": "Some of the Fields Are Still Empty. Fill Those and Try Again.",
       "invalid_new_location": "New coordinates are invalid, try again.",
@@ -323,6 +325,8 @@
       "go_to_signup_instead": "Luo uusi tili",
 
       "choose_location_first": "Valitse kohteesi sijainti kartalta hiiren vasenta nappia klikkaamalla",
+      "choose_new_location": "Valitse uusi sijainti kartalta",
+      "new_coordinates": "Uudet koordinaatit:",
       "give_name_for_location": "Anna kohteellesi yleisesti tunnettu nimi",
 
       "reports": "Raportit",

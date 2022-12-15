@@ -1,7 +1,7 @@
 import axios from "axios"
 import {convNOM, convNOS, convONM, convONS, Image, OldMemory, OldMemoryOutbound, OldSite, SearchParams} from "./models";
 import {log} from "./settings";
-import {memories, memory as memoryPath, project, site as sitePath, sites} from "./paths";
+import {memories, memory as memoryPath, site as sitePath, sites} from "./paths";
 
 export const getSites = async (project: string, params?: SearchParams): Promise<OldSite[]> => {
     log('doing search')
