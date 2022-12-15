@@ -1,21 +1,21 @@
 // By: Niklas Impiö
 // In the list view handles the right side
-import { useState } from "react"
-import { connect } from "react-redux"
-import { updateListView } from "../reducers/listViewReducer"
-import { updateMapLocation } from "../reducers/mapLocationReducer"
-import { notify } from "../reducers/notificationReducer"
-import { deletePost, toggleVerify } from "../reducers/postReducer"
-import "../styles/buttons.css"
+import React, {useState} from "react"
+import {connect} from "react-redux"
+import {notify} from "../reducers/notificationReducer"
+import {deletePost, toggleVerify,} from "../reducers/postReducer"
+import {updateMapLocation} from "../reducers/mapLocationReducer"
+import {updateListView} from "../reducers/listViewReducer"
 import "../styles/postView.css"
+import "../styles/buttons.css"
 import "../styles/texts.css"
 
-
-import { ReactComponent as ClearIcon } from "../resources/clear.svg"
-import { ReactComponent as FacebookIcon } from "../resources/facebook_icon.svg"
-import { ReactComponent as TwitterIcon } from "../resources/twitter_icon.svg"
-import { ReactComponent as Verified } from "../resources/verified.svg"
-import { getImageURL } from "../services/images"
+import MementoList from "./MementoList"
+import {ReactComponent as Verified} from "../resources/verified.svg"
+import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
+import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
+import {ReactComponent as ClearIcon} from "../resources/clear.svg"
+import {getImageURL} from "../services/images";
 const ReactMarkdown = require('react-markdown')
 
 export const PostViewLW = (props) => {
@@ -175,6 +175,9 @@ export const PostViewLW = (props) => {
             <button className="rippleButton fillButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>        
         </div>
           }
+      <div className="storyContainer">
+	        <MementoList posts={post} history={props.history}/>
+        </div>
       </div>
     )
   }

@@ -92,7 +92,7 @@ const MapContainerOpen = (props) => {
       setPosts(props.posts)
     }
     if(props.mapLocation !== null){
-      setZoom(13)
+      setZoom(18)
       setPosition(props.mapLocation) 
       props.updateMapLocation(null)
       setmoveToPosition(true)
@@ -153,6 +153,7 @@ const MapContainerOpen = (props) => {
       zoomend: (e) => {
         setZoom(map.getZoom())
         setTempMarker(null)
+        console.log(zoom);
       }
     });
     return null;
@@ -226,6 +227,7 @@ const MapContainerOpen = (props) => {
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          
         />
         <UpdateMapCenter/>
         <HandleMapEvents/>

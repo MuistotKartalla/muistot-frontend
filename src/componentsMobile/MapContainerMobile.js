@@ -87,7 +87,7 @@ const MapContainerMobile = (props) => {
     }
 
     if(props.mapLocation !== null){
-      setZoom(13)
+      setZoom(18)
       setPosition(props.mapLocation)
       props.updateMapLocation(null)
       setmoveToPosition(true)

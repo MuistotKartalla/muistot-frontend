@@ -130,6 +130,7 @@ export const PostView = (props) => {
               :
               <p className="normalText">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
             }
+            <p className="normalText">{`${props.settings.strings["number_of_memories"]}: ${post.muistoja}`}</p>
 
           </div>
           <div className="postButtonsContainer">
