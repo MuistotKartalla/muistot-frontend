@@ -53,6 +53,17 @@
   border-radius: 10px;
   width: calc(100% - 50px)
 }
+.postListItemMobile{
+  cursor: pointer;
+  background: var(--primary-color);
+  display: grid;
+  margin: 5px 0;
+  padding: 10px;
+  border: 5px solid transparent;
+  border-radius: 10px;
+  width: calc(100% - 50px)
+}
+
 .postViewListItem{
   cursor: pointer;
   background: var(--primary-color);
@@ -79,6 +90,7 @@
   height: 100%;
   margin: auto 0.5em auto 0;
   align-content: center;
+  display: flex;
 }
 .postListReportFlags{
   width: 30%;
@@ -95,13 +107,12 @@
 
 
 .postListItemInfo {
-  width: 55%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   text-align: start;
   cursor: pointer;
 }
-
 
 .postListTitle{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
@@ -109,6 +120,17 @@
   font-weight: 700;
   font-size: 1.2em;
   margin: 0;
+
+}
+
+.postListTitleMobile{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 700;
+  font-size: 1.2em;
+  margin: 0;
+  padding-left: 10px;
+  
 }
 
 .postListText{

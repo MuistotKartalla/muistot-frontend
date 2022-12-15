@@ -2,7 +2,7 @@
   "supported_languages" : ["fi","en"],
   "language_strings":{
     "en":{
-      "look_at_mementos": "Browse mementos listed for this site",
+      "look_at_mementos": "Browse site information",
       "site_address": "https://www.muistotkartalla.fi",
       "app_name": "MUISTOT KARTALLA",
       "project_info": "Project Info",
@@ -188,7 +188,7 @@
       "country_name": "Country"
     },
     "fi":{
-      "look_at_mementos": "Katsele tälle kohteelle syötettyjä muistoja",
+      "look_at_mementos": "Katsele kohteen tietoja",
       "new_memento": "Syötetään uusi muisto kohteelle ",
       "site_address": "https://www.muistotkartalla.fi",
       "app_name": "MUISTOT KARTALLA",

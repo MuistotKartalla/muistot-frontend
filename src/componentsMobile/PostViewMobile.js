@@ -9,7 +9,7 @@ import "../styles/postView.css"
 import "../styles/buttons.css"
 import "../styles/texts.css"
 
-import MementoList from "../components/MementoList"
+
 
 import {ReactComponent as Verified} from "../resources/verified.svg"
 import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
@@ -18,6 +18,7 @@ import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
 import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
 //import {ReactComponent as InstagramIcon} from "../resources/instagram_icon.svg"
 import {getImageURL} from "../services/images";
+import MementoListMobile from "./MementoListMobile"
 const ReactMarkdown = require('react-markdown')
 
 
@@ -169,7 +170,7 @@ export const PostViewMobile = (props) => {
             }
         </div>
         <div className="storyContainer">
-          <MementoList posts={post} history={props.history}/> 
+          <MementoListMobile posts={post} history={props.history}/> 
         </div>
       </div>
 )
