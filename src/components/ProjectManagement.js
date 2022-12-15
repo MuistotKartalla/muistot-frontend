@@ -61,7 +61,7 @@ export const ProjectManagement = (props) => {
 
   if(props.user && project.moderators.find(user => user === props.user.username)){
     return (
-      <div className="userInformationContainer centerAlignWithPadding">
+      <div className="userInformationContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer">
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings["project_management"]}</h1>
           <ClearIcon className="clearIcon" onClick={closeClick}/>

@@ -25,8 +25,8 @@ export const ChangeUserName = (props) => {
     props.history.push("/my-account/");
   };
   return (
-    <div className="loginContainer centerAlignWithPadding">
-      <h1 className="headerText bottomPadding30">
+    <div className="loginContainer centerAlignWithPaddingContainer">
+      <h1 className="headerText2 bottomPadding30">
         {props.settings.strings["set_username"]}
       </h1>
       <form className="loginForm" onSubmit={confirmUser}>

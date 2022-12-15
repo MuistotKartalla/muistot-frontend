@@ -56,7 +56,7 @@ export const ProjectSettings = (props) => {
 
   if(props.user && project.moderators.find(user => user === props.user.username)){
     return(
-      <div className="userSettingsContainer centerAlignWithPadding">
+      <div className="userSettingsContainer centerAlignWithPaddingContainer">
         <div className="titleContainer">
           <h1 className="titleText">{props.settings.strings["configure_project"]}</h1>
         </div>
@@ -89,7 +89,7 @@ export const ProjectSettings = (props) => {
   }
   else {
     return (
-      <div className="userInformationContainer centerAlignWithPadding">
+      <div className="userInformationContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer">
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings["not_moderator"]}</h1>
           <ClearIcon className="clearIcon" onClick={() => props.history.push("/")}/>

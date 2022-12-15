@@ -28,7 +28,7 @@ export const ChangeUserNameMobile = (props) => {
 
     return (
         <div className="loginContainerMobile">
-            <h1 className="headerText">{props.settings.strings["set_username"]}</h1>
+            <h1 className="titleTextMobile">{props.settings.strings["set_username"]}</h1>
 
             <form className="loginForm" onSubmit={confirmUser}>
                 <div className="inputContainer">

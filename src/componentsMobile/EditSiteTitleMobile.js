@@ -22,7 +22,7 @@ export const EditSiteTitle = (props) => {
   }
 
   return(
-    <div className="userSettingsContainerMobile">
+    <div className="loginContainerMobile">
         <div className="titleContainerMobile">
           <button className="mobileButtonContainer">
             <ReturnIcon className="mobileIcon" onClick={() => props.history.goBack()}/>

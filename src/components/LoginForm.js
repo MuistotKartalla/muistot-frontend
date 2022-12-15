@@ -33,8 +33,8 @@ export const LoginForm = (props) => {
 
     if (loginSuccessful) {
         return (
-            <div className="loginContainer centerAlignWithPadding">
-                <h1 className="headerText BottomPadding30">{props.settings.strings["login_or_register"]}</h1>
+            <div className="loginContainer centerAlignWithPaddingContainer">
+                <h1 className="headerText2 BottomPadding30">{props.settings.strings["login_or_register"]}</h1>
                 <div className="normalText textCenter bottomPadding30">{props.settings.strings["link_info"]}</div>
                 <div className="postFormButtonContainer">
                     <button className="positiveButton rippleButton fillButton" onClick={cancelClick}>{props.settings.strings["continue"]}</button>
@@ -44,8 +44,8 @@ export const LoginForm = (props) => {
     }
 
     return (
-        <div className="loginContainer centerAlignWithPadding">
-            <h1 className="headerText bottomPadding30">{props.settings.strings["login_or_register"]}</h1>
+        <div className="loginContainer centerAlignWithPaddingContainer">
+            <h1 className="headerText2 bottomPadding30">{props.settings.strings["login_or_register"]}</h1>
 {/*             TODO: fix social media integration             
 
                 <div className="signUpTitleContainer">
