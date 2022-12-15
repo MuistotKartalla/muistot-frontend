@@ -1,8 +1,8 @@
 // By: Niklas Impiö
-import React, {useState} from "react"
-import {connect} from "react-redux"
+import { useState } from "react"
+import { connect } from "react-redux"
 
-import {setActiveTheme} from "../reducers/settingsReducer"
+import { setActiveTheme } from "../reducers/settingsReducer"
 
 import "../styles/themeToggleSwitch.css"
 

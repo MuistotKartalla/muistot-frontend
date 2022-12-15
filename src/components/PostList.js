@@ -2,15 +2,15 @@
 // In the list view handles the left scrollable side
 
 //import React, {useState} from "react"
-import {connect} from "react-redux"
-import { LazyLoadImage} from 'react-lazy-load-image-component'
-import {notify} from "../reducers/notificationReducer"
-import {updateListView} from "../reducers/listViewReducer"
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { connect } from "react-redux"
+import { updateListView } from "../reducers/listViewReducer"
+import { notify } from "../reducers/notificationReducer"
 
-import React, {useState, useEffect, useRef} from "react"
+import { useEffect, useRef } from "react"
+import { getImageURL } from "../services/images"
 import "../styles/listView.css"
 import "../styles/postList.css"
-import {getImageURL} from "../services/images";
 
 export const PostList = (props) => {
   const myRef = useRef(props.listView)
@@ -23,15 +23,13 @@ export const PostList = (props) => {
  
 
   useEffect(() => {
-    if(itemsRef != [] && props.listView != 0)
+    if(itemsRef !== [] && props.listView !== 0)
     {
       itemsRef.current[props.listView].scrollIntoView()
       itemsRef.current[props.listView].focus()
       
     }
-
-  
-  }, [])
+  }, [props.listView])
 
   return (
 

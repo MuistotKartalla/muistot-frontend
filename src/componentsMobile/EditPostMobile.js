@@ -1,76 +1,80 @@
-// By: Niklas Impiö
-import React, {useState, useEffect} from "react"
-import {connect} from "react-redux"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
-import "../styles/newPost.css"
 import "../styles/buttons.css"
-import {setTempSite} from "../reducers/tempSiteReducer"
-import { changeSitePicture } from "../reducers/postReducer"
-import SiteImageUploadMobile from "./SiteImageUploadMobile"
+import "../styles/postView.css"
+import "../styles/texts.css"
 
 
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 
 
-//combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.
-// aka if "live location" button is highlighted the it uses your current location. if map button highlighted then it uses selected location.
-
-export const EditPostMobile = (props) => {
-  const [image, setImage] = useState(null)
+export const PostView = (props) => {
+  //gets the post to show based on the id that is set on the url field.
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
 
-  useEffect(() => {
-    if(props.tempSite.image){
-      setImage(props.tempSite.image.data
-        )}else{setImage(props.tempSite.image)}
-  }, [props])
+  post.uusi = 0
 
+  const changeImage = (postId) =>{
+    props.history.push(`/edit-image/${postId}`)
+  }
 
-  const cancelClick = (event) => {
+  const changeSiteLocation= (postId) => {
+    props.history.push(`/edit-location/${postId}`)
+  }
+
+  const changeSiteTitle= (postId) => {
+    props.history.push(`/edit-title/${postId}`)
+  }
+
+  const closeClick = (event) => {
+    //go back to the previous page
     event.preventDefault()
-    setImage(null)
-    props.setTempSite({"title": "", "location":false, "image": null})
     props.history.push("/")
   }
 
-  const imageOnChangeHandler = (image) => {
-    setImage(image)
+  const backClick = (event) => {
+    event.preventDefault()
+    props.history.push(`/post-view/${post.id}`)
   }
 
-  const confirmPost = (event) => {
-    event.preventDefault()  
-    props.changeSitePicture(post, image)
-    setImage(null)
-    props.setTempSite({"title": "", "location":false, "image": null})
-    props.history.goBack()
-  }
-
-
-  return(
-    <div className="newPostContainerMobile">
-      <div>
-        <div className="titleContainerMobile">
+  if(props.user && (post.own === true || props.currentProject.moderators.find(user => user === props.user.username))){
+    return (
+      <div className="userInformationContainerMobile">
+        <div className="titleContainerMobile"> 
           <button className="mobileButtonContainer">
-            <ReturnIcon className="mobileIcon" onClick={cancelClick}/>
+            <ReturnIcon className="mobileIcon" onClick={backClick}/>
           </button>
-          <h1 className="titleTextMobile">{props.settings.strings["change_image"]}</h1>
+          <div className="titleHeaderMobile">
+            <h1 className="titleTextMobile">{props.settings.strings["edit_post"]}</h1>
+          </div>
+          <button className="mobileButtonContainer">
+            <ClearIcon className="mobileIcon" onClick={closeClick}/>
+          </button>
         </div>
-
-	<div>
-      		<form className="postFormMobile" onSubmit={confirmPost}>
-      		  <div className="inputContainer">
-              <SiteImageUploadMobile change={imageOnChangeHandler}/>
-      		  </div>
-	        <div className="postFormButtonContainer">
-	          <button className="rippleButton negativeButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
-	          <button className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>
-	        </div>
-	      </form>
-	</div>
-        
+          <div className="userInfoButtonsContainerMobile">
+            <button className="rippleButton" onClick={() => changeImage(post.id)}>{props.settings.strings["change_image"]}</button>
+            <button className="rippleButton" onClick={() => changeSiteTitle(post.id)}>{props.settings.strings["change_title"]}</button>
+            <button className="rippleButton" onClick={() => changeSiteLocation(post.id)}>{props.settings.strings["change_location"]}</button>
+          </div>
       </div>
-    </div>
-  )
+    );
+  }
+  else {
+    return (
+      <div className="userInformationContainerMobile">
+        <div className="titleContainerMobile">
+        <div className="titleHeaderMobile">
+          <h1 className="titleTextMobile">{props.settings.strings["no_permission"]}</h1>
+        </div>
+        <button className="mobileButtonContainer">
+          <ClearIcon className="mobileIcon" onClick={closeClick}/>
+        </button>
+        </div>
+      </div>
+    );
+  }
 
 }
 
@@ -78,20 +82,19 @@ const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
     user: state.user,
-    tempSite: state.tempSite,
-    projects: state.projects,
+    posts: state.posts,
     settings: state.settings,
-    posts: state.posts
+    currentProject: state.projects.active
   }
 }
 
 const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
-  setTempSite,
-  changeSitePicture
+  //notify (for example)
+  notify
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditPostMobile)
+)(PostView)

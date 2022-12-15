@@ -1,13 +1,13 @@
-import React, {useState} from "react"
-import {connect} from "react-redux"
+import { useState } from "react"
+import { connect } from "react-redux"
 
-import {notify} from "../reducers/notificationReducer"
-import {createProject} from "../reducers/projectReducer"
+import { notify } from "../reducers/notificationReducer"
+import { createProject } from "../reducers/projectReducer"
 
 import "../styles/inputs.css"
 import "../styles/newProject.css"
-import ImageUpload from "./ImageUpload"
 import DropDownSelect from "./DropDownSelect"
+import ImageUpload from "./ImageUpload"
 
 export const NewProject = (props) => {
   const [title, setTitle] = useState("")
@@ -21,18 +21,32 @@ export const NewProject = (props) => {
 
   */
 
+  function generateRandomId(length) {
+    var result = '';
+    var characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
   const createNewProjectClick = (event) => {
     event.preventDefault()
+    let new_id = generateRandomId(12)
+    let new_mods = []
+    new_mods.push(props.user.username)
     const object = {
+      "id": new_id,
       "title": title,
       "description": description,
       "contentDescription": contentDescription,
       "visitorPosting": accountForPosting === props.settings.strings["only_users_can_post"],
-      "moderators": [],
+      "moderators": new_mods,
       "image": image
     }
-    props.createProject(object)
-    props.notify(`Project "${object.title}" Created.`, false, 5)
+    props.createProject(new_id, object)
+    props.notify(`Project "${title.title}" Created.`, false, 5)
     props.history.push("/")
 
   }
@@ -71,7 +85,7 @@ export const NewProject = (props) => {
             <div className="inputFocusLine"/>
           </div>
           <div className="inputContainer">
-            <textarea name="description" id="descField" className="input" rows="4" placeholder={props.settings.strings["description"]} maxLength="256" autoComplete="off" onChange={descriptionChangeHandler} value={description}/>
+            <textarea name="description" id="descField" className="input" rows="4" placeholder={props.settings.strings["abstract"]} maxLength="256" autoComplete="off" onChange={descriptionChangeHandler} value={description}/>
             <div className="inputFocusLine"/>
           </div>
           <ImageUpload change={imageOnChangeHandler}/>
@@ -97,7 +111,8 @@ export const NewProject = (props) => {
 const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
-    settings: state.settings
+    settings: state.settings,
+    user: state.user
   }
 }
 

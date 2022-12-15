@@ -7,6 +7,7 @@ const MEMORIES = 'memories'
 const COMMENTS = 'comments'
 const USER = 'me'
 const USERNAME = 'username'
+const NEW_ADMIN = 'admins?username='
 export const EMAIL_ONLY_LOGIN = '/auth/email'
 export const EMAIL_ONLY_EXCHANGE = '/auth/email/exchange'
 export const VERIFY_USER_EXCHANGE = '/auth/confirm'
@@ -87,6 +88,15 @@ const project = async <T>(
     PROJECTS, project
 ]))
 
+const projectAdmins = async <T>(
+  pathConsumer: ((url: string) => Promise<T>),
+  project: string, 
+  admin: string
+) => await pathConsumer(toUrl([
+  PROJECTS, project,
+  NEW_ADMIN
+]) + admin)
+
 const login = async <T>(pathConsumer: ((url: string) => Promise<T>)) => await pathConsumer(toUrl([ LOGIN]))
 const register = async <T>(pathConsumer: ((url: string) => Promise<T>)) => await pathConsumer(toUrl([ REGISTER]))
 const user = async <T>(pathConsumer: ((url: string) => Promise<T>)) => await pathConsumer(toUrl([ USER]))
@@ -95,7 +105,7 @@ export {
     comments, comment,
     memories, memory,
     sites, site,
-    projects, project,
+    projects, project, projectAdmins,
     login, register,
     user, username
 }

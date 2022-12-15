@@ -1,25 +1,25 @@
 // By: Niklas Impiö
-import React, {useState} from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
-import {deletePost, toggleVerify, changeSitePicture} from "../reducers/postReducer"
-import {updateMapLocation} from "../reducers/mapLocationReducer"
-import {updateListView} from "../reducers/listViewReducer"
+import { useState } from "react"
+import { connect } from "react-redux"
+import { updateListView } from "../reducers/listViewReducer"
+import { updateMapLocation } from "../reducers/mapLocationReducer"
+import { notify } from "../reducers/notificationReducer"
+import { changeSitePicture, deletePost, toggleVerify } from "../reducers/postReducer"
 
-import "../styles/postView.css"
 import "../styles/buttons.css"
-import "../styles/texts.css"
 import "../styles/floatingSearch.css"
+import "../styles/postView.css"
 import "../styles/projectInfo.css"
+import "../styles/texts.css"
 
+import { ReactComponent as Arrow } from "../resources/arrow_back.svg"
+import { ReactComponent as FacebookIcon } from "../resources/facebook_icon.svg"
+import { ReactComponent as TwitterIcon } from "../resources/twitter_icon.svg"
+import { ReactComponent as Verified } from "../resources/verified.svg"
 import MementoList from "./MementoList"
-import {ReactComponent as Verified} from "../resources/verified.svg"
-import {ReactComponent as Arrow} from "../resources/arrow_back.svg"
-import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
-import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
 //import {ReactComponent as InstagramIcon} from "../resources/instagram_icon.svg"
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
-import {getImageURL} from "../services/images";
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
+import { getImageURL } from "../services/images"
 const ReactMarkdown = require('react-markdown')
 
 
@@ -130,6 +130,7 @@ export const PostView = (props) => {
               :
               <p className="normalText">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
             }
+            <p className="normalText">{`${props.settings.strings["number_of_memories"]}: ${post.muistoja}`}</p>
 
           </div>
           <div className="postButtonsContainer">
@@ -147,13 +148,13 @@ export const PostView = (props) => {
                     :
                     <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["unverify"]}</button>
                   }
-                  <button className="rippleButton Button negativeButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_image"]}</button>
+                  <button className="rippleButton Button negativeButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_information"]}</button>
                 </div>
                 :
                 (post.own === true? 
                   <div className="postButtonsContainerInner">
                     <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
-                    <button className="rippleButton Button negativeButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_image"]}</button>
+                    <button className="rippleButton Button negativeButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_information"]}</button>
                   </div>
                   :
                   <></>

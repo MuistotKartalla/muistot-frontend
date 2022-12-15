@@ -51,3 +51,24 @@
   top:1em;
   left: 4em;
 }
+
+.mapContainerSmall{
+  height: 500px;
+  width: 500px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.mapContainerSmallMobile{
+  height: 70%;
+  width: 80%;
+  margin: auto;
+}
+
+.smallMap{
+  cursor: all-scroll !important;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}

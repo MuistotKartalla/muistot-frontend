@@ -1,17 +1,18 @@
-import React, {useEffect, useState} from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { useEffect, useState } from "react"
 import { CSVLink } from "react-csv"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
-import "../styles/postView.css"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import "../styles/accountInfo.css"
+import "../styles/postView.css"
 
 export const ProjectManagement = (props) => {
   //declare some variables
   const [project, setProject] = useState(props.projects.active)
   const [posts, setPosts] = useState(props.posts)
   const [csvData, setCsvData] = useState([])
+  const [moderatorList, setModeratorList] = useState([])
 
   //in useEffect, check if we have some active project, check its posts and update data for csv download
   useEffect(() => {
@@ -24,12 +25,21 @@ export const ProjectManagement = (props) => {
     }
     //if there is no csv data, generate it
     if(csvData.length <= 1){
-      const postsData = [["Project", "Project moderator", "Site ID", "Site title", "Site creator", "Last modifier", "Memories", "Location latitude", "Location longitude", "Abstract"]]
+      const postsData = [["Project", "Project moderators", "Site ID", "Site title", "Site creator", "Last modifier", "Memories", "Location latitude", "Location longitude", "Abstract"]]
       posts.map((post) => postsData.push([project.title, project.moderators, post.id, post.title, post.creator, post.modifier, post.muistoja, post.location.lat, post.location.lng, post.abstract]))
       //update data to csvData variable
       setCsvData(postsData)
     }
-  }, [props, project.title, posts, csvData.length, project.moderators])
+    //initialize new list of moderators with ',' between items for display purposes
+    if (moderatorList.length <= 1) {
+      const modlist = []
+      project.moderators.map((value) => modlist.push(value + ", "))
+      //remove ',' from last item and add it back
+      let lastItem = modlist.pop().slice(0, -2)
+      modlist.push(lastItem)
+      setModeratorList(modlist)
+    }
+  }, [props, project.title, posts, csvData.length, project.moderators, moderatorList.length])
 
   const closeClick = (event) => {
     //go back to the previous page
@@ -43,9 +53,15 @@ export const ProjectManagement = (props) => {
     props.history.push("/project-settings")
   }
 
+  const addModeratorClick = (event) => {
+    //go to moderator settings page
+    event.preventDefault()
+    props.history.push("/project-moderators")
+  }
+
   if(props.user && project.moderators.find(user => user === props.user.username)){
     return (
-      <div className="userInformationContainer centerAlignWithPadding">
+      <div className="userInformationContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer">
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings["project_management"]}</h1>
           <ClearIcon className="clearIcon" onClick={closeClick}/>
@@ -63,7 +79,7 @@ export const ProjectManagement = (props) => {
                 </tr>
                 <tr className="userInfoRows">
                   <th className="userInfoValues">{props.settings.strings["project_mod"]}</th>
-                  <th className="userInfoValues">{project.moderators !== null ? project.moderators : "-"}</th>
+                  <th className="userInfoValues">{project.moderators !== null ? moderatorList : "-"}</th>
                 </tr>
                 <tr className="userInfoRows">
                   <th className="userInfoValues">{props.settings.strings["project_sites"]}</th>
@@ -82,6 +98,7 @@ export const ProjectManagement = (props) => {
           </div>
           <div className="userInfoButtonsContainer">
           <button className="rippleButton" onClick={changeProjectInfo}>{props.settings.strings["change_information"]}</button>
+          <button className="rippleButton" onClick={addModeratorClick}>{props.settings.strings["add_new_moderator"]}</button>
           <CSVLink
                 data={csvData}
                 filename={project.id + '-sites.csv'}
@@ -97,7 +114,7 @@ export const ProjectManagement = (props) => {
     return (
       <div className="userInformationContainer centerAlignWithPadding">
         <div className="postTitleContainer">
-          <h1 className="titleText centerAlignWithPadding" onClick={() => props.history.push("/login")}>{props.settings.strings["login_or_register"]}</h1>
+          <h1 className="titleText centerAlignWithPadding">{props.settings.strings["not_moderator"]}</h1>
           <ClearIcon className="clearIcon" onClick={closeClick}/>
         </div>
       </div>

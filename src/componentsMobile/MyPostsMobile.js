@@ -1,15 +1,14 @@
 // By: Niklas Impiö
-import React from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
-import "../styles/myPosts.css"
 import "../styles/buttons.css"
+import "../styles/myPosts.css"
 import "../styles/texts.css"
 
 
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
-import {getImageURL} from "../services/images";
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
+import { getImageURL } from "../services/images"
 
 
 

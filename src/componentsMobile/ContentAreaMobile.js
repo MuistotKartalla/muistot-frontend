@@ -1,29 +1,32 @@
 // By: Niklas Impiö
-import React from "react"
-import {connect} from "react-redux"
-import {Route} from "react-router-dom"
+import { connect } from "react-redux"
+import { Route } from "react-router-dom"
 
 import MapContainerMobile from "./MapContainerMobile"
 import NavMenuMobile from "./NavMenuMobile"
 
 
-import {notify} from "../reducers/notificationReducer"
-import PostViewMobile from "./PostViewMobile"
-import LoginFormMobile from "./LoginFormMobile"
-import ListViewMobile from "./ListViewMobile"
-import NewPostMobile from "./NewPostMobile"
-import NewMementoMobile from "./NewMementoMobile"
-import MyPostsMobile from "./MyPostsMobile"
-import ProjectInfoMobile from "./ProjectInfoMobile"
+import { notify } from "../reducers/notificationReducer"
 import AboutMobile from "./AboutMobile"
+import AccountInfoMobile from "./AccountInfoMobile"
+import ChangeUserNameMobile from "./ChangeUserNameMobile"
+import EditImageMobile from "./EditImageMobile"
+import EditLocationMobile from "./EditLocationMobile"
+import EditPostMobile from "./EditPostMobile"
+import EditSiteTitleMobile from "./EditSiteTitleMobile"
+import ListViewMobile from "./ListViewMobile"
+import LoginFormMobile from "./LoginFormMobile"
+import MyPostsMobile from "./MyPostsMobile"
+import NewMementoMobile from "./NewMementoMobile"
+import NewPostMobile from "./NewPostMobile"
+import PostViewMobile from "./PostViewMobile"
+import ProjectInfoMobile from "./ProjectInfoMobile"
+import ProjectManagementMobile from "./ProjectManagementMobile"
+import ProjectModeratorsMobile from "./ProjectModeratorsMobile"
+import ProjectSettingsMobile from "./ProjectSettingsMobile"
+import SetUserNameMobile from "./SetUserNameMobile"
 import UnverifiedPostsMobile from "./UnverifiedPostsMobile"
 import UserSettingsMobile from "./UserSettingsMobile"
-import EditPostMobile from "./EditPostMobile"
-import ChangeUserNameMobile from "./ChangeUserNameMobile"
-import SetUserNameMobile from "./SetUserNameMobile"
-import AccountInfoMobile from "./AccountInfoMobile"
-import ProjectManagementMobile from "./ProjectManagementMobile"
-import ProjectSettingsMobile from "./ProjectSettingsMobile"
 
 const ContentAreaMobile = (props) => {
   // Ok this is just a container component for all the sub components except notification.
@@ -58,6 +61,15 @@ const ContentAreaMobile = (props) => {
       <Route path="/edit-post/:id/" render={({match,history}) => (
           <EditPostMobile match={match} history={history}/>
       )}/>
+      <Route path="/edit-image/:id/" render={({match,history}) => (
+          <EditImageMobile match={match} history={history}/>
+      )}/>
+      <Route path="/edit-title/:id/" render={({match,history}) => (
+          <EditSiteTitleMobile match={match} history={history}/>
+      )}/>
+      <Route path="/edit-location/:id/" render={({match,history}) => (
+          <EditLocationMobile match={match} history={history}/>
+      )}/>
       <Route path="/new-memento/:id/" render={({match,history}) => (
           <NewMementoMobile match={match} history={history}/>
       )}/>
@@ -88,8 +100,11 @@ const ContentAreaMobile = (props) => {
       <Route path="/project-management/" render={({history}) => (
         <ProjectManagementMobile history={history}/>
       )}/>
-            <Route path="/project-settings/" render={({history}) => (
+      <Route path="/project-settings/" render={({history}) => (
         <ProjectSettingsMobile history={history}/>
+      )}/>
+      <Route path="/project-moderators/" render={({history}) => (
+        <ProjectModeratorsMobile history={history}/>
       )}/>
     </div>
   )

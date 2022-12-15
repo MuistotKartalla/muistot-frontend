@@ -10,7 +10,7 @@ import "../styles/postView.css"
 import "../styles/buttons.css"
 import "../styles/texts.css"
 
-
+import MementoList from "./MementoList"
 import {ReactComponent as Verified} from "../resources/verified.svg"
 import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
 import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
@@ -175,6 +175,9 @@ export const PostViewLW = (props) => {
             <button className="rippleButton fillButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>        
         </div>
           }
+      <div className="storyContainer">
+	        <MementoList posts={post} history={props.history}/>
+        </div>
       </div>
     )
   }

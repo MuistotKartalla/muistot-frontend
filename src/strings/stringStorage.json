@@ -2,7 +2,7 @@
   "supported_languages" : ["fi","en"],
   "language_strings":{
     "en":{
-      "look_at_mementos": "Browse mementos listed for this site",
+      "look_at_mementos": "Browse site information",
       "site_address": "https://www.muistotkartalla.fi",
       "app_name": "MUISTOT KARTALLA",
       "project_info": "Project Info",
@@ -92,6 +92,7 @@
       "verify": "Verify",
       "unverify": "Unverify",
       "confirm_delete": "Permanently Remove This Post",
+      "confirm_delete_memory": "Permanently Remove This Memory",
       "post": "Post",
       "delete_success": "Succesfully Deleted.",
 
@@ -111,9 +112,12 @@
       "tos_title": "Terms of Service",
       "tos_text": "Muistotkartalla.fi -service is a crowdsourced memento collection service for research projects. These terms outline how your information is used in the service.\nDATA PROCESSOR\n--------------\nThe service is provided by NeljäT Oy (2197596-6), who acts as a data processor and controller. Note that per project terms, your data may move, under your permission, beyond the control of this service.\nCOLLECTED DATA, DATA USE AND JUSTIFICATION\n------------------------------------------\nA cookie stored on your device is used to store your personal preferences regarding the service and to allow automatic login in case you have created an account\n\nPersonal information is stored on the server only if you create an account. For the account we require a minimum age of 13 years. Collected personal information is name, surname, email address, place of residence and year of birth in addition to the username of your choice.\n\nEmail address can be used for login purposes and to allow researchers of individual projects to send you messages, if you have given a per-project permission for it. Researchers will not be able to see your email address unless you respond to their message.\n\nFor implementing the service, we collect pictures and memories from the users for individual projects. The user grants permission to use the images, texts and recordings for research purposes in accordance with the per-project terms. The per-project terms, including what information you consent to provide the researchers, are agreed to separately for each project.\nDATA ERASURE\n------------\nYour username and the related information is held until:\n * Two years have passed since your most recent login AND\n * Every project that you have participated in, has finished.\nThe removal date of each project is shown on the project info page. When project is removed from the _muistotkartalla.fi_-service, they are removed permanently. Depending on per-project terms, data may be transferred outside the service for archive purposes.\n\nYou can at any point remove your information, your account and any uploaded memories from the service. Removing your account removes all uploaded data.\nCONTACT\n-------\nFor more information, contact gdpr@muistotkartalla.fi\n\nIndividual project contact information available from each projects *_Project Info_* page.\n",
 
-      "choose_location_first": "Choose your location on the map by clicking the left mouse button",
+      "choose_location_first": "Choose your location on the map by clicking the left mouse button", 
+      "choose_new_location": "Choose new location on the map",
+      "new_coordinates": "New coordinates:",
       "give_name_for_location": "Give a generally known name for the location",
-     "unfilled_fields": "Some of the Fields Are Still Empty. Fill Those and Try Again.",
+      "unfilled_fields": "Some of the Fields Are Still Empty. Fill Those and Try Again.",
+      "invalid_new_location": "New coordinates are invalid, try again.",
       "tos_unchecked": "You Need to Read and Accept the Terms of Service Before Creating an Account.",
       "password_reqs_not_met": "Password Needs to be at least 8 Characters Long.",
       "passwords_dont_match": "Password Fields Values Are not the Same.",
@@ -170,6 +174,10 @@
       "piiput": "Smokestack Memories",
       "parantolat": "Tuberculosis treatment facilities 1900-1970",
       "change_image": "Change Image",
+      "change_title": "Change Title",
+      "change_location": "Change Location",
+      "edit_post": "Change site information",
+      "no_permission": "You don't have permission for this page",
       "imageless_posts": "Imageless Posts",
       "change_username": "Change Username",
       "set_username": "Set a Username",
@@ -180,7 +188,7 @@
       "country_name": "Country"
     },
     "fi":{
-      "look_at_mementos": "Katsele tälle kohteelle syötettyjä muistoja",
+      "look_at_mementos": "Katsele kohteen tietoja",
       "new_memento": "Syötetään uusi muisto kohteelle ",
       "site_address": "https://www.muistotkartalla.fi",
       "app_name": "MUISTOT KARTALLA",
@@ -265,6 +273,7 @@
 
       "delete_post": "Poista",
       "confirm_delete": "Poista tämä kohde lopullisesti",
+      "confirm_delete_memory": "Poista tämä muisto lopullisesti",
       "post": "Kohde",
       "delete_success": "Poistettu.",
 
@@ -286,6 +295,7 @@
       "tos_text": "Muistotkartalla.fi -palvelu on arkeologisen muistojen ja niihin liittyvien kuvien keräyspalvelu tutkimusprojektien käyttöön. Nämä käyttöehdot kertovat, miten tietojasi käytetään palvelussa.\nREKISTERINPITÄJÄ JA TIETOJENKÄSITTELIJÄ\n---------------------------------------\nMuistotkartalla.fi palvelusta vastaa NeljäT Oy (2197596-6), joka toimii palvelussa rekisterinpitäjänä ja tietojenkäsittelijänä.\nKERÄTYT TIEDOT, NIIDEN KÄYTTÖ JA TIEDONKERUUN PERUSTEET\n------------------------------------------------------------------\nOmalle laitteellesi tallentuva eväste sisältää tietoa sivustolla käyttämistäsi asetuksista ja mahdollistaa sen, että valitsemasi asetukset ovat käytössä myös palatessasi sivustolle myöhemmin sekä sen, että pysyt kirjautuneena sisään palveluun, mikäli sinulla on käyttäjätunnus.\n\nSinusta kerätään palvelimellemme henkilökohtaisia tietoja vain, mikäli kirjaudut palveluun käyttäjäksi. Palveluun kirjautuvilta käyttäjiltä keräämme nimen, sukunimen, sähköpostiosoitteen, asuinpaikan ja syntymävuoden käyttäjän valitseman käyttäjätunnuksen lisäksi. Edellytämme palvelun käyttäjiltä 13 vuoden ikää.\n\nSähköpostiosoitetta voidaan käyttää kirjautumisten varmentamiseksi ja jotta tutkimusprojektien tutkijat voivat ottaa sinuun yhteyttä palvelun kautta, mikäli annat siihen projektikohtaisen luvan. Tutkijat eivät kuitenkaan näe sähköpostiosoitettasi, ellet vastaa heidän viestiinsä.\n\nPalvelun toteuttamiseksi keräämme käyttäjiltä kuvia ja muistoja kunkin tutkimusprojektin kohteista. Käyttäjä antaa luvan palveluun syötettyjen kuvien, tekstien ja nauhoitteiden käyttöön tutkimustarkoituksiin projektikohtaisten ehtojen mukaisesti. Projektikohtaiset ehdot, ja kunkin muiston lataajasta projektille toimitettavat tiedot hyväksytään aina kunkin projektin kohdalla erikseen.\nTIETOJEN POISTAMINEN\n--------------------\nKäyttäjätunnustasi sekä siihen liittyviä tietoja säilytetään kunnes\n * Viimeisestä kirjautumisestasi on kulunut kaksi vuotta JA\n * jokainen tutkimusprojekti jonka tiedonkeruuseen olet osallistunut, on päättynyt.\n\nKunkin tutkimusprojektin voimassaoloaika näkyy projektin *_Tietoa projektista_*-sivulta. Projektin päättyessä siihen ladatut muistotiedot tuhoutuvat pysyvästi _muistotkartalla.fi-palvelusta_. Projektikohtaisten ehtojen mukaisesti muistotiedot saatetaan siirtää arkistoitavaksi johonkin muuhun arkistoon tutkimusta varten.\n\nVoit missä vaiheessa vain poistaa omat tietosi, käyttäjätunnuksesi sekä lataamiasi muistoja palvelusta. Käyttäjätunnuksen poistaminen poistaa myös kaikki lataamasi muistot.\nYHTEYSTIEDOT\n------------\nLisätietoja ja kysymykset muistotkartalla.fi -palvelusta sähköpostitse osoitteeseen gdpr@muistotkartalla.fi\nYksittäisten tutkimusprojektien yhteystiedot ja käyttöehdot löytyvät kunkin projektin *_Tietoa projektista_*-sivulta.\n",
 
       "unfilled_fields": "Täytä loputkin kentät.",
+      "invalid_new_location": "Syötetyt koordinaatit ovat virheellisiä, kokeile uudestaan.",
       "tos_unchecked": "Sinun on hyväksyttävä käyttöehdot edetäksesi",
       "password_reqs_not_met": "Salasanan oltava vähintään 8 merkkiä",
       "passwords_dont_match": "Salasanat eivät täsmää.",
@@ -315,6 +325,8 @@
       "go_to_signup_instead": "Luo uusi tili",
 
       "choose_location_first": "Valitse kohteesi sijainti kartalta hiiren vasenta nappia klikkaamalla",
+      "choose_new_location": "Valitse uusi sijainti kartalta",
+      "new_coordinates": "Uudet koordinaatit:",
       "give_name_for_location": "Anna kohteellesi yleisesti tunnettu nimi",
 
       "reports": "Raportit",
@@ -346,6 +358,10 @@
       "piiput": "Piippumuistoja",
       "parantolat": "Tuberkuloosiparantolat 1900-1970",
       "change_image": "Vaihda kuva",
+      "change_title": "Vaihda otsikko",
+      "change_location": "Vaihda lokaatio",
+      "edit_post": "Vaihda kohteen tietoja",
+      "no_permission": "Sinulla ei ole vaadittavia oikeuksia",
       "imageless_posts": "Kuvattomat kohteet",
       "change_username": "Vaihda Käyttäjänimeä",
       "set_username": "Aseta Käyttäjänimi",

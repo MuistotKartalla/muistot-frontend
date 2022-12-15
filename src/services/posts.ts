@@ -1,7 +1,7 @@
 import axios from "axios"
 import {convNOM, convNOS, convONM, convONS, Image, OldMemory, OldMemoryOutbound, OldSite, SearchParams} from "./models";
 import {log} from "./settings";
-import {memories, memory as memoryPath, project, site as sitePath, sites} from "./paths";
+import {memories, memory as memoryPath, site as sitePath, sites} from "./paths";
 
 export const getSites = async (project: string, params?: SearchParams): Promise<OldSite[]> => {
     log('doing search')
@@ -87,4 +87,27 @@ export const ChangeSitePicture = async (project: string, site: string, image: Im
     async (url) => await axios.patch(url, {image:image, _method: 'patch'}),
     project,
     site
+)
+
+//async function for changing site title with patch request
+export const ChangeSiteTitle = async (project: string, site: string, title: string, abstract: string, description: string) => await sitePath(
+  async (url) => await axios.patch(url, {
+    "info": {
+      "lang": "en", 
+      "name": title, 
+      "abstract": abstract, 
+      "description": description}}),
+  project,
+  site
+)
+
+//async function for changing site location  with patch request
+export const ChangeSiteLocation = async (project: string, site: string, latitude: number, longitude: number) => await sitePath(
+  async (url) => await axios.patch(url, {
+    "location": {
+      "lon": longitude, 
+      "lat": latitude}
+    }),
+  project,
+  site
 )

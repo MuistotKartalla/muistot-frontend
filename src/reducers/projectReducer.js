@@ -83,7 +83,7 @@ export const createProject = (project_id, object) => {
           const projects = (await projectService.getAllProjects())
           projects.push(object)
           console.log("New projects: ", projects)
-          const newProject = await projectService.createNewProject(projects)
+          await projectService.createNewProject(projects)
           let activeProject = null
           if (project_id) {
               activeProject = projects.find(project => project.id.toString() === project_id)
@@ -108,8 +108,9 @@ export const createProject = (project_id, object) => {
 export const changeProjectSettings = (modifiedproject) => {
   return async dispatch => {
       try{
-          const projectSettings = await projectService.changeSettings(
-            modifiedproject.id, modifiedproject.lang, modifiedproject.name, modifiedproject.abstract, modifiedproject.description)
+          //get language from current project settings
+          const oldProject = await projectService.getSingleProject(modifiedproject.id)
+          await projectService.changeSettings(modifiedproject.id, oldProject.info.lang, modifiedproject.name, modifiedproject.abstract, modifiedproject.description)
           const projects = (await projectService.getAllProjects())
           let activeProject = null
           if (modifiedproject.id) {
@@ -132,15 +133,10 @@ export const changeProjectSettings = (modifiedproject) => {
   }
 }
 
-export const addNewModerator = (project_id, moderators) => {
+export const addNewModerator = (project_id, new_moderator) => {
   return async dispatch => {
       try{
-        //const singleProject = await projectService.getSingleProject(project_id)
-        //console.log("Single project1: ", singleProject)
-        //singleProject.admins = moderators
-        //console.log("Single project2: ", singleProject)
-        const projectSettings = await projectService.addNewMod(
-          project_id, moderators)
+        await projectService.addNewMod(project_id, new_moderator)
         const projects = (await projectService.getAllProjects())
         let activeProject = null
         if (project_id) {

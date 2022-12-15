@@ -1,8 +1,8 @@
-import React, {useState} from "react"
-import {connect} from "react-redux"
-import {changeUsernameReducer} from "../reducers/loginReducer"
-import {initPosts} from "../reducers/postReducer"
-import {notify} from "../reducers/notificationReducer"
+import { useState } from "react"
+import { connect } from "react-redux"
+import { changeUsernameReducer } from "../reducers/loginReducer"
+import { notify } from "../reducers/notificationReducer"
+import { initPosts } from "../reducers/postReducer"
 
 import "../styles/loginForm.css"
 

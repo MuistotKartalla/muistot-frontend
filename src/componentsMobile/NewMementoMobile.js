@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from "react"
-import {connect} from "react-redux"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
 
-import "../styles/newPost.css"
-import "../styles/buttons.css"
+import { notify } from "../reducers/notificationReducer"
+import { setTempPost } from "../reducers/tempPostReducer"
 import * as postService from "../services/posts"
-import {notify} from "../reducers/notificationReducer"
-import {setTempPost} from "../reducers/tempPostReducer"
+import "../styles/buttons.css"
+import "../styles/newPost.css"
 import ImageUploadMobile from "./ImageUploadMobile"
 
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
-import {getActiveProject} from "../reducers/projectReducer";
+import { getActiveProject } from "../reducers/projectReducer"
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
 
 
 //combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.

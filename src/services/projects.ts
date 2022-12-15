@@ -1,5 +1,5 @@
 import axios from "axios"
-import {projects, project as projectPath} from "./paths";
+import {projects, project as projectPath, projectAdmins as projectAdminPath} from "./paths";
 import {convNOP, OldProject} from "./models";
 
 
@@ -24,13 +24,8 @@ export async function changeSettings(
       "lang":lang,
       "name":name,
       "abstract":abstract,
-      "description":description}}), project_id))
-}
-
-//async function for creating a new project
-export async function createNewProject (
-  project: object): Promise<OldProject[]>  {
-    return [... (await projects(async (url) => await axios.patch(url, {project}))).data.items]
+      "description":description}
+    }), project_id))
 }
 
 //async function for getting a single project
@@ -39,13 +34,16 @@ export async function getSingleProject (
     return (await projectPath(async (url) => await axios.get(url), project_id)).data
 }
 
+//async function for creating a new project
+export async function createNewProject (
+  project: object): Promise<OldProject[]>  {
+    return [... (await projects(async (url) => await axios.patch(url, {project}))).data.items]
+}
+
 //async function for adding new project moderator with patch request
 export async function addNewMod (
   project_id: string, 
-  mods: string[]): Promise<OldProject[]>  {
-    console.log("new admins: ", mods)
-    return (await projectPath(async (url) => await axios.patch(url, {
-      "id":project_id,
-      "admins": mods
-      }), project_id))
+  mod: string): Promise<OldProject[]>  {
+    return (await projectAdminPath(async (url) => await axios.post(url, {
+      }), project_id, mod))
 }

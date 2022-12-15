@@ -1,23 +1,23 @@
 // By: Niklas Impiö
-import React, {useState, useEffect,useRef} from "react"
-import {connect} from "react-redux"
-import {updateListView} from "../reducers/listViewReducer"
-import {logout} from "../reducers/loginReducer"
-import {notify} from "../reducers/notificationReducer"
+import { useEffect, useRef, useState } from "react"
+import { connect } from "react-redux"
+import { updateListView } from "../reducers/listViewReducer"
+import { logout } from "../reducers/loginReducer"
+import { notify } from "../reducers/notificationReducer"
 
 
-import "../styles/listView.css"
-import "../styles/postView.css"
-import "../styles/postList.css"
 import "../styles/buttons.css"
+import "../styles/listView.css"
+import "../styles/postList.css"
+import "../styles/postView.css"
 import "../styles/texts.css"
 
 
 
-import {ReactComponent as AddIcon} from "../resources/add_circle.svg"
-import {ReactComponent as MapViewIcon} from "../resources/map_view_icon.svg"
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
-import {getImageURL} from "../services/images";
+import { ReactComponent as AddIcon } from "../resources/add_circle.svg"
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
+import { ReactComponent as MapViewIcon } from "../resources/map_view_icon.svg"
+import { getImageURL } from "../services/images"
 
 
 
@@ -31,7 +31,7 @@ export const ListViewMobile = (props) => {
   const itemsRef = useRef([]);
 
   useEffect(() => {
-    if(itemsRef != [] && props.listView != 0)
+    if(itemsRef !== [] && props.listView !== 0)
     {
       console.log(props.listView);
       itemsRef.current[props.listView].scrollIntoView()

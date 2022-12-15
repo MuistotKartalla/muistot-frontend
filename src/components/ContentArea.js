@@ -1,32 +1,35 @@
 // By: Niklas Impiö
-import React from "react"
-import {connect} from "react-redux"
-import {Route, Link} from "react-router-dom"
+import { connect } from "react-redux"
+import { Link, Route } from "react-router-dom"
 
 import "../styles/containers.css"
 import "../styles/texts.css"
 
-import notificationReducer, {notify} from "../reducers/notificationReducer"
-import NewPostCombined from "./NewPostCombined"
-import NewMemento from "./NewMemento"
-import PostView from "./PostView"
-import ListView from "./ListView"
-import MyPosts from "./MyPosts"
-import LoginForm from "./LoginForm"
-import PopUpContainer from "./PopUpContainer"
+import CookieConsent from "react-cookie-consent"
+import { notify } from "../reducers/notificationReducer"
 import About from "./About"
-import ProjectInfo from "./ProjectInfo"
-import MapContainerOpen from "./MapContainerOpen"
-import UnverifiedPosts from "./UnverifiedPosts"
-import EditPost  from "./EditPost"
-import ImagelessPosts from "./ImagelessPosts"
-import UserSettings  from "./UserSettings"
-import ChangeUserName from "./ChangeUserName"
-import SetUserName from "./SetUserName"
 import AccountInfo from "./AccountInfo"
-import CookieConsent, { Cookies } from "react-cookie-consent";
+import ChangeUserName from "./ChangeUserName"
+import EditImage from "./EditImage"
+import EditLocation from "./EditLocation"
+import EditPost from "./EditPost"
+import EditSiteTitle from "./EditSiteTitle"
+import ImagelessPosts from "./ImagelessPosts"
+import ListView from "./ListView"
+import LoginForm from "./LoginForm"
+import MapContainerOpen from "./MapContainerOpen"
+import MyPosts from "./MyPosts"
+import NewMemento from "./NewMemento"
+import NewPostCombined from "./NewPostCombined"
+import PopUpContainer from "./PopUpContainer"
+import PostView from "./PostView"
+import ProjectInfo from "./ProjectInfo"
 import ProjectManagement from "./ProjectManagement"
+import ProjectModerators from "./ProjectModerators"
 import ProjectSettings from "./ProjectSettings"
+import SetUserName from "./SetUserName"
+import UnverifiedPosts from "./UnverifiedPosts"
+import UserSettings from "./UserSettings"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -66,6 +69,21 @@ const ContentArea = (props) => {
       <Route path="/edit-post/:id/" render={({match,history}) => (
         <PopUpContainer history={history}>
           <EditPost match={match} history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/edit-image/:id/" render={({match,history}) => (
+        <PopUpContainer history={history}>
+          <EditImage match={match} history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/edit-title/:id/" render={({match,history}) => (
+        <PopUpContainer history={history}>
+          <EditSiteTitle match={match} history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/edit-location/:id/" render={({match,history}) => (
+        <PopUpContainer history={history}>
+          <EditLocation match={match} history={history}/>
         </PopUpContainer>
       )}/>
       <Route path="/new-memento/:id/" render={({match,history}) => (
@@ -126,6 +144,11 @@ const ContentArea = (props) => {
       <Route path="/project-settings" render={({history}) => (
         <PopUpContainer history={history}>
           <ProjectSettings history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/project-moderators" render={({history}) => (
+        <PopUpContainer history={history}>
+          <ProjectModerators history={history}/>
         </PopUpContainer>
       )}/>
       <CookieConsent  //TODO: modelize, styles, add to mobile as well

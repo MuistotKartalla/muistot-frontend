@@ -1,35 +1,35 @@
 // By: Niklas Impiö, Lassi Tölli
-import React, {useState, useEffect, useRef} from "react"
-import {connect} from "react-redux"
-import {MapContainer, TileLayer, Marker, useMapEvents, useMap, Popup} from "react-leaflet"
-import MarkerClusterGroup from "react-leaflet-markercluster"
 import L from "leaflet"
+import { useEffect, useRef, useState } from "react"
+import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents } from "react-leaflet"
+import MarkerClusterGroup from "react-leaflet-markercluster"
+import { connect } from "react-redux"
 
-import "../stylesMobile/mapContainerMobile.css"
 import "leaflet/dist/leaflet.css"
 import "../styles/markerCluster.css"
 import "../styles/popupContainer.css"
+import "../stylesMobile/mapContainerMobile.css"
 
 import icon from "../resources/marker-icon.png"
 //import iconN from "../resources/marker-icon-new.png"
 //import iconT from "../resources/marker-transp.png"
 //import iconTN from "../resources/marker-transp-new.png"
-import iconShadow from "../resources/marker-shadow.png"
 import iconGreen from "../resources/marker-green.png"
+import iconShadow from "../resources/marker-shadow.png"
 
-import userIconMarker from "../resources/user_icon_custom.svg"
+import { ReactComponent as AddIcon } from "../resources/add_circle.svg"
 import tempIconMarker from "../resources/temp_marker.svg"
-import {ReactComponent as AddIcon} from "../resources/add_circle.svg"
-import {ReactComponent as ListViewIcon} from "../resources/view_list.svg"
+import userIconMarker from "../resources/user_icon_custom.svg"
+import { ReactComponent as ListViewIcon } from "../resources/view_list.svg"
 
-import {notify} from "../reducers/notificationReducer"
-import {createSite} from "../reducers/postReducer"
-import {updateUserLocation} from "../reducers/userLocationReducer"
+import { notify } from "../reducers/notificationReducer"
+import { createSite } from "../reducers/postReducer"
+import { updateUserLocation } from "../reducers/userLocationReducer"
 
-import {usePosition} from "../hooks/LocationHook"
-import {setTempSite} from "../reducers/tempSiteReducer"
-import {updateMapLocation} from "../reducers/mapLocationReducer"
 import FloatingSearch from "../components/FloatingSearch"
+import { usePosition } from "../hooks/LocationHook"
+import { updateMapLocation } from "../reducers/mapLocationReducer"
+import { setTempSite } from "../reducers/tempSiteReducer"
 
 var IconMarker = L.Icon.extend({
         options: {
@@ -87,7 +87,7 @@ const MapContainerMobile = (props) => {
     }
 
     if(props.mapLocation !== null){
-      setZoom(13)
+      setZoom(18)
       setPosition(props.mapLocation)
       props.updateMapLocation(null)
       setmoveToPosition(true)
@@ -203,7 +203,7 @@ const MapContainerMobile = (props) => {
           for(i=0; i < visible.length; i++){  
         loop2:
             for(j=0; j < visible.length; j++){  
-              if(i!=j && visible.length > 1){
+              if(i !== j && visible.length > 1){
                 if (map.latLngToLayerPoint(visible[i].getLatLng()).distanceTo(map.latLngToLayerPoint(visible[j].getLatLng())) < 110) { continue loop1; }
               }
             }

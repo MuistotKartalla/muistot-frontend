@@ -9,6 +9,7 @@ const EDIT_POST = "EDIT_POST"
 const CREATE_POST = "CREATE_POST"
 const CREATE_SITE = "CREATE_SITE"
 const DELETE_POST = "DELETE_POST"
+const DELETE_MEMORY = "DELETE_MEMORY"
 
 const postReducer = (state = [], action) => {
     // dispatch actions defined here.
@@ -24,6 +25,8 @@ const postReducer = (state = [], action) => {
         case CREATE_SITE:
             return state.concat(action.data)
         case DELETE_POST:
+            return state.filter(item => item.id !== action.data)
+        case DELETE_MEMORY:
             return state.filter(item => item.id !== action.data)
         default:
             return state
@@ -87,6 +90,25 @@ export const deletePost = (id) => {
             log(exeption)
         }
     }
+}
+
+export const deleteMemory = (site_id, memento_id) => {
+  log("deleting memory " + memento_id.toString())
+  return async dispatch => {
+      try {
+          const response = await postService.deleteMemory(getActiveProject(), site_id, memento_id)
+          log(response)
+          if (response.status === 200) {
+              dispatch({
+                  type: DELETE_MEMORY,
+                  data: memento_id
+              })
+          }
+
+      } catch (exeption) {
+          log(exeption)
+      }
+  }
 }
 
 export const toggleVerify = (site) => {
@@ -153,6 +175,47 @@ export const  changeSitePicture = (site, image) => {
             log(exeption)
         }
     }
+}
+
+//function for changing site title
+export const  ChangeSiteTitle = (site, title) => {
+  return async dispatch => {
+      try {
+          const response = await postService.ChangeSiteTitle(
+              getActiveProject(),
+              site.id,
+              title,
+              site.abstract,
+              site.description
+          )
+          dispatch({
+              type: EDIT_POST,
+              data: response.data
+          })
+      } catch (exeption) {
+          log(exeption)
+      }
+  }
+}
+
+//function for changing site location
+export const  ChangeSiteLocation = (site, latitude, longitude) => {
+  return async dispatch => {
+      try {
+          const response = await postService.ChangeSiteLocation(
+              getActiveProject(),
+              site.id,
+              latitude,
+              longitude
+          )
+          dispatch({
+              type: EDIT_POST,
+              data: response.data
+          })
+      } catch (exeption) {
+          log(exeption)
+      }
+  }
 }
 
 export default postReducer

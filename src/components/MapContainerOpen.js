@@ -1,17 +1,17 @@
 // By: Niklas Impiö, Lassi Tölli
-import React, {useState, useEffect, useRef} from "react"
-import {connect} from "react-redux"
-import {MapContainer, TileLayer, Marker, useMapEvents, useMap,Popup} from "react-leaflet"
-import MarkerClusterGroup from "react-leaflet-markercluster"
 import L from "leaflet"
-import "../styles/mapContainer.css"
 import "leaflet/dist/leaflet.css"
-import "../styles/buttons.css"
-import "../styles/markerCluster.css"
-import "../styles/popupContainer.css"
+import { useEffect, useRef, useState } from "react"
+import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents } from "react-leaflet"
+import MarkerClusterGroup from "react-leaflet-markercluster"
+import { connect } from "react-redux"
+import iconGreen from "../resources/marker-green.png"
 import icon from "../resources/marker-icon.png"
 import iconShadow from "../resources/marker-shadow.png"
-import iconGreen from "../resources/marker-green.png"
+import "../styles/buttons.css"
+import "../styles/mapContainer.css"
+import "../styles/markerCluster.css"
+import "../styles/popupContainer.css"
 //import iconN from "../resources/marker-icon-new.png"
 //import iconT from "../resources/marker-transp.png"
 //import iconTN from "../resources/marker-transp-new.png"
@@ -28,15 +28,15 @@ import iconGreen from "../resources/marker-green.png"
 //import iconx2 from "../resources/marker-icon-2x.png"
 //import iconPShadow from "../resources/marker-piippu-shadow.png"
 
-import userIconMarker from "../resources/user_icon_custom.svg"
 import tempIconMarker from "../resources/temp_marker.svg"
+import userIconMarker from "../resources/user_icon_custom.svg"
 
-import {notify} from "../reducers/notificationReducer"
-import {createSite} from "../reducers/postReducer"
-import {updateUserLocation} from "../reducers/userLocationReducer"
-import {usePosition} from "../hooks/LocationHook"
-import {setTempSite} from "../reducers/tempSiteReducer"
-import {updateMapLocation} from "../reducers/mapLocationReducer"
+import { usePosition } from "../hooks/LocationHook"
+import { updateMapLocation } from "../reducers/mapLocationReducer"
+import { notify } from "../reducers/notificationReducer"
+import { createSite } from "../reducers/postReducer"
+import { setTempSite } from "../reducers/tempSiteReducer"
+import { updateUserLocation } from "../reducers/userLocationReducer"
 import FloatingSearch from "./FloatingSearch"
 
 var IconMarker = L.Icon.extend({
@@ -92,7 +92,7 @@ const MapContainerOpen = (props) => {
       setPosts(props.posts)
     }
     if(props.mapLocation !== null){
-      setZoom(13)
+      setZoom(18)
       setPosition(props.mapLocation) 
       props.updateMapLocation(null)
       setmoveToPosition(true)
@@ -153,6 +153,7 @@ const MapContainerOpen = (props) => {
       zoomend: (e) => {
         setZoom(map.getZoom())
         setTempMarker(null)
+        console.log(zoom);
       }
     });
     return null;
@@ -208,7 +209,7 @@ const MapContainerOpen = (props) => {
           for(i=0; i < visible.length; i++){  
         loop2:
             for(j=0; j < visible.length; j++){  
-              if(i!=j && visible.length > 1){
+              if(i !== j && visible.length > 1){
                 if (map.latLngToLayerPoint(visible[i].getLatLng()).distanceTo(map.latLngToLayerPoint(visible[j].getLatLng())) < 125) { continue loop1; }
               }
             }
@@ -226,6 +227,7 @@ const MapContainerOpen = (props) => {
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          
         />
         <UpdateMapCenter/>
         <HandleMapEvents/>
@@ -294,8 +296,7 @@ const MapContainerOpen = (props) => {
       </MapContainer>
       <div className="floatingSearchContainerMap">
         <FloatingSearch history={props.history}/>
-      </div>test site 9e1767bd1bce892ccef23e2f0ab76faef0820e45b5433210bf5f9bfda453ba393edf602afc40c350f37fbc0652972037cc14
-test site 
+      </div>
       <button className="overlayButtonLeft rippleButton" onClick={toListView}>{props.settings.strings["list_view"]}</button>
       {tempMarker ?  props.user ? props.currentProject.id !== "parantolat"? !followUser?
       <button className="overlayButtonCenter pulsingButton rippleButton smallButton" onClick={confirmNewLocationMarker}>{props.settings.strings["new_post"]}</button>
