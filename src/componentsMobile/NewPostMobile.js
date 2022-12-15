@@ -1,16 +1,16 @@
 // By: Niklas Impiö
-import React, {useState, useEffect} from "react"
-import {connect} from "react-redux"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
 
-import "../styles/newPost.css"
+import { notify } from "../reducers/notificationReducer"
+import { createSite } from "../reducers/postReducer"
+import { setTempSite } from "../reducers/tempSiteReducer"
 import "../styles/buttons.css"
-import {createSite} from "../reducers/postReducer"
-import {notify} from "../reducers/notificationReducer"
-import {setTempSite} from "../reducers/tempSiteReducer"
+import "../styles/newPost.css"
 import SiteImageUploadMobile from "./SiteImageUploadMobile"
 
 
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
 
 
 //combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.

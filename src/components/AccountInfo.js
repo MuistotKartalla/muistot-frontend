@@ -1,9 +1,8 @@
-import React from "react"
-import {connect} from "react-redux"
+import { connect } from "react-redux"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import "../styles/accountInfo.css"
 import "../styles/buttons.css"
 import "../styles/postView.css"
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 
 export const AccountInfo = (props) => {
     const changeInfo = (event) => {
@@ -28,7 +27,7 @@ export const AccountInfo = (props) => {
     }
 
     return(
-        <div className="userInformationContainer centerAlignWithPadding">
+        <div className="userInformationContainer centerAlignWithPaddingContainer">
             <div className="postTitleContainer">
               <h1 className="titleText centerAlignWithPadding">{props.user !== null && props.user.username !== "" ? props.user.username : props.settings.strings["profile"]}</h1>
               <ClearIcon className="clearIcon" onClick={closeClick}/>

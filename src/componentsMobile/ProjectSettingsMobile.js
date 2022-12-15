@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react"
-import {connect} from "react-redux"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 import { changeProjectSettings } from "../reducers/projectReducer"
-import {notify} from "../reducers/notificationReducer"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import "../styles/userSettings.css"
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 
 export const ProjectSettings = (props) => {
   const [project, setProject] = useState(props.projects.active)
@@ -104,7 +104,7 @@ export const ProjectSettings = (props) => {
   }
   else {
     return (
-      <div className="userInformationContainer centerAlignWithPadding">
+      <div className="userInformationContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer">
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings["not_moderator"]}</h1>
           <ClearIcon className="clearIcon" onClick={() => props.history.push("/")}/>

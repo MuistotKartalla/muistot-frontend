@@ -1,8 +1,7 @@
-import React from "react"
 //import React, {useState} from "react"
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 
-import {notify} from "../reducers/notificationReducer"
+import { notify } from "../reducers/notificationReducer"
 
 import "../styles/inputs.css"
 import "../styles/projectStatistics.css"

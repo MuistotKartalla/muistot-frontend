@@ -1,14 +1,13 @@
-import React from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
-import "../styles/postView.css"
 import "../styles/buttons.css"
+import "../styles/postView.css"
 import "../styles/texts.css"
 
 
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 
 
 export const PostView = (props) => {

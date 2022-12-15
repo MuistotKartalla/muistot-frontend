@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from "react"
-import {connect} from "react-redux"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
 
 
+import { notify } from "../reducers/notificationReducer"
 import * as postService from "../services/posts"
-import {notify} from "../reducers/notificationReducer"
 
+import { deleteMemory, toggleVerifyMemento } from "../reducers/postReducer"
+import { getImageURL } from "../services/images"
 import "../styles/listView.css"
 import "../styles/postList.css"
 import "../styles/postView.css"
-import {getImageURL} from "../services/images";
-import {toggleVerifyMemento, deleteMemory} from "../reducers/postReducer"
 
 
 export const MementoList = (props) => {

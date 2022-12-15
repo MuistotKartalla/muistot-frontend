@@ -1,14 +1,14 @@
 // By: Niklas Impiö
-import React, {useState, useEffect} from "react"
-import {connect} from "react-redux"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
 
-import "../styles/newPost.css"
-import "../styles/buttons.css"
+import { notify } from "../reducers/notificationReducer"
+import { getActiveProject } from "../reducers/projectReducer"
+import { setTempPost } from "../reducers/tempPostReducer"
 import * as postService from "../services/posts"
-import {notify} from "../reducers/notificationReducer"
-import {setTempPost} from "../reducers/tempPostReducer"
+import "../styles/buttons.css"
+import "../styles/newPost.css"
 import ImageUpload from "./ImageUpload"
-import {getActiveProject} from "../reducers/projectReducer";
 
 export const NewMemento = (props) => {
   const [titleField, setTitleField] = useState("")

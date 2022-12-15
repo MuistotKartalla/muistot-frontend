@@ -1,20 +1,20 @@
 // By: Niklas Impiö
-import React, {useState} from "react"
-import {connect} from "react-redux"
-import {logout,logoutS} from "../reducers/loginReducer"
-import {notify} from "../reducers/notificationReducer"
+import { useState } from "react"
+import { connect } from "react-redux"
+import { logout, logoutS } from "../reducers/loginReducer"
+import { notify } from "../reducers/notificationReducer"
 
 
+import { ReactComponent as MenuIcon } from "../resources/menu.svg"
 import "../styles/navMenu.css"
 import "../stylesMobile/navMenuMobile.css"
-import {ReactComponent as MenuIcon} from "../resources/menu.svg"
 
-import LanguageDropDown from "../components/LanguageDropDown"
-import ThemeToggleSwitch from "../components/ThemeToggleSwitch"
 import DropDownSelectProject from "../components/DropDownSelectProject"
-import {setActiveProject} from "../reducers/projectReducer"
-import {initPosts} from "../reducers/postReducer"
+import LanguageDropDown from "../components/LanguageDropDown"
 import NameToggleSwitch from "../components/NameToggleSwitch"
+import ThemeToggleSwitch from "../components/ThemeToggleSwitch"
+import { initPosts } from "../reducers/postReducer"
+import { setActiveProject } from "../reducers/projectReducer"
 
 
 export const NavMenuMobile = (props) => {

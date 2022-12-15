@@ -1,16 +1,16 @@
-import React, {useState} from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
-import {MapContainer, TileLayer, Marker, useMapEvents} from "react-leaflet"
 import L from "leaflet"
+import { useState } from "react"
+import { MapContainer, Marker, TileLayer, useMapEvents } from "react-leaflet"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 import { ChangeSiteLocation } from "../reducers/postReducer"
 
-import "../styles/mapContainer.css"
 import "leaflet/dist/leaflet.css"
-import "../styles/newPost.css"
-import "../styles/buttons.css"
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
 import tempIconMarker from "../resources/temp_marker.svg"
+import "../styles/buttons.css"
+import "../styles/mapContainer.css"
+import "../styles/newPost.css"
 
 const tempIcon = L.icon({
   iconUrl: tempIconMarker,

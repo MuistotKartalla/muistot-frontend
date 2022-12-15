@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { useEffect, useState } from "react"
 import { CSVLink } from "react-csv"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
-import "../styles/postView.css"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import "../styles/accountInfo.css"
+import "../styles/postView.css"
 
 export const ProjectManagement = (props) => {
   //declare some variables
@@ -61,7 +61,7 @@ export const ProjectManagement = (props) => {
 
   if(props.user && project.moderators.find(user => user === props.user.username)){
     return (
-      <div className="userInformationContainer centerAlignWithPadding">
+      <div className="userInformationContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer">
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings["project_management"]}</h1>
           <ClearIcon className="clearIcon" onClick={closeClick}/>

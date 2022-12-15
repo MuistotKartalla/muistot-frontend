@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
+import { addNewModerator } from "../reducers/projectReducer"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import "../styles/userSettings.css"
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
-import {addNewModerator} from "../reducers/projectReducer"
 
 export const ProjectModerators = (props) => {
   const [project, setProject] = useState(props.projects.active)
@@ -33,7 +33,7 @@ export const ProjectModerators = (props) => {
 
   if(props.user && project.moderators.find(user => user === props.user.username)){
     return(
-      <div className="userSettingsContainer centerAlignWithPadding">
+      <div className="userSettingsContainer centerAlignWithPaddingContainer">
         <div className="titleContainer">
           <h1 className="titleText">{props.settings.strings["add_new_moderator"]}</h1>
         </div>
@@ -58,7 +58,7 @@ export const ProjectModerators = (props) => {
   }
   else {
     return (
-      <div className="userInformationContainer centerAlignWithPadding">
+      <div className="userInformationContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer">
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings["not_moderator"]}</h1>
           <ClearIcon className="clearIcon" onClick={() => props.history.push("/")}/>

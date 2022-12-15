@@ -1,12 +1,11 @@
-import React from "react"
 //import React, {useState} from "react"
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 
-import {notify} from "../reducers/notificationReducer"
+import { notify } from "../reducers/notificationReducer"
 
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
 import "../styles/inputs.css"
 import "../styles/projectStatistics.css"
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
 
 
 

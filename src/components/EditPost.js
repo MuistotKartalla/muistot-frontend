@@ -1,14 +1,13 @@
-import React from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
-import "../styles/postView.css"
 import "../styles/buttons.css"
+import "../styles/postView.css"
 import "../styles/texts.css"
 
 
-import {ReactComponent as Arrow} from "../resources/arrow_back.svg"
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
+import { ReactComponent as Arrow } from "../resources/arrow_back.svg"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 
 
 export const PostView = (props) => {
@@ -44,7 +43,7 @@ export const PostView = (props) => {
 
   if(props.user && (post.own === true || props.currentProject.moderators.find(user => user === props.user.username))){
     return (
-      <div className="userInformationContainer centerAlignWithPadding">
+      <div className="userInformationContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer"> 
         
         <div className="postCloseButtonContainer">
@@ -62,7 +61,7 @@ export const PostView = (props) => {
   }
   else {
     return (
-      <div className="userInformationContainer centerAlignWithPadding">
+      <div className="userInformationContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer">
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings["no_permission"]}</h1>
           <ClearIcon className="clearIcon" onClick={closeClick}/>

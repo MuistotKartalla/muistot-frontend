@@ -1,13 +1,13 @@
 // By: Niklas Impiö
-import React, {useState} from "react"
-import {connect} from "react-redux"
+import { useState } from "react"
+import { connect } from "react-redux"
 import useComponentVisible from "../hooks/OutsideClick"
 
-import DropDownList from "./DropDownList"
-import {ReactComponent as DropDownIcon} from "../resources/arrow_drop_down-24px.svg"
+import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24px.svg"
 import "../styles/languageDropDown.css"
+import DropDownList from "./DropDownList"
 
-import {setActiveLanguage} from "../reducers/settingsReducer"
+import { setActiveLanguage } from "../reducers/settingsReducer"
 
 
 

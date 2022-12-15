@@ -1,9 +1,8 @@
 // button for toggling site names on and off
-import React, {useState} from "react"
-import {connect} from "react-redux"
+import { useState } from "react"
+import { connect } from "react-redux"
 
-import {setActiveTheme} from "../reducers/settingsReducer"
-import {updatePopups} from "../reducers/popupReducer"
+import { updatePopups } from "../reducers/popupReducer"
 import "../styles/themeToggleSwitch.css"
 
 export const NameToggleSwitch = (props) => {

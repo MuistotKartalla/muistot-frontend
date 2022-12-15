@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { useEffect, useState } from "react"
 import { CSVLink } from "react-csv"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
-import "../styles/postView.css"
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
 import "../styles/accountInfo.css"
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
+import "../styles/postView.css"
 
 export const ProjectManagementMobile = (props) => {
   //declare some variables

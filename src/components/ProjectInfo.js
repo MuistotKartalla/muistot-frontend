@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from "react"
-import {connect} from "react-redux"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
 
-import {notify} from "../reducers/notificationReducer"
-import "../styles/projectInfo.css"
+import { notify } from "../reducers/notificationReducer"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
+import { ReactComponent as SettingIcon } from "../resources/setting_cog.svg"
+import { getImageURL } from "../services/images"
 import "../styles/containers.css"
 import "../styles/postView.css"
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
-import {ReactComponent as SettingIcon} from "../resources/setting_cog.svg"
-import {getImageURL} from "../services/images";
+import "../styles/projectInfo.css"
 
 const ReactMarkdown = require('react-markdown')
 

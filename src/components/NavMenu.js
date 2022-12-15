@@ -1,18 +1,17 @@
 // By: Niklas Impiö
-import React from "react"
 //import React, {useState, useEffect} from "react"
 //useState useEffect not used yet
-import {connect} from "react-redux"
-import {logout} from "../reducers/loginReducer"
-import {notify} from "../reducers/notificationReducer"
+import { connect } from "react-redux"
+import { logout } from "../reducers/loginReducer"
+import { notify } from "../reducers/notificationReducer"
 
 
 import "../styles/navMenu.css"
 
 import HorizontalMenuList from "./HorizontalMenuList"
 
-import {setActiveProject} from "../reducers/projectReducer"
-import {initPosts} from "../reducers/postReducer"
+import { initPosts } from "../reducers/postReducer"
+import { setActiveProject } from "../reducers/projectReducer"
 import DropDownSelectProject from "./DropDownSelectProject"
 
 

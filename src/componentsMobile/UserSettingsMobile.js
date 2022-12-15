@@ -1,10 +1,10 @@
-import React, {useState} from "react"
-import {connect} from "react-redux"
+import { useState } from "react"
+import { connect } from "react-redux"
 import { changeUserSettings } from "../reducers/loginReducer"
-import {notify} from "../reducers/notificationReducer"
+import { notify } from "../reducers/notificationReducer"
 import "../styles/userSettings.css"
 
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
 
 export const UserSettingsMobile = (props) => {
   /*
