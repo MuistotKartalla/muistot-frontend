@@ -26,12 +26,12 @@ export const EditLocation = (props) => {
 
   const ConfirmNewLocation = (event) => {
     event.preventDefault()
-    //if input fields were empty
+    //if there are no new coordinates
     if(newLat === null || newLng === null)
     {
       props.notify(props.settings.strings["no_new_changes"], false, 5)
     }
-    //if some new values were entered
+    //if there are new coordinates
     else {
       props.ChangeSiteLocation(post, newLat, newLng)
     }

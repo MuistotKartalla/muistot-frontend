@@ -153,7 +153,6 @@ const MapContainerOpen = (props) => {
       zoomend: (e) => {
         setZoom(map.getZoom())
         setTempMarker(null)
-        console.log(zoom);
       }
     });
     return null;
