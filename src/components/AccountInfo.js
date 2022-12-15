@@ -1,9 +1,8 @@
-import React from "react"
-import {connect} from "react-redux"
+import { connect } from "react-redux"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import "../styles/accountInfo.css"
 import "../styles/buttons.css"
 import "../styles/postView.css"
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 
 export const AccountInfo = (props) => {
     const changeInfo = (event) => {

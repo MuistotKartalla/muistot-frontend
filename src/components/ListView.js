@@ -1,15 +1,15 @@
 // By: Niklas Impiö
-import React, {useState, useEffect} from "react"
-import {connect} from "react-redux"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
 
-import {logout} from "../reducers/loginReducer"
-import {notify} from "../reducers/notificationReducer"
+import { logout } from "../reducers/loginReducer"
+import { notify } from "../reducers/notificationReducer"
 
 
 import "../styles/listView.css"
 import "../styles/postView.css"
-import PostViewLW from "./PostViewLW"
 import PostList from "./PostList"
+import PostViewLW from "./PostViewLW"
 
 
 

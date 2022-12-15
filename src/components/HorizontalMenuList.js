@@ -1,20 +1,19 @@
 // By: Niklas Impiö
-import React from "react"
-import {connect} from "react-redux"
-import {logout,logoutS} from "../reducers/loginReducer"
-import {notify} from "../reducers/notificationReducer"
-import {initPosts} from "../reducers/postReducer"
+import { connect } from "react-redux"
+import { logout, logoutS } from "../reducers/loginReducer"
+import { notify } from "../reducers/notificationReducer"
+import { initPosts } from "../reducers/postReducer"
 
 
-import "../styles/horizontalMenuList.css"
 import useComponentVisible from "../hooks/OutsideClick"
+import "../styles/horizontalMenuList.css"
 
+import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24px.svg"
+import { ReactComponent as PersonIcon } from "../resources/person.svg"
 import DropDownList from "./DropDownList"
-import {ReactComponent as DropDownIcon} from "../resources/arrow_drop_down-24px.svg"
-import {ReactComponent as PersonIcon} from "../resources/person.svg"
-import ThemeToggleSwitch from "./ThemeToggleSwitch"
-import NameToggleSwitch from "./NameToggleSwitch"
 import LanguageDropDown from "./LanguageDropDown"
+import NameToggleSwitch from "./NameToggleSwitch"
+import ThemeToggleSwitch from "./ThemeToggleSwitch"
 
 
 const HorizontalMenuList = (props) => {

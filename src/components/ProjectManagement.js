@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { useEffect, useState } from "react"
 import { CSVLink } from "react-csv"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
-import "../styles/postView.css"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import "../styles/accountInfo.css"
+import "../styles/postView.css"
 
 export const ProjectManagement = (props) => {
   //declare some variables

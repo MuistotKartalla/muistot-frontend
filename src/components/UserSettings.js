@@ -1,8 +1,6 @@
-import React from "react"
-import {connect} from "react-redux"
-import { changeUserSettings } from "../reducers/loginReducer"
-import {notify} from "../reducers/notificationReducer"
-import {logout} from "../reducers/loginReducer"
+import { connect } from "react-redux"
+import { changeUserSettings, logout } from "../reducers/loginReducer"
+import { notify } from "../reducers/notificationReducer"
 import "../styles/userSettings.css"
 
 export const UserSettings = (props) => {

@@ -1,14 +1,14 @@
 // By: Niklas Impiö
-import React, {useState} from "react"
-import {connect} from "react-redux"
+import { useState } from "react"
+import { connect } from "react-redux"
 import useComponentVisible from "../hooks/OutsideClick"
 
 import "../styles/floatingSearch.css"
 import "../styles/inputs.css"
 
 
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import PostList from "./PostList"
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 
 
 

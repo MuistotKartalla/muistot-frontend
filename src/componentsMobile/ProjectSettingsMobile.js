@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react"
-import {connect} from "react-redux"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 import { changeProjectSettings } from "../reducers/projectReducer"
-import {notify} from "../reducers/notificationReducer"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import "../styles/userSettings.css"
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 
 export const ProjectSettings = (props) => {
   const [project, setProject] = useState(props.projects.active)

@@ -1,11 +1,10 @@
-import React from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
-import "../styles/newPost.css"
-import "../styles/buttons.css"
 import { ChangeSiteTitle } from "../reducers/postReducer"
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
+import "../styles/buttons.css"
+import "../styles/newPost.css"
 
 export const EditSiteTitle = (props) => {
   const post = props.posts.find(item => "" + item.id === props.match.params.id)

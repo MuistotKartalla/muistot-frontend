@@ -1,13 +1,12 @@
 // By: Niklas Impiö
-import React from "react"
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import useComponentVisible from "../hooks/OutsideClick"
 
-import DropDownList from "./DropDownList"
-import {ReactComponent as DropDownIcon} from "../resources/arrow_drop_down-24px.svg"
+import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24px.svg"
 import "../styles/dropDownSelect.css"
+import DropDownList from "./DropDownList"
 
-import {setActiveProject} from "../reducers/projectReducer"
+import { setActiveProject } from "../reducers/projectReducer"
 
 
 

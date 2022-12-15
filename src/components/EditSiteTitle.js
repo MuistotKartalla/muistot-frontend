@@ -1,10 +1,9 @@
-import React from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
-import "../styles/newPost.css"
-import "../styles/buttons.css"
 import { ChangeSiteTitle } from "../reducers/postReducer"
+import "../styles/buttons.css"
+import "../styles/newPost.css"
 
 
 

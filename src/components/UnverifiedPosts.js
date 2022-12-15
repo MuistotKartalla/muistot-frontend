@@ -1,12 +1,11 @@
-import React from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
-import "../styles/myPosts.css"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
+import { getImageURL } from "../services/images"
 import "../styles/buttons.css"
+import "../styles/myPosts.css"
 import "../styles/texts.css"
-import {getImageURL} from "../services/images";
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
 
 
 export const UnverfiedPosts = (props) => {

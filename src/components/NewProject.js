@@ -1,13 +1,13 @@
-import React, {useState} from "react"
-import {connect} from "react-redux"
+import { useState } from "react"
+import { connect } from "react-redux"
 
-import {notify} from "../reducers/notificationReducer"
-import {createProject} from "../reducers/projectReducer"
+import { notify } from "../reducers/notificationReducer"
+import { createProject } from "../reducers/projectReducer"
 
 import "../styles/inputs.css"
 import "../styles/newProject.css"
-import ImageUpload from "./ImageUpload"
 import DropDownSelect from "./DropDownSelect"
+import ImageUpload from "./ImageUpload"
 
 export const NewProject = (props) => {
   const [title, setTitle] = useState("")

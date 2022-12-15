@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from "react"
-import {connect} from "react-redux"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
 
-import {notify} from "../reducers/notificationReducer"
+import { notify } from "../reducers/notificationReducer"
 
-import "../styles/projectInfo.css"
 import "../styles/containers.css"
+import "../styles/projectInfo.css"
 
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
-import {getImageURL} from "../services/images";
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
+import { getImageURL } from "../services/images"
 const ReactMarkdown = require('react-markdown')
 
 export const ProjectInfoMobile = (props) => {

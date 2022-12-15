@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react"
-import {connect} from "react-redux"
-import {notify} from "../reducers/notificationReducer"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
+import { addNewModerator } from "../reducers/projectReducer"
+import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import "../styles/userSettings.css"
-import {ReactComponent as ClearIcon} from "../resources/clear.svg"
-import {addNewModerator} from "../reducers/projectReducer"
 
 export const ProjectModerators = (props) => {
   const [project, setProject] = useState(props.projects.active)

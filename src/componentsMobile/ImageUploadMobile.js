@@ -1,9 +1,9 @@
 //by Niklas Impiö
-import React, {useState, useEffect} from "react"
-import {connect} from "react-redux"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
 
-import {notify} from "../reducers/notificationReducer"
-import {setTempPost} from "../reducers/tempPostReducer"
+import { notify } from "../reducers/notificationReducer"
+import { setTempPost } from "../reducers/tempPostReducer"
 
 import "../styles/imageUpload.css"
 

@@ -1,9 +1,8 @@
 // By: Niklas Impiö
-import React from "react"
 
+import { connect } from "react-redux"
+import { updateListView } from "../reducers/listViewReducer"
 import "../styles/containers.css"
-import {updateListView} from "../reducers/listViewReducer"
-import {connect} from "react-redux"
 
 
 const PopUpContainer = (props) => {

@@ -1,8 +1,7 @@
-import React from "react"
-import {connect} from "react-redux"
+import { connect } from "react-redux"
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
 import "../styles/accountInfo.css"
 import "../styles/buttons.css"
-import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
 
 export const AccountInfo = (props) => {
     const changeInfo = (event) => {

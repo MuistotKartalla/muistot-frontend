@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from "react"
-import {connect} from "react-redux"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
 
-import "../styles/newPost.css"
-import "../styles/buttons.css"
-import {setTempSite} from "../reducers/tempSiteReducer"
 import { changeSitePicture } from "../reducers/postReducer"
+import { setTempSite } from "../reducers/tempSiteReducer"
+import "../styles/buttons.css"
+import "../styles/newPost.css"
 import SiteImageUpload from "./SiteImageUpload"
 
 
