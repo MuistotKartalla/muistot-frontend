@@ -47,8 +47,8 @@ export const MyPosts = (props) => {
     return(
       <div className="myPostsContainer centerAlignWithPadding">
         <div className="postTitleContainer">
-        <h1 className="titleText centerAlignWithPadding">{props.settings.strings["my_posts"]}</h1>
-        <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
+          <h1 className="titleText centerAlignWithPadding">{props.settings.strings["my_posts"]}</h1>
+          <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
         </div>
         <ul className="myPostsList">
           {posts.map((post,index) =>
@@ -68,13 +68,14 @@ export const MyPosts = (props) => {
   }
   //if user doesn't have any posts, tell them
   return(
-    <div className="myPostsContainer centerAlignWithPadding">
-      <h1 className="headerText">{props.settings.strings["my_posts"]}</h1>
-      <ul className="myPostsList">
-        <li>
-          <h2 className="headerText">{props.settings.strings["empty_list"]}</h2>
-        </li>
-      </ul>
+    <div className="myPostsContainer centerAlignWithPaddingContainer">
+      <div className="postTitleContainer">
+        <h1 className="titleText centerAlignWithPadding">{props.settings.strings["my_posts"]}</h1>
+        <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
+      </div>
+      <div className="postTitleContainer">
+        <h2 className="headerText">{props.settings.strings["empty_list"]}</h2>
+      </div>
     </div>
   )
 

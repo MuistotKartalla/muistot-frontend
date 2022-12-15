@@ -114,8 +114,8 @@ export const NewMementoMobile = (props) => {
         </div>
 
         <div className="postFormButtonContainer">
-          <button className="rippleButton negativeButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
           <button className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>
+          <button className="rippleButton negativeButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
         </div>
       </form>
     </div>
