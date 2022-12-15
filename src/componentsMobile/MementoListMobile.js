@@ -8,12 +8,16 @@ import {notify} from "../reducers/notificationReducer"
 import "../styles/listView.css"
 import "../styles/postList.css"
 import "../styles/postView.css"
-import {getImageURL} from "../services/images";
-import {toggleVerifyMemento} from "../reducers/postReducer"
+import {getImageURL} from "../services/images"
+import { deleteMemory, toggleVerifyMemento } from "../reducers/postReducer"
 
 
 export const MementoListMobile = (props) => {
   const [mementos, setMementos] = useState([])
+  //boolean for checking, if user has clicked delete memory
+  const [deleteState, setDeleteState] = useState(false)
+  const [deleteId, setDeleteId] = useState(null)
+
   useEffect(() => {
       postService.getMemories(
           props.posts.projectId,
@@ -35,6 +39,27 @@ export const MementoListMobile = (props) => {
 
   const verifyClickMemento = (memento) => {
     props.toggleVerifyMemento(props.posts, memento)
+  }
+
+  //function for changing values of deleteState and Id
+  const changeDelete = (memento) => {
+    if(deleteState === true) {
+      setDeleteState(false)
+      setDeleteId(null)
+    }
+    else {
+      setDeleteState(true)
+      setDeleteId(memento.id)
+    }
+    
+  }
+
+  //function for deleting a memory
+  const deleteMemento = (memento) => {
+    props.deleteMemory(props.posts.id, memento.id)
+    setDeleteState(false)
+    //refresh page after deleting memory
+    window.location.reload(false);
   }
 
   return(
@@ -69,7 +94,21 @@ export const MementoListMobile = (props) => {
                 :
                 <></>}
                 <p className="normalText">{memento.story}</p>
-                
+                {props.user? 
+                memento.own === true?
+                  deleteState && memento.id === deleteId?
+                    <div className="memoryOwnerButtonsContainer">
+                      <button className="rippleButton memoryOwnerButton negativeButton" onClick={() => changeDelete(memento)}>{props.settings.strings["cancel"]}</button> 
+                      <button className="rippleButton memoryOwnerButton negativeButton" onClick={() => deleteMemento(memento)}>{props.settings.strings["confirm"]}</button> 
+                    </div>
+                    :
+                    <div className="memoryOwnerButtonsContainer">
+                      <button className="rippleButton memoryOwnerButton negativeButton" onClick={() => changeDelete(memento)}>{props.settings.strings["delete_post"]}</button>
+                    </div>
+                  : 
+                  <></>
+                : 
+                <></>}
               </div>
             </li>
     )}
@@ -91,7 +130,8 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   //notify (for example)
   notify,
-  toggleVerifyMemento
+  toggleVerifyMemento,
+  deleteMemory
 }
 
 export default connect(
