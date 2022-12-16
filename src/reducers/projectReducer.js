@@ -82,7 +82,6 @@ export const createProject = (project_id, object) => {
         try {
           const projects = (await projectService.getAllProjects())
           projects.push(object)
-          console.log("New projects: ", projects)
           await projectService.createNewProject(projects)
           let activeProject = null
           if (project_id) {

@@ -96,8 +96,8 @@ export const NewMemento = (props) => {
   }
 
   return(
-    <div className="newPostContainer centerAlignWithPadding">
-      <h1 className="headerText">{props.settings.strings["new_memento"]} {post.title}</h1>
+    <div className="newPostContainer centerAlignWithPaddingContainer">
+      <h1 className="titleText">{props.settings.strings["new_memento"]} {post.title}</h1>
       <ImageUpload change={imageOnChangeHandler}/>
       <form className="postForm" onSubmit={confirmPost}>
         <div className="inputContainer">
