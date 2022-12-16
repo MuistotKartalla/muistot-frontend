@@ -17,6 +17,7 @@ export const EditSiteTitle = (props) => {
     }
     else {
       props.ChangeSiteTitle(post, event.target.newTitle.value)
+      props.notify(props.settings.strings["site_modify_ok"], false, 5)
     }
     props.history.push(`/edit-post/${post.id}`)
   }
