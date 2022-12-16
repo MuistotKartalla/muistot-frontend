@@ -6,7 +6,7 @@ Frontend is built with [React](https://reactjs.org/)
 
 2. Clone frontend repo
 ```shell
-  git clone https://github.com/MuistotKartalla/muistot-frontend.git
+  git clone git@github.com:MuistotKartalla/muistot-frontend.git
 ```
 3. Install npm packages
 ```shell
@@ -18,7 +18,7 @@ npm start
 ```
 5. Clone backend repo 
 ```shell
-git clone https://github.com/MuistotKartalla/muistot-backend.git
+git clone git@github.com:MuistotKartalla/muistot-backend.git
 ```
 6. Recreating database
 
