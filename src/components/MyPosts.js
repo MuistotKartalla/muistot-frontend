@@ -73,9 +73,7 @@ export const MyPosts = (props) => {
         <h1 className="titleText centerAlignWithPadding">{props.settings.strings["my_posts"]}</h1>
         <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
       </div>
-      <div className="postTitleContainer">
-        <h2 className="headerText">{props.settings.strings["empty_list"]}</h2>
-      </div>
+      <h2 className="headerText">{props.settings.strings["empty_list"]}</h2>
     </div>
   )
 

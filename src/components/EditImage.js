@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { connect } from "react-redux"
+import { notify } from "../reducers/notificationReducer"
 
 import { changeSitePicture } from "../reducers/postReducer"
 import { setTempSite } from "../reducers/tempSiteReducer"
@@ -36,6 +37,7 @@ export const EditImage = (props) => {
     props.changeSitePicture(post, image)
     setImage(null)
     props.setTempSite({"title": "", "location":false, "image": null})
+    props.notify(props.settings.strings["site_modify_ok"], false, 5)
     props.history.goBack()
   }
 
@@ -73,7 +75,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   setTempSite,
-  changeSitePicture
+  changeSitePicture,
+  notify
 }
 
 export default connect(
