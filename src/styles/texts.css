@@ -5,6 +5,12 @@
   text-align: left;
 }
 
+.normalText p{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--secondary-text-color);
+  font-weight: 500;
+  text-align: left;
+}
 .normalTextNoMargin{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   color: var(--primary-text-color);

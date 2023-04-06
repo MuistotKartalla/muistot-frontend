@@ -36,7 +36,6 @@
   width: 2em;
   fill: var(--secondary-text-color);
   cursor: pointer;
-  margin: auto 0.1em auto auto;
   transition: 0s;
   z-index: 10;
 }
