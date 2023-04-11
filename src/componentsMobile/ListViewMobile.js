@@ -11,6 +11,7 @@ import "../styles/listView.css"
 import "../styles/postList.css"
 import "../styles/postView.css"
 import "../styles/texts.css"
+import "../styles/postListFilterContainer.css"
 
 
 
@@ -113,6 +114,7 @@ export const ListViewMobile = (props) => {
       </div>
       <div className="postListContainerInner">
         <ul className="postSearchList">
+
           {posts.data.map((post, index) =>
             <li key={index} tabIndex="1" ref={el => itemsRef.current[index] = el} className="postViewListItem"
               onClick={() => { onItemClick(post); itemsRef.current[index].scrollIntoView({ behavior: 'smooth' }); props.updateListView(index) }}>
