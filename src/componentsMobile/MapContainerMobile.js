@@ -293,9 +293,9 @@ const MapContainerMobile = (props) => {
         :
         <></>
         }
-          <button className="mobileListViewButton" onClick={toListView}>
-            <ListViewIcon className="listIcon"/>
-          </button>
+          <div className="mobileListViewButton" onClick={toListView}>
+          <button className="overlayButtonLeft rippleButton">List View</button>
+          </div>
         </div>
         :
         tempMarker === null? 

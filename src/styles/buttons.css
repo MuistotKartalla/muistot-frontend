@@ -63,7 +63,7 @@
 }
 
 .negativeButton {
-  background: var(--accent-color);
+  background: var( --primary-color);
   border-radius: 7px;
   transition: background 0s;
 }
