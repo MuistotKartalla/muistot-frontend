@@ -99,7 +99,6 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   setActiveLanguage,
 }
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps

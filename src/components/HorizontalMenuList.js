@@ -99,7 +99,6 @@ const HorizontalMenuList = (props) => {
       toggleDDV()
     }
   }
-
   const logoutClick = (event) => {
     event.preventDefault()
     //console.log("Logging out")
@@ -122,6 +121,13 @@ const HorizontalMenuList = (props) => {
 
     }
 
+  const accountCLick = (event) => {
+    event.preventDefault()
+
+    if(isComponentVisible){
+      toggleDDV()
+    }
+  }
 
   if(props.user){
     return(
