@@ -127,6 +127,7 @@ export const setActiveLanguage = (languageCode) => {
     }
 }
 
+
 export const setActiveTheme = (theme) => {
     return dispatch => {
         dispatch({

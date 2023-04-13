@@ -3,7 +3,6 @@
   justify-content: center;
   width: 97%;
   height: fit-content;
-  height: -moz-fit-content;
   margin: auto;
   text-align: left;
   -webkit-user-select: none;
@@ -26,7 +25,6 @@
   width: 100%;
   margin: 8px 0 0 0;
   height: fit-content;
-  height: -moz-fit-content;
   text-align: left;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;

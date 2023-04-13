@@ -8,13 +8,9 @@ import { initPosts } from "../reducers/postReducer"
 import useComponentVisible from "../hooks/OutsideClick"
 import "../styles/horizontalMenuList.css"
 
-import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24px.svg"
-import { ReactComponent as PersonIcon } from "../resources/person.svg"
 import DropDownList from "./DropDownList"
 import LanguageDropDown from "./LanguageDropDown"
-import NameToggleSwitch from "./NameToggleSwitch"
-import ThemeToggleSwitch from "./ThemeToggleSwitch"
-import {AcountDropDown} from "./AcountDropDown";
+import AcountDropDown from "./AcountDropDown";
 
 
 const HorizontalMenuList = (props) => {
@@ -128,29 +124,24 @@ const HorizontalMenuList = (props) => {
     return(
         <div className="horizontalMenuContainerLogged" ref={ref}>
           <ul className="menuButtonList">
-            <li className="menuListItem">
-              <AcountDropDown/>
+            <li>
+              <div className="menuListItem">
+                {props.currentProject.moderators.find(user => user === props.user.username)?
+                    <AcountDropDown items={[{ string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick},{string:props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["profile"], onClickHandler:ProfileClick}, {string:props.settings.strings["project_management"], onClickHandler:ManagementClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+                      <p className="userNameText">{props.user.username}</p>
+                    </AcountDropDown>
+                    :
+                    <AcountDropDown items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["profile"], onClickHandler:ProfileClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+                      <p className="userNameText">{props.user.username}</p>
+                    </AcountDropDown>
+                }
+              </div>
             </li>
             <li className="menuListItem">
               <LanguageDropDown/>
             </li>
           </ul>
-          {isComponentVisible?
-              <div className="accountDropDownContainer">
 
-                {props.currentProject.moderators.find(user => user === props.user.username)?
-                    <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick},{string:props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["profile"], onClickHandler:ProfileClick}, {string:props.settings.strings["project_management"], onClickHandler:ManagementClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
-                      <AcountDropDown/>
-                    </DropDownList>
-                    :
-                    <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["profile"], onClickHandler:ProfileClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
-                      <AcountDropDown/>
-                    </DropDownList>
-                }
-              </div>
-              :
-              <div/>
-          }
         </div>
 
     )
@@ -160,12 +151,11 @@ const HorizontalMenuList = (props) => {
           <ul className="menuButtonList">
             <div>
               <li className="menuListItem">
-                <AcountDropDown/>
+                <AcountDropDown items={[{string:props.settings.strings["about"], onClickHandler:aboutClick}]}/>
               </li>
               <li className="menuListItem" onClick={toLoginClick}>
                 <p className="menuItemText">{props.settings.strings["log_in"]}</p>
               </li>
-
               <li className="menuListItem">
                 <LanguageDropDown/>
               </li>

@@ -48,7 +48,6 @@
   vertical-align: baseline;
   align-self: center;
   max-height: 33px;
-  overflow-y: auto;
 }
 
 .activeItemTextActive{

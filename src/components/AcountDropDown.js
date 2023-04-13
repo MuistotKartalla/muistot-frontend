@@ -1,155 +1,73 @@
-import React, { useState } from 'react';
-import {connect} from "react-redux";
-
-import NameToggleSwitch from './NameToggleSwitch';
-import ThemeToggleSwitch from './ThemeToggleSwitch'
-import About from './About';
+import {connect} from "react-redux"
+import {notify} from "../reducers/notificationReducer"
+import {logout, logoutS} from "../reducers/loginReducer"
+import {initPosts} from "../reducers/postReducer"
 
 import useComponentVisible from "../hooks/OutsideClick"
-import DropDownList from "./DropDownList";
 import "../styles/horizontalMenuList.css"
+import "../styles/acountDropDown.css"
 
 import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24px.svg"
 import { ReactComponent as PersonIcon } from "../resources/person.svg"
+import DropDownList from "./DropDownList";
+import NameToggleSwitch from './NameToggleSwitch';
+import ThemeToggleSwitch from './ThemeToggleSwitch'
+import About from './About';
+import {useState} from "react";
+
+
+
 
 
 export const  AcountDropDown = (props) => {
-
     const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false)
 
     const toggleVisibility = () => {
         setIsComponentVisible(!isComponentVisible)
     }
-    const aboutClick = (event) => {
-        event.preventDefault()
-        if(props.history.location.pathname === "/about")
-        {
-            props.history.push("/")
-        }
-        else
-        {
-            props.history.push("/about")
-        }
-        if(isComponentVisible){
-            toggleVisibility()
-        }
-    }
 
-    const myPostsClick = (event) => {
-        event.preventDefault()
-        props.history.push("/my-posts/")
-        if(isComponentVisible){
-            toggleVisibility()
-        }
-    }
-    const UnverifiedPostsClick = (event) => {
-        event.preventDefault()
-        props.history.push("/unverified-posts/")
-        if(isComponentVisible){
-            toggleVisibility()
-        }
-    }
+    const genItems = () => {
 
-    const ImagelessPostsClick = (event) => {
-        event.preventDefault()
-        props.history.push("/imageless-posts/")
-        if(isComponentVisible){
-            toggleVisibility()
-        }
-    }
-    /*
-      const UserSettingsClick = (event) => {
-        event.preventDefault()
-        props.history.push("/usersettings/")
-        if(isComponentVisible){
-          toggleDDV()
-        }
-      }
-      const ChangeUserNameClick = (event) => {
-        event.preventDefault()
-        props.history.push("/change-username/")
-        if(isComponentVisible){
-          toggleDDV()
-        }
-      }*/
-
-    const ProfileClick = (event) => {
-        event.preventDefault()
-        props.history.push("/my-account/")
-        if(isComponentVisible){
-            toggleVisibility()
-        }
-    }
-
-    const ManagementClick = (event) => {
-        event.preventDefault()
-        props.history.push("/project-management/")
-        if(isComponentVisible){
-            toggleVisibility()
-        }
-    }
-    const logoutClick = (event) => {
-        event.preventDefault()
-        //console.log("Logging out")
-        props.logout(props.notify, props.settings.strings["logout_notification"])
-        var params = {projectId: props.projects.active.id};
-        props.initPosts(params)
-        toggleVisibility()
-    }
-    const toLoginClick = (event) => {
-        event.preventDefault()
-        props.logoutS(props.notify)
-        if(props.history.location.pathname === "/login")
-        {
-            props.history.push("/")
-        }
-        else
-        {
-            props.history.push("/login")
-        }
-
-    }
-
-
-    const genAccountOptions = () => {
-        return [
-           {
-               name: "About",
-               component: () => <About/>
-           },
-           {
-               name: "Name Toggle",
-               component: () => <NameToggleSwitch/>
-           },
-           {
-               name: "Theme Toggle",
-               component: () => <ThemeToggleSwitch/>
-           }
-       ]
    }
 
     return (
-        <div className="languageDDContainerActive" ref={ref}>
-            <div className="languageDDCurrentItemContainer" onClick={toggleVisibility}>
+        <div className="acountDDContainerActive" ref={ref}>
+            <div className="acountDDCurrentItemContainer" onClick={toggleVisibility}>
                 {isComponentVisible?
-                    <li className="accountItemActive" onClick={toggleVisibility}>
+                    <li className="accountItemActive">
                         <PersonIcon className="personIconActive"/>
                         <DropDownIcon className="dropDownIconActive"/>
                     </li>
                     :
-                    <li className="accountItem" onClick={toggleVisibility}>
+                    <li className="accountItem">
                         <PersonIcon className="personIcon"/>
                         <DropDownIcon className="dropDownIcon"/>
                     </li>
                 }
-        </div>
+            </div>
 
             {isComponentVisible?
                 <div>
-                    <DropDownList  items={[{string:props.settings?.strings?.["about"], onClickHandler:aboutClick}]}>
-                        <ThemeToggleSwitch/>
-                        <NameToggleSwitch/>
-                    </DropDownList>
+
+                    <div className="dropDownContainer">
+                        <ul className="dropDownList">
+                            {props.children}
+                            <ThemeToggleSwitch/>
+                            <NameToggleSwitch/>
+                            {props.items.map((element,index) =>
+                                <div key={index}>
+                                    {element.divider?
+                                        <div className="divider"></div>
+                                        :
+                                        <li key={index} className="dropDownListItem" onClick={element.onClickHandler}>
+                                            <p className="dropDownItemText">{element.string}</p>
+                                        </li>
+                                    }
+                                </div>
+
+                            )}
+                        </ul>
+                    </div>
                 </div>
                 :
                 <div/>
@@ -161,17 +79,23 @@ export const  AcountDropDown = (props) => {
 
 
 const mapStateToProps = (state) => {
-    //console.log(state)
     return {
-        //maps state to props, after this you can for example call props.notification
-        settings: state.settings
+        //maps state to props, after this you can for example call props.user
+        user: state.user,
+        settings: state.settings,
+        projects: state.projects,
+        currentProject: state.projects.active
     }
 }
 
+const mapDispatchToProps = {
+    //connect reducer functions/dispatchs to props
+    notify,
+    initPosts,
+    logout,
+    logoutS
+
+}
 
 
-
-
-export default connect(
-    mapStateToProps,
-)(AcountDropDown)
+export default connect(mapStateToProps, null)(AcountDropDown)

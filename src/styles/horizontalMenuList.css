@@ -78,12 +78,13 @@
   cursor: pointer;
   float: right;
   margin: 0px;
-  padding: 0px  0px 0px 15px;
+  padding: 0px  45px 0px 62.5px;
   height: 4em;
   display: flex;
   text-align: center;
   align-self: center;
-  transition: 0s; 
+  transition: 0s;
+  border-color: white;
 }
 
 .accountItem:hover{
