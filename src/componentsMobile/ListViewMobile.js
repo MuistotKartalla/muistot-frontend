@@ -20,9 +20,6 @@ import { ReactComponent as MapViewIcon } from "../resources/map_view_icon.svg"
 import { getImageURL } from "../services/images"
 
 
-const listContainerRef = useRef(null);
-const [visibleIndices, setVisibleIndices] = useState([]);
-
 export const ListViewMobile = (props) => {
   /*
     Mobile version of listview component, doesn't include postview, every list entry will
@@ -34,19 +31,14 @@ export const ListViewMobile = (props) => {
 
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .map((entry) => Number(entry.target.getAttribute("data-index")));
-        setVisibleIndices(visible);
-      },
-      { root: listContainerRef.current }
-    );
-    const items = document.querySelectorAll(".postViewListItem");
-    items.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
-  }, []);
+    if(itemsRef !== [] && props.listView !== 0)
+    {
+      console.log(props.listView);
+      itemsRef.current[props.listView].scrollIntoView()
+    }
+
+  
+  }, [])
 
   useEffect(() => {
     if(posts.length === 0){
