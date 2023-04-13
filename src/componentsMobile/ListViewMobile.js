@@ -21,6 +21,7 @@ import { ReactComponent as MapViewIcon } from "../resources/map_view_icon.svg"
 import { getImageURL } from "../services/images"
 
 
+import LazyImage from './LazyImage';
 
 export const ListViewMobile = (props) => {
   /*
@@ -36,8 +37,7 @@ export const ListViewMobile = (props) => {
       console.log(props.listView);
       itemsRef.current[props.listView].scrollIntoView()
     }
-
-
+  
   }, [])
 
   useEffect(() => {
@@ -45,13 +45,13 @@ export const ListViewMobile = (props) => {
       setPosts(props.posts)
 
     }
-
-
   }, [props, posts.length])
 
   const onItemClick = (post) => {
     props.history.push(`/post-view/${post.id}`)
   }
+
+ 
 
   /* const getDateFromUnixStamp = (unix) => {
   const date = new Date(unix)
@@ -63,19 +63,19 @@ export const ListViewMobile = (props) => {
     props.history.push("/")
     props.updateListView(0)
   }
-  const newPostClick = (event) => {
-    //New post onClick event handler.
-    event.preventDefault()
-    //console.log("Adding new post")
-    if (props.user !== null) {
-      //console.log("Adding new post")
-      props.history.push("/new-post/")
-    } else {
-      //if not logged in, redirect to login page
-      props.history.push("/login/")
-      props.notify(props.settings.strings["login_required_to_post"], false, 5)
-    }
-  }
+  // const newPostClick = (event) => {
+  //   //New post onClick event handler.
+  //   event.preventDefault()
+  //   //console.log("Adding new post")
+  //   if (props.user !== null) {
+  //     //console.log("Adding new post")
+  //     props.history.push("/new-post/")
+  //   } else {
+  //     //if not logged in, redirect to login page
+  //     props.history.push("/login/")
+  //     props.notify(props.settings.strings["login_required_to_post"], false, 5)
+  //   }
+  // }
 
   const handleFilterChange = (event) => {
     const filterValue = event.target.value.toLowerCase();
@@ -96,7 +96,7 @@ export const ListViewMobile = (props) => {
         </button>
         <div className="postTitleHeader">
           <h1 className="postTitleTextMobile">{props.settings.strings["list_view"]}</h1>
-          
+
           <div className="postListFilterContainer">
             <label htmlFor="postListFilterInput" className="postListFilterLabel">
               Filter by title:
@@ -118,9 +118,13 @@ export const ListViewMobile = (props) => {
           {posts.data.map((post, index) =>
             <li key={index} tabIndex="1" ref={el => itemsRef.current[index] = el} className="postViewListItem"
               onClick={() => { onItemClick(post); itemsRef.current[index].scrollIntoView({ behavior: 'smooth' }); props.updateListView(index) }}>
-              <div className="postListItemImageContainer">
-                <img className="postListImagePreview" src={getImageURL(post.image)} alt=""></img>
-              </div>
+              
+                {/* <div className="postListItemImageContainer">
+                  <img className="postListImagePreview" src={getImageURL(post.image)} alt=""></img>
+                </div> */}
+                <div className="postListItemImageContainer">
+      <LazyImage src={getImageURL(post.image)} />
+    </div>
               <div className="postListItemInfo">
                 <h2 className="postListTitle">{post.title}</h2>
                 <p className="normalText">{`${props.settings.strings["number_of_memories"]}: ${post.muistoja}`}</p>
