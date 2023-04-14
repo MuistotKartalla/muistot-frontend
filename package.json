@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "-": "0.0.1",
-    "@types/leaflet": "1.7.0",
+    "@types/leaflet": "^1.9.3",
     "axios": "^0.21.1",
     "jwt-decode": "^2.2.0",
     "jwt-simple": "^0.5.6",
