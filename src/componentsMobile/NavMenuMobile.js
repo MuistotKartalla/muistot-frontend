@@ -151,18 +151,14 @@ export const NavMenuMobile = (props) => {
                 </div>
                 :
                 <></>
-
               }
             </div>
             :
-            <div className="mobileMenuNavigationContainer">
-              <button className="mobileMenuButton" onClick={toLoginClick}>{props.settings.strings["log_in"]}</button>
-            </div>
+            <div></div>
 
 
           }
 
-          <div className="divider" />
 
           <div className="downContainer">
             <div className="preferencesContainer">
