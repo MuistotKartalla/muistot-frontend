@@ -25,13 +25,6 @@ export const NavMenuMobile = (props) => {
     setVisible(!visible)
   }
 
-  const toAboutClick = (event) => {
-    event.preventDefault()
-    props.history.push("/about/")
-    toggleVisibity()
-
-  }
-
   const toMyPostsClick = (event) => {
     event.preventDefault()
     props.history.push("/my-posts/")
@@ -46,7 +39,7 @@ export const NavMenuMobile = (props) => {
     event.preventDefault()
     //console.log("Logging out")
     props.logout(props.notify, "Logout complete.")
-    var params = {projectId: props.projects.active.id};  
+    var params = { projectId: props.projects.active.id };
     props.initPosts(params)
     toggleVisibity()
   }
@@ -62,19 +55,24 @@ export const NavMenuMobile = (props) => {
     props.history.push("/project-info/")
     toggleVisibity()
   }
-/*
-  const toUserSettings = (event) => {
+  const toListViewClick = (event) => {
     event.preventDefault()
-    props.history.push("/usersettings/")
+    props.history.push("/login")
     toggleVisibity()
   }
-  
-  const toChangeUserName = (event) => {
-    event.preventDefault()
-    props.history.push("/change-username/")
-    toggleVisibity()
-  }
-*/
+  /*
+    const toUserSettings = (event) => {
+      event.preventDefault()
+      props.history.push("/usersettings/")
+      toggleVisibity()
+    }
+    
+    const toChangeUserName = (event) => {
+      event.preventDefault()
+      props.history.push("/change-username/")
+      toggleVisibity()
+    }
+  */
   const toRoot = (event) => {
     //pushes url route to root or "/", might change later when different projects implemented.
     event.preventDefault()
@@ -84,7 +82,7 @@ export const NavMenuMobile = (props) => {
 
   const changeProject = (project) => {
     props.setActiveProject(project)
-    var params = {projectId: project.id};  
+    var params = { projectId: project.id };
     props.initPosts(params)
   }
 
@@ -99,71 +97,90 @@ export const NavMenuMobile = (props) => {
     props.history.push("/project-management/")
     toggleVisibity()
   }
-  
-  if(visible){
+  const toAboutClick = (event) => {
+    event.preventDefault()
+    props.history.push("/about/")
+    toggleVisibity()
+
+  }
+
+
+  if (visible) {
     return (
       <div className="mobileMenuContainerOuter">
-        <div className="popUpBackground" onClick={toggleVisibity}/>
+        <div className="popUpBackground" onClick={toggleVisibity} />
         <div className="mobileMenuContainer">
           <div className="mobileMenuLogoContainer">
             <button className="mobileMenuToggleButton">
-              <MenuIcon onClick={toggleVisibity} className="menuIconInverted"/>
+              <MenuIcon onClick={toggleVisibity} className="menuIconInverted" />
             </button>
             <div className="menuLogoMobile" >
               <h1 className="logoTextMobile" onClick={toRoot}>{props.settings.strings["app_name"]}</h1>
             </div>
 
           </div>
-          {props.user?
+          <div className="divider" />
+          <div className="mobileMenuNavigationContainer">
+            <button className="mobileMenuButton" onClick={toLoginClick}>{props.settings.strings["log_in"]}</button>
+          </div>
+          <div className="divider" />
+          {props.user ?
             <div className="mobileMenuNavigationContainer">
               <p className="userNameText">{props.user.username}</p>
-              <div className="divider"/>
+              <div className="divider" />
               <button className="mobileMenuButton" onClick={toMyPostsClick}>{props.settings.strings["my_posts"]}</button>
-              </div>
-            :<></>}
-          
+            </div>
+            : <></>}
+   
+
           <div className="mobileMenuProjectContainer">
-            <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject}/>
+            <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject} />
             <button className="mobileMenuButton" onClick={toProjectMenu}>{props.settings.strings["project_info"]}</button>
-            <button className="mobileMenuButton" onClick={toAboutClick}>{props.settings.strings["about"]}</button>
-            <div className="divider"/>
-          <div className="preferencesContainer">
-            <LanguageDropDown/>
-            <ThemeToggleSwitch/>
-            <NameToggleSwitch/>
+            <button className="mobileMenuButton" onClick={toListViewClick}>{props.settings.strings["list_view"]}</button>
+            <div className="divider" />
           </div>
-          <div className="divider"/>
-          </div>
-          {props.user?
+          {props.user ?
             <div className="mobileMenuNavigationContainer">
               <button className="mobileMenuButton" onClick={toProfileClick}>{props.settings.strings["profile"]}</button>
               <button className="mobileMenuButton" onClick={logoutClick}>{props.settings.strings["log_out"]}</button>
-              {props.currentProject.moderators.find(user => user === props.user.username)?
-              <div className="mobileMenuUserNameContainer">
-              <div className="divider"/>
-              <button className="mobileMenuButton" onClick={toUnverifiedPostsClick}>{props.settings.strings["unverified-posts"]}</button>
-              <button className="mobileMenuButton" onClick={toManagementClick}>{props.settings.strings["project_management"]}</button>
-              </div>
-              :
-              <></>
-          }
+              {props.currentProject.moderators.find(user => user === props.user.username) ?
+                <div className="mobileMenuUserNameContainer">
+                  <div className="divider" />
+                  <button className="mobileMenuButton" onClick={toUnverifiedPostsClick}>{props.settings.strings["unverified-posts"]}</button>
+                  <button className="mobileMenuButton" onClick={toManagementClick}>{props.settings.strings["project_management"]}</button>
+                </div>
+                :
+                <></>
+
+              }
             </div>
             :
             <div className="mobileMenuNavigationContainer">
               <button className="mobileMenuButton" onClick={toLoginClick}>{props.settings.strings["log_in"]}</button>
             </div>
+
+
           }
 
+          <div className="divider" />
 
+          <div className="downContainer">
+            <div className="preferencesContainer">
+              <LanguageDropDown />
+              <ThemeToggleSwitch />
+              <NameToggleSwitch />
+            </div>
+            <div className="divider" />
+            <button className="mobileMenuButton" onClick={toAboutClick}>{props.settings.strings["about"]}</button>
+          </div>
         </div>
-
       </div>
     )
-  }else{
-    return(
-      <div className="mobileMenuContainerHidden">
+  } else {
+    return (
+      <div className="mobileMenuContainerHidden ">
         <button className="mobileMenuToggleButton">
-          <MenuIcon onClick={toggleVisibity} className="menuIcon"/>
+          <MenuIcon onClick={toggleVisibity} className="menuIcon" />
         </button>
       </div>
 

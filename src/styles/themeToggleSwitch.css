@@ -12,7 +12,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--title-color);
+  background-color: var(--accent-color);
   transition: 0.4s;
   border-radius: 34px;
 }
@@ -39,7 +39,7 @@ input:focus + .sliderRound{
 
 input:checked + .sliderRound:before{
   transform: translateX(1.5em);
-  background-color: var(--title-color);
+  background-color: var(--activity-color);
 }
 
 .switch{

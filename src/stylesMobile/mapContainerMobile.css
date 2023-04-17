@@ -17,25 +17,34 @@
   flex: 1;
   z-index: 1;
 }
-
 .mobileNewButton{
+  fill: var(--primary-text-color);
   z-index: 4;
   position: absolute;
   bottom: 5em;
   right: 0;
-  cursor: pointer;
   background: transparent;
-  outline: none;
   border: 0;
-  padding: 0.5em;
 }
 
-.addIcon{
-  fill: var(--accent-color);
-  width: 5em;
-  height: 5em;
+.mobileProjectButton{
+  z-index: 8;
+  position: absolute;
+  right: 1em;
+  background: transparent;
+  border: 0;
+  font-size: 16px;
+  top: 0.5em;
 }
-
+.mobileProject{
+  z-index: 4;
+  position: absolute;
+  bottom: 5em;
+  right: 0;
+  background: transparent;
+  border: 0;
+  top: 0;
+}
 .mobileListViewButton{
   z-index: 4;
   position: absolute;
@@ -46,6 +55,11 @@
   outline: none;
   border: 0;
   padding: 0.5em;
+}
+.addIcon{
+  fill: var(--add-button);
+  width: 5em;
+  height: 5em;
 }
 
 .listIcon{

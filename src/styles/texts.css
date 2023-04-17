@@ -1,6 +1,6 @@
 .normalText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(--title-color);
   font-weight: 500;
   text-align: left;
 }

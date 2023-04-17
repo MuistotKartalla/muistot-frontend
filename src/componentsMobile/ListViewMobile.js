@@ -14,6 +14,7 @@ import "../styles/texts.css"
 
 
 
+
 import { ReactComponent as AddIcon } from "../resources/add_circle.svg"
 import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
 import { ReactComponent as MapViewIcon } from "../resources/map_view_icon.svg"
@@ -106,9 +107,11 @@ export const ListViewMobile = (props) => {
         </ul>
       </div>
       {props.currentProject.id !== "parantolat"?
+      <div >
       <button className="mobileNewButton" onClick={newPostClick}>
         <AddIcon className="mobileIconSecondary"/>
       </button>
+      </div>
       :
       <></>}
 
