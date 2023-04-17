@@ -16,15 +16,21 @@ export const ProjectInfo = (props) => {
   Some initial stuff for project info component
   */
   //declare some variables
-  const [project, setProject] = useState(props.projects.active)
+  const [project, setProject] = useState({
+    ...props.projects.active,
+    additionalMetadata: {}
+  })
+  project.additionalMetadata = {};
+
+
   const [projectTitle, setProjectTitle] = useState(props.projects.active.title)
 
   useEffect(() => {
-    if(!project.title){
+    if (!project.title) {
       setProject(props.projects.active)
     }
     //if active project is piiput or parantolat, set title according to stringStorage
-    if (project.id === "piiput" || project.id === "parantolat"){
+    if (project.id === "piiput" || project.id === "parantolat") {
       setProjectTitle(props.settings.strings[project.id])
     }
     //for other projects use project title determined in the database
@@ -43,63 +49,42 @@ export const ProjectInfo = (props) => {
     event.preventDefault()
     props.history.push("/project-management")
   }
-  
+  //full description
+  const [showFullDescription, setShowFullDescription] = useState(false)
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription)
+  };
+
   //check if current user is project moderator
-  if(props.user && project.moderators.find(user => user === props.user.username)){
-    return(
-      <div className="projectInfoContainer centerAlignWithPadding">
+  if (project.title) {
+    return (
+      <div className="projectInfoContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer">
-          <SettingIcon className="settingIcon" onClick={toManagement}></SettingIcon>
-          <h1 className="titleText centerAlignWithPadding">{projectTitle}</h1>
-          <ClearIcon className="clearIcon" onClick={closeClick}/>
-        </div>
-        <div className="projectInfoContentContainer">
-          <div className="projectInfoDescriptionContainer normalText">
-		        <ReactMarkdown source={project.description} />
-          </div>
           <div className="projectInfoImageContainer">
             <img className="projectInfoImage" src={getImageURL(project.image)} alt=""></img>
+            <h1 className="titleText centerAlignWithPadding">{projectTitle}</h1>
           </div>
-          <div className="projectInfoContentDescriptionContainer normalText">
-		        <ReactMarkdown source={project.contentDescription} />
-          </div>
-        </div>
-      </div>
-      
-    )
-  }
-  else if(project.title){
-    return(
-      <div className="projectInfoContainer centerAlignWithPadding">
-        <div className="postTitleContainer">
-          <h1 className="titleText centerAlignWithPadding">{projectTitle}</h1>
-          <ClearIcon className="clearIcon" onClick={closeClick}/>
+          <ClearIcon className="clearIcon" onClick={closeClick} />
         </div>
         <div className="projectInfoContentContainer">
+          <div className=" normalText">
+            <h3>Additional Metadata</h3>
+          </div>
+        </div>
+        <button onClick={toggleDescription} className="positiveButton">Large description</button>
+        {showFullDescription && (
           <div className="projectInfoDescriptionContainer normalText">
-		        <ReactMarkdown source={project.description} />
+            <div className="projectInfoDescriptionContainer normalText">
+              <ReactMarkdown source={project.description} />
+            </div>
+            <div className="projectInfoContentDescriptionContainer normalText">
+              <ReactMarkdown source={project.contentDescription} />
+            </div>
           </div>
-          <div className="projectInfoImageContainer">
-            <img className="projectInfoImage" src={getImageURL(project.image)} alt=""></img>
-          </div>
-          <div className="projectInfoContentDescriptionContainer normalText">
-		        <ReactMarkdown source={project.contentDescription} />
-          </div>
-        </div>
+        )}
       </div>
     )
-  }else{
-    return(
-      <div className="projectInfoContainer centerAlignWithPadding">
-        <div className="titleContainer">
-          <h1 className="titleText">{props.settings.strings["project_info"]}</h1>
-        </div>
-        <div className="closeButtonContainer">
-          <button className="rippleButton fillButton bigButton" onClick={closeClick}>{props.settings.strings["close"]}</button>
-        </div>
-      </div>
-    )
-  }
+  } 
 
 }
 

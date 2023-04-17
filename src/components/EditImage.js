@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
-import { connect } from "react-redux"
-import { notify } from "../reducers/notificationReducer"
 
+import { connect } from "react-redux"
+
+import { notify } from "../reducers/notificationReducer"
 import { changeSitePicture } from "../reducers/postReducer"
 import { setTempSite } from "../reducers/tempSiteReducer"
 import "../styles/buttons.css"

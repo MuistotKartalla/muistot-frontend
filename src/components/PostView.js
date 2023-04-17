@@ -28,7 +28,7 @@ export const PostView = (props) => {
   //gets the post to show based on the id that is set on the url field.
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
 
-  post.uusi = 0
+  //post.uusi = 0
 
     /* const getDateFromUnixStamp = (unix) => {
     const date = new Date(unix)

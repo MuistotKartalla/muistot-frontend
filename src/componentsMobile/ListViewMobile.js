@@ -32,6 +32,7 @@ export const ListViewMobile = (props) => {
   const myRef = useRef(props.listView)
   const itemsRef = useRef([]);
 
+
   useEffect(() => {
     if (itemsRef !== [] && props.listView !== 0) {
       console.log(props.listView);
@@ -63,19 +64,19 @@ export const ListViewMobile = (props) => {
     props.history.push("/")
     props.updateListView(0)
   }
-  // const newPostClick = (event) => {
+   const newPostClick = (event) => {
   //   //New post onClick event handler.
-  //   event.preventDefault()
+     event.preventDefault()
   //   //console.log("Adding new post")
-  //   if (props.user !== null) {
-  //     //console.log("Adding new post")
-  //     props.history.push("/new-post/")
-  //   } else {
-  //     //if not logged in, redirect to login page
-  //     props.history.push("/login/")
-  //     props.notify(props.settings.strings["login_required_to_post"], false, 5)
-  //   }
-  // }
+     if (props.user !== null) {
+       //console.log("Adding new post")
+       props.history.push("/new-post/")
+     } else {
+       //if not logged in, redirect to login page
+       props.history.push("/login/")
+       props.notify(props.settings.strings["login_required_to_post"], false, 5)
+     }
+   }
 
   const handleFilterChange = (event) => {
     const filterValue = event.target.value.toLowerCase();
@@ -133,16 +134,18 @@ export const ListViewMobile = (props) => {
           )}
         </ul>
       </div>
-      {/* {props.currentProject.id !== "parantolat"?
+      {props.currentProject.id !== "parantolat"?
+      <div >
       <button className="mobileNewButton" onClick={newPostClick}>
         <AddIcon className="mobileIconSecondary"/>
       </button>
+      </div>
       :
       <></>}
 
       <button className="mobileListViewButton" onClick={toMapView}>
         <MapViewIcon className="mobileIconSecondary"/>
-      </button> */}
+      </button>
     </div>
 
 

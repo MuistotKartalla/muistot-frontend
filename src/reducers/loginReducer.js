@@ -92,26 +92,37 @@ export const logoutS = (notify) => {
 
 
 
-export const initLoggedUser = (user) =>{
+export const initLoggedUser = (user) => {
     return async (dispatch) => {
+      try {
         const res = await userService.getUser()
-        if(res.status === 200 && user){
-            dispatch({
-                type: INIT_USER,
-                data: res.data
-            })
-        }else {
-            delete axios.defaults.headers.common["Authorization"];
-            window.localStorage.removeItem('ChimneysGoToken')
-            dispatch({
-                type: LOGOUTS,
-                data: null
-            })
-
-        }  
-      
+        if (res.status === 200 && user) {
+          dispatch({
+            type: INIT_USER,
+            data: res.data
+          })
+        } else {
+          delete axios.defaults.headers.common["Authorization"]
+          window.localStorage.removeItem("ChimneysGoToken")
+          dispatch({
+            type: LOGOUTS,
+            data: null
+          })
+        }
+      } catch (error) {
+        if (error.response && error.response.status === 401) {
+          delete axios.defaults.headers.common["Authorization"]
+          window.localStorage.removeItem("ChimneysGoToken")
+          dispatch({
+            type: LOGOUTS,
+            data: null
+          })
+        } else {
+          log(error)
+        }
+      }
     }
-}
+  }
 
 
 export const sendverifylink = (email, notify) => {

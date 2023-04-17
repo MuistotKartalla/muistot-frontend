@@ -1,4 +1,4 @@
-.mobileMenuContainerOuter{
+.mobileMenuContainerOuter {
   position: absolute;
   top: 0;
   left: 0;
@@ -7,7 +7,7 @@
   z-index: 3;
 }
 
-.mobileMenuContainer{
+.mobileMenuContainer {
   position: absolute;
   top: 0;
   left: 0;
@@ -18,17 +18,22 @@
   display: flex;
   flex-direction: column;
 }
+.downContainer{
+  position: block;
+  bottom: 0;
+}
 
-.mobileMenuContainerHidden{
+
+.mobileMenuContainerHidden {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 4;
-  background: transparent;
+  background: white;
   float: left;
 }
 
-.mobileMenuToggleButton{
+.mobileMenuToggleButton {
   cursor: pointer;
   background: transparent;
   outline: none;
@@ -36,26 +41,39 @@
   padding: 0.5em;
 }
 
-.menuIcon{
-  fill: var(--accent-color);
+.menuIcon {
+  fill: var(--primary-text-color);
   width: 5em;
   height: 5em;
 }
 
-.menuIconInverted{
+.menuIconInverted {
   fill: var(--secondary-text-color);
   width: 5em;
   height: 5em;
 }
 
-.mobileMenuLogoContainer{
+.mobileMenuLogoContainer {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: fit-content;
 }
 
-.menuLogoMobile{
+.aboutMobileContainer {
+  z-index: 2;
+  position: fixed;
+  bottom: 1.5em;
+  left: 1em;
+
+}
+.preferencesContainer{
+  z-index: 2;
+  bottom: 5em;
+  left: 1em;
+  
+}
+.menuLogoMobile {
   width: -webkit-fill-available;
   width: -moz-available;
   height: 100%;
@@ -64,15 +82,15 @@
   display: flex;
 }
 
-.logoTextMobile{
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+.logoTextMobile {
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   color: var(--title-color);
   font-weight: 700;
   font-size: 1.2em;
   margin: auto;
 }
 
-.mobileMenuButton{
+.mobileMenuButton {
   width: 100%;
   background: var(--primary-color);
   color: var(--secondary-text-color);
@@ -82,7 +100,7 @@
   outline: 0;
   border: none;
   vertical-align: baseline;
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   margin: 0 .25em 0 .25em;
   padding: .78571429em 0.5em .78571429em;
@@ -98,6 +116,3 @@
   transition: background 0s;
   margin: auto;
 }
-
-
-
