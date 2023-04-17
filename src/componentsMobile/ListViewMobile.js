@@ -14,7 +14,6 @@ import "../styles/texts.css"
 
 
 
-
 import { ReactComponent as AddIcon } from "../resources/add_circle.svg"
 import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
 import { ReactComponent as MapViewIcon } from "../resources/map_view_icon.svg"
