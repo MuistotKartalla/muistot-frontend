@@ -124,6 +124,9 @@ const HorizontalMenuList = (props) => {
     return(
         <div className="horizontalMenuContainerLogged" ref={ref}>
           <ul className="menuButtonList">
+            <li className="menuListItem">
+              <LanguageDropDown/>
+            </li>
             <li>
               <div className="menuListItem">
                 {props.currentProject.moderators.find(user => user === props.user.username)?
@@ -137,9 +140,6 @@ const HorizontalMenuList = (props) => {
                 }
               </div>
             </li>
-            <li className="menuListItem">
-              <LanguageDropDown/>
-            </li>
           </ul>
 
         </div>
@@ -151,13 +151,10 @@ const HorizontalMenuList = (props) => {
           <ul className="menuButtonList">
             <div>
               <li className="menuListItem">
-                <AcountDropDown items={[{string:props.settings.strings["about"], onClickHandler:aboutClick}]}/>
-              </li>
-              <li className="menuListItem" onClick={toLoginClick}>
-                <p className="menuItemText">{props.settings.strings["log_in"]}</p>
+                <LanguageDropDown/>
               </li>
               <li className="menuListItem">
-                <LanguageDropDown/>
+                <AcountDropDown items={[{string:props.settings.strings["log_in"], onClickHandler:toLoginClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}]}/>
               </li>
 
             </div>

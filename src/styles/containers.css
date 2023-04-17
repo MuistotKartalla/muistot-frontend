@@ -1,5 +1,5 @@
 :root{
-  --primary-color: #000000;
+  --primary-color: transparent;
   --secondary-color: #202124;
 
   --primary-text-color: #ffffff;
@@ -20,7 +20,7 @@ html, body, #root, #app, #app>div {
 }
 
 .appContainer{
-  background-color: #161616;
+  /*background-color: #161616;*/
   margin: 0px;
   position: absolute;
   height: 100% !important;
@@ -45,7 +45,7 @@ html, body, #root, #app, #app>div {
 }
 
 .contentContainer{
-  position: relative;
+  position: absolute;
   height: 100%;
   width: 100%;
   display: flex;

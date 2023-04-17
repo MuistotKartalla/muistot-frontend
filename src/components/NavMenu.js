@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 import { logout } from "../reducers/loginReducer"
 import { notify } from "../reducers/notificationReducer"
 
-
+import { ReactComponent as InfoButton } from "../resources/info_font_fill.svg"
 import "../styles/navMenu.css"
 
 import HorizontalMenuList from "./HorizontalMenuList"
@@ -54,7 +54,7 @@ export const NavMenu = (props) => {
           <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject}/>
 
           <div className="projectInfoButtonContainer">
-            <button className="projectInfoButton" onClick={toProjectMenu}>{props.settings.strings["project_info"]}</button>
+            <InfoButton className="projectInfoButton" onClick={toProjectMenu}></InfoButton>
           </div>
         </div>
         <HorizontalMenuList history={props.history}/>
