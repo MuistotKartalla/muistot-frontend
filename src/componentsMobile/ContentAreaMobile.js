@@ -7,7 +7,7 @@ import NavMenuMobile from "./NavMenuMobile"
 
 
 import { notify } from "../reducers/notificationReducer"
-import AboutMobile from "./AboutMobile"
+import About from "../components/About"
 import AccountInfoMobile from "./AccountInfoMobile"
 import ChangeUserNameMobile from "./ChangeUserNameMobile"
 import EditImageMobile from "./EditImageMobile"
@@ -80,7 +80,7 @@ const ContentAreaMobile = (props) => {
         <MyPostsMobile history={history}/>
       )}/>
       <Route path="/about/" render={({history}) => (
-        <AboutMobile history={history}/>
+        <About history={history}/>
       )}/>
       <Route path="/project-info/" render={({history}) => (
         <ProjectInfoMobile history={history}/>
