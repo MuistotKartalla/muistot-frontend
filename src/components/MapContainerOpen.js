@@ -340,3 +340,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MapContainerOpen)
+
+
+
+// MapContainerOpen: It is used in ContentArea.js . The component defines a function to handle user clicks on the map, which will create a temporary marker that can be used to create a new post. It also defines
+//  a function to confirm the location of the temporary marker and navigate to a new post form.

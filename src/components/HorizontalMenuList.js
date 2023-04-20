@@ -187,3 +187,10 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(HorizontalMenuList)
+
+
+
+
+// HorizontalMenuList: This component is used in NavMenu.js as part of it. This component  imports several other components, including DropDownList, LanguageDropDown, and AcountDropDown,
+//  which are used to render drop-down menus for some of the menu buttons.The component uses the useComponentVisible hook to track whether the drop-down menus are visible or not and to toggle their
+//  visibility when needed. Finally, uses "mapStateToProps" to mapthe state of the Redux store to ist props, which allows it to acces the necesarry data to render the menu buttons. 

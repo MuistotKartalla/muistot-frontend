@@ -142,3 +142,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NewMemento)
+
+
+
+// NewMemento: This component is used in ContentArea.js. This component renders a form where a user can create a new "memento" (memory). It receives various props from its parent component, including the current user,
+//  temporary post data, project data, post data, user location data, and app settings.

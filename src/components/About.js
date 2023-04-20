@@ -43,3 +43,7 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, null)(About);
+
+
+
+// This component is created to render the website's purpose and show the terms of service.

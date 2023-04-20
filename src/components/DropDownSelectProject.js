@@ -97,3 +97,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(DropDownSelectProject)
+
+
+
+// DropDownSelectProject: This component is used in NavMenu, and display the list of projects.
+//  It has a function  that takes props as an argument. The function uses the useComponentVisible hook to keep track of whether the dropdown list is visible or hidden.
+//  The genListOptions function generates a list of items for the dropdown list based on the props.items array.

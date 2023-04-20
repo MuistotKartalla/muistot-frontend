@@ -67,3 +67,8 @@
 //   mapStateToProps,
 //   {cancelNotification}
 // )(Notification)
+
+
+
+// Notification: The Notification component is a functional component that takes in props as its argument. The props object has a notification property, which contains information about the notification to be displayed.
+//  The notification object has properties such as message, seconds, and error. It can be remove it. 

@@ -143,3 +143,9 @@ const mapStateToProps = (state) => {
     mapStateToProps,
     mapDispatchToProps
   )(ProjectManagement)
+
+
+
+//   ProjectManagement: This component is used in ContentArea.js. The component returns a JSX template that displays information about the active project, such as its ID, title, moderators, number of sites, abstract,
+//  and description. It also displays buttons to download the project's CSV data, change project information, and add a new moderator if the current user is one of the moderators of the project. If the current user
+//  is not a moderator of the project, the template only displays a message saying that the user is not authorized to view this page.

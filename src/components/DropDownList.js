@@ -33,3 +33,11 @@ export const DropDownList = (props) => {
 }
 
 export default DropDownList
+
+
+
+
+
+// DropDownList: This is a component exported by default to be used in other components. Inside the component, 
+//  a JSX structure is used to create the visual content of the component. The component has a div container with the class "dropDownContainer" that contains a ul list with the class "dropDownList". 
+//  The list items are generated from the array of elements provided through the component's props.

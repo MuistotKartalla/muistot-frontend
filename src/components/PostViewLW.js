@@ -248,3 +248,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PostViewLW)
+
+
+
+
+// PostViewLW: This component is used in ListView.js. The component renders the post's title, image, and context details such as the post's creator, number of memories, and some buttons, including delete, report,
+//  and verify for certain users. If a delete button is clicked, a modal asking for confirmation appears, and if the delete is confirmed, the post is deleted from the server, and the user is notified. 

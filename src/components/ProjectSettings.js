@@ -117,3 +117,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProjectSettings)
+
+
+
+// ProjectSettings: This component is used in ContentArea.js. The modifyConfirmClick function is defined to modify the project settings when the user submits the form. The function first checks whether any changes
+//  have been made or not. If no changes have been made, the user is notified with a message. Otherwise, the function creates a modified project object and calls the changeProjectSettings function to update the project settings.

@@ -97,3 +97,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SiteImageUpload)
+
+
+
+
+// SiteImageUpload: This component is used in EditImage.js. This is a React component that allows users to upload and preview images. It makes use of the useState and useEffect hooks from React, as well as the
+//  connect function from the react-redux library.

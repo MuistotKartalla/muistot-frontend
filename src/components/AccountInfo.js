@@ -82,3 +82,8 @@ const mapStateToProps = (state) => {
 export default connect(
     mapStateToProps
 )(AccountInfo)
+
+
+
+// AccountInfo: This component is used to access the global state of the application as properties. In this case,
+// the properties obtained are user information and the other settings of the app. It is used in ContentArea.js.

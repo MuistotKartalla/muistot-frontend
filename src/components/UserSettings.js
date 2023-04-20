@@ -290,3 +290,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(UserSettings)
+
+
+
+// UserSetttings: This is used in ContentArea.js. This is a React component that imports some functions from various reducer files to manage the state of the application. The component allows the user to modify their account settings,
+//  including their first name, last name, country, city, and date of birth. There is also an option to delete the user's account. When the user submits their changes, the component dispatches an action to the Redux store to modify the
+//  user's information, and a notification is displayed to confirm the changes.

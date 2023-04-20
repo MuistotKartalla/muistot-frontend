@@ -121,3 +121,9 @@ export default connect(
   mapStateToProps,
   null
 )(FloatingSearch)
+
+
+// FloatingSearch: This is a React component called FloatingSearch that implements a search feature. The component uses the useState
+//  and connect hooks from the React-Redux library to manage its state and props, respectively. It also imports a custom hook called
+//  useComponentVisible from a file named "OutsideClick" and a PostList component.
+//  It is used in MapContainerOpen.js. Currently not in use and not functioning properly. It may be possible to remove it.!!

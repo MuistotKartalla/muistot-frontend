@@ -96,3 +96,15 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(DropDownSelect)
+
+
+
+// DropDownSelect: The component receives the following props:
+//  1.items: an array of strings representing the dropdown options
+//  2.active: a string representing the currently selected dropdown option
+//  3.change: a function that is called when an option is selected, with the selected option as an argument
+//  The component defines the following state variables using the useState hook:
+//   - isComponentVisible: a boolean indicating whether the dropdown list is visible or not
+//   - toggleVisibility: a function that toggles the visibility of the dropdown list when called
+//   - genListOptions: a function that generates an array of objects representing the dropdown options,
+//     with each object containing a string property for the option text and an onClickHandler property for the function to be called when the option is clicked

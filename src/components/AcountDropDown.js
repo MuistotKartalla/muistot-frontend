@@ -99,3 +99,11 @@ const mapDispatchToProps = {
 
 
 export default connect(mapStateToProps, null)(AcountDropDown)
+
+
+
+
+// // AcountDropDown: This component is a dropdown menu and shows the user options. 
+// It defines a component called ContentArea, which is a container for all sub-components of a web page,
+//  except for the navigation bar and notifications.The ContentArea component contains several Route components, which are 
+//  used to render different components based on the URL path. For example, if the URL path is /login, the LoginForm component is rendered.

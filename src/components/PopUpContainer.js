@@ -48,3 +48,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PopUpContainer)
+
+
+
+
+// PopUpContainer: This component is used in ContentArea.js. The component renders a modal window with a semi-transparent background (popUpBackground) and a container (popUpContainer) for the popup's content.

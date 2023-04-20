@@ -57,3 +57,7 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ThemeToggleSwitch)
+
+
+
+// ThemeToggleSwitch: This is used in AcountDropDown.js. This component is used to switch the theme to dark mode.

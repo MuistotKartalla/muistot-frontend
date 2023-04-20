@@ -138,3 +138,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NewPostCombined)
+
+
+
+// NewPostCombined: The component renders a form for creating a new post. The form includes fields for the title, location, and image. There are also buttons for canceling the post and submitting it.
+//  The component uses conditional rendering to show either a button for selecting a location on a map or a form for entering a location name depending on the state of the location field.
+//  It is used in ContentArea.js.

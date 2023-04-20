@@ -107,3 +107,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProjectInfo)
+
+
+
+// ProjectInfo: This component is used in ContentArea.js. The useState hook is used to manage state in the component. The useEffect hook is used to update the component when the props change. 
+//  The component also has a toggleDescription function that toggles the showFullDescription state when the "Large description" button is clicked. When the showFullDescription state is true, the full project description
+//  is displayed. Otherwise, only the project image and title are displayed.

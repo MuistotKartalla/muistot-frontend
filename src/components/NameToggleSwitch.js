@@ -52,3 +52,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NameToggleSwitch)
+
+
+
+// NameToggleSwitch: This is used in AcountDropDown.js and the  main propose is just to show the names over the marker on the map, to do this has function updates the state and dispatches an
+//  action to update the state in the store.

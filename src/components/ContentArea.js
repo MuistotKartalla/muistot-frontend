@@ -187,3 +187,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ContentArea)
+
+
+
+// ContentArea: The ContentArea component contains several Route components, which are used to render different components based on the URL path. 
+//  For example, if the URL path is /login, the LoginForm component is rendered. 
+//  There are also several PopUpContainer components, which are used to render components in a popup window.

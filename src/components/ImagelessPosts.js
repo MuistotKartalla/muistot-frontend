@@ -95,3 +95,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ImagelessPosts)
+
+
+
+// ImagelessPost: It is used in ContentArea.js. This is a React component that displays a list of posts that do not have an image. It first filters the props.posts array to only include posts that
+//  have a placeholder image (placeholder.jpg). Then it renders the list of these imageless posts using posts.map() function. When the user clicks on a post, it redirects them to the post view page
+//  using props.history.push(). If there are no imageless posts to display, it informs the user that the list is empty.

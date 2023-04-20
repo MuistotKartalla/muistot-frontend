@@ -84,3 +84,7 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(EditImage)
+
+
+// EditImage: This is a React component that allows users to edit the image of a site. It imports various modules including useEffect, useState, connect from "react"
+//  and some reducers for state management. It is used in ContentArea.

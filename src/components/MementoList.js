@@ -138,3 +138,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MementoList)
+
+
+
+// MementoList: This component is used in PostView.js, and PostViewLW.js. The component returns a list of memories to be rendered, with each memory being rendered as a list item (li element).
+//  The details of each memory, such as the image, title, and story, are rendered within the list item. The component also conditionally renders buttons such as "Verify", "Unverify", and "Delete"
+//  depending on the user's permissions and actions.

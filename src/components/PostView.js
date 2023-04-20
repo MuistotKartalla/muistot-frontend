@@ -245,3 +245,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PostView)
+
+
+
+// PostView: This component is used in ContentArea.js. The component uses the useState hook to manage the state of the delete button, and finds the post to display based on the ID in the URL.
+//  It defines several event handlers, such as for clicking the "show on map" button, deleting a post, editing a post, sharing on Twitter/Facebook, and verifying a post.

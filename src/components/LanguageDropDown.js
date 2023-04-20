@@ -103,3 +103,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(LanguageDropDown)
+
+
+// LanguageDropDown: This component is placed in HorizontaMenuList.js. The component renders a container div with two nested divs. The first div represents the currently selected language and, when clicked,
+//  displays the dropdown menu with the available language options. The second div contains the dropdown menu, which is a custom component called DropDownList that receives an array of options with text and
+//  click handlers as props.
