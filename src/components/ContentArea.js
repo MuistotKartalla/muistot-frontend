@@ -7,7 +7,7 @@ import "../styles/texts.css"
 
 import CookieConsent from "react-cookie-consent"
 import { notify } from "../reducers/notificationReducer"
-import About from "./About"
+import About from "../common components/About"
 import AccountInfo from "./AccountInfo"
 import ChangeUserName from "./ChangeUserName"
 import EditImage from "./EditImage"

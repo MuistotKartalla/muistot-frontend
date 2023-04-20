@@ -12,7 +12,7 @@ import { ReactComponent as PersonIcon } from "../resources/person.svg"
 import DropDownList from "./DropDownList";
 import NameToggleSwitch from './NameToggleSwitch';
 import ThemeToggleSwitch from './ThemeToggleSwitch'
-import About from './About';
+import About from '../common components/About';
 import {useState} from "react";
 
 

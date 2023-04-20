@@ -7,7 +7,7 @@ import NavMenuMobile from "./NavMenuMobile"
 
 
 import { notify } from "../reducers/notificationReducer"
-import About from "../components/About"
+import About from "../common components/About"
 import AccountInfoMobile from "./AccountInfoMobile"
 import ChangeUserNameMobile from "./ChangeUserNameMobile"
 import EditImageMobile from "./EditImageMobile"
