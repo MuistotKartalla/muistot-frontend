@@ -49,10 +49,6 @@ export const PostList = (props) => {
         )}
       </ul>
     </div>
-
-
-
-
   )
 }
 

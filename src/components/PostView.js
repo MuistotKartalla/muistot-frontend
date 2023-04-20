@@ -7,7 +7,7 @@ import { notify } from "../reducers/notificationReducer"
 import { changeSitePicture, deletePost, toggleVerify } from "../reducers/postReducer"
 
 import "../styles/buttons.css"
-import "../styles/floatingSearch.css"
+// import "../styles/floatingSearch.css"
 import "../styles/postView.css"
 import "../styles/projectInfo.css"
 import "../styles/texts.css"

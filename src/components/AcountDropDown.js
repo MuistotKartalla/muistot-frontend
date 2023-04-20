@@ -1,10 +1,10 @@
-import {connect} from "react-redux"
+ import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
 import {logout, logoutS} from "../reducers/loginReducer"
 import {initPosts} from "../reducers/postReducer"
 
 import useComponentVisible from "../hooks/OutsideClick"
-import "../styles/horizontalMenuList.css"
+// import "../styles/horizontalMenuList.css"
 import "../styles/acountDropDown.css"
 
 import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24px.svg"
