@@ -119,11 +119,14 @@ export const NavMenuMobile = (props) => {
             </div>
 
           </div>
-          <div className="divider" />
-          <div className="mobileMenuNavigationContainer">
-            <button className="mobileMenuButton" onClick={toLoginClick}>{props.settings.strings["log_in"]}</button>
-          </div>
-          <div className="divider" />
+
+          {props.user ? <></> :
+            <div className="mobileMenuNavigationContainer">
+              <div className="divider" />
+              <button className="mobileMenuButton" onClick={toLoginClick}>{props.settings.strings["log_in"]}</button>
+              <div className="divider" />
+            </div>
+          } 
           {props.user ?
             <div className="mobileMenuNavigationContainer">
               <p className="userNameText">{props.user.username}</p>
@@ -131,10 +134,9 @@ export const NavMenuMobile = (props) => {
               <button className="mobileMenuButton" onClick={toMyPostsClick}>{props.settings.strings["my_posts"]}</button>
             </div>
             : <></>}
-   
+
 
           <div className="mobileMenuProjectContainer">
-            <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject} />
             <button className="mobileMenuButton" onClick={toProjectMenu}>{props.settings.strings["project_info"]}</button>
             <button className="mobileMenuButton" onClick={toListViewClick}>{props.settings.strings["list_view"]}</button>
             <div className="divider" />
@@ -162,6 +164,7 @@ export const NavMenuMobile = (props) => {
 
           <div className="downContainer">
             <div className="preferencesContainer">
+              <div className="divider" />
               <LanguageDropDown />
               <ThemeToggleSwitch />
               <NameToggleSwitch />

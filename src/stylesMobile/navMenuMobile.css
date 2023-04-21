@@ -19,8 +19,9 @@
   flex-direction: column;
 }
 .downContainer{
-  position: block;
+  position: absolute;
   bottom: 0;
+  width: 100%;
 }
 
 
@@ -35,7 +36,7 @@
 
 .mobileMenuToggleButton {
   cursor: pointer;
-  background: transparent;
+  background: var(--primary-color);
   outline: none;
   border: 0;
   padding: 0.5em;
@@ -44,7 +45,7 @@
 .menuIcon {
   fill: var(--primary-text-color);
   width: 5em;
-  height: 5em;
+  height: 4.5em;
 }
 
 .menuIconInverted {
