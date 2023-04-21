@@ -24,7 +24,7 @@
   left: 0.1em;
   width: 1.3em;
   height: 1.3em;
-  background-color: var(--primary-text-color);
+  background-color: var(--activity-color);
   transition: 0.4s;
   border-radius: 50%;
 }

@@ -14,17 +14,21 @@ export const ProjectInfoMobile = (props) => {
   /*
   Some initial stuff for project info component
   */
-
+ //full description
+ const [showFullDescription, setShowFullDescription] = useState(false)
+ const toggleDescription = () => {
+   setShowFullDescription(!showFullDescription)
+ };
   const [project, setProject] = useState(props.projects.active)
   const [projectTitle, setProjectTitle] = useState(props.projects.active.title)
 
   useEffect(() => {
-    if(!project.title){
+    if (!project.title) {
       //console.log("no active project")
       setProject(props.projects.active)
     }
     //if active project is piiput or parantolat, set title according to stringStorage
-    if (project.id === "piiput" || project.id === "parantolat"){
+    if (project.id === "piiput" || project.id === "parantolat") {
       setProjectTitle(props.settings.strings[project.id])
     }
     //for other projects use project title determined in the database
@@ -41,17 +45,18 @@ export const ProjectInfoMobile = (props) => {
   // }
 
   //check if current user is project moderator
-  if(props.user && project.moderators.find(user => user === props.user.username)){
-    return(
+  if (props.user && project.moderators.find(user => user === props.user.username)) {
+    return (
       <div className="projectInfoContainerMobile">
         <div className="titleContainerMobile">
           <button className="mobileButtonContainer">
-            <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); props.history.goBack()}}/>
+            <ReturnIcon className="mobileIcon" onClick={(event) => { event.preventDefault(); props.history.goBack() }} />
           </button>
           <div className="titleHeaderMobile">
             <h1 className="titleTextMobile">{projectTitle}</h1>
           </div>
         </div>
+        <div className="divider" />
         <div className="projectInfoContentContainer">
           <div className="projectInfoDescriptionContainer normalText">
             <ReactMarkdown source={project.description} />
@@ -62,45 +67,61 @@ export const ProjectInfoMobile = (props) => {
           <div className="projectInfoContentDescriptionContainer normalText">
             <ReactMarkdown source={project.contentDescription} />
           </div>
+          <div className="divider" />
           <div className="projectInfoDownloadButton">
-            <button className="rippleButton" onClick={(event) => {event.preventDefault(); props.history.push("/project-management/")}}>
+            <button className="rippleButton" onClick={(event) => { event.preventDefault(); props.history.push("/project-management/") }}>
               {props.settings.strings["project_management"]}
             </button>
           </div>
         </div>
-      </div> 
+      </div>
     )
   }
-  else if(project.title){
-    return(
+  else if (project.title) {
+    return (
       <div className="projectInfoContainerMobile">
         <div className="titleContainerMobile">
           <button className="mobileButtonContainer">
-            <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); props.history.goBack()}}/>
+            <ReturnIcon className="mobileIcon" onClick={(event) => { event.preventDefault(); props.history.goBack() }} />
           </button>
           <div className="titleHeaderMobile">
             <h1 className="titleTextMobile">{projectTitle}</h1>
           </div>
         </div>
+        <div className="divider" />
         <div className="projectInfoContentContainer">
           <div className="projectInfoDescriptionContainer normalText">
             <ReactMarkdown source={project.description} />
           </div>
+
           <div className="projectInfoImageContainer">
             <img className="projectInfoImage" src={getImageURL(project.image)} alt=""></img>
           </div>
           <div className="projectInfoContentDescriptionContainer normalText">
             <ReactMarkdown source={project.contentDescription} />
           </div>
+          <div className="divider" />
         </div>
-      </div> 
+        <button onClick={toggleDescription} className="positiveButton">Large description</button>
+        {showFullDescription && (
+          <div className="projectInfoDescriptionContainer normalText">
+            <div className="projectInfoDescriptionContainer normalText">
+              <ReactMarkdown source={project.description} />
+            </div>
+            <div className="projectInfoContentDescriptionContainer normalText">
+              <ReactMarkdown source={project.contentDescription} />
+            </div>
+          </div>
+        )}
+      </div>
     )
-  }else{
-    return(
+  } else {
+    return (
       <div className="projectInfoContainer centerAlignWithPadding">
+        <div className="divider" />
         <div className="titleContainerMobile">
           <button className="mobileButtonContainer">
-            <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); props.history.goBack()}}/>
+            <ReturnIcon className="mobileIcon" onClick={(event) => { event.preventDefault(); props.history.goBack() }} />
           </button>
           <div className="titleHeaderMobile">
             <h1 className="titleTextMobile">{props.settings.strings["project_info"]}</h1>

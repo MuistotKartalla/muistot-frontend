@@ -20,7 +20,8 @@ import iconShadow from "../resources/marker-shadow.png"
 import { ReactComponent as AddIcon } from "../resources/add_circle.svg"
 import tempIconMarker from "../resources/temp_marker.svg"
 import userIconMarker from "../resources/user_icon_custom.svg"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ReactComponent as AccountIcon } from "../resources/account_icon.svg"
 
 
 import { notify } from "../reducers/notificationReducer"
@@ -33,6 +34,8 @@ import { setTempSite } from "../reducers/tempSiteReducer"
 
 import DropDownSelectProject from "../components/DropDownSelectProject"
 import { setActiveProject } from "../reducers/projectReducer"
+import { initPosts } from "../reducers/postReducer"
+
 
 var IconMarker = L.Icon.extend({
   options: {
@@ -59,23 +62,6 @@ const tempIcon = L.icon({
   iconUrl: tempIconMarker,
   iconAnchor: [16, 32]
 })
-export const NavMenuMobile = (props) => {
-  const [visible, setVisible] = useState(false)
-
-  const toggleVisibity = () => {
-    setVisible(!visible)
-  }
-  const changeProject = (project) => {
-    props.setActiveProject(project)
-    var params = { projectId: project.id };
-    props.initPosts(params)
-  }
-  const toRoot = (event) => {
-    event.preventDefault()
-    props.history.push("/")
-    toggleVisibity()
-  }
-}
 
 const MapContainerMobile = (props) => {
   //state variables
@@ -88,6 +74,11 @@ const MapContainerMobile = (props) => {
 
   //Wheather the map constantly centers to user location. Enabled when user clics their own avatar. Disabled when map manually moved.
   const [followUser, setFollowUser] = useState(true)
+
+  const toProfileClick = (event) => {
+    event.preventDefault()
+    props.history.push("/my-account/")
+  }
 
   //users custom location hook
   const { userLocation } = usePosition(5)
@@ -128,6 +119,13 @@ const MapContainerMobile = (props) => {
     props.history.push("/new-post/")
     setTempMarker(null)
   }
+  const tempIcon = () => {
+    return (
+      <div className="icon-container">
+        <FontAwesomeIcon icon={tempIcon} className="icon" />
+      </div>
+    );
+  };
 
   //open list view
   const toListView = (event) => {
@@ -301,25 +299,28 @@ const MapContainerMobile = (props) => {
           <></>
 
         }
-        <div>{tempMarker !== null ?
+        <div className="leftBar">{tempMarker !== null ?
           <Marker position={tempMarker} icon={tempIcon}></Marker>
           :
           <></>
 
         }
-        
         </div>
+
       </MapContainer>
-      <div className="mobileMenuProjectContainer">
+
       {props.currentProject.id !== "parantolat" ?
-            <button className="mobileProjectButton " onClick={newPostClick}>
-            <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject} />
-            </button>
-            :
-            <></>
-          }
-          </div>
-          
+        <button className="mobileProjectButton ">
+          <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject} />
+        </button>
+        :
+        <></>
+      }
+      <div className="accountInfoContainer">
+        <AccountIcon className="accountInfoButton" onClick={toProfileClick}></AccountIcon>
+      </div>
+
+
       {props.history.location.pathname !== "/select-location/" ?
         <div>
           {props.currentProject.id !== "parantolat" ?
@@ -329,9 +330,7 @@ const MapContainerMobile = (props) => {
             :
             <></>
           }
-          <div className="mobileListViewButton" onClick={toListView}>
-            <button className="overlayButtonLeft rippleButton">List View</button>
-          </div>
+
         </div>
         :
         tempMarker === null ?
@@ -366,7 +365,10 @@ const mapDispatchToProps = {
   createSite,
   updateUserLocation,
   setTempSite,
-  updateMapLocation
+  setActiveProject,
+  updateMapLocation,
+  tempIcon,
+  initPosts
 }
 
 export default connect(

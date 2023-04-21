@@ -60,7 +60,7 @@ export const initProjects = (activeProjectId) => {
                 active: activeProject
             }
         })
-    }
+    }   
 }
 
 export const setActiveProject = (project) => {
