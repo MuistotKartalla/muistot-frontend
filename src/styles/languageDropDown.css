@@ -1,8 +1,6 @@
 .languageDDContainer{
   background: var(--primary-color);
   justify-content: center;
-  width: 97%;
-  height: fit-content;
   margin: auto;
   text-align: left;
   -webkit-user-select: none;
@@ -66,6 +64,40 @@
   text-align: left;
   width: fit-content;
 }
+/*Mateusz*/
+
+.icon-containerlan {
+  position: relative;
+  padding-top: 7px;
+}
+
+
+.dropdownLan {
+  position: absolute;
+  top: 55px; /* ajusta la posición vertical del dropdown */
+  left: -35px; /* ajusta la posición horizontal del dropdown */
+  width: 50px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none;
+  border-radius: 5%;
+}
+
+.iconLook{
+  display: flex;
+  fill: var(--title-color);
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.icon-containerlan:hover .dropdownLan,
+.icon-containerlan.show .dropdownLan{
+  display: block;
+}
+/*--------------------*/
 
 .languageDDText:hover {
   color: var(--title-color);

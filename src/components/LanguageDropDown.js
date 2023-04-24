@@ -4,6 +4,8 @@ import { connect } from "react-redux"
 import useComponentVisible from "../hooks/OutsideClick"
 
 import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24px.svg"
+import { ReactComponent as TranslateIcon } from "../resources/translateIcon.svg"
+
 import "../styles/languageDropDown.css"
 import DropDownList from "./DropDownList"
 
@@ -31,7 +33,7 @@ export const LanguageDropDown = (props) => {
 
   const genListOptions = () => {
 
-    const strings = props.settings.languages.filter(item => item !== props.settings.activeLanguage)
+    const strings = props.settings.languages
     let list = []
     strings.map(element => {
       list.push({string: element.toUpperCase(), onClickHandler: () => {
@@ -48,16 +50,13 @@ export const LanguageDropDown = (props) => {
   if(!isComponentVisible){
     //console.log(active)       //active is wrong here, use props.settings.activeLanguage
     return(
-      <div className="languageDDContainer" ref={ref}>
-        <div className="languageDDCurrentItemContainer" onClick={toggleVisibility}>
-          <div className="languageDDCurrentItem">
-            <span className="languageDDText">{props.settings.activeLanguage.toUpperCase()}</span> 
-            <DropDownIcon className="dropDownIcon"/>
-          </div>
+      <div className={`icon-containerlan ${isComponentVisible ? 'show' : ''}`} ref={ref}>
+        <div className="acountDDCurrentItemContainer" onClick={toggleVisibility}>
+          <TranslateIcon className="iconLook"></TranslateIcon>
         </div>
 
         {isComponentVisible?
-          <div className="dropDownList" >
+          <div className="dropdownLan" >
             <DropDownList items={genListOptions()}/>
           </div>
           :
@@ -67,16 +66,13 @@ export const LanguageDropDown = (props) => {
     )
   }else{
     return(
-      <div className="languageDDContainerActive" ref={ref}>
-        <div className="languageDDCurrentItemContainer" onClick={toggleVisibility}>
-          <div className="languageDDCurrentItem">
-            <span className="languageDDTextActive">{props.settings.activeLanguage.toUpperCase()}</span>
-            <DropDownIcon className="dropDownIconActive"/>
-          </div>
+      <div className={`icon-containerlan ${isComponentVisible ? 'show' : ''}`} ref={ref}>
+        <div className="acountDDCurrentItemContainer" onClick={toggleVisibility}>
+          <TranslateIcon className="iconLook"></TranslateIcon>
         </div>
 
         {isComponentVisible?
-          <div className="dropDownList" >
+          <div className="dropdownLan" >
             <DropDownList items={genListOptions()}/>
           </div>
           :
