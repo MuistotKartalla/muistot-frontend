@@ -11,8 +11,8 @@ import "../stylesMobile/navMenuMobile.css"
 
 import DropDownSelectProject from "../components/DropDownSelectProject"
 import LanguageDropDown from "../components/LanguageDropDown"
-import NameToggleSwitch from "../components/NameToggleSwitch"
-import ThemeToggleSwitch from "../components/ThemeToggleSwitch"
+import NameToggleSwitch from "../common components/NameToggleSwitch"
+import ThemeToggleSwitch from "../common components/ThemeToggleSwitch"
 import { initPosts } from "../reducers/postReducer"
 import { setActiveProject } from "../reducers/projectReducer"
 
