@@ -1,4 +1,8 @@
-  .rippleButton {
+ button:hover{
+  background-color: var(--hover-text-color);
+ }
+ 
+ .rippleButton {
   background: var(--primary-color);
   color: var(--primary-text-color);
   cursor: pointer;
