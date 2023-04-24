@@ -134,18 +134,8 @@ export const ListViewMobile = (props) => {
           )}
         </ul>
       </div>
-      {props.currentProject.id !== "parantolat"?
-      <div >
-      <button className="mobileNewButton" onClick={newPostClick}>
-        <AddIcon className="mobileIconSecondary"/>
-      </button>
-      </div>
-      :
-      <></>}
 
-      <button className="mobileListViewButton" onClick={toMapView}>
-        <MapViewIcon className="mobileIconSecondary"/>
-      </button>
+     
     </div>
 
 

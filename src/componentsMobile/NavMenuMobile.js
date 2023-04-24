@@ -57,7 +57,7 @@ export const NavMenuMobile = (props) => {
   }
   const toListViewClick = (event) => {
     event.preventDefault()
-    props.history.push("/login")
+    props.history.push("/list-view/")
     toggleVisibity()
   }
   /*
