@@ -10,8 +10,8 @@ import "../styles/acountDropDown.css"
 import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24px.svg"
 import { ReactComponent as PersonIcon } from "../resources/person.svg"
 import DropDownList from "./DropDownList";
-import NameToggleSwitch from './NameToggleSwitch';
-import ThemeToggleSwitch from './ThemeToggleSwitch'
+import NameToggleSwitch from '../common components/NameToggleSwitch';
+import ThemeToggleSwitch from '../common components/ThemeToggleSwitch'
 import About from '../common components/About';
 import {useState} from "react";
 
