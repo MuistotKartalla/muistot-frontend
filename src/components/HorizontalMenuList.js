@@ -9,7 +9,7 @@ import useComponentVisible from "../hooks/OutsideClick"
 import "../styles/horizontalMenuList.css"
 
 import DropDownList from "./DropDownList"
-import LanguageDropDown from "./LanguageDropDown"
+import LanguageDropDown from "../common components/LanguageDropDown"
 import AcountDropDown from "./AcountDropDown";
 
 

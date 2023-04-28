@@ -7,7 +7,7 @@ import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24p
 import { ReactComponent as TranslateIcon } from "../resources/translateIcon.svg"
 
 import "../styles/languageDropDown.css"
-import DropDownList from "./DropDownList"
+import DropDownList from "../components/DropDownList"
 
 import { setActiveLanguage } from "../reducers/settingsReducer"
 import { isMobile } from "react-device-detect";
