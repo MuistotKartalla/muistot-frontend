@@ -1,6 +1,6 @@
 .projectInfoContainer {
   z-index: 4;
-  background: var(--secondary-color);
+  background: var(--primary-color);
   max-width: 50%;
   width: 100%;
   height: auto;
@@ -9,7 +9,8 @@
   margin:auto;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 15px 5px grey;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
 }
 
 .projectInfoContainerMobile {

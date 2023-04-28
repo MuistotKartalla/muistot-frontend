@@ -31,6 +31,8 @@
   position: fixed;
   bottom: 1.5em;
   left: 1em;
+  fill: var(--title-color);
+
 }
 
 .overlayButtonCenter{
@@ -72,3 +74,4 @@
   position: relative;
   z-index: 1;
 }
+

@@ -6,7 +6,7 @@ import useComponentVisible from "../hooks/OutsideClick"
 import "../styles/floatingSearch.css"
 import "../styles/inputs.css"
 
-
+import { ReactComponent as SearchIcon} from "../resources/search_FILL0.svg";
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import PostList from "./PostList"
 
@@ -35,7 +35,7 @@ export const FloatingSearch = (props) => {
     setIsComponentVisible(false)
   }
 
-  const onHover = (event) => {
+  const onClick = (event) => {
     event.preventDefault()
     setIsComponentVisible(true)
   }
@@ -72,14 +72,8 @@ export const FloatingSearch = (props) => {
 
   if(!isComponentVisible){
     return(
-      <div className="floatingSearchContainer" ref={ref}>
-        <div className="floatingSearchInputContainer">
-          <div className="floatingSearchInputContainerInner">
-            <input name="search" id="searchField" className="inputPrimary" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="off" onChange={onSearchValueChange} value={searchValue} onMouseEnter={onHover} />
-            <div className="inputFocusLine"/>
-          </div>
-          <ClearIcon className="clearIcon" onClick={onClearClick}/>
-        </div>
+      <div ref={ref}>
+        <SearchIcon name="search" id="searchField" className="floatingSearch" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="off" onChange={onSearchValueChange} value={searchValue} onClick={onClick}  />
       </div>
     )
   }else{

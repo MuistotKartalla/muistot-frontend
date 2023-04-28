@@ -184,11 +184,14 @@
   top: 55px; /* ajusta la posición vertical del dropdown */
   left: -190px; /* ajusta la posición horizontal del dropdown */
   width: 205px;
-  background: var(--primary-color);
+  background: var(--primary-static-color);
+  border: 10px solid var(--primary-color);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: none;
-  border-radius: 5%;
+  border-radius: 10%;
 }
+
+
 
 .dropdownContainer{
   position: absolute;

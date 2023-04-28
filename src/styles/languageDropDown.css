@@ -76,11 +76,9 @@
   position: absolute;
   top: 55px; /* ajusta la posición vertical del dropdown */
   left: -35px; /* ajusta la posición horizontal del dropdown */
-  width: 50px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 65px;
   display: none;
-  border-radius: 5%;
+
 }
 
 .iconLook{
