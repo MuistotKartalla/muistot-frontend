@@ -32,7 +32,7 @@ const changeThemeInCSS = (theme) => {
         document.documentElement.style.setProperty("--effect-color", "#cecece")
         document.documentElement.style.setProperty("--activity-color", "#000000")
         document.documentElement.style.setProperty("--title-color", "#ffffff")
-        document.documentElement.style.setProperty("--hover-text-color", "#f9f9f9")
+        document.documentElement.style.setProperty("--hover-text-color", "#3E4144")
     }
     else{
         document.documentElement.style.setProperty("--primary-color", "#D3D3D3")
