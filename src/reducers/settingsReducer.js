@@ -21,7 +21,8 @@ const initialState = {
 
 const changeThemeInCSS = (theme) => {
     if (theme === "dark"){
-        document.documentElement.style.setProperty("--primary-color", "#322f2d")
+        document.documentElement.style.setProperty("--primary-color", "#3E4144")
+        document.documentElement.style.setProperty("--primary-static-color", "#535B61")
         document.documentElement.style.setProperty("--secondary-color", "#585755")
         document.documentElement.style.setProperty("--primary-text-color", "#e1e1e1")
         document.documentElement.style.setProperty("--secondary-text-color", "#ffffff")
@@ -34,7 +35,8 @@ const changeThemeInCSS = (theme) => {
         document.documentElement.style.setProperty("--hover-text-color", "#f9f9f9")
     }
     else{
-        document.documentElement.style.setProperty("--primary-color", "#ffffff")
+        document.documentElement.style.setProperty("--primary-color", "#D3D3D3")
+        document.documentElement.style.setProperty("--primary-static-color", "#DCDCDC")
         document.documentElement.style.setProperty("--secondary-color", "#dddddd")
         document.documentElement.style.setProperty("--primary-text-color", "#060303")
         document.documentElement.style.setProperty("--secondary-text-color", "#505050")
