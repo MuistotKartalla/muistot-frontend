@@ -55,10 +55,16 @@ export const NavMenuMobile = (props) => {
     props.history.push("/project-info/")
     toggleVisibity()
   }
+  // const toListViewClick = (event) => {
+  //   event.preventDefault()
+  //   props.history.push("/login")
+  //   toggleVisibity()
+  // }
+
+  //open list view
   const toListViewClick = (event) => {
     event.preventDefault()
-    props.history.push("/login")
-    toggleVisibity()
+    props.history.push("/list-view/")
   }
   /*
     const toUserSettings = (event) => {

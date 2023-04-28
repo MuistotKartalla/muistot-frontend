@@ -10,7 +10,7 @@ import "../styles/languageDropDown.css"
 import DropDownList from "./DropDownList"
 
 import { setActiveLanguage } from "../reducers/settingsReducer"
-
+import { isMobile } from "react-device-detect";
 
 
 export const LanguageDropDown = (props) => {
@@ -20,7 +20,7 @@ export const LanguageDropDown = (props) => {
   //when one of the items is clicked it is now the currently selected element and the list shrinks.
   //Out of focus click also hides the expanded part.
 
-  const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false)
+  const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false)
   // props should problbly have all the items and their click handlers. Like [{text: string/reference, "onClickHandler": [Function]}]
 
 
@@ -36,52 +36,87 @@ export const LanguageDropDown = (props) => {
     const strings = props.settings.languages
     let list = []
     strings.map(element => {
-      list.push({string: element.toUpperCase(), onClickHandler: () => {
-        props.setActiveLanguage(element)
-        setActive(element)
-        setIsComponentVisible(!isComponentVisible)
-        //console.log(element, " klikattu")
-      }
+      list.push({
+        string: element.toUpperCase(), onClickHandler: () => {
+          props.setActiveLanguage(element)
+          setActive(element)
+          setIsComponentVisible(!isComponentVisible)
+          //console.log(element, " klikattu")
+        }
       })
     })
     return list
   }
 
-  if(!isComponentVisible){
-    //console.log(active)       //active is wrong here, use props.settings.activeLanguage
-    return(
+  if (!isComponentVisible) {
+    return isMobile ? (
+
+      <div className="languageDDContainer" ref={ref}>
+        <div className="languageDDCurrentItemContainer" onClick={toggleVisibility}>
+          <div className="languageDDCurrentItem">
+            <span className="languageDDText">{props.settings.activeLanguage.toUpperCase()}</span>
+            <DropDownIcon className="dropDownIcon" />
+          </div>
+        </div>
+
+        {isComponentVisible ?
+          <div className="dropDownList" >
+            <DropDownList items={genListOptions()} />
+          </div>
+          :
+          <div />
+        }
+      </div>
+    ) : (
+
       <div className={`icon-containerlan ${isComponentVisible ? 'show' : ''}`} ref={ref}>
         <div className="acountDDCurrentItemContainer" onClick={toggleVisibility}>
           <TranslateIcon className="iconLook"></TranslateIcon>
         </div>
+        {isComponentVisible ? (
+          <div className="dropdownLan">
+            <DropDownList items={genListOptions()} />
+          </div>
+        ) : (
+          <div />
+        )}
+      </div>
+    );
+  } else {
+    return isMobile ? (
+      <div className="languageDDContainerActive" ref={ref}>
+        <div className="languageDDCurrentItemContainer" onClick={toggleVisibility}>
+          <div className="languageDDCurrentItem">
+            <span className="languageDDTextActive">{props.settings.activeLanguage.toUpperCase()}</span>
+            <DropDownIcon className="dropDownIconActive" />
+          </div>
+        </div>
 
-        {isComponentVisible?
-          <div className="dropdownLan" >
-            <DropDownList items={genListOptions()}/>
+        {isComponentVisible ?
+          <div className="dropDownList" >
+            <DropDownList items={genListOptions()} />
           </div>
           :
-          <div/>
+          <div />
         }
       </div>
-    )
-  }else{
-    return(
+    ) : (
       <div className={`icon-containerlan ${isComponentVisible ? 'show' : ''}`} ref={ref}>
         <div className="acountDDCurrentItemContainer" onClick={toggleVisibility}>
           <TranslateIcon className="iconLook"></TranslateIcon>
         </div>
-
-        {isComponentVisible?
-          <div className="dropdownLan" >
-            <DropDownList items={genListOptions()}/>
+        {isComponentVisible ? (
+          <div className="dropdownLan">
+            <DropDownList items={genListOptions()} />
           </div>
-          :
-          <div/>
-        }
+        ) : (
+          <div />
+        )}
       </div>
-    )
+    );
   }
 }
+
 
 const mapStateToProps = (state) => {
   //console.log(state)
