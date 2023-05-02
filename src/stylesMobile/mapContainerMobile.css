@@ -97,7 +97,7 @@
   right: 1em;
   z-index: 40000;
   fill: var(--title-color);
-
+  width: 40px;
 }
 
 .icon {

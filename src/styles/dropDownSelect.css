@@ -19,8 +19,14 @@
   flex: 0;
   flex-direction: row;
   justify-content: space-between;
-  width: 14em;
-  
+  width: 17em;
+}
+
+/*david: media query used to give a diferent width for movile screen */
+@media screen and (max-width: 767px) {
+  .dropDownSelectCurrentItem {
+    width: 15em;
+  }
 }
 
 .dropDownSelectCurrentItem:hover .dropDownIcon{
@@ -34,7 +40,7 @@
 .activeItemText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-size: 1.2em;
-  width: 9em;
+  width: auto;
   color: var(--secondary-text-color);
   text-align: left;
   text-transform: capitalize;

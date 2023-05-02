@@ -4,7 +4,7 @@
 // import "../styles/notification.css"
 
 
-// const NotificationMobile = (props) => {
+// const Notification = (props) => {
 
 //   //console.log(`setting notification timer animation duration for ${props.notification.seconds} seconds;`)
 //   if(document.getElementById("notificationTimer") !== null){
@@ -30,7 +30,8 @@
 
 //   }
 //   return (
-//     <div name="notificationContainerInner" className="notificationContainerInnerMobile">
+
+//     <div name="notificationContainerInner" className="notificationContainerInner">
 //       <div className="notificationGrid">
 //         {props.notification.error?
 //           <p className="notificationHeaderText">Error</p>
@@ -38,13 +39,18 @@
 //           <p className="notificationHeaderText">Notification</p>
 //         }
 
-//         <p className="notificationDescription">{props.notification.message}</p>
+//         <p className="normalText">{props.notification.message}</p>
 //         <button onClick={closeNotification} className="notificationButton rippleButton">Close</button>
 //       </div>
 //       <div className="notificationTimer">
 //         <div id="notificationTimer" className="timeRemaining" style={{"animationDuration": `${props.notification.seconds}s`}}></div>
 //       </div>
+
+
 //     </div>
+
+
+
 
 //   )
 // }
@@ -60,4 +66,9 @@
 // export default connect(
 //   mapStateToProps,
 //   {cancelNotification}
-// )(NotificationMobile)
+// )(Notification)
+
+
+
+// Notification: The Notification component is a functional component that takes in props as its argument. The props object has a notification property, which contains information about the notification to be displayed.
+//  The notification object has properties such as message, seconds, and error. It can be remove it. 

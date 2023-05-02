@@ -1,6 +1,10 @@
-  .rippleButton {
+ button:hover{
+  background-color: var(--hover-text-color);
+ }
+ 
+ .rippleButton {
   background: var(--primary-color);
-  color: var(--primary-text-color);
+  fill: var(--title-color);
   cursor: pointer;
   display: inline-block;
   min-height: 1em;

@@ -10,9 +10,9 @@ import "../styles/navMenu.css"
 import "../stylesMobile/navMenuMobile.css"
 
 import DropDownSelectProject from "../components/DropDownSelectProject"
-import LanguageDropDown from "../components/LanguageDropDown"
-import NameToggleSwitch from "../components/NameToggleSwitch"
-import ThemeToggleSwitch from "../components/ThemeToggleSwitch"
+import LanguageDropDown from "../common components/LanguageDropDown"
+import NameToggleSwitch from "../common components/NameToggleSwitch"
+import ThemeToggleSwitch from "../common components/ThemeToggleSwitch"
 import { initPosts } from "../reducers/postReducer"
 import { setActiveProject } from "../reducers/projectReducer"
 
@@ -55,10 +55,19 @@ export const NavMenuMobile = (props) => {
     props.history.push("/project-info/")
     toggleVisibity()
   }
+  // const toListViewClick = (event) => {
+  //   event.preventDefault()
+  //   props.history.push("/login")
+  //   toggleVisibity()
+  // }
+
+  //open list view
   const toListViewClick = (event) => {
     event.preventDefault()
     props.history.push("/list-view/")
+
     toggleVisibity()
+
   }
   /*
     const toUserSettings = (event) => {

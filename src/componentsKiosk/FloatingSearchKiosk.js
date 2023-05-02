@@ -8,7 +8,7 @@ import "../styles/inputs.css"
 
 import { ReactComponent as SearchIcon} from "../resources/search_FILL0.svg";
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
-import PostList from "./PostList"
+import PostList from "./PostListKiosk"
 
 
 
@@ -57,7 +57,7 @@ export const FloatingSearch = (props) => {
     }
   }
   const callSearch = (searchTerm) => {
-    //TODO
+    //ALL
     //console.log("Calling search with term", searchTerm )
   }
 
@@ -73,7 +73,7 @@ export const FloatingSearch = (props) => {
   if(!isComponentVisible){
     return(
       <div ref={ref}>
-        <SearchIcon name="search" id="searchField" className="floatingSearch" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="off" onChange={onSearchValueChange} value={searchValue} onClick={onClick}  />
+        <SearchIcon name="search" id="searchField" className="floatingSearch" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="on" onChange={onSearchValueChange} value={searchValue} onClick={onClick}  />
       </div>
     )
   }else{
@@ -81,7 +81,7 @@ export const FloatingSearch = (props) => {
       <div className="floatingSearchContainer" ref={ref}>
         <div className="floatingSearchInputContainer">
           <div className="floatingSearchInputContainerInner">
-            <input name="search" id="searchField" className="inputPrimary" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="off" onChange={onSearchValueChange} value={searchValue} />
+            <input name="search" id="searchField" className="inputPrimary" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="on" onChange={onSearchValueChange} value={searchValue} />
             <div className="inputFocusLine"/>
           </div>
           <ClearIcon className="clearIcon" onClick={onClearClick}/>

@@ -24,9 +24,9 @@ import { notify } from "../reducers/notificationReducer"
 import { createSite } from "../reducers/postReducer"
 import { setTempSite } from "../reducers/tempSiteReducer"
 import { updateUserLocation } from "../reducers/userLocationReducer"
-import FloatingSearch from "./FloatingSearch"
+import FloatingSearch from "./FloatingSearchKiosk"
 import {ReactComponent as ListIcon} from "../resources/list_icon.svg";
-import {Utils} from "./Utils";
+import {Utils} from "./UtilsKiosk";
 
 var IconMarker = L.Icon.extend({
         options: {
@@ -90,23 +90,7 @@ const MapContainerOpen = (props) => {
   }, [props, posts, followUser, userLocation])
 
     // Erilaisia ikonivalintoja:
-    // <Marker key={index} position={element.location} icon={element.muistoja==null?emptyIcon:(index<2?star3Icon:(index<4?star2Icon:(index<6?starIcon:defaultIcon)))} onClick={() => onPostClick(element)}>
-
-  const confirmNewLocationMarker = () => {
-    //confirm select on map event handler. Button is visible only when correct url.
-    if(props.user !== null) {
-      const tempSite = {...props.tempSite}
-      tempSite.location = tempMarker
-      props.setTempSite(tempSite)
-      props.history.push("/new-post/")
-    }
-    else{
-      //if not logged in, redirect to login page
-      props.history.push("/login/")
-      props.notify(props.settings.strings["login_required_to_post"], false, 5)
-    }
-
-  }
+    // <Marker key={index} position={element.location} icon={element.muistoja==null?emptyIcon:(index<2?star3Icon:(index<4?star2Icon:(index<6?starIcon:defaultIcon)))} onClick={() => onPostClick(element)}
  
   //open list view
   const toListView = (event) => {

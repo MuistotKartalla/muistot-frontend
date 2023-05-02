@@ -10,8 +10,8 @@ import "../styles/acountDropDown.css"
 import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24px.svg"
 import { ReactComponent as PersonIcon } from "../resources/person.svg"
 import DropDownList from "./DropDownList";
-import NameToggleSwitch from './NameToggleSwitch';
-import ThemeToggleSwitch from './ThemeToggleSwitch'
+import NameToggleSwitch from '../common components/NameToggleSwitch';
+import ThemeToggleSwitch from '../common components/ThemeToggleSwitch'
 import About from '../common components/About';
 import {useState} from "react";
 
@@ -31,42 +31,34 @@ export const  AcountDropDown = (props) => {
    }
 
     return (
-        <div className="acountDDContainerActive" ref={ref}>
+        <div className={`icon-container ${isComponentVisible ? 'show' : ''}`} ref={ref}>
             <div className="acountDDCurrentItemContainer" onClick={toggleVisibility}>
-                {isComponentVisible?
-                    <li className="accountItemActive">
-                        <PersonIcon className="personIconActive"/>
-                        <DropDownIcon className="dropDownIconActive"/>
-                    </li>
-                    :
-                    <li className="accountItem">
-                        <PersonIcon className="personIcon"/>
-                        <DropDownIcon className="dropDownIcon"/>
-                    </li>
-                }
+                <li className="icon">
+                    <PersonIcon className="personIconActive"/>
+                </li>
             </div>
 
             {isComponentVisible?
                 <div>
+                    <div className="dropdown">
+                            <ul className="dropDownList">
+                                {props.children}
+                                <ThemeToggleSwitch/>
+                                <NameToggleSwitch/>
+                                {props.items.map((element,index) =>
+                                    <div key={index}>
+                                        {element.divider?
+                                            <div className="divider"></div>
+                                            :
+                                            <li key={index} className="dropDownListItem" onClick={element.onClickHandler}>
+                                                <p className="dropDownItemText">{element.string}</p>
+                                            </li>
+                                        }
+                                    </div>
 
-                    <div className="dropDownContainer">
-                        <ul className="dropDownList">
-                            {props.children}
-                            <ThemeToggleSwitch/>
-                            <NameToggleSwitch/>
-                            {props.items.map((element,index) =>
-                                <div key={index}>
-                                    {element.divider?
-                                        <div className="divider"></div>
-                                        :
-                                        <li key={index} className="dropDownListItem" onClick={element.onClickHandler}>
-                                            <p className="dropDownItemText">{element.string}</p>
-                                        </li>
-                                    }
-                                </div>
+                                )}
+                            </ul>
 
-                            )}
-                        </ul>
                     </div>
                 </div>
                 :
