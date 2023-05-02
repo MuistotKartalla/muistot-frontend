@@ -44,8 +44,7 @@ const ContentArea = (props) => {
         <MapContainerKiosk history={history} />
         
       )} />
-
-
+      
       <Route path="/kiosk/project-info" render={({ history }) => (
         <PopUpContainerKiosk history={history}>
           <ProjectInfoKiosk history={history} />

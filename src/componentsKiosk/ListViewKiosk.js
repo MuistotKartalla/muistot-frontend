@@ -9,7 +9,7 @@ import { notify } from "../reducers/notificationReducer"
 import "../styles/listView.css"
 import "../styles/postView.css"
 import PostList from "./PostListKiosk"
-import PostViewLW from "./PostViewLWKiosk"
+import PostViewLWKiosk from "./PostViewLWKiosk"
 
 
 
@@ -55,7 +55,7 @@ export const ListView = (props) => {
         <PostList posts={posts} click={onItemClick}/>
       </div>
 
-      <PostViewLW match={props.match} history={props.history}/>
+      <PostViewLWKiosk match={props.match} history={props.history}/>
 
 
     </div>

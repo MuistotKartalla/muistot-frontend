@@ -41,7 +41,7 @@ export const ProjectInfo = (props) => {
 
   const closeClick = (event) => {
     event.preventDefault()
-    props.history.push("/")
+    props.history.push("/kiosk")
   }
 
   //go to project management page

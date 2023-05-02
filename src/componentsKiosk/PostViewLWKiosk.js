@@ -51,7 +51,7 @@ export const PostViewLW = (props) => {
     //eventhandler for close button
     event.preventDefault()
     //console.log("closeClick")
-    props.history.push("/")
+    props.history.push("/kiosk")
     props.updateListView(0)
   }
 

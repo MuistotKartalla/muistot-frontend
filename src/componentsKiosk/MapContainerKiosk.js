@@ -27,6 +27,9 @@ import { updateUserLocation } from "../reducers/userLocationReducer"
 import FloatingSearch from "./FloatingSearchKiosk"
 import {ReactComponent as ListIcon} from "../resources/list_icon.svg";
 import {Utils} from "./UtilsKiosk";
+//david
+import { ReactComponent as InfoButton } from "../resources/info_font.svg"
+import "../styles/navMenu.css"
 
 var IconMarker = L.Icon.extend({
         options: {
@@ -193,6 +196,18 @@ const MapContainerOpen = (props) => {
     return null;
   }
 
+  const toProjectMenu = (event) => {
+    event.preventDefault()
+	if(props.history.location.pathname === "/kiosk/project-info/")
+		{
+		props.history.push("/kiosk")
+		}
+	else
+		{
+		props.history.push("/kiosk/project-info/")
+		}
+  }
+
   return(
     <div className="mapContainer">
       <MapContainer className="fullscreenMap" center={position} zoom={zoom}>
@@ -267,7 +282,7 @@ const MapContainerOpen = (props) => {
         }
       </MapContainer>
 
-      <Utils items={[<FloatingSearch history={props.history}/>, <ListIcon className="floatingList" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
+      <Utils items={[<InfoButton className="projectInfoButtonContainer" onClick={toProjectMenu}></InfoButton>, <ListIcon className="floatingList" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
 
     </div>
   )
