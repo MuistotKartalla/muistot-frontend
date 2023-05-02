@@ -30,7 +30,7 @@ export const ListView = (props) => {
   }, [props, posts.length])
 
   const onItemClick = (post) => {
-    props.history.push(`/list-view/${post.id}`)
+    props.history.push(`/kiosk/list-view/${post.id}`)
   }
 
 /* Hakupalkki ennen listausta tilapäisesti pois käytöstä

@@ -95,7 +95,7 @@ const MapContainerOpen = (props) => {
   //open list view
   const toListView = (event) => {
     event.preventDefault()
-    props.history.push("/list-view/"+props.posts[0].id)
+    props.history.push("/kiosk/list-view/"+props.posts[0].id)
   }
 
   //function for handling events on the map

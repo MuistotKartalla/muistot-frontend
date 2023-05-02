@@ -22,6 +22,9 @@ import ProjectInfo from "./ProjectInfoKiosk"
 import ProjectManagement from "./ProjectManagementKiosk"
 import MapContainerKiosk from "./MapContainerKiosk";
 import NavMenuKiosk from "./NavMenuKiosk";
+import ProjectInfoKiosk from "./ProjectInfoKiosk"
+import PopUpContainerKiosk from "./PopUpContainerKiosk"
+import ListViewKiosk from "./ListViewKiosk"
 
 
 const ContentArea = (props) => {
@@ -36,60 +39,49 @@ const ContentArea = (props) => {
   //use pop container for pop up pages
   return (
     <div className="contentContainer">
-      <Route path="/" render={({ history }) => (
-        <div>
-          <NavMenuKiosk history={history} />
-          <MapContainerKiosk history={history} />
-        </div>
+      <Route path="/kiosk" render={({ history }) => (
+        
+        <MapContainerKiosk history={history} />
+        
       )} />
 
 
-      <Route path="/project-info" render={({ history }) => (
-        <PopUpContainer history={history}>
-          <ProjectInfo history={history} />
-        </PopUpContainer>
+      <Route path="/kiosk/project-info" render={({ history }) => (
+        <PopUpContainerKiosk history={history}>
+          <ProjectInfoKiosk history={history} />
+        </PopUpContainerKiosk>
       )} />
-      <Route path="/edit-location/:id/" render={({ match, history }) => (
+      <Route path="/kiosk/edit-location/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
           <EditLocation match={match} history={history} />
         </PopUpContainer>
       )} />
-      <Route path="/new-memento/:id/" render={({ match, history }) => (
+      <Route path="/kiosk/new-memento/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
           <NewMemento match={match} history={history} />
         </PopUpContainer>
       )} />
-      <Route path="/list-view/:id/" render={({ match, history }) => (
+      <Route path="/kiosk/list-view/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
-          <ListView match={match} history={history} />
+          <ListViewKiosk match={match} history={history} />
         </PopUpContainer>
       )} />
-      <Route exact path="/post-view/:id" render={({ match, history }) => (
+      <Route exact path="/kiosk/post-view/:id" render={({ match, history }) => (
         <PopUpContainer history={history}>
           <PostView match={match} history={history} />
         </PopUpContainer>
       )} />
-      <Route path="/imageless-posts/" render={({ history }) => (
+      <Route path="/kiosk/imageless-posts/" render={({ history }) => (
         <PopUpContainer history={history}>
           <ImagelessPosts history={history} />
         </PopUpContainer>
       )} />
-      <Route path="/project-management" render={({ history }) => (
+      <Route path="/kiosk/project-management" render={({ history }) => (
         <PopUpContainer history={history}>
           <ProjectManagement history={history} />
         </PopUpContainer>
       )} />
-      <CookieConsent  //TODO: modelize, styles, add to mobile as well
-        location="bottom"
-        buttonText="I understand"
-        cookieName="consentCookie"
-        style={{ background: "#181818", fontFamily: "sans-serif" }}
-        buttonStyle={{ background: "#03FFFF", fontSize: "1em", border: "none", borderRadius: "7px", fontWeight: "700", padding: "0.5em 1em 0.5em 1em" }}>
-        This website uses cookies to enhance the user experience.
-        <Link to="/about">
-          <span style={{ float: "right", color: "#FFFFFF", textDecoration: "underline" }}>Privacy Policy</span>
-        </Link>
-      </CookieConsent>
+    
     </div>
 
   )

@@ -125,7 +125,7 @@ const App = (props) => {
         return(
             <div className="appContainer">
                 <Router>
-                    <Route path="/" render={({history}) => (<ContentAreaKiosk history={history}/>)}/>
+                    <Route path="/kiosk" render={({history}) => (<ContentAreaKiosk history={history}/>)}/>
                 </Router>
             </div>
         )
