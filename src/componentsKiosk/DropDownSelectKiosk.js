@@ -4,62 +4,59 @@ import useComponentVisible from "../hooks/OutsideClick"
 
 import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24px.svg"
 import "../styles/dropDownSelect.css"
-import DropDownList from "./DropDownList"
+import DropDownList from "./DropDownListKiosk"
 
 import { setActiveProject } from "../reducers/projectReducer"
 
 
 
-export const DropDownSelectProject = (props) => {
-//dropdown select that is used for project selection.
+export const DropDownSelect = (props) => {
 
+  //todo for making new project
   const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false)
 
   const toggleVisibility = () => {
+
     //console.log("toggling visibility")
     setIsComponentVisible(!isComponentVisible)
   }
 
   const genListOptions = () => {
-    const strings = props.items.filter(item => item.id !== props.active.id)
+    const strings = props.items.filter(item => item !== props.active)
     let list = []
     strings.map(element => {
       if(element ==="divider"){
         //if the element name is "divider" dropdownlist adds divider there.
         list.push({divider:true})
-      }
-      else if (element === props.settings.strings["new_project"]){
+      }else if (element === props.settings.strings["new_project"]){
         list.push({string: element, onClickHandler: () => {
           props.change(element)
           setIsComponentVisible(!isComponentVisible)
         }
         })
-      }
-      else if (element.id === "piiput" || element.id === "parantolat"){
-        list.push({string: props.settings.strings[element.id], onClickHandler: () => {
+
+      }else{
+
+        list.push({string: element, onClickHandler: () => {
           props.change(element)
           setIsComponentVisible(!isComponentVisible)
           //console.log(element.title, " clicked")
         }
         })
-      }
-      else{
-        list.push({string: element.title, onClickHandler: () => {
-          props.change(element)
-          setIsComponentVisible(!isComponentVisible)
-        }
-      })
+
       }
     })
     return list
   }
 
-  
+
   if(!isComponentVisible){
     return(
       <div className="dropDownSelectHidden" ref={ref}>
         <div className="dropDownSelectCurrentItem" onClick={toggleVisibility}>
-          <span className="activeItemText">{props.active?.id==="piiput" || props.active?.id==="parantolat"?props.settings.strings[props.active?.id]:props.active?.title}</span> 
+
+          <span className="activeItemText">{props.active}</span>
+
           <DropDownIcon className="dropDownIcon"></DropDownIcon>
         </div>
       </div>
@@ -68,7 +65,9 @@ export const DropDownSelectProject = (props) => {
     return(
       <div className="dropDownSelectVisible" ref={ref}>
         <div className="dropDownSelectCurrentItem" onClick={toggleVisibility}>
-          <span className="activeItemText">{props.active?.id==="piiput" || props.active?.id==="parantolat"?props.settings.strings[props.active?.id]:props.active?.title}</span>
+
+          <span className="activeItemText">{props.active}</span>
+
           <DropDownIcon className="dropDownIconActive"></DropDownIcon>
         </div>
         <DropDownList items={genListOptions()}/>
@@ -96,10 +95,16 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DropDownSelectProject)
+)(DropDownSelect)
 
 
 
-// DropDownSelectProject: This component is used in NavMenu, and display the list of projects.
-//  It has a function  that takes props as an argument. The function uses the useComponentVisible hook to keep track of whether the dropdown list is visible or hidden.
-//  The genListOptions function generates a list of items for the dropdown list based on the props.items array.
+// DropDownSelect: The component receives the following props:
+//  1.items: an array of strings representing the dropdown options
+//  2.active: a string representing the currently selected dropdown option
+//  3.change: a function that is called when an option is selected, with the selected option as an argument
+//  The component defines the following state variables using the useState hook:
+//   - isComponentVisible: a boolean indicating whether the dropdown list is visible or not
+//   - toggleVisibility: a function that toggles the visibility of the dropdown list when called
+//   - genListOptions: a function that generates an array of objects representing the dropdown options,
+//     with each object containing a string property for the option text and an onClickHandler property for the function to be called when the option is clicked

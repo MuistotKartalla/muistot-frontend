@@ -8,7 +8,7 @@ import { setTempPost } from "../reducers/tempPostReducer"
 import * as postService from "../services/posts"
 import "../styles/buttons.css"
 import "../styles/newPost.css"
-import ImageUpload from "./ImageUpload"
+import ImageUpload from "./ImageUploadKiosk"
 
 export const NewMemento = (props) => {
   const [titleField, setTitleField] = useState("")

@@ -6,8 +6,8 @@ import { createProject } from "../reducers/projectReducer"
 
 import "../styles/inputs.css"
 import "../styles/newProject.css"
-import DropDownSelect from "./DropDownSelect"
-import ImageUpload from "./ImageUpload"
+import DropDownSelect from "./DropDownSelectKiosk"
+import ImageUpload from "./ImageUploadKiosk"
 
 export const NewProject = (props) => {
   const [title, setTitle] = useState("")

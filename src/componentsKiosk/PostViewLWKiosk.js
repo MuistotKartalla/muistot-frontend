@@ -10,7 +10,7 @@ import "../styles/postView.css"
 import "../styles/buttons.css"
 import "../styles/texts.css"
 
-import MementoList from "./MementoList"
+import MementoList from "./MementoListKiosk"
 import {ReactComponent as Verified} from "../resources/verified.svg"
 import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
 import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
