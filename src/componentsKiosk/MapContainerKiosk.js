@@ -2,7 +2,7 @@
 import L from "leaflet"
 import "leaflet/dist/leaflet.css"
 import { useEffect, useRef, useState } from "react"
-import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents } from "react-leaflet"
+import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents,ZoomControl } from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster"
 import { connect } from "react-redux"
 import iconGreen from "../resources/marker-green.png"
@@ -216,6 +216,7 @@ const MapContainerOpen = (props) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           
         />
+        <ZoomControl position="bottomright" />
         <UpdateMapCenter/>
         <HandleMapEvents/>
         <UpdatePopups/>
