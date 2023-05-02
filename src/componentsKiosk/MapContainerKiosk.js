@@ -269,19 +269,6 @@ const MapContainerOpen = (props) => {
 
       <Utils items={[<FloatingSearch history={props.history}/>, <ListIcon className="floatingList" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
 
-
-
-      {tempMarker ?  props.user ? props.currentProject.id !== "parantolat"? !followUser?
-      <button className="overlayButtonCenter pulsingButton rippleButton smallButton" onClick={confirmNewLocationMarker}>{props.settings.strings["new_post"]}</button>
-      :
-      <></>
-      : 
-      <></>
-      :
-      <></>
-      :
-      <></>
-    }
     </div>
   )
 }

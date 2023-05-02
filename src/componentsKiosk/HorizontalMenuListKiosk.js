@@ -8,10 +8,6 @@ import { initPosts } from "../reducers/postReducer"
 import useComponentVisible from "../hooks/OutsideClick"
 import "../styles/horizontalMenuList.css"
 
-import DropDownList from "./DropDownListKiosk"
-import LanguageDropDown from "../common components/LanguageDropDown"
-import AcountDropDown from "./AcountDropDown";
-
 
 const HorizontalMenuList = (props) => {
   //Hardcoded horizontal menu list for the nav bar. Maybe a separate component is not necessary but to keep components concise, it currently is.

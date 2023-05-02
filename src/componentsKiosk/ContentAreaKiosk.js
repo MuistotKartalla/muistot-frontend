@@ -8,28 +8,21 @@ import "../styles/texts.css"
 import CookieConsent from "react-cookie-consent"
 import { notify } from "../reducers/notificationReducer"
 
-import AccountInfo from "./AccountInfo"
-import ChangeUserName from "./ChangeUserName"
-import EditImage from "./EditImage"
+
 import EditLocation from "./EditLocationKiosk"
-import EditPost from "./EditPost"
-import EditSiteTitle from "./EditSiteTitle"
+
 import ImagelessPosts from "./ImagelessPostsKiosk"
 import ListView from "./ListViewKiosk"
-import MapContainerOpen from "./MapContainerKiosk"
-import MyPosts from "./MyPostsKiosk"
+
 import NewMemento from "./NewMementoKiosk"
-import NewPostCombined from "./NewPostCombinedKiosk"
+
 import PopUpContainer from "./PopUpContainerKiosk"
 import PostView from "./PostViewKiosk"
 import ProjectInfo from "./ProjectInfoKiosk"
 import ProjectManagement from "./ProjectManagementKiosk"
-import ProjectModerators from "./ProjectModeratorsKiosk"
-import ProjectSettings from "./ProjectSettingsKiosk"
-import SetUserName from "./SetUserNameKiosk"
-import UnverifiedPosts from "./UnverifiedPostsKiosk"
-import UserSettings from "./UserSettingsKiosk"
-import MapContainerOpen from "./componentsKiosk/";
+import MapContainerKiosk from "./MapContainerKiosk";
+import NavMenuKiosk from "./NavMenuKiosk";
+
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -43,7 +36,7 @@ const ContentArea = (props) => {
   //use pop container for pop up pages
   return (
     <div className="contentContainer">
-      <Route path="/kiosk" render={({ history }) => (
+      <Route path="/" render={({ history }) => (
         <div>
           <NavMenuKiosk history={history} />
           <MapContainerKiosk history={history} />
