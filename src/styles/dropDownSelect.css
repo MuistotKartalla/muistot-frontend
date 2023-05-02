@@ -22,6 +22,13 @@
   width: 17em;
 }
 
+/*david: media query used to give a diferent width for movile screen */
+@media screen and (max-width: 767px) {
+  .dropDownSelectCurrentItem {
+    width: 15em;
+  }
+}
+
 .dropDownSelectCurrentItem:hover .dropDownIcon{
   fill: var(--title-color);
 }
