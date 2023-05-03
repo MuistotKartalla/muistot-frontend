@@ -6,30 +6,50 @@
     background: var(--primary-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 10%;
-
+  
 }
+@media (orientation: portrait) {
+    .utils-container{
+     bottom: 2%;
+     width: 15%;
+
+    }
+  }
 
 .utils-ul {
     list-style: none; /* elimina los marcadores de lista */
-    padding: 4px; /* elimina el espacio de relleno predeterminado */
-    margin: 0; /* elimina el margen predeterminado */
-}
+    margin: 1%; /* elimina el margen predeterminado */
 
+}
+@media (orientation: portrait) {
+    .utils-ul {
+        width: 100%;
+        height: 100%;
+        padding: 0%;
+    }
+  }
 .floatingSearch{
     width: 35px;
     height: 35px;
     fill: var(--title-color);
 }
+@media (orientation: portrait) {
+    .floatingSearch {
+        width: 35px;
+        height: 35px;
+        fill: var(--title-color);
+    }
+  }
 
-.floatingList{
-    width: 35px;
-    height: 35px;
+.floatingSearch{
+    width: 100%;
+    height: 100%;
     fill: var(--title-color);
 
 }
 @media (orientation: portrait) {
     .floatingList{
-        width: 90px;
-        height: 90px;
+        width: 100%;
+        height: 100%;
     }
   }

@@ -66,8 +66,8 @@
 }
 @media (orientation: portrait) {
   .projectInfoButtonContainer{
-      width: 90px;
-      height: 90px;
+      height: 100%;
+      width: 100%;
   }
 }
 
@@ -84,9 +84,10 @@
 @media (orientation: portrait) {
   .centerContainer {
     font-weight: bold;
-    font-size: 2em;
+    font-size: xxx-large;
     text-align: center;
-    width: auto;
+    width: 100%;
+    bottom: 94%;
   }
 }
 
