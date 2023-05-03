@@ -45,10 +45,6 @@ export const NavMenu = (props) => {
   return (
     <div className="menuContainer">
       <div className="menuInnerContainer">
-        <div className="menuLogo" >
-          <p className="logoText" onClick={toRoot}>{props.settings.strings["app_name"]}</p>
-        </div>
-
         <div className="centerContainer">
           <DropDownSelectProject  items={props.projects.projects} active={props.projects.active} change={changeProject}/>
         </div>

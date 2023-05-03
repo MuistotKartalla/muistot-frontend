@@ -3,3 +3,27 @@
     right: 35%;
 
 }
+
+.logoButton{
+    position: absolute;
+    display: flex;
+    grid-area: logo;
+    margin: 0;
+    width: 100%;
+    max-width: 18%;
+    height: 4em;
+    width: -moz-fit-content;
+    width: fit-content;
+    z-index: 999;
+    bottom: 2%;
+}
+.textButton{
+    cursor: pointer;
+    color: black;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    margin: auto 10px;
+    font-weight: 700;
+    font-size: 200%;
+    padding: 10px;
+    z-index: 1000;
+}
