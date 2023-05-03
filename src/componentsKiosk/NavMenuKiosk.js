@@ -45,6 +45,7 @@ export const NavMenu = (props) => {
   return (
     <div className="menuContainer">
       <div className="menuInnerContainer">
+
         <div className="centerContainer">
           <DropDownSelectProject  items={props.projects.projects} active={props.projects.active} change={changeProject}/>
         </div>

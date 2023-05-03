@@ -32,6 +32,9 @@ import {Utils} from "./UtilsKiosk";
 //david
 import { ReactComponent as InfoButton } from "../resources/info_font.svg"
 import "../styles/navMenu.css"
+
+import LanguageDropDown from "../common components/LanguageDropDown"
+
 import "../stylesKiosk/buttonStyle.css"
 import useComponentVisible from "../hooks/OutsideClick"
 
@@ -49,6 +52,7 @@ const LogoButton = () =>{
     </button>
   )
 }
+
 
 var IconMarker = L.Icon.extend({
         options: {
@@ -270,11 +274,11 @@ const MapContainerOpen = (props) => {
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          
-        />        
+        />
         <ZoomControl className="leaflet-control-zoom" position="bottomright" />
        
        <button className="logoButton" onClick = {aboutClick}><p className="textButton">Musitot Kartalla</p></button>
+
 
         <UpdateMapCenter/>
         <HandleMapEvents/>
@@ -342,7 +346,7 @@ const MapContainerOpen = (props) => {
         }
       </MapContainer>
 
-      <Utils items={[<InfoButton className="projectInfoButtonContainer" onClick={toProjectMenu}></InfoButton>, <ListIcon className="floatingList" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
+      <Utils items={[<LanguageDropDown className="iconLook" ></LanguageDropDown>, <InfoButton className="projectInfoButtonContainer" onClick={toProjectMenu}></InfoButton>, <ListIcon className="floatingList" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
 
     </div>
   )

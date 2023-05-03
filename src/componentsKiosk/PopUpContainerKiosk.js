@@ -14,7 +14,7 @@ const PopUpContainer = (props) => {
   const unfocusClick = (event) => {
     //background click
     if(event.target.id === "popUpBackground"){
-      props.history.push("/kiosk")
+      props.history.goBack()
       props.updateListView(0)
       //console.log("unfocus click")
     }

@@ -38,7 +38,7 @@ export const PostView = (props) => {
     event.preventDefault()
     //console.log(`Centering Map to ${post.title} coordinates.`)
     props.updateMapLocation(post.location)
-    props.history.push("/")
+    props.history.push("/kiosk")
   }
   const deletePost = (event) => {
     event.preventDefault()
@@ -63,7 +63,7 @@ export const PostView = (props) => {
     //eventhandler for close button
     event.preventDefault()
     //console.log("closeClick")
-    props.history.push("/")
+    props.history.push("/kiosk")
     props.updateListView(0)
   }
 

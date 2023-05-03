@@ -12,7 +12,21 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
 }
-
+@media (orientation: portrait) {
+  .projectInfoContainer{
+    z-index: 4;
+    background: var(--primary-color);
+    max-width: 70%;
+    width: 100%;
+    height: auto;
+    max-height: 90%;
+    border-radius: 10px;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
 .projectInfoContainerMobile {
   z-index: 4;
   background: var(--secondary-color);
