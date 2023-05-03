@@ -142,7 +142,6 @@
 
 .dropDownIcon{
   padding: 0;
-  margin: auto 0;
   float: right;
   fill: var(--secondary-text-color);
   transition: 0s;
@@ -156,7 +155,7 @@
 
 .dropDownIconActive{
   padding: 0;
-  margin: auto 0;
+
   float: right;
   fill: var(--title-color);
   width: 2em;
