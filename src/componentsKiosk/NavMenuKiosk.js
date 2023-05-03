@@ -51,7 +51,6 @@ export const NavMenu = (props) => {
 
         <div className="centerContainer">
           <DropDownSelectProject  items={props.projects.projects} active={props.projects.active} change={changeProject}/>
-          <InfoButton className="projectInfoButtonContainer" onClick={toProjectMenu}></InfoButton>
         </div>
       </div>
     </div>
