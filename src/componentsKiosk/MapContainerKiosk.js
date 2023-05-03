@@ -31,6 +31,7 @@ import {Utils} from "./UtilsKiosk";
 //david
 import { ReactComponent as InfoButton } from "../resources/info_font.svg"
 import "../styles/navMenu.css"
+import LanguageDropDown from "../common components/LanguageDropDown"
 
 var IconMarker = L.Icon.extend({
         options: {
@@ -217,7 +218,7 @@ const MapContainerOpen = (props) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           
         />
-        <ZoomControl className="leaflet-control-zoom" position="bottomright" />
+        <ZoomControl className="leaflet-control-zoom"  />
         <UpdateMapCenter/>
         <HandleMapEvents/>
         <UpdatePopups/>
@@ -284,7 +285,7 @@ const MapContainerOpen = (props) => {
         }
       </MapContainer>
 
-      <Utils items={[<InfoButton className="projectInfoButtonContainer" onClick={toProjectMenu}></InfoButton>, <ListIcon className="floatingList" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
+      <Utils items={[<LanguageDropDown className="iconLook" ></LanguageDropDown>, <InfoButton className="projectInfoButtonContainer" onClick={toProjectMenu}></InfoButton>, <ListIcon className="floatingList" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
 
     </div>
   )

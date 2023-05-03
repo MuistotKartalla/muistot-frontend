@@ -90,6 +90,12 @@
   height: 30px;
   border-radius: 50%;
 }
+@media (orientation: portrait) {
+  .iconLook{
+      width: 100%;
+      height: 100%;
+  }
+}
 
 .icon-containerlan:hover .dropdownLan,
 .icon-containerlan.show .dropdownLan{

@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 25px;
     right: 28px;
-    z-index: 9999;
+    z-index: 9;
     background: var(--primary-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 10%;
@@ -11,7 +11,9 @@
 @media (orientation: portrait) {
     .utils-container{
      bottom: 2%;
-     width: 15%;
+     width: 14%;
+     height: auto ;
+    
 
     }
   }
