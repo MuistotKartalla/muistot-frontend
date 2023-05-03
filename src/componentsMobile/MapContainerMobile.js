@@ -322,13 +322,9 @@ const MapContainerMobile = (props) => {
         :
         <></>
       }
-      {props.user ?
-        <div className="accountInfoContainer">
-          <AccountIcon className="accountInfoButton" onClick={toProfileClick}></AccountIcon>
-        </div>
-        :
-        <></>
-      }
+      <div className="accountInfoContainer">
+        <AccountIcon className="accountInfoButton" onClick={toProfileClick}></AccountIcon>
+      </div>
 
 
       {props.history.location.pathname !== "/select-location/" ?
