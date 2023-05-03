@@ -57,6 +57,15 @@
   vertical-align: baseline;
   max-height: 33px;
 }
+@media (orientation: portrait) {
+  .activeItemText{
+    width: fit-content;
+    height: fit-content;
+    max-height: 0%;
+    text-align: center;
+  }
+}
+
 
 .activeItemTextActive{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
