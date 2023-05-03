@@ -28,18 +28,25 @@ import { updateUserLocation } from "../reducers/userLocationReducer"
 import FloatingSearch from "./FloatingSearchKiosk"
 import {ReactComponent as ListIcon} from "../resources/list_icon.svg";
 import {Utils} from "./UtilsKiosk";
+
 //david
 import { ReactComponent as InfoButton } from "../resources/info_font.svg"
 import "../styles/navMenu.css"
 import "../stylesKiosk/buttonStyle.css"
+import useComponentVisible from "../hooks/OutsideClick"
+
 
 //new component to render the logo on the map
+
 const LogoButton = () =>{
 
   return (
-    <div className="logoButton">
+
+    <button className="logoButton">
+      
       <p className="textButton">MuistotKartalla</p>
-    </div>
+      
+    </button>
   )
 }
 
@@ -85,6 +92,42 @@ const MapContainerOpen = (props) => {
 
   //users custom location hook
   const {userLocation} = usePosition(5)
+
+
+
+  const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false)
+
+  //account settings not in use atm {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick}
+  // reports not in use atm ,{divider:true}, {string:props.settings.strings["reports"], onClickHandler: reportsClick}
+
+  //david
+  const toggleDDV = () => {
+    //DDV = dropDownVisibility
+    //event.preventDefault()
+    //console.log("toggling dropdown visibility")
+    setIsComponentVisible(!isComponentVisible)
+  }
+  // const aboutClick = (event) => {
+  //   event.preventDefault()
+  //   if(props.history.location.pathname === "/kiosk")
+  //   {
+  //     props.history.push("/kiosk/about")
+  //     toggleDDV()
+  //   }
+  // }
+
+  const aboutClick = (event) => {
+    event.preventDefault();
+    if (props.history.location.pathname === "/kiosk/about") {
+      props.history.push("/kiosk");
+    } else {
+      props.history.push("/kiosk/about");
+    }
+    if (isComponentVisible) {
+      toggleDDV();
+    }
+  };
+  
 
   useEffect(() => {
     //hook for initializing state variable posts. And sets map position to user location if location access.
@@ -145,6 +188,7 @@ const MapContainerOpen = (props) => {
     });
     return null;
   }
+
 
   //function for updating map center
   const UpdateMapCenter = () => {
@@ -227,9 +271,10 @@ const MapContainerOpen = (props) => {
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           
-        />
+        />        
         <ZoomControl className="leaflet-control-zoom" position="bottomright" />
-       <LogoButton/>
+       
+       <button className="logoButton" onClick = {aboutClick}><p className="textButton">Musitot Kartalla</p></button>
 
         <UpdateMapCenter/>
         <HandleMapEvents/>

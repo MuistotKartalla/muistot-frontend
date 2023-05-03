@@ -26,6 +26,7 @@ import NavMenuKiosk from "./NavMenuKiosk";
 import ProjectInfoKiosk from "./ProjectInfoKiosk"
 import PopUpContainerKiosk from "./PopUpContainerKiosk"
 import ListViewKiosk from "./ListViewKiosk"
+import About from "../common components/About"
 
 
 const ContentArea = (props) => {
@@ -40,13 +41,14 @@ const ContentArea = (props) => {
   //use pop container for pop up pages
   return (
     <div className="contentContainer">
-      <Route path="/kiosk" render={({ history }) => (
-       
-          
+      <Route path="/kiosk" render={({ history }) => (   
           <MapContainerKiosk history={history} />
-        
       )} />
-
+      <Route path="/kiosk/about" render={({history}) => (
+        <PopUpContainerKiosk history={history}>
+          <About history={history}/>
+        </PopUpContainerKiosk>
+      )}/>
       <Route path="/kiosk/project-info" render={({ history }) => (
         <PopUpContainerKiosk history={history}>
           <ProjectInfoKiosk history={history} />
@@ -67,6 +69,7 @@ const ContentArea = (props) => {
           <ListViewKiosk match={match} history={history} />
         </PopUpContainer>
       )} />
+
       <Route exact path="/kiosk/post-view/:id" render={({ match, history }) => (
         <PopUpContainer history={history}>
           <PostView match={match} history={history} />
