@@ -31,7 +31,21 @@ import {Utils} from "./UtilsKiosk";
 //david
 import { ReactComponent as InfoButton } from "../resources/info_font.svg"
 import "../styles/navMenu.css"
+
 import LanguageDropDown from "../common components/LanguageDropDown"
+
+import "../stylesKiosk/buttonStyle.css"
+
+//new component to render the logo on the map
+const LogoButton = () =>{
+
+  return (
+    <div className="logoButton">
+      <p className="textButton">MuistotKartalla</p>
+    </div>
+  )
+}
+
 
 var IconMarker = L.Icon.extend({
         options: {
@@ -219,6 +233,11 @@ const MapContainerOpen = (props) => {
           
         />
         <ZoomControl className="leaflet-control-zoom"  />
+
+        <ZoomControl className="leaflet-control-zoom" position="bottomright" />
+       <LogoButton/>
+
+
         <UpdateMapCenter/>
         <HandleMapEvents/>
         <UpdatePopups/>
