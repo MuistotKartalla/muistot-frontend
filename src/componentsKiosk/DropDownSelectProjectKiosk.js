@@ -49,12 +49,11 @@ export const DropDownSelectProject = (props) => {
   
   if(!isComponentVisible){
     return(
-      <div className="dropDownSelectHidden" ref={ref}>
-        <div className="dropDownSelectCurrentItem" onClick={toggleVisibility}>
-          <span className="activeItemText">{props.active?.id==="piiput" || props.active?.id==="parantolat"?props.settings.strings[props.active?.id]:props.active?.title}</span> 
-          <DropDownIcon className="dropDownIcon"></DropDownIcon>
-        </div>
-      </div>
+    
+
+          <h1 className="activeItemText">{props.active?.id==="piiput" || props.active?.id==="parantolat"?props.settings.strings[props.active?.id]:props.active?.title}</h1> 
+      
+      
     )
   }else{
     return(

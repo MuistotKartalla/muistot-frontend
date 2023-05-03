@@ -68,9 +68,9 @@ export const DropDownSelect = (props) => {
 
           <span className="activeItemText">{props.active}</span>
 
-          <DropDownIcon className="dropDownIconActive"></DropDownIcon>
+      
         </div>
-        <DropDownList items={genListOptions()}/>
+  
       </div>
     )
   }

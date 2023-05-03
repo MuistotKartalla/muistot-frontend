@@ -62,17 +62,34 @@
   height: 40px;
   margin-top: 12px;
   fill: var(--title-color);
+
+}
+@media (orientation: portrait) {
+  .projectInfoButtonContainer{
+      width: 90px;
+      height: 90px;
+  }
 }
 
-.centerContainer{
+.centerContainer {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   width: 40%;
 }
+
+@media (orientation: portrait) {
+  .centerContainer {
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    width: auto;
+  }
+}
+
 
 
 .projectInfoButton{

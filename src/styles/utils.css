@@ -27,3 +27,9 @@
     fill: var(--title-color);
 
 }
+@media (orientation: portrait) {
+    .floatingList{
+        width: 90px;
+        height: 90px;
+    }
+  }
