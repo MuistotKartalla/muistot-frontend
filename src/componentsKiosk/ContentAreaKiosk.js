@@ -16,6 +16,7 @@ import ListView from "./ListViewKiosk"
 
 import NewMemento from "./NewMementoKiosk"
 
+import NavMenu from "../components/NavMenu"
 import PopUpContainer from "./PopUpContainerKiosk"
 import PostView from "./PostViewKiosk"
 import ProjectInfo from "./ProjectInfoKiosk"
@@ -40,11 +41,12 @@ const ContentArea = (props) => {
   return (
     <div className="contentContainer">
       <Route path="/kiosk" render={({ history }) => (
-        
-        <MapContainerKiosk history={history} />
+       
+          
+          <MapContainerKiosk history={history} />
         
       )} />
-      
+
       <Route path="/kiosk/project-info" render={({ history }) => (
         <PopUpContainerKiosk history={history}>
           <ProjectInfoKiosk history={history} />
@@ -80,7 +82,7 @@ const ContentArea = (props) => {
           <ProjectManagement history={history} />
         </PopUpContainer>
       )} />
-    
+
     </div>
 
   )
@@ -104,7 +106,7 @@ const mapDispatchToProps = {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(ContentArea)
 
 

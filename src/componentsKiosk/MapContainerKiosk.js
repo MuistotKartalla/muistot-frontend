@@ -99,7 +99,7 @@ const MapContainerOpen = (props) => {
   //open list view
   const toListView = (event) => {
     event.preventDefault()
-    props.history.push("/kiosk/list-view/"+props.posts[0].id)
+    props.history.push("/kiosk/list-view/Kiosk/"+props.posts[0].id)
   }
 
   //function for handling events on the map
@@ -201,7 +201,7 @@ const MapContainerOpen = (props) => {
     event.preventDefault()
 	if(props.history.location.pathname === "/kiosk/project-info/")
 		{
-		props.history.push("/kiosk")
+		props.history.push("/kiosk/")
 		}
 	else
 		{
@@ -235,7 +235,7 @@ const MapContainerOpen = (props) => {
                 click: (e) => {
                   //handle click event on marker
                   //console.log(element.id)
-                  props.history.push(`/post-view/${element.id}/`)
+                  props.history.push(`/kiosk/post-view/${element.id}/`)
                   setFollowUser(false)
                   setPosition(element.location)
                   setmoveToPosition(true)

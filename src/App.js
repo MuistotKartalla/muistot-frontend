@@ -24,6 +24,7 @@ import ContentAreaKiosk from "./componentsKiosk/ContentAreaKiosk"
 
 import {log} from "./services/settings";
 import {checkLocation} from "./services/initialurl";
+import NavMenuKiosk from "./componentsKiosk/NavMenuKiosk"
 
 const App = (props) => {
     const [postsInit, setPostsInitialized] = useState(false)
@@ -125,7 +126,8 @@ const App = (props) => {
         return(
             <div className="appContainer">
                 <Router>
-                    <Route path="/kiosk" render={({history}) => (<ContentAreaKiosk history={history}/>)}/>
+                <Route path="/kiosk" render={({history}) => (<NavMenuKiosk history={history}/>)}/>
+                    <ContentAreaKiosk/>
                 </Router>
             </div>
         )

@@ -21,19 +21,19 @@ export const NavMenu = (props) => {
 
   const toProjectMenu = (event) => {
     event.preventDefault()
-	if(props.history.location.pathname === "/project-info/")
+	if(props.history.location.pathname === "/kiosk/project-info/")
 		{
-		props.history.push("/")
+		props.history.push("/kiosk/")
 		}
 	else
 		{
-		props.history.push("/project-info/")
+		props.history.push("/kiosk/project-info/")
 		}
   }
   const toRoot = (event) => {
     //pushes url route to root or "/", might change later when different projects implemented.
     event.preventDefault()
-    props.history.push("/")
+    props.history.push("/kiosk/")
   }
 
   const changeProject = (project) => {
@@ -53,9 +53,6 @@ export const NavMenu = (props) => {
           <DropDownSelectProject  items={props.projects.projects} active={props.projects.active} change={changeProject}/>
           <InfoButton className="projectInfoButtonContainer" onClick={toProjectMenu}></InfoButton>
         </div>
-
-
-        <HorizontalMenuList history={props.history}/>
       </div>
     </div>
 
@@ -76,7 +73,6 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   //notify (for example)
   notify,
-  logout,
   setActiveProject,
   initPosts
 }
