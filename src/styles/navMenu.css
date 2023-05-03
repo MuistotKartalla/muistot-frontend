@@ -17,7 +17,7 @@
 }
 
 
-.menuInnerContainer{
+.menuInnerContainer {
   display: flex;
   float: right;
   flex-direction: row;
@@ -33,7 +33,7 @@
   user-select: none;
 }
 
-.menuLogo{
+.menuLogo {
   display: flex;
   grid-area: logo;
   margin: 0;
@@ -44,56 +44,64 @@
   width: fit-content;
 }
 
-.logoText{
+.logoText {
   cursor: pointer;
   color: var(--title-color);
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: auto 10px;
   font-weight: 700;
   font-size: 1.2em;
   padding: 10px;
 }
+
 .DropDownSelectProject {
   position: relative;
 }
 
-.projectInfoButtonContainer{
+.projectInfoButtonContainer {
   width: 40px;
   height: 40px;
   margin-top: 12px;
   fill: var(--title-color);
 
 }
+
 @media (orientation: portrait) {
-  .projectInfoButtonContainer{
-      height: 100%;
-      width: 100%;
+  .projectInfoButtonContainer {
+    height: 100%;
+    width: 100%;
   }
 }
 
 .centerContainer {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40%;
 }
 
 @media (orientation: portrait) {
   .centerContainer {
+   
     font-weight: bold;
-    font-size: xxx-large;
+    font-size: 4.5vw;
     text-align: center;
     width: 100%;
-    bottom: 94%;
+    top: 3%;
   }
 }
 
 
 
-.projectInfoButton{
+
+
+
+
+
+.projectInfoButton {
   /*background: var(--primary-color);*/
   color: var(--secondary-text-color);
   cursor: pointer;
@@ -102,7 +110,7 @@
   outline: 0;
   border: none;
   vertical-align: baseline;
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   margin: 0 .25em 0 .25em;
   padding: 0;
@@ -119,11 +127,11 @@
   margin: auto;
 }
 
-.projectInfoButton:hover{
+.projectInfoButton:hover {
   color: var(--title-color);
 }
 
-.projectSelectContainer{
+.projectSelectContainer {
   top: 0.3em;
   left: 50%;
   transform: translateX(-50%);
@@ -138,44 +146,44 @@
 /* CSS for samller screen - by Adnan Islam */
 @media screen and (min-width: 700px) and (max-width: 1000px) {
 
-.logoText{
-  margin: auto 5px;
-  font-weight: 700;
-  font-size: .8em;
-  padding: 5px;
-}
+  .logoText {
+    margin: auto 5px;
+    font-weight: 700;
+    font-size: .8em;
+    padding: 5px;
+  }
 
-.projectInfoButton{
-  font-size: 1em;
-  padding: 0;
-  text-transform: none;
-  text-shadow: none;
-  font-weight: 700;
-  line-height: 1em;
-  text-decoration: none;
-  border-radius: .28571429rem;
-  background-position: center;
-  transition: background 0s;
-  margin: auto;
-}
+  .projectInfoButton {
+    font-size: 1em;
+    padding: 0;
+    text-transform: none;
+    text-shadow: none;
+    font-weight: 700;
+    line-height: 1em;
+    text-decoration: none;
+    border-radius: .28571429rem;
+    background-position: center;
+    transition: background 0s;
+    margin: auto;
+  }
 
 
 }
 
 @media screen and (min-width: 500px) and (max-width: 700px) {
 
-.logoText{
-  margin: auto 5px;
-  font-weight: 700;
-  font-size: .9em;
-  padding: 3px;
-}
+  .logoText {
+    margin: auto 5px;
+    font-weight: 700;
+    font-size: .9em;
+    padding: 3px;
+  }
 
-.projectInfoButton{
-  font-size: .9em;
-  padding: 0;
-  margin: auto 10px;
-}
+  .projectInfoButton {
+    font-size: .9em;
+    padding: 0;
+    margin: auto 10px;
+  }
 
 }
 

@@ -80,6 +80,16 @@
   display: none;
 
 }
+@media (orientation: portrait) {
+  .dropdownLan {
+    top: -1%;
+    /* ajusta la posición vertical del dropdown */
+    left: -100%;
+    /* ajusta la posición horizontal del dropdown */
+    width: 75%;
+    display: none;
+  }
+}
 
 .iconLook{
   display: flex;
