@@ -13,6 +13,7 @@ import "../styles/mapContainer.css"
 import "../styles/markerCluster.css"
 import "../styles/popupContainer.css"
 import "../styles/utils.css"
+import "../stylesKiosk/buttonStyle.css"
 
 
 import tempIconMarker from "../resources/temp_marker.svg"
@@ -210,13 +211,13 @@ const MapContainerOpen = (props) => {
 
   return(
     <div className="mapContainer">
-      <MapContainer className="fullscreenMap" center={position} zoom={zoom}>
+      <MapContainer className="fullscreenMap" center={position} zoom={zoom} zoomControl={false}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           
         />
-        <ZoomControl position="bottomright" />
+        <ZoomControl className="leaflet-control-zoom" position="bottomright" />
         <UpdateMapCenter/>
         <HandleMapEvents/>
         <UpdatePopups/>
