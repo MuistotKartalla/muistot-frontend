@@ -37,9 +37,11 @@ import LanguageDropDown from "../common components/LanguageDropDown"
 
 import "../stylesKiosk/buttonStyle.css"
 import useComponentVisible from "../hooks/OutsideClick"
+import MuistotkartallaLogo from "./MuistokartallaLogo"
 
 
 //new component to render the logo on the map
+
 
 const LogoButton = () =>{
 
@@ -277,8 +279,7 @@ const MapContainerOpen = (props) => {
         />
         <ZoomControl className="leaflet-control-zoom" position="bottomright" />
        
-       <button className="logoButton" onClick = {aboutClick}><p className="textButton">Musitot Kartalla</p></button>
-
+       
 
         <UpdateMapCenter/>
         <HandleMapEvents/>
@@ -345,7 +346,7 @@ const MapContainerOpen = (props) => {
           <></>
         }
       </MapContainer>
-
+      <MuistotkartallaLogo title="MUISTOT KARTALLA" onClick = {aboutClick}/>
       <Utils items={[<LanguageDropDown className="iconLook" ></LanguageDropDown>, <InfoButton className="projectInfoButtonContainer" onClick={toProjectMenu}></InfoButton>, <ListIcon className="floatingList" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
 
     </div>
