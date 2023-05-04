@@ -8,7 +8,7 @@ import { notify } from "../reducers/notificationReducer"
 
 import "../styles/listView.css"
 import "../styles/postView.css"
-import PostList from "./PostListKiosk"
+import PostList from "../components/PostList"
 import PostViewLWKiosk from "./PostViewLWKiosk"
 
 
