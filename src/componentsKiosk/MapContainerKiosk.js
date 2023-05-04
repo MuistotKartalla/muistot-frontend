@@ -25,7 +25,6 @@ import { notify } from "../reducers/notificationReducer"
 import { createSite } from "../reducers/postReducer"
 import { setTempSite } from "../reducers/tempSiteReducer"
 import { updateUserLocation } from "../reducers/userLocationReducer"
-import FloatingSearch from "./FloatingSearchKiosk"
 import {ReactComponent as ListIcon} from "../resources/list_icon.svg";
 import {Utils} from "./UtilsKiosk";
 

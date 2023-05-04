@@ -79,4 +79,5 @@ export default connect(
 )(NavMenu)
 
 
-// NavMenu: This component renders a menu bar at the top of the page, It is usen inside of App.js. The menu includes a logo, a dropdown to select a project, a button to view project information, and a list of horizontal links. 
+// NavMenu: This component renders a menu bar at the top of the page, It is usen inside of App.js. The menu includes a logo,
+// a dropdown to select a project, a button to view project information, and a list of horizontal links. 

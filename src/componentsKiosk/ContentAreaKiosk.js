@@ -5,21 +5,14 @@ import { Link, Route } from "react-router-dom"
 import "../styles/containers.css"
 import "../styles/texts.css"
 
-import CookieConsent from "react-cookie-consent"
 import { notify } from "../reducers/notificationReducer"
 
 
 import EditLocation from "./EditLocationKiosk"
 
 import ImagelessPosts from "./ImagelessPostsKiosk"
-import ListView from "./ListViewKiosk"
 
-import NewMemento from "./NewMementoKiosk"
-
-import NavMenu from "../components/NavMenu"
 import PopUpContainer from "./PopUpContainerKiosk"
-import PostView from "./PostViewKiosk"
-import ProjectInfo from "./ProjectInfoKiosk"
 import ProjectManagement from "./ProjectManagementKiosk"
 import MapContainerKiosk from "./MapContainerKiosk";
 import NavMenuKiosk from "./NavMenuKiosk";
@@ -43,14 +36,14 @@ const ContentArea = (props) => {
   //use pop container for pop up pages
   return (
     <div className="contentContainer">
-      <Route path="/kiosk" render={({ history }) => (   
-          <MapContainerKiosk history={history} />
+      <Route path="/kiosk" render={({ history }) => (
+        <MapContainerKiosk history={history} />
       )} />
-      <Route path="/kiosk/about" render={({history}) => (
+      <Route path="/kiosk/about" render={({ history }) => (
         <PopUpContainerKiosk history={history}>
-          <About history={history}/>
+          <About history={history} />
         </PopUpContainerKiosk>
-      )}/>
+      )} />
       <Route path="/kiosk/project-info" render={({ history }) => (
         <PopUpContainerKiosk history={history}>
           <ProjectInfoKiosk history={history} />
@@ -59,11 +52,6 @@ const ContentArea = (props) => {
       <Route path="/kiosk/edit-location/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
           <EditLocation match={match} history={history} />
-        </PopUpContainer>
-      )} />
-      <Route path="/kiosk/new-memento/:id/" render={({ match, history }) => (
-        <PopUpContainer history={history}>
-          <NewMemento match={match} history={history} />
         </PopUpContainer>
       )} />
       <Route path="/kiosk/list-view/:id/" render={({ match, history }) => (
