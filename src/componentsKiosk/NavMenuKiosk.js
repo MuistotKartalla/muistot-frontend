@@ -8,8 +8,6 @@ import { notify } from "../reducers/notificationReducer"
 import { ReactComponent as InfoButton } from "../resources/info_font.svg"
 import "../styles/navMenu.css"
 
-import HorizontalMenuList from "./HorizontalMenuListKiosk"
-
 import { initPosts } from "../reducers/postReducer"
 import { setActiveProject } from "../reducers/projectReducer"
 import DropDownSelectProject from "./DropDownSelectProjectKiosk"

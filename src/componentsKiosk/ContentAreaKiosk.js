@@ -11,13 +11,11 @@ import { notify } from "../reducers/notificationReducer"
 import EditLocation from "./EditLocationKiosk"
 
 import ImagelessPosts from "./ImagelessPostsKiosk"
-
-import PopUpContainer from "./PopUpContainerKiosk"
+import PopUpContainer from "../common components/PopUpContainer"
 import ProjectManagement from "./ProjectManagementKiosk"
 import MapContainerKiosk from "./MapContainerKiosk";
 import NavMenuKiosk from "./NavMenuKiosk";
 import ProjectInfoKiosk from "./ProjectInfoKiosk"
-import PopUpContainerKiosk from "./PopUpContainerKiosk"
 import ListViewKiosk from "./ListViewKiosk"
 import About from "../common components/About"
 import PostViewKiosk from "./PostViewKiosk"
@@ -40,14 +38,14 @@ const ContentArea = (props) => {
         <MapContainerKiosk history={history} />
       )} />
       <Route path="/kiosk/about" render={({ history }) => (
-        <PopUpContainerKiosk history={history}>
+        <PopUpContainer history={history}>
           <About history={history} />
-        </PopUpContainerKiosk>
+        </PopUpContainer>
       )} />
       <Route path="/kiosk/project-info" render={({ history }) => (
-        <PopUpContainerKiosk history={history}>
+        <PopUpContainer history={history}>
           <ProjectInfoKiosk history={history} />
-        </PopUpContainerKiosk>
+        </PopUpContainer>
       )} />
       <Route path="/kiosk/edit-location/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
@@ -61,9 +59,9 @@ const ContentArea = (props) => {
       )} />
 
       <Route exact path="/kiosk/post-view/:id" render={({ match, history }) => (
-        <PopUpContainerKiosk history={history}>
+        <PopUpContainer history={history}>
           <PostViewKiosk match={match} history={history} />
-        </PopUpContainerKiosk>
+        </PopUpContainer>
       )} />
       <Route path="/kiosk/imageless-posts/" render={({ history }) => (
         <PopUpContainer history={history}>

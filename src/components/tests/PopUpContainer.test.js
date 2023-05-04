@@ -4,7 +4,7 @@ import {render, fireEvent} from "@testing-library/react"
 import "@testing-library/jest-dom/extend-expect"
 import {shallow, mount, configure} from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
-import PopUpContainer from "../PopUpContainer"
+import PopUpContainer from "../../common components/PopUpContainer"
 
 configure({ adapter: new Adapter() })
 
