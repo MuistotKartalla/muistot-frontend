@@ -38,7 +38,7 @@ export const PostView = (props) => {
     event.preventDefault()
     //console.log(`Centering Map to ${post.title} coordinates.`)
     props.updateMapLocation(post.location)
-    props.history.push("/kiosk")
+    props.history.push('/kiosk');
   }
   const deletePost = (event) => {
     event.preventDefault()
@@ -49,7 +49,7 @@ export const PostView = (props) => {
 
   }
   const editPostClick = (postId) =>{
-    props.history.push(`/edit-post/${postId}`)
+    props.history.push(`/kiosk/edit-post/${postId}`)
   }
 
   const backClick = (event) => {

@@ -41,11 +41,11 @@ export const PostViewLW = (props) => {
     event.preventDefault()
     //console.log(`Centering Map to ${post.title} coordinates.`)
     props.updateMapLocation(post.location)
-    props.history.push("/")
+    props.history.goBack();
   }
   const showDetails = (event) => {
     event.preventDefault()
-    props.history.push(`/post-view/${post.id}`)
+    props.history.push(`/kiosk/post-view/${post.id}`)
   }
   const closeClick = (event) => {
     //eventhandler for close button

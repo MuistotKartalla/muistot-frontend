@@ -73,9 +73,9 @@ const ContentArea = (props) => {
       )} />
 
       <Route exact path="/kiosk/post-view/:id" render={({ match, history }) => (
-        <PopUpContainer history={history}>
+        <PopUpContainerKiosk history={history}>
           <PostViewKiosk match={match} history={history} />
-        </PopUpContainer>
+        </PopUpContainerKiosk>
       )} />
       <Route path="/kiosk/imageless-posts/" render={({ history }) => (
         <PopUpContainer history={history}>
