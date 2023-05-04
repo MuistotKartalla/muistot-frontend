@@ -45,7 +45,7 @@ export const PostViewLW = (props) => {
   }
   const showDetails = (event) => {
     event.preventDefault()
-    props.history.push(`/post-view/${post.id}`)
+    props.history.push(`/kiosk/post-view/${post.id}`)
   }
   const closeClick = (event) => {
     //eventhandler for close button
