@@ -8,7 +8,7 @@ import { setTempSite } from "../reducers/tempSiteReducer"
 import "../styles/buttons.css"
 import "../styles/newPost.css"
 
-import SiteImageUpload from "./SiteImageUpload"
+import SiteImageUpload from "../common components/SiteImageUpload"
 
 //combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.
 // aka if "live location" button is highlighted the it uses your current location. if map button highlighted then it uses selected location.

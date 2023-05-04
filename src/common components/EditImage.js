@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
-
 import { connect } from "react-redux"
-
 import { notify } from "../reducers/notificationReducer"
+
 import { changeSitePicture } from "../reducers/postReducer"
 import { setTempSite } from "../reducers/tempSiteReducer"
 import "../styles/buttons.css"
 import "../styles/newPost.css"
 import SiteImageUpload from "./SiteImageUpload"
-
+import { isMobile } from "react-device-detect"
+import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
 
 
 export const EditImage = (props) => {
@@ -44,20 +44,45 @@ export const EditImage = (props) => {
 
 
   return(
-    <div className="newPostContainer centerAlignWithPaddingLean">
-    <h1 className="headerText">{props.settings.strings["change_image"]}</h1>
-	<div>
-      <form className="postForm" onSubmit={confirmPost}>
-        <div className="inputContainer">
-          <SiteImageUpload  change={imageOnChangeHandler}/>
-        </div>
+    isMobile ?(<div className="newPostContainerMobile">
+    <div>
+      <div className="titleContainerMobile">
+        <button className="mobileButtonContainer">
+          <ReturnIcon className="mobileIcon" onClick={cancelClick}/>
+        </button>
+        <h1 className="titleTextMobile">{props.settings.strings["change_image"]}</h1>
+      </div>
+
+<div>
+        <form className="postFormMobile" onSubmit={confirmPost}>
+          <div className="inputContainer">
+            <SiteImageUpload change={imageOnChangeHandler}/>
+          </div>
         <div className="postFormButtonContainer">
-          <button type="submit" className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>
-          <button type="button" className="rippleButton negativeButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
+          <button className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>
+          <button className="rippleButton negativeButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
         </div>
       </form>
-	</div>
+</div>
+      
     </div>
+  </div>) : (
+      <div className="newPostContainer centerAlignWithPaddingLean">
+      <h1 className="headerText">{props.settings.strings["change_image"]}</h1>
+    <div>
+        <form className="postForm" onSubmit={confirmPost}>
+          <div className="inputContainer">
+            <SiteImageUpload  change={imageOnChangeHandler}/>
+          </div>
+          <div className="postFormButtonContainer">
+            <button type="submit" className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>
+            <button type="button" className="rippleButton negativeButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
+          </div>
+        </form>
+    </div>
+      </div>
+  )
+  
   )
 
 }
