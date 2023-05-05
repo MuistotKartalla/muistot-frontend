@@ -15,6 +15,7 @@
 
 .centerContainer {
   position: relative;
+  width:fit-content ;
 }
 
 .projectTitle {
