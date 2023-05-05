@@ -18,7 +18,7 @@ import NavMenuKiosk from "./NavMenuKiosk";
 import ProjectInfoKiosk from "./ProjectInfoKiosk"
 import ListView from "../components/ListView"
 import About from "../common components/About"
-import PostViewKiosk from "./PostViewKiosk"
+import PostView from "../components/PostView"
 
 
 
@@ -60,7 +60,7 @@ const ContentArea = (props) => {
 
       <Route exact path="/kiosk/post-view/:id" render={({ match, history }) => (
         <PopUpContainer history={history}>
-          <PostViewKiosk match={match} history={history} />
+          <PostView match={match} history={history} />
         </PopUpContainer>
       )} />
       <Route path="/kiosk/imageless-posts/" render={({ history }) => (
