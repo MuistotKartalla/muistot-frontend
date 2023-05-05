@@ -11,16 +11,14 @@ import { notify } from "../reducers/notificationReducer"
 import EditLocation from "./EditLocationKiosk"
 
 import ImagelessPosts from "./ImagelessPostsKiosk"
-
-import PopUpContainer from "./PopUpContainerKiosk"
+import PopUpContainer from "../common components/PopUpContainer"
 import ProjectManagement from "./ProjectManagementKiosk"
 import MapContainerKiosk from "./MapContainerKiosk";
 import NavMenuKiosk from "./NavMenuKiosk";
 import ProjectInfoKiosk from "./ProjectInfoKiosk"
-import PopUpContainerKiosk from "./PopUpContainerKiosk"
-import ListViewKiosk from "./ListViewKiosk"
+import ListView from "../components/ListView"
 import About from "../common components/About"
-import PostViewKiosk from "./PostViewKiosk"
+import PostView from "../components/PostView"
 
 
 
@@ -40,14 +38,14 @@ const ContentArea = (props) => {
         <MapContainerKiosk history={history} />
       )} />
       <Route path="/kiosk/about" render={({ history }) => (
-        <PopUpContainerKiosk history={history}>
+        <PopUpContainer history={history}>
           <About history={history} />
-        </PopUpContainerKiosk>
+        </PopUpContainer>
       )} />
       <Route path="/kiosk/project-info" render={({ history }) => (
-        <PopUpContainerKiosk history={history}>
+        <PopUpContainer history={history}>
           <ProjectInfoKiosk history={history} />
-        </PopUpContainerKiosk>
+        </PopUpContainer>
       )} />
       <Route path="/kiosk/edit-location/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
@@ -56,14 +54,14 @@ const ContentArea = (props) => {
       )} />
       <Route path="/kiosk/list-view/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
-          <ListViewKiosk match={match} history={history} />
+          <ListView match={match} history={history} />
         </PopUpContainer>
       )} />
 
       <Route exact path="/kiosk/post-view/:id" render={({ match, history }) => (
-        <PopUpContainerKiosk history={history}>
-          <PostViewKiosk match={match} history={history} />
-        </PopUpContainerKiosk>
+        <PopUpContainer history={history}>
+          <PostView match={match} history={history} />
+        </PopUpContainer>
       )} />
       <Route path="/kiosk/imageless-posts/" render={({ history }) => (
         <PopUpContainer history={history}>

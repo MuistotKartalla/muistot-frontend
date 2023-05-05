@@ -14,7 +14,7 @@ const PopUpContainer = (props) => {
   const unfocusClick = (event) => {
     //background click
     if(event.target.id === "popUpBackground"){
-      props.history.push("/")
+      props.history.goBack();
       props.updateListView(0)
       //console.log("unfocus click")
     }
@@ -52,4 +52,5 @@ export default connect(
 
 
 
-// PopUpContainer: This component is used in ContentArea.js. The component renders a modal window with a semi-transparent background (popUpBackground) and a container (popUpContainer) for the popup's content.
+// PopUpContainer: This component is used in ContentArea.js and ContentAreaKiosk. The component renders a modal window with
+// a semi-transparent background (popUpBackground) and a container (popUpContainer) for the popup's content.

@@ -10,6 +10,7 @@ import "../styles/postView.css"
 import "../styles/buttons.css"
 import "../styles/texts.css"
 
+import { useLocation } from 'react-router-dom';
 import MementoList from "./MementoList"
 import {ReactComponent as Verified} from "../resources/verified.svg"
 import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
@@ -43,15 +44,27 @@ export const PostViewLW = (props) => {
     props.updateMapLocation(post.location)
     props.history.goBack()
   }
+  //david
+  const location = useLocation();
+  const isKiosk = location.pathname.startsWith('/kiosk');
+
   const showDetails = (event) => {
-    event.preventDefault()
-    props.history.push(`/post-view/${post.id}`)
+    event.preventDefault();
+    isKiosk ? 
+      props.history.push(`/kiosk/post-view/${post.id}`)
+    : 
+      props.history.push(`/post-view/${post.id}`);
+    
   }
   const closeClick = (event) => {
     //eventhandler for close button
     event.preventDefault()
     //console.log("closeClick")
-    props.history.goBack()
+    if(isKiosk){
+      props.history.push('/kiosk')
+    }else{
+      props.history.push('/')
+    }
     props.updateListView(0)
   }
 
