@@ -16,7 +16,7 @@ import ProjectManagement from "./ProjectManagementKiosk"
 import MapContainerKiosk from "./MapContainerKiosk";
 import NavMenuKiosk from "./NavMenuKiosk";
 import ProjectInfoKiosk from "./ProjectInfoKiosk"
-import ListViewKiosk from "./ListViewKiosk"
+import ListView from "../components/ListView"
 import About from "../common components/About"
 import PostViewKiosk from "./PostViewKiosk"
 
@@ -54,7 +54,7 @@ const ContentArea = (props) => {
       )} />
       <Route path="/kiosk/list-view/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
-          <ListViewKiosk match={match} history={history} />
+          <ListView match={match} history={history} />
         </PopUpContainer>
       )} />
 
