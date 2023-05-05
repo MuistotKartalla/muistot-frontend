@@ -10,11 +10,7 @@
   box-shadow: 0 0 5px white;
 }
 
-@media (orientation: portrait) {
-  .menuContainer {
-    height: 5.5%;
-  }
-}
+
 
 
 .menuInnerContainer{
@@ -81,15 +77,21 @@
   width: 40%;
 }
 
-@media (orientation: portrait) {
+@media (max-width: 768px) {
+  /* Cambios para dispositivos con un ancho máximo de 768px */
   .centerContainer {
-    font-weight: bold;
-    font-size: xxx-large;
-    text-align: center;
-    width: 100%;
-    bottom: 94%;
+    width: 80%;
   }
 }
+
+@media (max-width: 480px) {
+  /* Cambios para dispositivos con un ancho máximo de 480px */
+  .centerContainer {
+    width: 90%;
+  }
+}
+
+
 
 
 

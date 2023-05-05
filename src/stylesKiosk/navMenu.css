@@ -1,0 +1,49 @@
+.menuContainer {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuInnerContainer {
+  display: flex;
+  align-items: center;
+  margin: 0%
+}
+
+.centerContainer {
+  position: relative;
+}
+
+.projectTitle {
+  text-align: center;
+  font-size: 4vw;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .projectTitle {
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectTitle {
+    font-size: 4vw;
+  }
+}
+
+@media (max-height: 600px) {
+  .projectTitle {
+    font-size: 6vw;
+  }
+
+  @media (min-height: 600px) {
+    .projectTitle {
+      font-size: 6vw;
+    }
+  }
+
+}

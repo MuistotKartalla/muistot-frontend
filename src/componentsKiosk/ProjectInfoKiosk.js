@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { connect } from "react-redux"
-
+import { notify } from "../reducers/notificationReducer"
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import { getImageURL } from "../services/images"
 import "../styles/containers.css"
@@ -88,6 +88,11 @@ const mapStateToProps = (state) => {
     settings: state.settings,
     user: state.user,
   }
+}
+const mapDispatchToProps = {
+  //connect reducer functions/dispatchs to props
+  notify,
+
 }
 
 export default connect(

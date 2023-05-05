@@ -1,5 +1,5 @@
 
-import "../styles/utils.css"
+import "../stylesKiosk/buttonStyle.css"
 
 
 const UtilIcon = (props) => {

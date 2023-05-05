@@ -1,53 +1,49 @@
 // By: Niklas Impiö
 //import React, {useState, useEffect} from "react"
 //useState useEffect not used yet
+import { useEffect, useState } from "react"
 import { connect } from "react-redux"
-import { logout } from "../reducers/loginReducer"
-import { notify } from "../reducers/notificationReducer"
 
-import { ReactComponent as InfoButton } from "../resources/info_font.svg"
-import "../styles/navMenu.css"
+import "../stylesKiosk/navMenu.css"
 
-import HorizontalMenuList from "./HorizontalMenuListKiosk"
 
 import { initPosts } from "../reducers/postReducer"
 import { setActiveProject } from "../reducers/projectReducer"
-import DropDownSelectProject from "./DropDownSelectProjectKiosk"
+
 
 
 export const NavMenu = (props) => {
-  //Nav menu container component that has the menu components embedded.
+  const [project, setProject] = useState({
+    ...props.projects.active,
+    additionalMetadata: {}
+  })
+  project.additionalMetadata = {};
 
 
-  const toProjectMenu = (event) => {
-    event.preventDefault()
-	if(props.history.location.pathname === "/kiosk/project-info/")
-		{
-		props.history.push("/kiosk/")
-		}
-	else
-		{
-		props.history.push("/kiosk/project-info/")
-		}
-  }
-  const toRoot = (event) => {
-    //pushes url route to root or "/", might change later when different projects implemented.
-    event.preventDefault()
-    props.history.push("/kiosk/")
-  }
+  const [projectTitle, setProjectTitle] = useState(props.projects.active.title)
 
-  const changeProject = (project) => {
-    props.setActiveProject(project)
-    var params = {projectId: project.id};
-    props.initPosts(params)
-  	
-  }
+  useEffect(() => {
+    if (!project.title) {
+      setProject(props.projects.active)
+    }
+    //if active project is piiput or parantolat, set title according to stringStorage
+    if (project.id === "piiput" || project.id === "parantolat") {
+      setProjectTitle(props.settings.strings[project.id])
+    }
+    //for other projects use project title determined in the database
+    else {
+      setProjectTitle(props.projects.active.title)
+    }
+  }, [props, project.title, project.id])
+
+
+
   return (
     <div className="menuContainer">
       <div className="menuInnerContainer">
 
         <div className="centerContainer">
-          <DropDownSelectProject  items={props.projects.projects} active={props.projects.active} change={changeProject}/>
+          <h1 className="projectTitle">{projectTitle}</h1>
         </div>
       </div>
     </div>
@@ -68,7 +64,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   //notify (for example)
-  notify,
+
   setActiveProject,
   initPosts
 }

@@ -1,10 +1,10 @@
-.leaflet-control-zoom{
+.leaflet-control-zoom {
 
     right: 35%;
 
 }
 
-.logoButton{
+.logoButton {
     position: absolute;
     display: flex;
     grid-area: logo;
@@ -17,10 +17,11 @@
     background-color: transparent;
     border: none;
 }
-.textButton{
+
+.textButton {
     cursor: pointer;
     color: black;
-    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     margin: auto 10px;
     font-weight: 700;
     font-size: 200%;
@@ -28,3 +29,188 @@
     z-index: 1000;
 
 }
+
+
+.floatingList {
+    width: 100%;
+    height: 100%;
+}
+
+.utils-ul {
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+}
+
+.utils-container {
+    bottom: 2%;
+    width: 14%;
+    height: auto;
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+.languageDDContainer{
+    background: var(--primary-color);
+    justify-content: center;
+    margin: auto;
+    text-align: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .languageDDContainer:hover .languageDDCurrentItem{
+    color: var(--title-color);
+  }
+  
+  .languageDDContainer:hover .dropDownIcon{
+    fill: var(--title-color);
+    
+  }
+  
+  .languageDDContainerActive{
+    background: var(--primary-color);
+    justify-content: center;
+    width: 100%;
+    margin: 8px 0 0 0;
+    height: fit-content;
+    text-align: left;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .languageDDCurrentItemContainer{
+    display: flex;
+    height: 3em;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 0 0 5px;
+  }
+  
+  .languageDDItem{
+    cursor: pointer;
+    padding: 0px;
+    height: 100%;
+    text-align: left;
+    align-self: auto;
+    transition: 0s;
+    color: var(--secondary-text-color);
+  }
+  
+  .languageDDCurrentItem{
+    cursor: pointer;
+    display: table;
+    padding: 0px;
+    transition: 0s;
+    width: 100%;
+    color: var(--secondary-text-color);
+  }
+  
+  .languageDDText{
+    display:table-cell;
+    vertical-align: middle;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: left;
+    width: fit-content;
+  }
+  /*Mateusz*/
+  
+  .icon-containerlan {
+    position: relative;
+    padding-top: 7px;
+  }
+  
+  
+  .dropdownLan {
+    position: absolute;
+    top: 55px; /* ajusta la posición vertical del dropdown */
+    left: -35px; /* ajusta la posición horizontal del dropdown */
+    width: 65px;
+    display: none;
+  
+  }
+  
+  .iconLook{
+    display: flex;
+    fill: var(--title-color);
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  @media (orientation: portrait) {
+    .iconLook{
+        width: 100%;
+        height: 100%;
+    }
+  }
+  
+  .icon-containerlan:hover .dropdownLan,
+  .icon-containerlan.show .dropdownLan{
+    display: block;
+  }
+  /*--------------------*/
+  
+  .languageDDText:hover {
+    color: var(--title-color);
+  }
+  
+  .languageDDTextActive{
+    display:table-cell;
+    vertical-align: middle;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-align: left;
+    width: fit-content;
+    color: var(--title-color);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .languageDDIcon{
+    padding: 0;
+    margin: 0;
+    float: right;
+    fill: var(--secondary-text-color);
+  }
+  
+  .dropDownIcon2{
+    background: url("../resources/arrow_drop_down-24px.svg") no-repeat center right var(--secondary-text-color);
+  }
+  
+  .divider{
+    height: 2px;
+    background: var(--secondary-text-color);
+  }
+  
+  /* CSS for samller screen - by Adnan Islam */
+  @media screen and (min-width: 700px) and (max-width: 1000px) {
+  
+  .languageDDText{
+    font-size: .9em;
+    font-weight: 500;
+  }
+  
+  .languageDDTextActive{
+    font-size: .9em;
+  }
+  
+  }
+  
+  @media screen and (min-width: 500px) and (max-width: 700px) {
+  
+  .languageDDText{
+    font-size: .9em;
+    font-weight: 500;
+  }
+  
+  .languageDDTextActive{
+    font-size: .9em;
+  }
+  
+  }
