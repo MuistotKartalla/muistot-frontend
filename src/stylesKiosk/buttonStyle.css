@@ -143,6 +143,12 @@
     border-radius: 50%;
   }
  
+ 
+    .projectInfoButtonContainer{
+        height: 100%;
+        width: 100%;
+    }
+  
   
   
   .icon-containerlan:hover .dropdownLan,
