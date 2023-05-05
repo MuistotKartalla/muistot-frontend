@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react"
 import { connect } from "react-redux"
 
-import { notify } from "../reducers/notificationReducer"
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
-import { ReactComponent as SettingIcon } from "../resources/setting_cog.svg"
 import { getImageURL } from "../services/images"
 import "../styles/containers.css"
 import "../styles/postView.css"
@@ -44,11 +42,6 @@ export const ProjectInfo = (props) => {
     props.history.push("/kiosk")
   }
 
-  //go to project management page
-  const toManagement = (event) => {
-    event.preventDefault()
-    props.history.push("/project-management")
-  }
   //full description
   const [showFullDescription, setShowFullDescription] = useState(false)
   const toggleDescription = () => {
@@ -95,12 +88,6 @@ const mapStateToProps = (state) => {
     settings: state.settings,
     user: state.user,
   }
-}
-
-const mapDispatchToProps = {
-  //connect reducer functions/dispatchs to props
-  notify,
-
 }
 
 export default connect(
