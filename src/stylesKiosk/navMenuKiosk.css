@@ -10,10 +10,11 @@
 .menuInnerContainer {
   display: flex;
   align-items: center;
+  justify-content: center; 
   margin: 0%
 }
 
-.centerContainerKiosk {
+.centerContainer {
   position: relative;
   width:fit-content ;
 }
