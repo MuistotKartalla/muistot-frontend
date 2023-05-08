@@ -1,22 +1,16 @@
 // By: Niklas Impiö
 import { connect } from "react-redux"
-import { Link, Route } from "react-router-dom"
+import { Route } from "react-router-dom"
 
 import "../styles/containers.css"
 import "../styles/texts.css"
 
 import { notify } from "../reducers/notificationReducer"
 
-
-import EditLocation from "./EditLocationKiosk"
-
-import ImagelessPosts from "./ImagelessPostsKiosk"
 import PopUpContainer from "../common components/PopUpContainer"
-import ProjectManagement from "./ProjectManagementKiosk"
 import MapContainerKiosk from "./MapContainerKiosk";
-import NavMenuKiosk from "./NavMenuKiosk";
-import ProjectInfoKiosk from "./ProjectInfoKiosk"
-import ListView from "../components/ListView"
+import ProjectInfo from "../common components/ProjectInfo"
+import ListView from "../common components/ListView"
 import About from "../common components/About"
 import PostView from "../components/PostView"
 
@@ -44,14 +38,10 @@ const ContentArea = (props) => {
       )} />
       <Route path="/kiosk/project-info" render={({ history }) => (
         <PopUpContainer history={history}>
-          <ProjectInfoKiosk history={history} />
+          <ProjectInfo history={history} />
         </PopUpContainer>
       )} />
-      <Route path="/kiosk/edit-location/:id/" render={({ match, history }) => (
-        <PopUpContainer history={history}>
-          <EditLocation match={match} history={history} />
-        </PopUpContainer>
-      )} />
+    
       <Route path="/kiosk/list-view/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
           <ListView match={match} history={history} />
@@ -63,16 +53,16 @@ const ContentArea = (props) => {
           <PostView match={match} history={history} />
         </PopUpContainer>
       )} />
-      <Route path="/kiosk/imageless-posts/" render={({ history }) => (
+      {/* <Route path="/kiosk/imageless-posts/" render={({ history }) => (
         <PopUpContainer history={history}>
           <ImagelessPosts history={history} />
         </PopUpContainer>
-      )} />
-      <Route path="/kiosk/project-management" render={({ history }) => (
+      )} /> */}
+      {/* <Route path="/kiosk/project-management" render={({ history }) => (
         <PopUpContainer history={history}>
           <ProjectManagement history={history} />
         </PopUpContainer>
-      )} />
+      )} /> */}
 
     </div>
 

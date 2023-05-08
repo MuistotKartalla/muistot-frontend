@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import { connect } from "react-redux"
 
+
+
+import { useLocation } from 'react-router-dom'
+
 import { notify } from "../reducers/notificationReducer"
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
-import { ReactComponent as SettingIcon } from "../resources/setting_cog.svg"
 import { getImageURL } from "../services/images"
 import "../styles/containers.css"
 import "../styles/postView.css"
@@ -39,16 +42,18 @@ export const ProjectInfo = (props) => {
     }
   }, [props, project.title, project.id])
 
+  //david
+  const location = useLocation();
+  const isKiosk = location.pathname.startsWith('/kiosk');
+
   const closeClick = (event) => {
     event.preventDefault()
+    isKiosk?
+     props.history.push("/kiosk")
+     :
     props.history.push("/")
   }
 
-  //go to project management page
-  const toManagement = (event) => {
-    event.preventDefault()
-    props.history.push("/project-management")
-  }
   //full description
   const [showFullDescription, setShowFullDescription] = useState(false)
   const toggleDescription = () => {
@@ -96,7 +101,6 @@ const mapStateToProps = (state) => {
     user: state.user,
   }
 }
-
 const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   notify,

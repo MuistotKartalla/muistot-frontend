@@ -3,7 +3,7 @@
 import { connect } from "react-redux"
 import { updateListView } from "../reducers/listViewReducer"
 import "../styles/containers.css"
-
+import { useLocation } from 'react-router-dom'
 
 const PopUpContainer = (props) => {
   /*
@@ -11,10 +11,18 @@ const PopUpContainer = (props) => {
   Alpha layer (modal?) background that closes the pop up if clicked.
   */
 
+  const location = useLocation();
+  const isKiosk = location.pathname.startsWith('/kiosk');
+
   const unfocusClick = (event) => {
     //background click
     if(event.target.id === "popUpBackground"){
-      props.history.goBack();
+      if(isKiosk){
+        props.history.push('/kiosk'); 
+      }else{
+        props.history.push('/'); 
+      }
+      
       props.updateListView(0)
       //console.log("unfocus click")
     }

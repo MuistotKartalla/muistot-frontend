@@ -8,7 +8,7 @@ import "../styles/inputs.css"
 
 import { ReactComponent as SearchIcon} from "../resources/search_FILL0.svg";
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
-import PostList from "./PostList"
+import PostList from "../common components/PostList"
 
 
 
