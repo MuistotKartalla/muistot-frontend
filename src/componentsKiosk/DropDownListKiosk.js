@@ -1,5 +1,5 @@
 // By: Niklas Impiö
-import "../styles/dropDownList.css"
+import "../stylesKiosk/buttonStyle.css"
 import useComponentVisible from "../hooks/OutsideClick"
 
 
@@ -10,7 +10,7 @@ export const DropDownList = (props) => {
   //just a simple vertical list where all the entries are provided as props list with strings and event handlers on click.
   return(
 
-    <div className="dropDownContainer">
+    <div className="dropDownContainerKiosk">
       <ul className="dropDownList">
         {props.children}
 

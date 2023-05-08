@@ -41,7 +41,7 @@ export const NavMenu = (props) => {
     <div className="menuContainer">
       <div className="menuInnerContainer">
 
-        <div className="centerContainer">
+        <div className="centerContainerKiosk">
           <h1 className="projectTitle">{projectTitle}</h1>
         </div>
       </div>
