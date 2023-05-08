@@ -5,32 +5,31 @@ import useComponentVisible from "../hooks/OutsideClick"
 
 
 export const DropDownList = (props) => {
-  // props should problbly have all the items and their click handlers. Like [{text: string/reference, "onClickHandler": [Function]}]
-
-  //just a simple vertical list where all the entries are provided as props list with strings and event handlers on click.
-  return(
-
+  const activeIndex = props.items.findIndex((item) => item.isActive);
+  return (
     <div className="dropDownContainer">
       <ul className="dropDownList">
-        {props.children}
-
-        {props.items.map((element,index) =>
+        {props.items.map((item, index) => (
           <div key={index}>
-            {element.divider?
+            {item.divider ? (
               <div className="divider"></div>
-              :
-              <li key={index} className="dropDownListItem" onClick={element.onClickHandler}>
-                <p className="dropDownItemText">{element.string}</p>
+            ) : (
+              <li
+                key={index}
+                className={
+                  index === activeIndex ? props.activeItemClassName : "dropDownListItem"
+                }
+                onClick={item.onClickHandler}
+              >
+                <p className="dropDownItemText">{item.string}</p>
               </li>
-            }
+            )}
           </div>
-
-        )}
+        ))}
       </ul>
     </div>
-
-  )
-}
+  );
+};
 
 export default DropDownList
 

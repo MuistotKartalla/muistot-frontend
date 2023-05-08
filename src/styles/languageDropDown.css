@@ -64,6 +64,12 @@
   text-align: left;
   width: fit-content;
 }
+
+/* david :This css change the style of the active language selected*/
+.dropDownListItemActive {
+  color: black;
+  text-decoration: underline;
+}
 /*Mateusz*/
 
 .icon-containerlan {
