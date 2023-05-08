@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react"
 import { connect } from "react-redux"
 
-import "../stylesKiosk/navMenu.css"
+import "../stylesKiosk/navMenuKios.css"
 
 import { initPosts } from "../reducers/postReducer"
 import { setActiveProject } from "../reducers/projectReducer"

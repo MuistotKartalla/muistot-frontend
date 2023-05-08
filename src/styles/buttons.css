@@ -1,10 +1,6 @@
- button:hover{
-  background-color: var(--hover-text-color);
- }
- 
- .rippleButton {
+.rippleButton {
   background: var(--primary-color);
-  fill: var(--title-color);
+  color: var(--primary-text-color);
   cursor: pointer;
   display: inline-block;
   min-height: 1em;
@@ -47,34 +43,24 @@
 }
 
 .positiveButton {
-  border: none;
-  font-weight: bold;
-  border-radius: 10px;
-  margin: 2px;
-  inline-size: fit-content;
-  padding: 0px 15px;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 10;
-  position: relative;
-
-  
+  background: var(--accent-color);
+  border-radius: 7px;
 }
 
 .positiveButton:hover {
   border: none;
-  background: var(--activity-color);
+  background: var(--title-color);
   color: var(--hover-text-color);
   font-weight: bold;
+  transition: all 0.5s;
   border-radius: 10px;
-  position: relative;
 }
 
 .negativeButton {
-  background: var( --primary-color);
+  background: var(--accent-color);
   border-radius: 7px;
   transition: background 0s;
-} 
+}
 
 .negativeButton:hover {
   border: none;
@@ -142,17 +128,16 @@
   display: flex;
 }
 .mobileIcon{
-  fill: white;
+  fill: yellow;
   width: 4em;
   height: 4em;
   margin: 5px 0 0 2px;
 }
 
 .mobileIconSecondary{
-  fill:#0a0a0a;
+  fill: yellow;
   width: 4em;
   height: 4em;
- 
 }
 
 .mobileIconSmall{

@@ -1,4 +1,4 @@
-.menuContainer {
+.menuContainer{
   z-index: 5;
   width: 100%;
   height: 4em;
@@ -6,12 +6,9 @@
   background: var(--primary-color);
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none;
+  user-select:  none;
   box-shadow: 0 0 5px white;
 }
-
-
-
 
 .menuInnerContainer{
   display: flex;
@@ -49,48 +46,18 @@
   font-size: 1.2em;
   padding: 10px;
 }
-.DropDownSelectProject {
-  position: relative;
-}
 
 .projectInfoButtonContainer{
-  width: 100%;
-  height: 100%;
-  margin-top: 7%;
-  fill: var(--title-color);
-
-}
-
-.centerContainer {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  height: 4em;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
+  flex: -1200px;
+  margin: 0px;
+  flex-direction: column;
+  min-width: fit-content;
 }
-
-@media (max-width: 768px) {
-  /* Cambios para dispositivos con un ancho máximo de 768px */
-  .centerContainer {
-    width: 80%;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Cambios para dispositivos con un ancho máximo de 480px */
-  .centerContainer {
-    width: 90%;
-  }
-}
-
-
-
-
 
 .projectInfoButton{
-  /*background: var(--primary-color);*/
+  background: var(--primary-color);
   color: var(--secondary-text-color);
   cursor: pointer;
   display: inline-block;
@@ -120,15 +87,12 @@
 }
 
 .projectSelectContainer{
-  top: 0.3em;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
-
+  justify-content: space-between;
+  width: 100%;
+  max-width: 45%;
+  margin: 0 1%;
 }
-
-
 
 
 /* CSS for samller screen - by Adnan Islam */
@@ -154,7 +118,6 @@
   transition: background 0s;
   margin: auto;
 }
-
 
 }
 
@@ -184,7 +147,6 @@
   height: 4em;
   grid-area: right;
 }
-
 .menuItemText{
   
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
@@ -192,7 +154,6 @@
   display: block;
   font-weight: 500;
 }
-
 .menuListItem{
   cursor: pointer;
   float: right;
@@ -204,14 +165,12 @@
   align-self: center;
   transition: 0s;
 }
-
 .menuListItem:hover{
   color: var(--primary-text-color);
   transition: 0.5s;
   background: var(--accent-color);
   height: 100%;
 }
-
 .accountDropDownContainer{
   float: right;
   height: fit-content;
@@ -219,7 +178,6 @@
   width: 100%;
   top: 4em;
 }
-
 .maxWidthContainer{
   top: 0;
   max-width: 1200px;
@@ -229,7 +187,6 @@
   width: -moz-available;
   border-radius: 5px;
 }
-
 .accountItemContainer{
   display: flex;
   width: fit-content;

@@ -30,7 +30,7 @@ import {Utils} from "./UtilsKiosk";
 
 //david
 import { ReactComponent as InfoButton } from "../resources/info_font.svg"
-import "../styles/navMenu.css"
+import "../stylesKiosk/navMenuKios.css"
 
 import LanguageDropDown from "../common components/LanguageDropDown"
 
