@@ -11,7 +11,7 @@ import "../styles/buttons.css"
 import "../styles/texts.css"
 
 import { useLocation } from 'react-router-dom';
-import MementoList from "./MementoList"
+import MementoList from "../components/MementoList"
 import { ReactComponent as Verified } from "../resources/verified.svg"
 import { ReactComponent as TwitterIcon } from "../resources/twitter_icon.svg"
 import { ReactComponent as FacebookIcon } from "../resources/facebook_icon.svg"

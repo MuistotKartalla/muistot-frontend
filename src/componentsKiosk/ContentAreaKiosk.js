@@ -14,8 +14,8 @@ import ImagelessPosts from "./ImagelessPostsKiosk"
 import PopUpContainer from "../common components/PopUpContainer"
 import ProjectManagement from "./ProjectManagementKiosk"
 import MapContainerKiosk from "./MapContainerKiosk";
-import ProjectInfo from "../components/ProjectInfo"
-import ListView from "../components/ListView"
+import ProjectInfo from "../common components/ProjectInfo"
+import ListView from "../common components/ListView"
 import About from "../common components/About"
 import PostView from "../components/PostView"
 
