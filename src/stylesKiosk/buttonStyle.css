@@ -1,7 +1,7 @@
 .leaflet-control-zoom {
 
-    right: 35%;
-
+    right: 100%;
+    width: 20vw;
 }
 
 .logoButton {
@@ -30,7 +30,6 @@
 
 }
 
-
 .floatingList {
     width: 100%;
     height: 100%;
@@ -48,9 +47,8 @@
     height: auto;
 
 }
-----------------------------------------------------------------------------------------------------------------------------------------------------
 
-.languageDDContainer{
+---------------------------------------------------------------------------------------------------------------------------------------------------- .languageDDContainer {
     background: var(--primary-color);
     justify-content: center;
     margin: auto;
@@ -58,18 +56,18 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-  }
-  
-  .languageDDContainer:hover .languageDDCurrentItem{
+}
+
+.languageDDContainer:hover .languageDDCurrentItem {
     color: var(--title-color);
-  }
-  
-  .languageDDContainer:hover .dropDownIcon{
+}
+
+.languageDDContainer:hover .dropDownIcon {
     fill: var(--title-color);
-    
-  }
-  
-  .languageDDContainerActive{
+
+}
+
+.languageDDContainerActive {
     background: var(--primary-color);
     justify-content: center;
     width: 100%;
@@ -78,17 +76,17 @@
     text-align: left;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-  }
-  
-  .languageDDCurrentItemContainer{
+}
+
+.languageDDCurrentItemContainer {
     display: flex;
     height: 3em;
     flex-direction: column;
     justify-content: center;
     margin: 0 0 0 5px;
-  }
-  
-  .languageDDItem{
+}
+
+.languageDDItem {
     cursor: pointer;
     padding: 0px;
     height: 100%;
@@ -96,44 +94,44 @@
     align-self: auto;
     transition: 0s;
     color: var(--secondary-text-color);
-  }
-  
-  .languageDDCurrentItem{
+}
+
+.languageDDCurrentItem {
     cursor: pointer;
     display: table;
     padding: 0px;
     transition: 0s;
     width: 100%;
     color: var(--secondary-text-color);
-  }
-  
-  .languageDDText{
-    display:table-cell;
+}
+
+.languageDDText {
+    display: table-cell;
     vertical-align: middle;
-    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     font-weight: 700;
     text-align: left;
     width: fit-content;
-  }
-  /*Mateusz*/
-  
-  .icon-containerlan {
+}
+
+/*Mateusz*/
+
+.icon-containerlan {
     position: relative;
     padding-top: 7%;
-  }
-  
-  
-  .dropdownLan {
+}
+
+
+.dropdownLan {
     position: absolute;
-    top: 55px; /* ajusta la posición vertical del dropdown */
-    left: -35px; /* ajusta la posición horizontal del dropdown */
-    width: 65px;
-    display: none;
-  
-  }
-  
-  .iconLook{
+    top: 0;
+    left: -65%;
+    height: 10vw;
+    width: 60%;
+}
+
+.iconLook {
     display: flex;
     fill: var(--title-color);
     align-items: center;
@@ -141,78 +139,38 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-  }
- 
- 
-    .projectInfoButtonContainer{
-        height: 100%;
-        width: 100%;
-    }
-  
-  
-  
-  .icon-containerlan:hover .dropdownLan,
-  .icon-containerlan.show .dropdownLan{
+}
+
+
+.projectInfoButtonContainer {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.icon-containerlan:hover .dropdownLan,
+.icon-containerlan.show .dropdownLan {
     display: block;
-  }
-  /*--------------------*/
-  
-  .languageDDText:hover {
-    color: var(--title-color);
-  }
-  
-  .languageDDTextActive{
-    display:table-cell;
-    vertical-align: middle;
-    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-    font-size: 1.2em;
+}
+
+/*--------------------*/
+.dropDownContainer {
+    background: var(--primary-static-color);
+    border: 10px solid var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+
+}
+
+.dropDownItemText {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 3vw;
+    display: block;
     font-weight: 500;
-    text-align: left;
-    width: fit-content;
-    color: var(--title-color);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-  
-  .languageDDIcon{
-    padding: 0;
+    padding: 0.5em 0.5em;
     margin: 0;
-    float: right;
-    fill: var(--secondary-text-color);
-  }
-  
-  .dropDownIcon2{
-    background: url("../resources/arrow_drop_down-24px.svg") no-repeat center right var(--secondary-text-color);
-  }
-  
-  .divider{
-    height: 2px;
-    background: var(--secondary-text-color);
-  }
-  
-  /* CSS for samller screen - by Adnan Islam */
-  @media screen and (min-width: 700px) and (max-width: 1000px) {
-  
-  .languageDDText{
-    font-size: .9em;
-    font-weight: 500;
-  }
-  
-  .languageDDTextActive{
-    font-size: .9em;
-  }
-  
-  }
-  
-  @media screen and (min-width: 500px) and (max-width: 700px) {
-  
-  .languageDDText{
-    font-size: .9em;
-    font-weight: 500;
-  }
-  
-  .languageDDTextActive{
-    font-size: .9em;
-  }
-  
-  }
+    width: fit-content;
+}
