@@ -25,7 +25,7 @@
 /*david: media query used to give a diferent width for movile screen */
 @media screen and (max-width: 767px) {
   .dropDownSelectCurrentItem {
-    width: 15em;
+    width: 18em;
   }
 }
 
