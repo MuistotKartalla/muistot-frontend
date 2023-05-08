@@ -7,12 +7,7 @@ import "../styles/texts.css"
 
 import { notify } from "../reducers/notificationReducer"
 
-
-import EditLocation from "./EditLocationKiosk"
-
-import ImagelessPosts from "./ImagelessPostsKiosk"
 import PopUpContainer from "../common components/PopUpContainer"
-import ProjectManagement from "./ProjectManagementKiosk"
 import MapContainerKiosk from "./MapContainerKiosk";
 import ProjectInfo from "../common components/ProjectInfo"
 import ListView from "../common components/ListView"
@@ -46,11 +41,7 @@ const ContentArea = (props) => {
           <ProjectInfo history={history} />
         </PopUpContainer>
       )} />
-      <Route path="/kiosk/edit-location/:id/" render={({ match, history }) => (
-        <PopUpContainer history={history}>
-          <EditLocation match={match} history={history} />
-        </PopUpContainer>
-      )} />
+    
       <Route path="/kiosk/list-view/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
           <ListView match={match} history={history} />
@@ -62,16 +53,16 @@ const ContentArea = (props) => {
           <PostView match={match} history={history} />
         </PopUpContainer>
       )} />
-      <Route path="/kiosk/imageless-posts/" render={({ history }) => (
+      {/* <Route path="/kiosk/imageless-posts/" render={({ history }) => (
         <PopUpContainer history={history}>
           <ImagelessPosts history={history} />
         </PopUpContainer>
-      )} />
-      <Route path="/kiosk/project-management" render={({ history }) => (
+      )} /> */}
+      {/* <Route path="/kiosk/project-management" render={({ history }) => (
         <PopUpContainer history={history}>
           <ProjectManagement history={history} />
         </PopUpContainer>
-      )} />
+      )} /> */}
 
     </div>
 
