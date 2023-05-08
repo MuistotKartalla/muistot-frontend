@@ -71,6 +71,7 @@
   transition: 0s;
   width: 2em !important;
   height: 2em !important;
+  position: flex;
 }
 
 .projectDropDownIconActive{
