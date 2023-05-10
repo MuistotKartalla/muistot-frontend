@@ -1,13 +1,16 @@
-// By: Niklas Impiö
+import { useLocation, useHistory } from 'react-router-dom';
+import "../stylesKiosk/buttonStyle.css"
 import "../styles/dropDownList.css"
-import useComponentVisible from "../hooks/OutsideClick"
-
 
 
 export const DropDownList = (props) => {
   const activeIndex = props.items.findIndex((item) => item.isActive);
+  const location = useLocation();
+  const history = useHistory();
+  const isKiosk = location.pathname.startsWith('/kiosk');
+
   return (
-    <div className="dropDownContainer">
+    <div className={isKiosk ? "dropDownContainerKiosk" : "dropDownContainer"}>
       <ul className="dropDownList">
         {props.items.map((item, index) => (
           <div key={index}>
@@ -21,7 +24,7 @@ export const DropDownList = (props) => {
                 }
                 onClick={item.onClickHandler}
               >
-                <img className="icon" src={item.bandera} alt={item.string} />
+                <img className={isKiosk ? "iconKiosk" : "icon"} src={item.bandera} alt={item.string} />
               </li>
             )}
           </div>
@@ -31,7 +34,8 @@ export const DropDownList = (props) => {
   );
 };
 
-export default DropDownList
+export default DropDownList;
+
 
 
 
