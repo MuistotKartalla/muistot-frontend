@@ -38,6 +38,7 @@
   cursor: pointer;
   transition: 0s;
   z-index: 10;
+  margin-left: auto;
 }
 
 .clearIcon:hover{

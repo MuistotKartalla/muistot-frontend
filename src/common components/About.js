@@ -24,7 +24,7 @@ const About = (props) => {
             <ReturnIcon className="mobileIcon" onClick={closeClick} />
           </button>
         ) : (
-          <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick} />
+          <ClearIcon className="clearIcon" onClick={closeClick} />
         )}
       </div>
       <div className="aboutContentContainer normalText">
