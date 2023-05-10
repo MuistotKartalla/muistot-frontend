@@ -52,7 +52,7 @@
     width: 14%;
     height: auto;
     position: fixed;
-    right: 2%;
+    right: 28px;
     z-index: 9;
     background: var(--primary-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -71,7 +71,8 @@
     position: absolute;
     top: 0;
     left: -65%;
- 
+    height: 10vw;
+    width: 800%;
 }
 
 .iconLookKiosk {
