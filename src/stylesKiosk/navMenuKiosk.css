@@ -5,18 +5,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--primary-color);
 }
 
 .menuInnerContainerKiosk {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   margin: 0%
 }
 
 .centerContainerKiosk {
   position: relative;
-  width:fit-content ;
+  width: fit-content;
 }
 
 .projectTitleKiosk {
@@ -48,4 +49,7 @@
     }
   }
 
+  body {
+    min-width: 480px;
+  }
 }

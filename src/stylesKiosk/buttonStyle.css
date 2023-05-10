@@ -140,4 +140,18 @@
 .geolocationButton .material-icons {
     font-size: 3vw;
     color: #333;
-}
+}  
+  @media screen and (max-width: 768px) {
+    .iconLookKiosk {
+      /* Estilos específicos para dispositivos con un ancho máximo de 768px */
+      font-size: 1.5em; /* Reducción del tamaño del icono utilizando unidades "em" */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .iconLookKiosk {
+      /* Estilos específicos para dispositivos con un ancho máximo de 480px */
+      font-size: 1em; /* Reducción adicional del tamaño del icono utilizando unidades "em" */
+    }
+  }
+  
