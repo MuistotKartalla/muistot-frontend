@@ -1,6 +1,5 @@
 .postListContainer{
   z-index: 4;
-  background: var(--ui-background);
   width: -webkit-fill-available;
   width: -moz-available;
   border-radius: 10px;
