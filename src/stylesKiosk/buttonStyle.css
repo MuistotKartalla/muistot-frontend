@@ -24,6 +24,7 @@
 
 .logoButton:hover {
     clip-path: none;
+    background-color: #3e4144;
 }
 
 
@@ -32,11 +33,11 @@
     color: black;
     font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     margin: auto 10px;
-    font-weight: 700;
-    font-size: 200%;
+    font-weight: bold;
+    font-size: 1.4vw;
     padding: 5px;
     z-index: 1000;
-
+    overflow: hidden;
 }
 
 .floatingList {
