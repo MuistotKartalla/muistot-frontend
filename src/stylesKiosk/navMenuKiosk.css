@@ -25,6 +25,7 @@
   font-size: 4vw;
   max-width: 100%;
   color: var(--text-primary);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 }
 
 @media (max-width: 768px) {

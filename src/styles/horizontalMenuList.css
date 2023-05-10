@@ -2,10 +2,16 @@
   display: flex;
   flex-direction: column;
   grid-area: navMenu;
-  width: 100%;
-  max-width: 25%;
-  height: 4em;
+  width: auto;
 }
+
+.horizontalMenuContainer{
+  display: flex;
+  flex-direction: column;
+  grid-area: navMenu;
+  width: auto;
+}
+
 
 .menuButtonList{
   color: var(--text-primary);

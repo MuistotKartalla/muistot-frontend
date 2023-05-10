@@ -57,6 +57,10 @@
 .centerContainer{
   position: abosulte;
   display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  padding-right: 90px;
 }
 .projectInfoButton{
 
