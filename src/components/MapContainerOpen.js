@@ -81,7 +81,7 @@ const MapContainerOpen = (props) => {
       setPosts(props.posts)
     }
     if(props.mapLocation !== null){
-      setZoom(18)
+      setZoom(10)
       setPosition(props.mapLocation) 
       props.updateMapLocation(null)
       setmoveToPosition(true)

@@ -16,7 +16,14 @@
   }
 }
 
-
+.icons{
+  size: 5%;
+  opacity: 1; /* opacidad por defecto */
+  transition: opacity 0.3s ease-in-out;
+}
+.icons:hover{
+  opacity: 0.8;
+}
 
 .dropDownList{
   list-style-type: none;

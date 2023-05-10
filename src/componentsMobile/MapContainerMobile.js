@@ -323,7 +323,7 @@ const MapContainerMobile = (props) => {
         <></>
       }
       <div className="accountInfoContainer">
-        <AccountIcon className="accountInfoButton" onClick={toProfileClick}></AccountIcon>
+        <AccountIcon className="accountInfoButton" onClick={newPostClick}></AccountIcon>
       </div>
 
 

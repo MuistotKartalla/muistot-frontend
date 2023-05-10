@@ -69,6 +69,7 @@
 .dropDownListItemActive {
   color: black;
   text-decoration: underline;
+  border: 2px solid rgb(15, 15, 65);
 }
 /*Mateusz*/
 
