@@ -19,9 +19,3 @@
     text-align: center;
 
 }
-
-@media (orientation: portrait) {
-    .acountDDCurrentItemContainer{
-        height: 0%;
-    }
-  }
