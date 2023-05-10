@@ -21,7 +21,7 @@ export const DropDownList = (props) => {
                 }
                 onClick={item.onClickHandler}
               >
-                <p className="dropDownItemText">{item.string}</p>
+                <img className="icon" src={item.bandera} alt={item.string} />
               </li>
             )}
           </div>

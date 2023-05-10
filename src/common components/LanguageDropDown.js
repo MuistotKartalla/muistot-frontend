@@ -7,18 +7,20 @@ import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24p
 import { ReactComponent as TranslateIcon } from "../resources/translateIcon.svg"
 
 import "../styles/languageDropDown.css"
-import DropDownList from "../components/DropDownList"
+import DropDownLanguage from "./DropDownLanguage"
 
 import { setActiveLanguage } from "../reducers/settingsReducer"
 import { isMobile } from "react-device-detect";
 
+import finnishFlag from "../resources/finnish-flag.png";
+import englishFlag from "../resources/english-flag.png";
+
 
 export const LanguageDropDown = (props) => {
 
-  const [active, setActive] = useState(props.settings.activeLanguage)  //something wrong with this, active doesn't update right when activelanguage is en
-  //Vertical dropdown select list where one entry is always selected. By pressing the currently selected entry a list expands below with all the options.
-  //when one of the items is clicked it is now the currently selected element and the list shrinks.
-  //Out of focus click also hides the expanded part.
+  const [activeIndex, setActiveIndex] = useState(
+    props.settings.languages.findIndex((lang) => lang === props.settings.activeLanguage)
+  ); 
 
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false)
   // props should problbly have all the items and their click handlers. Like [{text: string/reference, "onClickHandler": [Function]}]
@@ -32,21 +34,19 @@ export const LanguageDropDown = (props) => {
 
 
   const genListOptions = () => {
-
-    const strings = props.settings.languages
-    let list = []
-    strings.map(element => {
-      list.push({
-        string: element.toUpperCase(), onClickHandler: () => {
-          props.setActiveLanguage(element)
-          setActive(element)
-          setIsComponentVisible(!isComponentVisible)
-          //console.log(element, " klikattu")
-        }
-      })
-    })
-    return list
-  }
+    const languages = props.settings.languages;
+    let list = languages.map((lang, index) => ({
+      string: lang.toUpperCase(),
+      onClickHandler: () => {
+        props.setActiveLanguage(lang);
+        setActiveIndex(index);
+        setIsComponentVisible(false);
+      },
+      isActive: index === activeIndex,
+      bandera: lang === 'en' ? englishFlag : finnishFlag // Agregar la propiedad "bandera" con la ruta de la imagen correspondiente
+    }));
+    return list;
+  };
 
   if (!isComponentVisible) {
     return isMobile ? (
@@ -61,7 +61,10 @@ export const LanguageDropDown = (props) => {
 
         {isComponentVisible ?
           <div className="dropDownList" >
-            <DropDownList items={genListOptions()} />
+            <DropDownLanguage items={genListOptions()}
+            activeIndex={activeIndex}
+            activeItemClassName="dropDownListItemActive"
+           />
           </div>
           :
           <div />
@@ -75,7 +78,10 @@ export const LanguageDropDown = (props) => {
         </div>
         {isComponentVisible ? (
           <div className="dropdownLan">
-            <DropDownList items={genListOptions()} />
+            <DropDownLanguage items={genListOptions()}
+            activeIndex={activeIndex}
+            activeItemClassName="dropDownListItemActive"
+           />
           </div>
         ) : (
           <div />
@@ -94,7 +100,10 @@ export const LanguageDropDown = (props) => {
 
         {isComponentVisible ?
           <div className="dropDownList" >
-            <DropDownList items={genListOptions()} />
+            <DropDownLanguage items={genListOptions()}
+            activeIndex={activeIndex}
+            activeItemClassName="dropDownListItemActive"
+           />
           </div>
           :
           <div />
@@ -107,7 +116,10 @@ export const LanguageDropDown = (props) => {
         </div>
         {isComponentVisible ? (
           <div className="dropdownLan">
-            <DropDownList items={genListOptions()} />
+            <DropDownLanguage items={genListOptions()}
+            activeIndex={activeIndex}
+            activeItemClassName="dropDownListItemActive"
+           />
           </div>
         ) : (
           <div />
