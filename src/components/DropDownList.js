@@ -1,6 +1,7 @@
 // By: Niklas Impiö
 import "../styles/dropDownList.css"
 import useComponentVisible from "../hooks/OutsideClick"
+import { isMobile } from "react-device-detect"
 
 
 
@@ -21,7 +22,7 @@ export const DropDownList = (props) => {
                 }
                 onClick={item.onClickHandler}
               >
-                <p className="dropDownItemText">{item.string}</p>
+                <p className={isMobile?"dropDownItemTextMobile":"dropDownItemText"}>{item.string}</p>
               </li>
             )}
           </div>
