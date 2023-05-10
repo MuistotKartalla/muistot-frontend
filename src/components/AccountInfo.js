@@ -25,7 +25,7 @@ export const AccountInfo = (props) => {
         event.preventDefault()
         props.history.push("/")
     }
-    if (props.user && project.moderators.find(user => user === props.user.username)) {
+    
         return (
             <div className="userInformationContainer centerAlignWithPaddingContainer">
                 <div className="postTitleContainer">
@@ -69,10 +69,7 @@ export const AccountInfo = (props) => {
                 </div>
             </div>
         )
-    }else{
-        
     }
-}
 
 const mapStateToProps = (state) => {
     return {
