@@ -73,7 +73,7 @@ export const LanguageDropDownKiosk = (props) => {
     ) : (
 
       <div className={`icon-containerlan ${isComponentVisible ? 'show' : ''}`} ref={ref}>
-        <div className="acountDDCurrentItemContainer" onClick={toggleVisibility}>
+        <div className="acountDDCurrentItemContainerKiosk" onClick={toggleVisibility}>
           <TranslateIcon className="iconLookKiosk"></TranslateIcon>
         </div>
         {isComponentVisible ? (
@@ -91,7 +91,7 @@ export const LanguageDropDownKiosk = (props) => {
   } else {
     return isMobile ? (
       <div className="languageDDContainerActive" ref={ref}>
-        <div className="languageDDCurrentItemContainer" onClick={toggleVisibility}>
+        <div className="languageDDCurrentItemContainerKiosk" onClick={toggleVisibility}>
           <div className="languageDDCurrentItem">
             <span className="languageDDTextActive">{props.settings.activeLanguage.toUpperCase()}</span>
             <DropDownIcon className="dropDownIconActive" />
