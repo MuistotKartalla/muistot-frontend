@@ -58,7 +58,7 @@
     z-index: 9;
     background: var(--ui-background);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 10%;
+    border-radius: 10px;
 }
 
 /*Mateusz*/
@@ -107,7 +107,7 @@
     background: var(--ui-baseline);
     border: 10px solid var(--ui-background);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 10%;
+    border-radius: 10px;
     max-height: 700%;
     width: 100%;
     height: auto;

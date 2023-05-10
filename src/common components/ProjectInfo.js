@@ -93,7 +93,7 @@ export const ProjectInfo = (props) => {
         ):(
           <>
           <div className="toggleDescriptionButtonContainer">
-          <button onClick={toggleDescription} className="positiveButton">{textToggleButton}</button>
+          <button onClick={toggleDescription} className="positiveButton rippleButton fillButton">{textToggleButton}</button>
           </div>
           
         {showFullDescription && (

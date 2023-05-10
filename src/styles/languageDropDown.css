@@ -67,9 +67,9 @@
 
 /* david :This css change the style of the active language selected*/
 .dropDownListItemActive {
-  color: black;
+
   text-decoration: underline;
-  border: 2px solid rgb(15, 15, 65);
+  border: 4px solid var(--ui-accent);
 }
 /*Mateusz*/
 
@@ -138,29 +138,3 @@
   background: var(--text-secondary);
 }
 
-/* CSS for samller screen - by Adnan Islam */
-@media screen and (min-width: 700px) and (max-width: 1000px) {
-
-.languageDDText{
-  font-size: .9em;
-  font-weight: 500;
-}
-
-.languageDDTextActive{
-  font-size: .9em;
-}
-
-}
-
-@media screen and (min-width: 500px) and (max-width: 700px) {
-
-.languageDDText{
-  font-size: .9em;
-  font-weight: 500;
-}
-
-.languageDDTextActive{
-  font-size: .9em;
-}
-
-}

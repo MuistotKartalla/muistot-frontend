@@ -60,7 +60,7 @@ input:checked + .sliderRound:before{
 
 .themeLabelText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: 1.4em;
+  font-size: 1.2em;
   max-width: fit-content;
   display: block;
   font-weight: 500;
