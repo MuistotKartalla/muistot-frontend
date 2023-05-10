@@ -56,13 +56,8 @@ export const ProjectInfo = (props) => {
 
   //full description
   const [showFullDescription, setShowFullDescription] = useState(false)
-  const [textToggleButton, setTextToggleButton] = useState("Show more")
   const toggleDescription = () => {
     setShowFullDescription(!showFullDescription)
-    showFullDescription ?
-    setTextToggleButton("Show more")
-    :
-    setTextToggleButton("Show less")
   };
 
   //check if current user is project moderator
@@ -81,21 +76,7 @@ export const ProjectInfo = (props) => {
             <h3>Additional Metadata</h3>
           </div>
         </div>
-        {isKiosk? (
-          <div className="projectInfoDescriptionContainer normalText">
-            <div className="projectInfoDescriptionContainer normalText">
-              <ReactMarkdown source={project.description} />
-            </div>
-            <div className="projectInfoContentDescriptionContainer normalText">
-              <ReactMarkdown source={project.contentDescription} />
-            </div>
-          </div>
-        ):(
-          <>
-          <div className="toggleDescriptionButtonContainer">
-          <button onClick={toggleDescription} className="positiveButton">{textToggleButton}</button>
-          </div>
-          
+        <button onClick={toggleDescription} className="positiveButton">Large description</button>
         {showFullDescription && (
           <div className="projectInfoDescriptionContainer normalText">
             <div className="projectInfoDescriptionContainer normalText">
@@ -106,10 +87,8 @@ export const ProjectInfo = (props) => {
             </div>
           </div>
         )}
-        </>
-        )}
       </div>
-    );
+    )
   } 
 
 }

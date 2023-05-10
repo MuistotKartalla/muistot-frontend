@@ -49,6 +49,11 @@
 
 .positiveButton:hover {
   border: none;
+  background: var(--title-color);
+  color: var(--hover-text-color);
+  font-weight: bold;
+  transition: all 0.5s;
+  border-radius: 10px;
 }
 
 .negativeButton {
