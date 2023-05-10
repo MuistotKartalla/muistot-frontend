@@ -10,13 +10,7 @@
 }
 
 
-.utils-ul {
-    list-style: none;
-    /* elimina los marcadores de lista */
-    margin: 1%;
-    /* elimina el margen predeterminado */
-    padding: 0%;
-}
+
 .utils-ul {
     list-style: none; /* elimina los marcadores de lista */
     padding: 4px; /* elimina el espacio de relleno predeterminado */

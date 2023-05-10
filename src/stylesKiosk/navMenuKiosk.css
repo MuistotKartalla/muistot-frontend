@@ -1,4 +1,4 @@
-.menuContainer {
+.menuContainerKiosk {
   position: relative;
   width: 100%;
   height: fit-content;
@@ -7,43 +7,43 @@
   align-items: center;
 }
 
-.menuInnerContainer {
+.menuInnerContainerKiosk {
   display: flex;
   align-items: center;
   justify-content: center; 
   margin: 0%
 }
 
-.centerContainer {
+.centerContainerKiosk {
   position: relative;
   width:fit-content ;
 }
 
-.projectTitle {
+.projectTitleKiosk {
   text-align: center;
   font-size: 4vw;
   max-width: 100%;
 }
 
 @media (max-width: 768px) {
-  .projectTitle {
+  .projectTitleKiosk {
     font-size: 5vw;
   }
 }
 
 @media (max-width: 480px) {
-  .projectTitle {
+  .projectTitleKiosk {
     font-size: 4vw;
   }
 }
 
 @media (max-height: 600px) {
-  .projectTitle {
+  .projectTitleKiosk {
     font-size: 6vw;
   }
 
   @media (min-height: 600px) {
-    .projectTitle {
+    .projectTitleKiosk {
       font-size: 6vw;
     }
   }

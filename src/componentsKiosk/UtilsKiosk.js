@@ -12,9 +12,9 @@ const UtilIcon = (props) => {
 
 export const  Utils = (props) => {
     return (
-        <div className="utils-container">
+        <div className="utils-containerKiosk">
 
-            <ul className="utils-ul">
+            <ul className="utils-ulKiosk">
                 {props.items.map((element, index) => (
                     <UtilIcon key={index} icon={element} />
                 ))}
