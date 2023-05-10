@@ -38,11 +38,11 @@ export const NavMenu = (props) => {
 
 
   return (
-    <div className="menuContainer">
-      <div className="menuInnerContainer">
+    <div className="menuContainerKiosk">
+      <div className="menuInnerContainerKiosk">
 
-        <div className="centerContainer">
-          <h1 className="projectTitle">{projectTitle}</h1>
+        <div className="centerContainerKiosk">
+          <h1 className="projectTitleKiosk">{projectTitle}</h1>
         </div>
       </div>
     </div>

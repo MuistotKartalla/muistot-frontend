@@ -33,65 +33,41 @@
 .textButton:hover {
     color: white;
 }
-.floatingList {
+.floatingListKiosk {
     width: 100%;
     height: 100%;
 }
 
-.utils-ul {
+
+.utils-ulKiosk {
     width: 100%;
     height: 100%;
-    padding: 0%;
+    list-style: none; /* elimina los marcadores de lista */
+    padding: 4px; /* elimina el espacio de relleno predeterminado */
+    margin: 0; /* elimina el margen predeterminado */
 }
 
-.utils-container {
+.utils-containerKiosk{
     bottom: 2%;
     width: 14%;
     height: auto;
-
-}
-
-.languageDDContainer {
+    position: fixed;
+    right: 28px;
+    z-index: 9;
     background: var(--primary-color);
-    justify-content: center;
-    margin: auto;
-    text-align: left;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10%;
 }
-
-.languageDDContainer:hover .languageDDCurrentItem {
-    color: var(--title-color);
-}
-
-.languageDDContainer:hover .dropDownIcon {
-    fill: var(--title-color);
-
-}
-
-.languageDDContainerActive {
-    background: var(--primary-color);
-    justify-content: center;
-    width: 100%;
-    margin: 8px 0 0 0;
-    height: fit-content;
-    text-align: left;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-
 
 /*Mateusz*/
 
-.icon-containerlan {
+.icon-containerlanKiosk {
     position: relative;
     padding-top: 7%;
 }
 
 
-.dropdownLan {
+.dropdownLanKiosk {
     position: absolute;
     top: 0;
     left: -65%;
@@ -99,7 +75,7 @@
     width: 800%;
 }
 
-.iconLook {
+.iconLookKiosk {
     display: flex;
     fill: var(--title-color);
     align-items: center;

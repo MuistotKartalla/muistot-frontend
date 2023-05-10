@@ -32,7 +32,7 @@ import { Utils } from "./UtilsKiosk";
 import { ReactComponent as InfoButton } from "../resources/info_font.svg"
 import "../stylesKiosk/navMenuKiosk.css"
 
-import LanguageDropDown from "../common components/LanguageDropDown"
+import LanguageDropDownKiosk from "../componentsKiosk/LanguageDropDownKiosk"
 
 import "../stylesKiosk/buttonStyle.css"
 import useComponentVisible from "../hooks/OutsideClick"
@@ -366,7 +366,7 @@ const MapContainerOpen = (props) => {
         }
       </MapContainer>
       <MuistotkartallaLogo title="MUISTOT KARTALLA" onClick={aboutClick} />
-      <Utils items={[<LanguageDropDown className="iconLook" ></LanguageDropDown>, <InfoButton className="projectInfoButtonContainerKiosk" onClick={toProjectMenu}></InfoButton>, <ListIcon className="floatingList" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
+      <Utils items={[<LanguageDropDownKiosk className="iconLookKiosk"></LanguageDropDownKiosk>, <InfoButton className="projectInfoButtonContainerKiosk" onClick={toProjectMenu}></InfoButton>, <ListIcon className="floatingListKiosk" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
 
     </div>
   )
