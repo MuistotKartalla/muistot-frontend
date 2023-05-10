@@ -1,19 +1,9 @@
-.leaflet-control-zoom {
-
-    right: 35%;
-
-    right: 100%;
-    width: 20vw;
-}
-
 .logoButton {
     position: absolute;
     display: flex;
     grid-area: logo;
     margin-left: 2%;
-    width: 100%;
-    max-width: 13%;
-    min-width: 10%;
+    width: 18vw;
     height: auto;
     z-index: 9;
     bottom: 2%;
@@ -25,6 +15,7 @@
 .logoButton:hover {
     clip-path: none;
     background-color: #3e4144;
+    color: white;
 }
 
 
@@ -34,12 +25,14 @@
     font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     margin: auto 10px;
     font-weight: bold;
-    font-size: 1.4vw;
+    font-size: 2vw;
     padding: 5px;
     z-index: 1000;
     overflow: hidden;
 }
-
+.textButton:hover {
+    color: white;
+}
 .floatingList {
     width: 100%;
     height: 100%;
