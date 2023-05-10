@@ -333,9 +333,7 @@ const MapContainerOpen = (props) => {
             </Marker>
           )}
         </MarkerClusterGroup>
-        <button className="geolocationButton" onClick={handleGeolocation}>
-          <span className="material-icons">my_location</span>
-        </button>
+        
 
         {userLocation !== null ?
           <Marker position={userLocation} icon={userIcon}
