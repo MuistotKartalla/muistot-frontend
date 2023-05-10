@@ -11,7 +11,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: var(--primary-color);
+  background: var(--ui-background);
   width: 80%;
   height: 100%;
   z-index: 4;
@@ -36,20 +36,20 @@
 
 .mobileMenuToggleButton {
   cursor: pointer;
-  background: var(--primary-color);
+  background: var(--ui-background);
   outline: none;
   border: 0;
   padding: 0.5em;
 }
 
 .menuIcon {
-  fill: var(--primary-text-color);
+  fill: var(--icon-fill);
   width: 5em;
   height: 4.5em;
 }
 
 .menuIconInverted {
-  fill: var(--secondary-text-color);
+  fill: var(--icon-fill);
   width: 5em;
   height: 5em;
 }
@@ -85,7 +85,7 @@
 
 .logoTextMobile {
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  color: var(--title-color);
+  color: var(--icon-fill);
   font-weight: 700;
   font-size: 1.2em;
   margin: auto;
@@ -93,8 +93,8 @@
 
 .mobileMenuButton {
   width: 100%;
-  background: var(--primary-color);
-  color: var(--secondary-text-color);
+  background: var(--ui-background);
+  color: var(--text-primary);
   cursor: pointer;
   display: inline-block;
   min-height: 1em;

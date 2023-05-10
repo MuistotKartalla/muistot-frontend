@@ -24,6 +24,7 @@
   bottom: 2%;
   right: 0;
   background: transparent;
+  fill: #262222;
   border: 0;
 }
 
@@ -31,7 +32,7 @@
   z-index: 10;
   position: absolute;
   right: 0em;
-  background: var(--primary-color);
+  background: var(--ui-background);
   border: 0;
   font-size: 17px;
   top: 0;
@@ -70,7 +71,7 @@
 }
 
 .listIcon {
-  fill: var(--accent-color);
+  fill: var(--icon-fill);
   width: 5em;
   height: 5em;
 }
@@ -97,7 +98,7 @@
   top: 1em;
   right: 1em;
   z-index: 40000;
-  fill: var(--title-color);
+  fill: var(--icon-fill);
   width: 40px;
 }
 
