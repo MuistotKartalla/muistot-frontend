@@ -91,7 +91,7 @@ export const NewMementoMobile = (props) => {
     temp.story = event.target.value
     props.setTempPost(temp)    //event.target.setAttribute("rows", parseInt((storyField.content.scrollHeight) / 18))
   }
-
+  if(props.user && (post.own === true || props.currentProject.moderators.find(user => user === props.user.username))){
   return(
     <div className="newPostContainerMobile">
       <div>
@@ -120,7 +120,7 @@ export const NewMementoMobile = (props) => {
       </form>
     </div>
   )
-
+  }
 }
 
 const mapStateToProps = (state) => {
