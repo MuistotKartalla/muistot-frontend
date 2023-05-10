@@ -1,19 +1,19 @@
 .normalText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--title-color);
+  color: var(--icon-fill);
   font-weight: 500;
   text-align: left;
 }
 
 .normalText p{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--secondary-text-color);
+  color: var(--text-secondary);
   font-weight: 500;
   text-align: left;
 }
 .normalTextNoMargin{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-weight: 500;
   margin: 0;
   text-align: left;
@@ -25,7 +25,7 @@
 
 .titleText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(---text-color);
+  color: var(--text-primary);
   font-weight: 700;
   font-size: 1.75em;
   text-align: center;
@@ -38,7 +38,7 @@
 
 .titleTextAuto{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-weight: 700;
   font-size: 2em;
   text-align: center;
@@ -47,7 +47,7 @@
 
 .linkText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-weight: 500;
   cursor: pointer;
   padding: 5px 0;
@@ -58,7 +58,7 @@
 
 .titleTextMobile{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-weight: 700;
   font-size: 1.5em;
   text-align: center;
@@ -71,7 +71,7 @@
 
 .boldText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-size: 1.2em;
   text-transform: none;
   text-shadow: none;
@@ -82,7 +82,7 @@
 
 .smallText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-weight: 500;
   font-size: 1em;
   text-align: left;
@@ -94,14 +94,14 @@
 
 .infoText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-weight: 400;
   text-align: center;
   padding-top: 0.75em
 }
 
 h1.titleText, h1.titleTextMobile {
-  color: var(--title-color);
+  color: var(--text-primary);
   text-align: center;
   margin-top: 15px;
 }

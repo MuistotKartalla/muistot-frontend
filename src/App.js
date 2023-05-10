@@ -20,7 +20,6 @@ import NavMenu from "./components/NavMenu"
 import "./styles/containers.css"
 import ContentArea from "./components/ContentArea"
 import ContentAreaMobile from "./componentsMobile/ContentAreaMobile"
-import ContentAreaKiosk from "./componentsKiosk/ContentAreaKiosk"
 
 import {log} from "./services/settings";
 import {checkLocation} from "./services/initialurl";
@@ -32,7 +31,6 @@ const App = (props) => {
     const [userInit, setUserInitialized] = useState(false)
     const [verified, setVerified] = useState(true)
     const isMobile = window.innerWidth <= 500
-    const [isKiosk, setIsKiosk] = useState(false);
     // Use local
     axios.defaults.baseURL = "http://localhost:5600"
 
@@ -105,11 +103,6 @@ const App = (props) => {
         document.title = "Muistot kartalla"
     }, [props, postsInit, projectsInit, settingsInit,userInit]) 
 
-    useEffect(() => {
-        if (window.location.pathname === '/kiosk') {
-          setIsKiosk(true);
-        }
-      }, []);
 
       if (isMobile) {
         return (
@@ -118,14 +111,6 @@ const App = (props) => {
                     <Route path="/" render={({history}) => (<ContentAreaMobile history={history}/>)}/>
                     {!verified? <Redirect to="/set-username" /> : <></>}
                     {/* {props.notification.message !== null ? <NotificationMobile/> : <div/>} */}
-                </Router>
-            </div>
-        )
-    } else if (isKiosk){
-        return(
-            <div className="appContainer">
-                <Router>
-                    <Route path="/kiosk" render={({history}) => (<ContentAreaKiosk history={history}/>)}/>
                 </Router>
             </div>
         )

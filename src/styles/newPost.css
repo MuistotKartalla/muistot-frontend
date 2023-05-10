@@ -1,6 +1,6 @@
 .newPostContainer{
   z-index: 4;
-  background: var(--secondary-color);
+  background: var(--ui-background);
   width: 100%;
   height: max-content;
   max-width: 600px;
@@ -8,17 +8,14 @@
   border-radius: 5px;
   margin:auto;
   padding: 20px;
-  box-shadow: 0 0 5px var(--accent-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.newPostContainer:focus-within{
-  box-shadow: 0 0 10px var(--accent-color-light)
-}
 
 .newPostContainerMobile{
   z-index: 4;
-  background: var(--secondary-color);
+  background: var(--ui-background);
   width: -webkit-fill-available;
   width: -moz-available;
   height: -webkit-fill-available;
@@ -47,7 +44,7 @@
 
 .headerText{
   padding: 0px;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-weight: 700;
   text-align: center;
@@ -63,7 +60,7 @@
 }
 
 .switchActiveButton{
-  background: var(--accent-color);
+  background: var(--button-background);
   width: -webkit-fill-available;
   width: -moz-available;
 }
@@ -93,6 +90,7 @@
 .postFormButtonContainer{
   display: flex;
   margin: 1em 0;
+  background: var(--ui-background);
 }
 
 .postFormMobile{

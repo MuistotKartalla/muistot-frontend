@@ -1,6 +1,6 @@
 .projectInfoContainer {
   z-index: 4;
-  background: var(--primary-color);
+  background: var(--ui-background);
   max-width: 50%;
   width: 100%;
   height: auto;
@@ -15,7 +15,7 @@
 
 .projectInfoContainerMobile {
   z-index: 4;
-  background: var(--secondary-color);
+  background: var(--ui-background);
   height: 100%;
   width: 100%;
   margin: auto;

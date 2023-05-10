@@ -2,7 +2,7 @@
   z-index: 4;
   border-radius: 5px;
   padding: 1.5px;
-  background-color: var(--primary-color);
+  background-color: var(--ui-background);
   max-width: clamp(200px,100%,400px);
   width: 100%;
   height: fit-content;
@@ -18,12 +18,12 @@
 
 .floatingSearchInputContainerInner{
   z-index: 4;
-  background: var(--primary-color);
+  background: var(--ui-background);
   margin: 0;
   padding: 0.25em;
   opacity: 1;
   border: none;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-weight: 400;
   text-align: left;
@@ -34,14 +34,14 @@
 .clearIcon{
   height: 2em;
   width: 2em;
-  fill: var(--secondary-text-color);
+  fill: var(--text-secondary);
   cursor: pointer;
   transition: 0s;
   z-index: 10;
 }
 
 .clearIcon:hover{
-  fill: var(--primary-text-color);
+  fill: var(--text-primary);
   transition-duration: 0.2s;
 }
 

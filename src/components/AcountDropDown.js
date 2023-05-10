@@ -34,7 +34,7 @@ export const  AcountDropDown = (props) => {
         <div className={`icon-container ${isComponentVisible ? 'show' : ''}`} ref={ref}>
             <div className="acountDDCurrentItemContainer" onClick={toggleVisibility}>
                 <li className="icon">
-                    <PersonIcon className="personIconActive"/>
+                    <PersonIcon className="personIcon"/>
                 </li>
             </div>
 

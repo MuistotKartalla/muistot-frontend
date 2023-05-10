@@ -1,10 +1,9 @@
 .dropDownContainer{
-  background: var(--primary-static-color);
-  border: 10px solid var(--primary-color);
+  background: var(--ui-baseline);
+  border: 10px solid var(--ui-background);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  overflow-y: auto;
   max-width: 260px;
 
 }
@@ -14,8 +13,6 @@
     width: 70%;
   }
 }
-
-
 
 .dropDownList{
   list-style-type: none;
@@ -32,7 +29,7 @@
   text-align: left;
   align-self: center;
   transition: 0s;
-  color: var(--secondary-text-color);
+  color: var(--text-primary);
 }
 
 .dropDownItemText{
@@ -46,9 +43,9 @@
 }
 
 .dropDownListItem:hover{
-  color: var(--title-color);
+  border-radius: 10px;
   transition: 0.5s;
-  background: var(--secondary-text-color);
+  background: var(--ui-accent);
   height: 100%;
 }
 

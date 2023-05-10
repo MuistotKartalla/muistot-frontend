@@ -1,6 +1,6 @@
 .loginContainer{
   z-index: 4;
-  background: var(--secondary-color);
+  background: var(--ui-background);
   width: -webkit-fill-available;
   width: -moz-available;
   height: auto;
@@ -9,17 +9,13 @@
   border-radius: 5px;
   margin: auto;
   padding: 10px;
-  box-shadow: 0 0 5px var(--accent-color);
-  transition: box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: block;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0px 0px 15px 5px grey;
 }
 
-.loginContainer:focus-within{
-  box-shadow: 0 0 10px var(--accent-color-light)
-}
+
 
 .loginContainerMobile{
   height: -webkit-fill-available;
@@ -28,7 +24,7 @@
   margin: 0;
   z-index: 4;
   padding: 10px;
-  background: var(--secondary-color);
+  background: var(--ui-background);
   width: -webkit-fill-available;
   width: -moz-available;
   display: block;
@@ -36,16 +32,16 @@
 }
 
 .loginContainerMobile:focus-within{
-  box-shadow: 0 0 10px var(--accent-color-light)
+  box-shadow: 0 0 10px var(--ui-accent)
 }
 
 .loginForm{
-  background: var(--secondary-color);
+  background: var(--ui-background);
   margin: auto;
   width: -webkit-fill-available;
   width: -moz-available;
   border: none;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-weight: 400;
   text-align: left;
@@ -81,7 +77,7 @@
 
 .headerText2{
   padding: 0px;
-  color: var(--title-color);
+  color: var(--text-primary);
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-weight: 700;
   text-align: center;
@@ -117,7 +113,7 @@
 }
 
 .separatorLine{
-  border-top: 1px solid var(--primary-text-color);
+  border-top: 1px solid var(--text-primary);
   position: relative;
   text-align: center;
   height: 15px;
@@ -125,7 +121,7 @@
 }
 
 .separatorLineMobile{
-  border-top: 1px solid var(--primary-text-color);
+  border-top: 1px solid var(--text-primary);
   position: relative;
   text-align: center;
   height: 15px;
@@ -138,7 +134,7 @@
   font-weight: 500;
   position:relative;
   top: -0.7em;
-  background: var(--secondary-color);
+  background: var(--ui-baseline);
   padding: 0 0.5em 0 0.5em;
 }
 

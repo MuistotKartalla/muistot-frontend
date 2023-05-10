@@ -26,14 +26,7 @@
   right:1em;
 }
 
-.overlayButtonLeft{
-  z-index: 2;
-  position: fixed;
-  bottom: 1.5em;
-  left: 1em;
-  fill: var(--title-color);
 
-}
 
 .overlayButtonCenter{
   z-index: 2;
@@ -43,16 +36,7 @@
   left: 45.5%;
 }
 
-.floatingSearchContainerMap{
-  z-index: 4;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 400px;
-  height: fit-content;
-  position: relative;
-  top:1em;
-  left: 4em;
-}
+
 
 .mapContainerSmall{
   height: 500px;

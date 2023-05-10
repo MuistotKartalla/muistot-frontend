@@ -1,5 +1,5 @@
 .languageDDContainer{
-  background: var(--primary-color);
+  background: var(--ui-background);
   justify-content: center;
   margin: auto;
   text-align: left;
@@ -9,16 +9,16 @@
 }
 
 .languageDDContainer:hover .languageDDCurrentItem{
-  color: var(--title-color);
+  color: var(--icon-fill);
 }
 
 .languageDDContainer:hover .dropDownIcon{
-  fill: var(--title-color);
+  fill: var(--icon-fill);
   
 }
 
 .languageDDContainerActive{
-  background: var(--primary-color);
+  background: var(--ui-background);
   justify-content: center;
   width: 100%;
   margin: 8px 0 0 0;
@@ -43,7 +43,7 @@
   text-align: left;
   align-self: auto;
   transition: 0s;
-  color: var(--secondary-text-color);
+  color: var(--text-secondary);
 }
 
 .languageDDCurrentItem{
@@ -52,7 +52,7 @@
   padding: 0px;
   transition: 0s;
   width: 100%;
-  color: var(--secondary-text-color);
+  color: var(--text-secondary);
 }
 
 .languageDDText{
@@ -83,7 +83,7 @@
 
 .iconLook{
   display: flex;
-  fill: var(--title-color);
+  fill: var(--icon-fill);
   align-items: center;
   justify-content: center;
   width: 30px;
@@ -98,7 +98,7 @@
 /*--------------------*/
 
 .languageDDText:hover {
-  color: var(--title-color);
+  color: var(--icon-fill);
 }
 
 .languageDDTextActive{
@@ -109,7 +109,7 @@
   font-weight: 500;
   text-align: left;
   width: fit-content;
-  color: var(--title-color);
+  color: var(--icon-fill);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -118,16 +118,16 @@
   padding: 0;
   margin: 0;
   float: right;
-  fill: var(--secondary-text-color);
+  fill: var(--text-secondary);
 }
 
 .dropDownIcon2{
-  background: url("../resources/arrow_drop_down-24px.svg") no-repeat center right var(--secondary-text-color);
+  background: url("../resources/arrow_drop_down-24px.svg") no-repeat center right var(--text-secondary);
 }
 
 .divider{
   height: 2px;
-  background: var(--secondary-text-color);
+  background: var(--text-secondary);
 }
 
 /* CSS for samller screen - by Adnan Islam */

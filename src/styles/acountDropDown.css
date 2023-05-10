@@ -1,9 +1,9 @@
 
 
 .acountDDContainerActive{
-    background: var(--primary-color);
+    background: var(--ui-background);
     justify-content: center;
-    width: 100%;
+    width: auto;
     margin: 8px 0 0 0;
     height: fit-content;
     text-align: center;

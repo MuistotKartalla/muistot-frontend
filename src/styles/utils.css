@@ -3,7 +3,7 @@
     bottom: 25px;
     right: 28px;
     z-index: 9999;
-    background: var(--primary-color);
+    background: var(--ui-background);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 10%;
 
@@ -18,12 +18,12 @@
 .floatingSearch{
     width: 35px;
     height: 35px;
-    fill: var(--title-color);
+    fill: var(--icon-fill);
 }
 
 .floatingList{
     width: 35px;
     height: 35px;
-    fill: var(--title-color);
+    fill: var(--icon-fill);
 
 }

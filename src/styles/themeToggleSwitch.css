@@ -12,7 +12,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--accent-color);
+  background-color: var(--ui-accent);
   transition: 0.4s;
   border-radius: 34px;
 }
@@ -24,22 +24,22 @@
   left: 0.1em;
   width: 1.3em;
   height: 1.3em;
-  background-color: var(--activity-color);
+  background-color: var(--ui-background);
   transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .sliderRound{
-  background-color: var(--accent-color);
+  background-color: var(--ui-accent);
 }
 
 input:focus + .sliderRound{
-  box-shadow: 0 0 1px var(--accent-color);
+  box-shadow: 0 0 1px var(--ui-accent);
 }
 
 input:checked + .sliderRound:before{
   transform: translateX(1.5em);
-  background-color: var(--activity-color);
+  background-color: var(--ui-background);
 }
 
 .switch{
@@ -65,7 +65,7 @@ input:checked + .sliderRound:before{
   padding: 0.5em 0.5em 0.5em 0.5em;
   margin: 0;
   width: fit-content;
-  color: var(--secondary-text-color);
+  color: var(--text-primary);
 }
 
 .userNameText{
@@ -77,16 +77,8 @@ input:checked + .sliderRound:before{
   margin: auto;
   width: fit-content;
   width: -moz-fit-content;
-  color: var(--secondary-text-color);
+  color: var(--text-secondary);
 }
 
 
 /* CSS for samller screen - by Adnan Islam */
-@media screen and (min-width: 700px) and (max-width: 1000px) {
-
-.themeLabelText{
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: .9em;
-}
-
-}

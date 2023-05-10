@@ -1,6 +1,6 @@
 .userSettingsContainer{
     z-index: 4;
-    background: var(--secondary-color);
+    background: var(--ui-background);
     width: 100%;
     max-width: 600px;
     max-height: 800px;
@@ -18,7 +18,7 @@
   }
   
   .userSettingsForm{
-    background: var(--secondary-color);
+    background: var(--ui-baseline);
     border-radius: 5px;
     padding: 0;
     display: flex;
@@ -28,7 +28,7 @@
   }
   
   .userSettingsFormMobile{
-    background: var(--secondary-color);
+    background: var(--ui-baseline);
     border-radius: 5px;
     padding: 0;
     display: flex;
@@ -39,7 +39,7 @@
   
   .userSettingsContainerMobile{
     z-index: 4;
-    background: var(--secondary-color);
+    background: var(--ui-background);
     width: 100%;
     height: 100%;
     margin:auto;

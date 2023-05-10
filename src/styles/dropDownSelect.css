@@ -22,10 +22,6 @@
   width: 17em;
 }
 
-/*david: media query used to give a diferent width for movile screen */
-@media screen and (max-width: 767px) {
-
-}
 
 @media screen and (max-width: 410px) {
   .dropDownSelectCurrentItem{
@@ -36,19 +32,13 @@
   }
 }
 
-.dropDownSelectCurrentItem:hover .dropDownIcon{
-  fill: var(--title-color);
-}
-
-.dropDownSelectCurrentItem:hover .activeItemText{
-  color: var(--title-color);
-}
+/* drop down Project Names*/
 
 .activeItemText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-size: 1em;
   width: auto;
-  color: var(--secondary-text-color);
+  color: var(--text-primary);
   text-align: left;
   text-transform: capitalize;
   text-shadow: none;
@@ -58,18 +48,7 @@
   max-height: 33px;
 }
 
-.activeItemTextActive{
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: 1em;
-  color: var(--primary-text-color);
-  text-transform: none;
-  text-shadow: none;
-  font-weight: 600;
-  line-height: 1em;
-  padding: .78571429em 0.5em .78571429em;
-  vertical-align: baseline;
-  align-self: center;
-}
+
 
 @media screen and (max-width: 368px) {
 
@@ -81,26 +60,7 @@
   }
 }
 
-.projectDropDownIcon{
-  padding: 0 0.5em 0 0;
-  margin: auto 0;
-  float: right;
-  fill: var(--secondary-text-color);
-  transition: 0s;
-  width: 2em !important;
-  height: 2em !important;
-}
 
-.projectDropDownIconActive{
-  padding: 0 0.5em 0 0;
-  margin: auto 0;
-  float: right;
-  fill: var(--primary-text-color);
-  width: 2em;
-  height: 2em;
-  transition: 0s;
-  transform: rotate(180deg);
-}
 
 
 

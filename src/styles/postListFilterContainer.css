@@ -1,5 +1,5 @@
 
 label{
-    color: white;
+    color: var(--text-primary);
     margin-top: 5%;
 }

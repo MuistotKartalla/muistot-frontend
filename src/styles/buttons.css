@@ -1,10 +1,6 @@
- button:hover{
-  background-color: var(--hover-text-color);
- }
- 
+
  .rippleButton {
-  background: var(--primary-color);
-  fill: var(--title-color);
+  background: var(--button-background);
   cursor: pointer;
   display: inline-block;
   min-height: 1em;
@@ -25,19 +21,20 @@
   border-radius: 7px;
   background-position: center;
   transition: background 0s;
-}
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
+
+ }
 
 .rippleButton:hover {
   border: none;
-  background: var(--title-color);
-  color: var(--hover-text-color);
+  background: var(--button-foreground);
+  color: var(--button-active);
   font-weight: bold;
   transition: all 0.5s;
   border-radius: 10px;
 }
 
 .rippleButton:active {
-  background-color: var(--effect-color);
   background-size: 100%;
   transition: background 0s;
 }
@@ -46,40 +43,53 @@
   padding: 0.5em
 }
 
-.positiveButton {
-  border: none;
-  font-weight: bold;
-  border-radius: 10px;
-  margin: 2px;
-  inline-size: fit-content;
-  padding: 0px 15px;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 10;
-  position: relative;
+ .largeDescription{
+     border: none;
+     font-weight: bold;
+     border-radius: 10px;
+     inline-size: fit-content;
+     padding: 0px 15px;
+     margin: auto;
+     z-index: 10;
+     position: relative;
+     background: var(--button-background);
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
+ }
 
-  
+ .largeDescription:hover{
+     border: none;
+     background: var(--button-foreground);
+     color: var(--button-active);
+     font-weight: bold;
+     border-radius: 10px;
+     position: relative;
+ }
+
+
+.positiveButton {
+    background: var(--button-background);
+    border-radius: 7px;
+    transition: background 0s;
 }
 
 .positiveButton:hover {
   border: none;
-  background: var(--activity-color);
-  color: var(--hover-text-color);
+  background: var(--button-foreground);
+  color: var(--button-active);
   font-weight: bold;
   border-radius: 10px;
   position: relative;
 }
 
+
 .negativeButton {
-  background: var( --primary-color);
+  background: var(--button-background);
   border-radius: 7px;
   transition: background 0s;
 } 
 
 .negativeButton:hover {
   border: none;
-  background: var(--title-color);
-  color: var(--hover-text-color);
   font-weight: bold;
   transition: all 0.5s;
   border-radius: 10px; 
@@ -142,89 +152,21 @@
   display: flex;
 }
 .mobileIcon{
-  fill: white;
+  fill: var(--icon-fill);
   width: 4em;
   height: 4em;
   margin: 5px 0 0 2px;
 }
 
-.mobileIconSecondary{
-  fill:#0a0a0a;
-  width: 4em;
-  height: 4em;
- 
-}
 
-.mobileIconSmall{
-  cursor: pointer;
-  fill: var(--primary-text-color);
-  stroke: none;
-  margin: 0.5em;
-  width: 2em;
-  height: 2em;
-}
 
-.mobileIconSmall:hover {
-  fill: var(--title-color);
-}
 
-.copyclipboard {
-  background: var(--accent-color);
-  color: var(--primary-text-color);
-  cursor: pointer;
-  display: inline-block;
-  height: 2.5em;
-  width: 7.5em;
-  outline: 0;
-  border: none;
-  vertical-align: baseline;
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: .8em;
-  margin: 0.7em .5em;
-  padding: .78571429em 1.5em .78571429em;
-  text-transform: none;
-  text-shadow: none;
-  font-weight: 700;
-  line-height: 1em;
-  font-style: normal;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 7px;
-  background-position: center;
-  transition: background 0s;
-}
 
-.copyclipboard:hover {
-  border: none;
-  background: var(--title-color);
-  color: black;
-  font-weight: bold;
-  transition: all 0.5s;
-  border-radius: 7px;
-}
 
-.copyclipboard:active {
-  background-color: var(--effect-color);
-  background-size: 100%;
-  transition: background 0s;
-}
 
-/* CSS for samller screen - by Adnan Islam */
-@media screen and (min-width: 500px) and (max-width: 630px) {
 
-  .mobileIconSmall{
-    cursor: pointer;
-    fill: var(--primary-text-color);
-    stroke: none;
-    margin: .5em 0.2em;
-    width: 1.5em;
-    height: 1.5em;
-  }
 
-  .copyclipboard {
-    height: 2.5em;
-    width: 7.5em;
-    font-size: .6em;
-    margin: 1em .5em .25em .25em;
-  }
-}
+
+
+
+

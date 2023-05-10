@@ -71,7 +71,7 @@ export const ProjectInfo = (props) => {
             <h3>Additional Metadata</h3>
           </div>
         </div>
-        <button onClick={toggleDescription} className="positiveButton">Large description</button>
+        <button onClick={toggleDescription} className="largeDescription">Large description</button>
         {showFullDescription && (
           <div className="projectInfoDescriptionContainer normalText">
             <div className="projectInfoDescriptionContainer normalText">
