@@ -111,7 +111,7 @@ export const LanguageDropDownKiosk = (props) => {
       </div>
     ) : (
       <div className={`icon-containerlanKiosk ${isComponentVisible ? 'show' : ''}`} ref={ref}>
-        <div className="acountDDCurrentItemContainer" onClick={toggleVisibility}>
+        <div className="acountDDCurrentItemContainerKiosk" onClick={toggleVisibility}>
           <TranslateIcon className="iconLookKiosk"></TranslateIcon>
         </div>
         {isComponentVisible ? (
