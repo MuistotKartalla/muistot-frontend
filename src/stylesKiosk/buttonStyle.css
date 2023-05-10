@@ -48,7 +48,7 @@
 
 }
 
----------------------------------------------------------------------------------------------------------------------------------------------------- .languageDDContainer {
+.languageDDContainer {
     background: var(--primary-color);
     justify-content: center;
     margin: auto;
@@ -78,42 +78,7 @@
     border-bottom-right-radius: 5px;
 }
 
-.languageDDCurrentItemContainer {
-    display: flex;
-    height: 3em;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 0 0 5px;
-}
 
-.languageDDItem {
-    cursor: pointer;
-    padding: 0px;
-    height: 100%;
-    text-align: left;
-    align-self: auto;
-    transition: 0s;
-    color: var(--secondary-text-color);
-}
-
-.languageDDCurrentItem {
-    cursor: pointer;
-    display: table;
-    padding: 0px;
-    transition: 0s;
-    width: 100%;
-    color: var(--secondary-text-color);
-}
-
-.languageDDText {
-    display: table-cell;
-    vertical-align: middle;
-    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    font-size: 1.2em;
-    font-weight: 700;
-    text-align: left;
-    width: fit-content;
-}
 
 /*Mateusz*/
 
@@ -175,4 +140,25 @@
     margin: 0;
     width: fit-content;
     width: 30px;
+}
+
+.geolocationButton {
+    position: absolute;
+    left: 65%;
+    bottom: 2.5%;
+    z-index: 999;
+    background-color: var(--primary-color);
+    border: 1px;
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.geolocationButton:hover {
+    background-color: #f1f1f1;
+}
+
+.geolocationButton .material-icons {
+    font-size: 3vw;
+    color: #333;
 }

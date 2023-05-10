@@ -12,8 +12,8 @@
 
 @media screen and (max-width: 410px) {
   .dropDownContainer{
-    width: 70%;
-    position: none;
+    width: 100%;
+    position: relative;
   }
 }
 
@@ -39,12 +39,10 @@
 
 .dropDownItemText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: 2vw;
-  display: block;
-  font-weight: 3;
+  font-size: 4vw;
   padding: 0.5em 0.5em;
   margin: 0;
-  width: fit-content;
+  width: 70%;
 }
 
 .dropDownListItem:hover{

@@ -67,7 +67,7 @@ const MapContainerMobile = (props) => {
   //state variables
   const [position, setPosition] = useState({ lat: 65.01157565139543, lng: 25.470943450927738 })
   const [tempMarker, setTempMarker] = useState(null)
-  const [zoom, setZoom] = useState(5)
+  const [zoom, setZoom] = useState(6)
   const [posts, setPosts] = useState([])
   const [moveToPosition, setmoveToPosition] = useState(false)
   const itemsRef = useRef([]);
@@ -103,7 +103,7 @@ const MapContainerMobile = (props) => {
     }
 
     if (props.mapLocation !== null) {
-      setZoom(18)
+      setZoom(10)
       setPosition(props.mapLocation)
       props.updateMapLocation(null)
       setmoveToPosition(true)
@@ -132,6 +132,8 @@ const MapContainerMobile = (props) => {
     event.preventDefault()
     props.history.push("/list-view/")
   }
+
+  
 
   const newPostClick = (event) => {
     //New post onClick event handler.
@@ -310,22 +312,25 @@ const MapContainerMobile = (props) => {
       </MapContainer>
 
       {/* david */}
-        
+
 
       {/* --- */}
 
       {props.currentProject.id !== "parantolat" ?
-      
+
         <button className="mobileProjectButton ">
           <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject} />
         </button>
         :
         <></>
       }
-      <div className="accountInfoContainer">
-        <AccountIcon className="accountInfoButton" onClick={toProfileClick}></AccountIcon>
-      </div>
 
+
+      
+      <div className="accountInfoContainer">
+        <AccountIcon className="accountInfoButton" onClick={newPostClick}></AccountIcon>
+      </div>
+    
 
       {props.history.location.pathname !== "/select-location/" ?
         <div>
@@ -346,7 +351,9 @@ const MapContainerMobile = (props) => {
       }
     </div>
   )
+  
 }
+
 
 const mapStateToProps = (state) => {
   return {
