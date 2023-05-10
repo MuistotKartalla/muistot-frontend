@@ -15,7 +15,7 @@
 @media (orientation: portrait) {
   .projectInfoContainer{
     z-index: 4;
-    background: var(--primary-color);
+    background: var(--ui-background);
     max-width: 70%;
     width: 100%;
     height: auto;
