@@ -5,14 +5,29 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   max-width: 260px;
-
+  font-size: 1%;
+  overflow-y: scroll;
+  width: auto;
+  height: auto;
 }
 
 @media screen and (max-width: 410px) {
   .dropDownContainer{
-    width: 70%;
+    width: 100%;
+    position: relative;
   }
 }
+
+
+.icons{
+  size: 5%;
+  opacity: 1; /* opacidad por defecto */
+  transition: opacity 0.3s ease-in-out;
+}
+.icons:hover{
+  opacity: 0.8;
+}
+
 
 .dropDownList{
   list-style-type: none;
@@ -34,12 +49,9 @@
 
 .dropDownItemText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: 1.2em;
-  display: block;
-  font-weight: 500;
-  padding: 0.5em 0.5em;
+  font-size: 1.5vw;
+  padding: 0.5em 0.5em 0.5em 0.5em;
   margin: 0;
-  width: fit-content;
 }
 
 .dropDownListItem:hover{
@@ -48,5 +60,3 @@
   background: var(--ui-accent);
   height: 100%;
 }
-
-

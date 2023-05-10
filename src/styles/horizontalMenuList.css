@@ -1,9 +1,3 @@
-.horizontalMenuContainer{
-  display: flex;
-  flex-direction: column;
-  height: 4em;
-}
-
 .horizontalMenuContainerLogged{
   display: flex;
   flex-direction: column;
@@ -15,11 +9,9 @@
 
 .menuButtonList{
   color: var(--text-primary);
-  list-style-type: none;
   float: right;
-  padding: 0;
   margin: 0 10px;
-  height: 4em;
+  padding-left: 0;
 }
 
 .menuItemText{
@@ -33,19 +25,14 @@
 .menuListItem{
   cursor: pointer;
   float: right;
-  margin: 0;
-  padding: 0px 10px;
-  height: 4em;
   display: flex;
   text-align: center;
   align-self: center;
   transition: 0s;
+  margin: 0 5px;
 }
 
-.menuListItem:hover{
-  transition: 0.5s;
-  height: 4em;
-}
+
 
 .personIcon{
   padding: 0;
@@ -121,3 +108,4 @@
 .icon-container.show .dropdown{
   display: block;
 }
+

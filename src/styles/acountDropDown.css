@@ -19,3 +19,14 @@
     text-align: center;
 
 }
+
+
+.acountDDCurrentItemContainerKiosk{
+    display: flex;
+    height: 0%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+

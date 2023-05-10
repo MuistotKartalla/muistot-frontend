@@ -1,6 +1,6 @@
 
-import "../styles/utils.css"
-import "../styles/utils.css"
+import "../stylesKiosk/buttonStyle.css"
+
 
 const UtilIcon = (props) => {
     return (
@@ -12,9 +12,9 @@ const UtilIcon = (props) => {
 
 export const  Utils = (props) => {
     return (
-        <div className="utils-container">
+        <div className="utils-containerKiosk">
 
-            <ul className="utils-ul">
+            <ul className="utils-ulKiosk">
                 {props.items.map((element, index) => (
                     <UtilIcon key={index} icon={element} />
                 ))}

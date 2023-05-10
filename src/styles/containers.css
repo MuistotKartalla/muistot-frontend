@@ -1,10 +1,28 @@
+:root{
+  --primary-color: #000000;
+  --secondary-color: #202124;
+
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #a0a0a0;
+
+  --accent-color: #383838;
+  --accent-color-dark: #1b1c1d;
+  --accent-color-light: #808080;
+  --effect-color: #cecece;
+  --primary-color: #000000;
+  --title-color:#03FFFF;
+  --hover-text-color: #000000;
+}
+
+
 html, body, #root, #app, #app>div {
   height: auto;
   min-height: 100%;
+  min-width: 500px;
 }
 
 .appContainer{
-  /*background-color: #161616;*/
+  background-color: #161616;
   margin: 0px;
   position: absolute;
   height: 100% !important;
@@ -15,7 +33,7 @@ html, body, #root, #app, #app>div {
 
 .popUpContainer{
   position: absolute;
-  height: 92.5%;
+  height: 100%;
   width: 100%;
   z-index: 3;
 }
@@ -29,6 +47,7 @@ html, body, #root, #app, #app>div {
 }
 
 .contentContainer{
+  position: relative;
   height: 100%;
   width: 100%;
   display: flex;
@@ -38,6 +57,10 @@ html, body, #root, #app, #app>div {
   overflow-x: hidden;
 }
 
+.toggleDescriptionButtonContainer{
+  text-align: center;
+  z-index: 10;
+}
 .titleContainerMobile{
   width: 100%;
   height: fit-content;

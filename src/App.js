@@ -23,6 +23,7 @@ import ContentAreaMobile from "./componentsMobile/ContentAreaMobile"
 
 import {log} from "./services/settings";
 import {checkLocation} from "./services/initialurl";
+import NavMenuKiosk from "./componentsKiosk/NavMenuKiosk"
 
 const App = (props) => {
     const [postsInit, setPostsInitialized] = useState(false)
@@ -111,6 +112,15 @@ const App = (props) => {
                     <Route path="/" render={({history}) => (<ContentAreaMobile history={history}/>)}/>
                     {!verified? <Redirect to="/set-username" /> : <></>}
                     {/* {props.notification.message !== null ? <NotificationMobile/> : <div/>} */}
+                </Router>
+            </div>
+        )
+    } else if (isKiosk){
+        return(
+            <div className="appContainer">
+                <Router>
+                <Route path="/kiosk" render={({history}) => (<NavMenuKiosk history={history}/>)}/>
+                    <ContentAreaKiosk/>
                 </Router>
             </div>
         )

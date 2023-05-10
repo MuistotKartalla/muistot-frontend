@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import { connect } from "react-redux"
 
+
+
+import { useLocation } from 'react-router-dom'
+
 import { notify } from "../reducers/notificationReducer"
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
-import { ReactComponent as SettingIcon } from "../resources/setting_cog.svg"
 import { getImageURL } from "../services/images"
 import "../styles/containers.css"
 import "../styles/postView.css"
@@ -39,20 +42,27 @@ export const ProjectInfo = (props) => {
     }
   }, [props, project.title, project.id])
 
+  //david
+  const location = useLocation();
+  const isKiosk = location.pathname.startsWith('/kiosk');
+
   const closeClick = (event) => {
     event.preventDefault()
+    isKiosk?
+     props.history.push("/kiosk")
+     :
     props.history.push("/")
   }
 
-  //go to project management page
-  const toManagement = (event) => {
-    event.preventDefault()
-    props.history.push("/project-management")
-  }
   //full description
   const [showFullDescription, setShowFullDescription] = useState(false)
+  const [textToggleButton, setTextToggleButton] = useState("Show more")
   const toggleDescription = () => {
     setShowFullDescription(!showFullDescription)
+    showFullDescription ?
+    setTextToggleButton("Show more")
+    :
+    setTextToggleButton("Show less")
   };
 
   //check if current user is project moderator
@@ -71,7 +81,21 @@ export const ProjectInfo = (props) => {
             <h3>Additional Metadata</h3>
           </div>
         </div>
-        <button onClick={toggleDescription} className="largeDescription">Large description</button>
+        {isKiosk? (
+          <div className="projectInfoDescriptionContainer normalText">
+            <div className="projectInfoDescriptionContainer normalText">
+              <ReactMarkdown source={project.description} />
+            </div>
+            <div className="projectInfoContentDescriptionContainer normalText">
+              <ReactMarkdown source={project.contentDescription} />
+            </div>
+          </div>
+        ):(
+          <>
+          <div className="toggleDescriptionButtonContainer">
+          <button onClick={toggleDescription} className="positiveButton">{textToggleButton}</button>
+          </div>
+          
         {showFullDescription && (
           <div className="projectInfoDescriptionContainer normalText">
             <div className="projectInfoDescriptionContainer normalText">
@@ -82,8 +106,10 @@ export const ProjectInfo = (props) => {
             </div>
           </div>
         )}
+        </>
+        )}
       </div>
-    )
+    );
   } 
 
 }
@@ -96,7 +122,6 @@ const mapStateToProps = (state) => {
     user: state.user,
   }
 }
-
 const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   notify,

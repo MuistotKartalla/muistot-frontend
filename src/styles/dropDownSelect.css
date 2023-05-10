@@ -1,5 +1,6 @@
 .dropDownSelectHidden{
   width: auto;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-radius: 5px;
@@ -11,6 +12,7 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 5px;
+  max-height: 700px;
 }
 
 .dropDownSelectCurrentItem{
@@ -36,22 +38,55 @@
 
 .activeItemText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: 1em;
-  width: auto;
-  color: var(--text-primary);
+  font-size: 1.2em;
+  width: 16.8em;
+  color: var(--secondary-text-color);
   text-align: left;
   text-transform: capitalize;
   text-shadow: none;
   font-weight: 700;
-  padding: .5em 0.5em .6em;
+  line-height: 1em;
+  padding: .78571429em 0.5em .78571429em;
   vertical-align: baseline;
-  max-height: 33px;
+  align-self: center;
 }
 
+.activeItemTextActive{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  color: var(--primary-text-color);
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 600;
+  line-height: 1em;
+  padding: .78571429em 0.5em .78571429em;
+  vertical-align: baseline;
+  align-self: center;
+}
 
+.projectDropDownIcon{
+  padding: 0 0.5em 0 0;
+  margin: auto 0;
+  float: right;
+  fill: var(--secondary-text-color);
+  transition: 0s;
+  width: 2em !important;
+  height: 2em !important;
+  position: flex;
+}
+
+.projectDropDownIconActive{
+  padding: 0 0.5em 0 0;
+  margin: auto 0;
+  float: right;
+  fill: var(--primary-text-color);
+  width: 2em;
+  height: 2em;
+  transition: 0s;
+  transform: rotate(180deg);
+}
 
 @media screen and (max-width: 368px) {
-
   .activeItemText{
     font-size: 70%;
   }
@@ -59,10 +94,3 @@
     font-size:  70%;
   }
 }
-
-
-
-
-
-
-

@@ -46,11 +46,8 @@
   font-size: 1.2em;
   padding: 10px;
 }
-.DropDownSelectProject {
-  position: relative;
-}
 
-.projectInfoButtonContainer{
+.projectInfoButtonContainer {
   width: 40px;
   height: 40px;
   margin-top: 12px;
@@ -58,17 +55,11 @@
 }
 
 .centerContainer{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 40%;
+  position: abosulte;
+  display:flex;
 }
-
-
 .projectInfoButton{
+
   /*background: var(--primary-color);*/
   color: var(--text-secondary);
   cursor: pointer;
@@ -99,12 +90,11 @@
 }
 
 .projectSelectContainer{
-  top: 0.3em;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
-
+  justify-content: space-between;
+  width: 100%;
+  max-width: 45%;
+  margin: 0 1%;
 }
 
 
@@ -117,7 +107,6 @@
   height: 4em;
   grid-area: right;
 }
-
 .menuItemText{
   
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
@@ -125,7 +114,6 @@
   display: block;
   font-weight: 500;
 }
-
 .menuListItem{
   cursor: pointer;
   float: right;
@@ -137,14 +125,12 @@
   align-self: center;
   transition: 0s;
 }
-
 .menuListItem:hover{
   color: var(--primary-text-color);
   transition: 0.5s;
   background: var(--accent-color);
   height: 100%;
 }
-
 .accountDropDownContainer{
   float: right;
   height: fit-content;
@@ -152,7 +138,6 @@
   width: 100%;
   top: 4em;
 }
-
 .maxWidthContainer{
   top: 0;
   max-width: 1200px;
@@ -162,7 +147,6 @@
   width: -moz-available;
   border-radius: 5px;
 }
-
 .accountItemContainer{
   display: flex;
   width: fit-content;

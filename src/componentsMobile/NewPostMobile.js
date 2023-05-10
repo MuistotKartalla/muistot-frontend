@@ -7,7 +7,7 @@ import { createSite } from "../reducers/postReducer"
 import { setTempSite } from "../reducers/tempSiteReducer"
 import "../styles/buttons.css"
 import "../styles/newPost.css"
-import SiteImageUploadMobile from "./SiteImageUploadMobile"
+import SiteImageUpload from "../common components/SiteImageUpload"
 
 
 import { ReactComponent as ReturnIcon } from "../resources/arrow_back.svg"
@@ -112,7 +112,7 @@ export const NewPostMobile = (props) => {
 	          <p className="normalText textCenter">{props.settings.strings["give_name_for_location"]}</p>
       		    <input name="title" id="titleField" className="input" placeholder={props.settings.strings["title"]} maxLength="100" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>
       		    <div className="inputFocusLine"/>
-              <SiteImageUploadMobile change={imageOnChangeHandler}/>
+              <SiteImageUpload change={imageOnChangeHandler}/>
       		  </div>
 
 	        <div className="postFormButtonContainer">

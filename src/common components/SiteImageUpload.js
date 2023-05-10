@@ -6,6 +6,7 @@ import { notify } from "../reducers/notificationReducer"
 import { setTempSite } from "../reducers/tempSiteReducer"
 
 import "../styles/imageUpload.css"
+import { isMobile } from "react-device-detect"
 
 //inspiration from
 //https://codepen.io/hartzis/pen/VvNGZP
@@ -55,7 +56,26 @@ export const SiteImageUpload = (props) => {
 
 
   return(
-    <div className="imageUploadContainer">
+    isMobile ? (
+      <div className="imageUploadContainerMobile">
+      <div className="imagePreviewContainerMobile">
+        {imagePreviewUrl !== null?
+          <img className="previewImageMobile" src={imagePreviewUrl} alt=""></img>
+          :
+          <div className="previewText normalText">{props.settings.strings["no_image_selected"]}</div>
+        }
+      </div>
+      <div className="selectImageContainer">
+        <div className="dualButtonContainer">
+          <label className="rippleButton fillButton"> {props.settings.strings["choose_file"]}
+            <input type="file" accept="image/*" onChange={handleImageChange}/>
+          </label>
+        </div>
+
+      </div>
+    </div>
+    ):(
+      <div className="imageUploadContainer">
       <div className="imagePreviewContainer">
         {imagePreviewUrl !== null?
           <img className="previewImage" src={imagePreviewUrl} alt=""></img>
@@ -71,6 +91,8 @@ export const SiteImageUpload = (props) => {
 
       </div>
     </div>
+    )
+    
   )
 
 }

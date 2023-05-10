@@ -7,7 +7,7 @@ import { ReactComponent as DropDownIcon } from "../resources/arrow_drop_down-24p
 import { ReactComponent as TranslateIcon } from "../resources/translateIcon.svg"
 
 import "../styles/languageDropDown.css"
-import DropDownLanguage from "./DropDownLanguage"
+import DropDownLanguage from "../common components/DropDownLanguage"
 
 import { setActiveLanguage } from "../reducers/settingsReducer"
 import { isMobile } from "react-device-detect";
@@ -16,7 +16,7 @@ import finnishFlag from "../resources/finnish-flag.png";
 import englishFlag from "../resources/english-flag.png";
 
 
-export const LanguageDropDown = (props) => {
+export const LanguageDropDownKiosk = (props) => {
 
   const [activeIndex, setActiveIndex] = useState(
     props.settings.languages.findIndex((lang) => lang === props.settings.activeLanguage)
@@ -73,11 +73,11 @@ export const LanguageDropDown = (props) => {
     ) : (
 
       <div className={`icon-containerlan ${isComponentVisible ? 'show' : ''}`} ref={ref}>
-        <div className="acountDDCurrentItemContainer" onClick={toggleVisibility}>
-          <TranslateIcon className="iconLook"></TranslateIcon>
+        <div className="acountDDCurrentItemContainerKiosk" onClick={toggleVisibility}>
+          <TranslateIcon className="iconLookKiosk"></TranslateIcon>
         </div>
         {isComponentVisible ? (
-          <div className="dropdownLan">
+          <div className="dropdownLanKiosk">
             <DropDownLanguage items={genListOptions()}
             activeIndex={activeIndex}
             activeItemClassName="dropDownListItemActive"
@@ -91,7 +91,7 @@ export const LanguageDropDown = (props) => {
   } else {
     return isMobile ? (
       <div className="languageDDContainerActive" ref={ref}>
-        <div className="languageDDCurrentItemContainer" onClick={toggleVisibility}>
+        <div className="languageDDCurrentItemContainerKiosk" onClick={toggleVisibility}>
           <div className="languageDDCurrentItem">
             <span className="languageDDTextActive">{props.settings.activeLanguage.toUpperCase()}</span>
             <DropDownIcon className="dropDownIconActive" />
@@ -110,12 +110,12 @@ export const LanguageDropDown = (props) => {
         }
       </div>
     ) : (
-      <div className={`icon-containerlan ${isComponentVisible ? 'show' : ''}`} ref={ref}>
-        <div className="acountDDCurrentItemContainer" onClick={toggleVisibility}>
-          <TranslateIcon className="iconLook"></TranslateIcon>
+      <div className={`icon-containerlanKiosk ${isComponentVisible ? 'show' : ''}`} ref={ref}>
+        <div className="acountDDCurrentItemContainerKiosk" onClick={toggleVisibility}>
+          <TranslateIcon className="iconLookKiosk"></TranslateIcon>
         </div>
         {isComponentVisible ? (
-          <div className="dropdownLan">
+          <div className="dropdownLanKiosk">
             <DropDownLanguage items={genListOptions()}
             activeIndex={activeIndex}
             activeItemClassName="dropDownListItemActive"
@@ -145,7 +145,7 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LanguageDropDown)
+)(LanguageDropDownKiosk)
 
 
 // LanguageDropDown: This component is placed in HorizontaMenuList.js. The component renders a container div with two nested divs. The first div represents the currently selected language and, when clicked,

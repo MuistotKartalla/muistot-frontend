@@ -9,11 +9,14 @@
 
 }
 
+
+
 .utils-ul {
     list-style: none; /* elimina los marcadores de lista */
     padding: 4px; /* elimina el espacio de relleno predeterminado */
     margin: 0; /* elimina el margen predeterminado */
 }
+
 
 .floatingSearch{
     width: 35px;
@@ -21,9 +24,15 @@
     fill: var(--icon-fill);
 }
 
-.floatingList{
+.floatingList {
     width: 35px;
     height: 35px;
     fill: var(--icon-fill);
+}
+
+.floatingSearch {
+    width: 100%;
+    height: 100%;
+    fill: var(--title-color);
 
 }

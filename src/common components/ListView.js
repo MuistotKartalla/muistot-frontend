@@ -8,6 +8,7 @@ import { notify } from "../reducers/notificationReducer"
 
 import "../styles/listView.css"
 import "../styles/postView.css"
+import { useLocation } from 'react-router-dom';
 import PostList from "./PostList"
 import PostViewLW from "./PostViewLW"
 
@@ -29,7 +30,14 @@ export const ListView = (props) => {
 
   }, [props, posts.length])
 
+  //david
+  const location = useLocation();
+  const isKiosk = location.pathname.startsWith('/kiosk');
+
   const onItemClick = (post) => {
+    isKiosk ? 
+    props.history.push(`/kiosk/list-view/${post.id}`)
+    :
     props.history.push(`/list-view/${post.id}`)
   }
 

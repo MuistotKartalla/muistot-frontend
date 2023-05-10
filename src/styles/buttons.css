@@ -1,172 +1,136 @@
-
- .rippleButton {
-  background: var(--button-background);
-  cursor: pointer;
-  display: inline-block;
-  min-height: 1em;
-  outline: 0;
-  border: none;
-  vertical-align: baseline;
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: 1em;
-  margin: 0 .25em 0 .25em;
-  padding: .78571429em 1.5em .78571429em;
-  text-transform: none;
-  text-shadow: none;
-  font-weight: 700;
-  line-height: 1em;
-  font-style: normal;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 7px;
-  background-position: center;
-  transition: background 0s;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
-
- }
-
+.rippleButton {
+    background: var(--button-background);
+    cursor: pointer;
+    display: inline-block;
+    min-height: 1em;
+    outline: 0;
+    border: none;
+    vertical-align: baseline;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 1em;
+    margin: 0 .25em 0 .25em;
+    padding: .78571429em 1.5em .78571429em;
+    text-transform: none;
+    text-shadow: none;
+    font-weight: 700;
+    line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 7px;
+    background-position: center;
+    transition: background 0s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
+}
 .rippleButton:hover {
-  border: none;
-  background: var(--button-foreground);
-  color: var(--button-active);
-  font-weight: bold;
-  transition: all 0.5s;
-  border-radius: 10px;
+    border: none;
+    background: var(--button-foreground);
+    color: var(--button-active);
+    font-weight: bold;
+    transition: all 0.5s;
+    border-radius: 10px;
 }
-
 .rippleButton:active {
-  background-size: 100%;
-  transition: background 0s;
+    background-size: 100%;
+    transition: background 0s;
 }
-
 .smallButton{
-  padding: 0.5em
+    padding: 0.5em
 }
-
- .largeDescription{
-     border: none;
-     font-weight: bold;
-     border-radius: 10px;
-     inline-size: fit-content;
-     padding: 0px 15px;
-     margin: auto;
-     z-index: 10;
-     position: relative;
-     background: var(--button-background);
-     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
- }
-
- .largeDescription:hover{
-     border: none;
-     background: var(--button-foreground);
-     color: var(--button-active);
-     font-weight: bold;
-     border-radius: 10px;
-     position: relative;
- }
-
-
+.largeDescription{
+    border: none;
+    font-weight: bold;
+    border-radius: 10px;
+    inline-size: fit-content;
+    padding: 0px 15px;
+    margin: auto;
+    z-index: 10;
+    position: relative;
+    background: var(--button-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
+}
+.largeDescription:hover{
+    border: none;
+    background: var(--button-foreground);
+    color: var(--button-active);
+    font-weight: bold;
+    border-radius: 10px;
+    position: relative;
+}
 .positiveButton {
     background: var(--button-background);
     border-radius: 7px;
     transition: background 0s;
 }
-
 .positiveButton:hover {
-  border: none;
-  background: var(--button-foreground);
-  color: var(--button-active);
-  font-weight: bold;
-  border-radius: 10px;
-  position: relative;
+    border: none;
+    background: var(--button-foreground);
+    color: var(--button-active);
+    font-weight: bold;
+    border-radius: 10px;
+    position: relative;
 }
-
-
 .negativeButton {
-  background: var(--button-background);
-  border-radius: 7px;
-  transition: background 0s;
-} 
-
+    background: var(--button-background);
+    border-radius: 7px;
+    transition: background 0s;
+}
 .negativeButton:hover {
-  border: none;
-  font-weight: bold;
-  transition: all 0.5s;
-  border-radius: 10px; 
+    border: none;
+    font-weight: bold;
+    transition: all 0.5s;
+    border-radius: 10px;
 }
-
 .fillButton{
-  width: -webkit-fill-available;
-  width: -moz-available;
+    width: -webkit-fill-available;
+    width: -moz-available;
 }
-
 .fillButtonWithoutMargin{
-  width: -webkit-fill-available;
-  width: -moz-available;
-  margin: 0;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    margin: 0;
 }
-
 .fitButton{
-  width: fit-content;
+    width: fit-content;
 }
-
 .rightButton{
-  align-self: flex-end;
+    align-self: flex-end;
 }
-
 .bigButton{
-  font-weight: 900;
-  font-size: 1em;
-  margin: 0;
+    font-weight: 900;
+    font-size: 1em;
+    margin: 0;
 }
-
 .pulsingButton{
-  animation: pulse 1s infinite;
-  animation-timing-function: ease-in-out;
-  
+    animation: pulse 1s infinite;
+    animation-timing-function: ease-in-out;
 }
-
 @keyframes pulse{
-  0%{transform: scale(1); animation-timing-function: ease-in-out;}
-  50%{transform: scale(1.05);animation-timing-function: ease-in-out;}
-  0%{transform: scale(1);animation-timing-function: ease-in-out;}
+    0%{transform: scale(1); animation-timing-function: ease-in-out;}
+    50%{transform: scale(1.05);animation-timing-function: ease-in-out;}
+    0%{transform: scale(1);animation-timing-function: ease-in-out;}
 }
-
 .mobileButtonContainer{
-  cursor: pointer;
-  background: transparent;
-  outline: none;
-  border: 0;
-  padding: 0;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border: 0;
+    padding: 0;
 }
-
 .mobileButton{
-  z-index: 4;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-  background: transparent;
-  outline: none;
-  border: 0;
-  padding: 0.5em;
-  display: flex;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border: 0;
+    padding: 0.5em;
+    display: flex;
 }
 .mobileIcon{
-  fill: var(--icon-fill);
-  width: 4em;
-  height: 4em;
-  margin: 5px 0 0 2px;
+    fill: var(--icon-fill);
+    width: 4em;
+    height: 4em;
+    margin: 5px 0 0 2px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
