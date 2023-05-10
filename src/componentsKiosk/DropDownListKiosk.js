@@ -20,7 +20,7 @@ export const DropDownList = (props) => {
               <div className="divider"></div>
               :
               <li key={index} className="dropDownListItem" onClick={element.onClickHandler}>
-                <p className="dropDownItemText">{element.string}</p>
+                <p className="dropDownItemTextKiosk">{element.string}</p>
               </li>
             }
           </div>

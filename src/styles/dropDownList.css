@@ -6,7 +6,6 @@
   border-bottom-right-radius: 10px;
   overflow-y: auto;
   max-width: 260px;
-  position: absolute;
   font-size: 1%;
 }
 
@@ -46,10 +45,9 @@
 
 .dropDownItemText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: 4vw;
-  padding: 0.5em 0.5em;
+  font-size: 1.5vw;
+  padding: 0.5em 0.5em 0.5em 0.5em;
   margin: 0;
-  width: 70%;
 }
 
 .dropDownListItem:hover{

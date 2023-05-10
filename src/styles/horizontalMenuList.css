@@ -1,9 +1,3 @@
-.horizontalMenuContainer{
-  display: flex;
-  flex-direction: column;
-  height: 4em;
-}
-
 .horizontalMenuContainerLogged{
   display: flex;
   flex-direction: column;
@@ -14,12 +8,7 @@
 }
 
 .menuButtonList{
-  color: var(--secondary-text-color);
-  list-style-type: none;
-  float: right;
-  padding: 0;
   margin: 0 10px;
-  height: 4em;
 }
 
 .menuItemText{
@@ -33,21 +22,14 @@
 .menuListItem{
   cursor: pointer;
   float: right;
-  margin: 0;
-  padding: 0px 10px;
-  height: 4em;
   display: flex;
   text-align: center;
   align-self: center;
   transition: 0s;
+  margin: 0 5px;
 }
 
-.menuListItem:hover{
-  color: var(--title-color);
-  transition: 0.5s;
-  background: var(--primary-color);
-  height: 4em;
-}
+
 
 .accountDropDownContainer{
   align-self: flex-end;
@@ -210,74 +192,3 @@
 }
 
 /*---------------------*/
-
-/* CSS for samller screen - by Adnan Islam */
-@media screen and (min-width: 700px) and (max-width: 1000px) {
-
-.menuItemText{
-  font-size: .9em;
-  display: block;
-}
-
-.dropDownListItem{
-  padding: 0px;
-  height: 100%;
-  width: 5em;
-}
-
-.personIcon{
-  padding: 0;
-  margin: auto;
-  fill: var(--secondary-text-color);
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.personIconActive{
-  padding: 0;
-  margin: auto;
-  fill: var(--title-color);
-  width: 1.5em;
-  height: 1.5em;
-}
-
-}
-
-@media screen and (min-width: 500px) and (max-width: 700px) {
-
-.menuItemText{
-  font-size: .9em;
-  display: block;
-}
-
-.dropDownListItem{
-  padding: 0px;
-  height: 100%;
-  width: 5em;
-}
-
-.personIcon{
-  padding: 0;
-  margin: auto;
-  fill: var(--secondary-text-color);
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.personIconActive{
-  padding: 0;
-  margin: auto;
-  fill: var(--title-color);
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.menuListItem{
-  background: var(--secondary-color);
-}
-
-.accountItem, .accountItemActive{
-  margin: 0px -15px 0px 0px;
-}
-
-}
