@@ -14,7 +14,7 @@
 
 .logoButton:hover {
     clip-path: none;
-    background-color: var(--button-background);
+    background-color: var(--ui-background);
     color: var(--ui-accent);
 }
 
