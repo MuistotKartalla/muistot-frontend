@@ -7,6 +7,10 @@
   z-index: 3;
 }
 
+.overflowMenuContainer{
+  overflow-y: auto;
+}
+
 .mobileMenuContainer {
   position: absolute;
   top: 0;
@@ -18,9 +22,9 @@
   display: flex;
   flex-direction: column;
 }
+
 .downContainer{
-  position: absolute;
-  bottom: 0;
+
   width: 100%;
 }
 

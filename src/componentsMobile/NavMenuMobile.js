@@ -135,51 +135,53 @@ export const NavMenuMobile = (props) => {
               <button className="mobileMenuButton" onClick={toLoginClick}>{props.settings.strings["log_in"]}</button>
               <div className="divider" />
             </div>
-          } 
+          }
           {props.user ?
             <div className="mobileMenuNavigationContainer">
               <p className="userNameText">{props.user.username}</p>
               <div className="divider" />
-              <button className="mobileMenuButton" onClick={toMyPostsClick}>{props.settings.strings["my_posts"]}</button>
+
             </div>
             : <></>}
 
-
-          <div className="mobileMenuProjectContainer">
-            <button className="mobileMenuButton" onClick={toProjectMenu}>{props.settings.strings["project_info"]}</button>
-            <button className="mobileMenuButton" onClick={toListViewClick}>{props.settings.strings["list_view"]}</button>
-            <div className="divider" />
-          </div>
-          {props.user ?
-            <div className="mobileMenuNavigationContainer">
-              <button className="mobileMenuButton" onClick={toProfileClick}>{props.settings.strings["profile"]}</button>
-              <button className="mobileMenuButton" onClick={logoutClick}>{props.settings.strings["log_out"]}</button>
-              {props.currentProject.moderators.find(user => user === props.user.username) ?
-                <div className="mobileMenuUserNameContainer">
-                  <div className="divider" />
-                  <button className="mobileMenuButton" onClick={toUnverifiedPostsClick}>{props.settings.strings["unverified-posts"]}</button>
-                  <button className="mobileMenuButton" onClick={toManagementClick}>{props.settings.strings["project_management"]}</button>
-                </div>
-                :
-                <></>
-              }
-            </div>
-            :
-            <div></div>
-
-
-          }
-
-
-          <div className="downContainer">
-            <div className="preferencesContainer">
+          <div className="overflowMenuContainer">
+            <button className="mobileMenuButton" onClick={toMyPostsClick}>{props.settings.strings["my_posts"]}</button>
+            <div className="mobileMenuProjectContainer">
+              <button className="mobileMenuButton" onClick={toProjectMenu}>{props.settings.strings["project_info"]}</button>
+              <button className="mobileMenuButton" onClick={toListViewClick}>{props.settings.strings["list_view"]}</button>
               <div className="divider" />
-              <LanguageDropDown />
-              <ThemeToggleSwitch />
-              <NameToggleSwitch />
             </div>
-            <div className="divider" />
-            <button className="mobileMenuButton" onClick={toAboutClick}>{props.settings.strings["about"]}</button>
+            {props.user ?
+              <div className="mobileMenuNavigationContainer">
+                <button className="mobileMenuButton" onClick={toProfileClick}>{props.settings.strings["profile"]}</button>
+                <button className="mobileMenuButton" onClick={logoutClick}>{props.settings.strings["log_out"]}</button>
+                {props.currentProject.moderators.find(user => user === props.user.username) ?
+                  <div className="mobileMenuUserNameContainer">
+                    <div className="divider" />
+                    <button className="mobileMenuButton" onClick={toUnverifiedPostsClick}>{props.settings.strings["unverified-posts"]}</button>
+                    <button className="mobileMenuButton" onClick={toManagementClick}>{props.settings.strings["project_management"]}</button>
+                  </div>
+                  :
+                  <></>
+                }
+              </div>
+              :
+              <div></div>
+
+
+            }
+
+
+            <div className="downContainer">
+              <div className="preferencesContainer">
+                <div className="divider" />
+                <LanguageDropDown />
+                <ThemeToggleSwitch />
+                <NameToggleSwitch />
+              </div>
+              <div className="divider" />
+              <button className="mobileMenuButton" onClick={toAboutClick}>{props.settings.strings["about"]}</button>
+            </div>
           </div>
         </div>
       </div>

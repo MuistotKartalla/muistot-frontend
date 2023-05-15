@@ -49,8 +49,8 @@ export const NewMemento = (props) => {
     event.preventDefault()
     //console.log("creating new memento")
 
-    if(titleField.length < 5){
-      props.notify(props.settings.strings["title_length"], true, 5)
+    if(titleField.length < 1){
+      props.notify(props.settings.strings["title_length"], true, 1)
       return
     }
     if((image === null && props.tempPost.image === null) && storyField.length < 20){

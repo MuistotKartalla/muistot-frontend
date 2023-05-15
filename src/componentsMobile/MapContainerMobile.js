@@ -11,9 +11,6 @@ import "../styles/popupContainer.css"
 import "../stylesMobile/mapContainerMobile.css"
 
 import icon from "../resources/marker-icon.png"
-//import iconN from "../resources/marker-icon-new.png"
-//import iconT from "../resources/marker-transp.png"
-//import iconTN from "../resources/marker-transp-new.png"
 import iconGreen from "../resources/marker-green.png"
 import iconShadow from "../resources/marker-shadow.png"
 
@@ -44,6 +41,7 @@ var IconMarker = L.Icon.extend({
   }
 });
 
+
 //initialize markers
 let defaultIcon = new IconMarker({ iconUrl: icon })
 L.Marker.prototype.options.icon = defaultIcon
@@ -67,7 +65,7 @@ const MapContainerMobile = (props) => {
   //state variables
   const [position, setPosition] = useState({ lat: 65.01157565139543, lng: 25.470943450927738 })
   const [tempMarker, setTempMarker] = useState(null)
-  const [zoom, setZoom] = useState(6)
+  const [zoom, setZoom] = useState(5)
   const [posts, setPosts] = useState([])
   const [moveToPosition, setmoveToPosition] = useState(false)
   const itemsRef = useRef([]);
@@ -119,13 +117,7 @@ const MapContainerMobile = (props) => {
     props.history.push("/new-post/")
     setTempMarker(null)
   }
-  const tempIcon = () => {
-    return (
-      <div className="icon-container">
-        <FontAwesomeIcon icon={tempIcon} className="icon" />
-      </div>
-    );
-  };
+
 
   //open list view
   const toListView = (event) => {
@@ -133,7 +125,7 @@ const MapContainerMobile = (props) => {
     props.history.push("/list-view/")
   }
 
-  
+
 
   const newPostClick = (event) => {
     //New post onClick event handler.
@@ -197,6 +189,8 @@ const MapContainerMobile = (props) => {
     return null;
   }
 
+
+
   const UpdatePopups = () => {
     const map = useMap()
     var visible = [];
@@ -259,7 +253,7 @@ const MapContainerMobile = (props) => {
               position={element.location}
               //if site is created by current user, use green marker. else, use default marker
               icon={props.user === null ? defaultIcon : (element.own ? greenIcon : defaultIcon)}
-              //icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)} 
+              //icon={element.uusi===1?(element.muistoja===null?emptyIconNew:newIcon):(element.muistoja===null?emptyIcon:defaultIcon)}
               eventHandlers={{
                 //handle click event on marker
                 click: (e) => {
@@ -301,13 +295,12 @@ const MapContainerMobile = (props) => {
           <></>
 
         }
-        <div className="leftBar">{tempMarker !== null ?
-          <Marker position={tempMarker} icon={tempIcon}></Marker>
-          :
-          <></>
+        {tempMarker !== null?
+            <Marker position={tempMarker} icon={tempIcon}></Marker>
+            :
+            <></>
 
         }
-        </div>
 
       </MapContainer>
 
@@ -326,11 +319,11 @@ const MapContainerMobile = (props) => {
       }
 
 
-      
+
       <div className="accountInfoContainer">
-        <AccountIcon className="accountInfoButton" onClick={newPostClick}></AccountIcon>
+        <AccountIcon className="accountInfoButton" onClick={toProfileClick}></AccountIcon>
       </div>
-    
+
 
       {props.history.location.pathname !== "/select-location/" ?
         <div>
@@ -351,7 +344,7 @@ const MapContainerMobile = (props) => {
       }
     </div>
   )
-  
+
 }
 
 
