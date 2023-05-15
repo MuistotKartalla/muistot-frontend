@@ -29,3 +29,8 @@
     height: 35px;
     fill: var(--icon-fill);
 }
+
+.divider {
+    border-bottom: 1px solid var(--text-primary);
+    margin: 25px 25px;
+}

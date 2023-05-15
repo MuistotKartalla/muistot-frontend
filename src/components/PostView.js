@@ -182,8 +182,6 @@ export const PostView = (props) => {
             }
 
             <button className="rippleButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
-            <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick} />
-            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick} />
           </div>
         </div>
         {deleteState ?
@@ -221,8 +219,6 @@ export const PostView = (props) => {
           <hr></hr>
           <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
           <div className="postButtonsParantolat">
-            <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick} />
-            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick} />
           </div>
         </div>
       </div>

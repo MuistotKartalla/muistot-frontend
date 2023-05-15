@@ -71,16 +71,20 @@ export const ProjectInfo = (props) => {
       <div className="projectInfoContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer">
           <div className="projectInfoImageContainer">
-            <img className="projectInfoImage" src={getImageURL(project.image)} alt=""></img>
             <h1 className="titleText centerAlignWithPadding">{projectTitle}</h1>
           </div>
           <ClearIcon className="clearIcon" onClick={closeClick} />
         </div>
+        <div className="divider"></div>
         <div className="projectInfoContentContainer">
-          <div className=" normalText">
-            <h3>Additional Metadata</h3>
+          <div className="projectInfoText">
+            <h3>Short project description</h3>
+            <h4> COOL COOL PROJECT YEAH AWESOME SITES AND MEMORIES</h4>
+            <h4>Start: 2023-01-01     End: 2023-04-15</h4>
           </div>
         </div>
+        <div className="divider"></div>
+
         {isKiosk? (
           <div className="projectInfoDescriptionContainer normalText">
             <div className="projectInfoDescriptionContainer normalText">
@@ -93,7 +97,7 @@ export const ProjectInfo = (props) => {
         ):(
           <>
           <div className="toggleDescriptionButtonContainer">
-          <button onClick={toggleDescription} className="positiveButton rippleButton fillButton">{textToggleButton}</button>
+          <button onClick={toggleDescription} className="showMore rippleButton ">{textToggleButton}</button>
           </div>
           
         {showFullDescription && (

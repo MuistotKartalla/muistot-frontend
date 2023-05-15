@@ -10,7 +10,6 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-
 }
 @media (orientation: portrait) {
   .projectInfoContainer{
@@ -84,4 +83,11 @@
 .projectInfoDownloadButton{
   text-align: center;
   margin-top: 2em;
+}
+
+.showMore{
+  background: var(--button-background);
+  border-radius: 7px;
+  transition: background 0s;
+  margin-bottom: 15px;
 }
