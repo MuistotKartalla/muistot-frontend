@@ -30,6 +30,8 @@ export const ListView = (props) => {
 
   }, [props, posts.length])
 
+  const [selectedPostId, setSelectedPostId] = useState(null);
+
   //david
   const location = useLocation();
   const isKiosk = location.pathname.startsWith('/kiosk');
@@ -39,7 +41,10 @@ export const ListView = (props) => {
     props.history.push(`/kiosk/list-view/${post.id}`)
     :
     props.history.push(`/list-view/${post.id}`)
+
+    setSelectedPostId(post.id)
   }
+
 
 /* Hakupalkki ennen listausta tilapäisesti pois käytöstä
         <div className="searchContainer">
@@ -55,25 +60,25 @@ export const ListView = (props) => {
   //console.log("Listanäkymä")
   //console.log(props)
   return (
+      <div>
+        <div className= "infoListContent infoListContentAlign">
+          {selectedPostId && (
+              <PostViewLW match={props.match} history={props.history}/>
+          )}
+        </div>
 
-    <div className="listViewInnerContainer centerAlign">
+        <div className="listViewInnerContainer rightAlign">
+          <div className="postListSectionContainer">
+            <PostList posts={posts} click={onItemClick}/>
+          </div>
+        </div>
 
-      <div className="postListSectionContainer">
-
-        <PostList posts={posts} click={onItemClick}/>
       </div>
-
-      <PostViewLW match={props.match} history={props.history}/>
-
-
-    </div>
-
-
 
 
   )
 }
-
+//<PostViewLW match={props.match} history={props.history}/>
 const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
