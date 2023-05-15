@@ -70,36 +70,43 @@ export const FloatingSearch = (props) => {
   //console.log("Hakunäkymä")
   //console.log(props)
 
-  if(!isComponentVisible){
-    return(
-      <div ref={ref}>
-        <SearchIcon name="search" id="searchField" className="floatingSearch" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="off" onChange={onSearchValueChange} value={searchValue} onClick={onClick}  />
-      </div>
-    )
-  }else{
-    return(
-      <div className="floatingSearchContainer" ref={ref}>
-        <div className="floatingSearchInputContainer">
-          <div className="floatingSearchInputContainerInner">
-            <input name="search" id="searchField" className="inputPrimary" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="off" onChange={onSearchValueChange} value={searchValue} />
-            <div className="inputFocusLine"/>
-          </div>
-          <ClearIcon className="clearIcon" onClick={onClearClick}/>
+  return (
+      <div className="floatingSearchContainer">
+        <div className="floatingSearchButton" onClick={() => setIsComponentVisible(true)}>
+          <SearchIcon className="floatingSearch" />
         </div>
 
-        <div className="searchResultsContainer">
-          {results.length !== 0?
-            <PostList posts={results} click={onItemClick}/>
-            :
-            <div/>
-          }
-        </div>
+        {isComponentVisible && (
+            <div className="floatingSearchPopup" ref={ref}>
+
+              <div className="searchResultsContainer">
+                {results.length !== 0 ? (
+                    <PostList posts={results} click={onItemClick} />
+                ) : (
+                    <div />
+                )}
+              </div>
+
+              <div className="floatingSearchInputContainer">
+                <input
+                    name="search"
+                    id="searchField"
+                    className="inputPrimary"
+                    placeholder={props.settings.strings["search"]}
+                    maxLength="32"
+                    autoComplete="off"
+                    onChange={onSearchValueChange}
+                    value={searchValue}
+                />
+                <ClearIcon className="clearIcon" onClick={onClearClick} />
+              </div>
+
+
+            </div>
+        )}
       </div>
-    )
-  }
-
-
-}
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
