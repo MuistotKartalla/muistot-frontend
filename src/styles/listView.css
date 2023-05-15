@@ -14,7 +14,7 @@
 .listViewInnerContainer{
   z-index: 4;
   background: var(--ui-background);
-  width: 315px;
+  width: 90%;
   max-height: 90%;
   display: flex;
   flex-direction: row;
@@ -30,17 +30,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   height: 100%;
-}
-
-.rightAlign{
-  margin: 0;
-  position: absolute;
-  padding: 0;
-  top: 50%;
-  right: 200px;
-  transform: translate(50%, -50%);
-  height: 100%;
-
 }
 
 .centerAlignWithPadding{
@@ -61,12 +50,12 @@
 }
 
 .postListSectionContainer{
+  width: 35%;
   z-index: 4;
   display: flex;
   flex-direction: column;
   height: 100%;
   border-radius: 10px;
-  width: auto;
 }
 
 .postListContainerMobile{
@@ -127,25 +116,9 @@
   resize: none;
 }
 
-.infoListContent{
-  width: auto;
-  max-height: 90%;
-  overflow-y: scroll;
-}
-
-.infoListContentAlign{
-  margin: 0;
-  position: absolute;
-  padding: 0;
-  top: 50%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-}
-
-
  /* width */
  ::-webkit-scrollbar {
-  width: 0.3em;
+  width: 0.5em;
 }
 
 /* Track */

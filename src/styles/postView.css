@@ -21,7 +21,7 @@
 .postViewContainerLW{
   z-index: 4;
   background: var(--ui-background);
-  width: auto;
+  width: 65%;
   flex-direction: column;
   display: flex;
   overflow-y: auto;

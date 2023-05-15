@@ -176,6 +176,8 @@ export const PostViewLW = (props) => {
               <div />
             }
 
+            <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick} />
+            <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick} />
           </div>
         </div>
         {deleteState ?

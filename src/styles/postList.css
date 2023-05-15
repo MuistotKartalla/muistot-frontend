@@ -1,6 +1,7 @@
 .postListContainer{
   z-index: 4;
-  width: auto;
+  width: -webkit-fill-available;
+  width: -moz-available;
   border-radius: 10px;
   margin:auto;
   display: flex;
@@ -20,7 +21,9 @@
 .postSearchList{
   list-style-type: none;
   z-index: 4;
-  width: 300px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: 97.5%;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -67,7 +70,7 @@
   padding: 10px;
   border: 5px solid transparent;
   border-radius: 10px;
-  width: auto;
+  width: calc(100% - 40px);
 }
 .postViewListItem:focus{
   border: 5px solid var(--icon-fill);
@@ -102,19 +105,18 @@
 
 
 .postListItemInfo {
-  width: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   text-align: start;
   cursor: pointer;
-  margin-left: 15px;
 }
 
 .postListTitle{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   color: var(--text-primary);
   font-weight: 700;
-  font-size: 1.1vw;
+  font-size: 1.2em;
   margin: 0;
 
 }
@@ -133,10 +135,11 @@
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   color: var(--text-primary);
   font-weight: 500;
-  font-size:  1.2em;
+  font-size: 1em;
   margin: 0;
 }
 
+/* CSS for samller screen - by Adnan Islam */
 
 
 
