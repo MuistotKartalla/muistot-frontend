@@ -138,6 +138,10 @@
   padding: 0 0.5em 0 0.5em;
 }
 
+.infoTextContainer{
+
+}
+
 @media screen and (min-width: 345px) and (max-width: 380px) {
   .someButtonFacebook{
     max-width: 150px;

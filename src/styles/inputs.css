@@ -69,7 +69,6 @@ input:-webkit-autofill:active  {
   background: var(--ui-baseline);
   width: -webkit-fill-available;
   width: -moz-available;
-  border: none;
   margin: 0px;
   overflow: hidden;
   color: var(--text-primary);
@@ -78,7 +77,8 @@ input:-webkit-autofill:active  {
   text-align: left;
   font-size: 1em;
   resize: none;
-  padding: 0px;
+  padding: 5px;
+  border-radius: 10px;
   border-bottom: 2px solid var(--ui-accent);
 }
 
@@ -88,7 +88,7 @@ input:-webkit-autofill:active  {
 
 .input:focus + .inputFocusLine{
   border-bottom: 2px solid var(--text-primary);
-  width:100%;
+  width: 97%;
   transition-duration: 0.3s;
 }
 
@@ -109,7 +109,7 @@ input:-webkit-autofill:active  {
 
 .inputPrimary:focus + .inputFocusLine{
   border-bottom: 2px solid var(--text-primary);
-  width:100%;
+  width: 97%;
   transition-duration: 0.3s;
 }
 .inputLogIn{
@@ -137,7 +137,7 @@ input:-webkit-autofill:active  {
 
 .inputLogIn:focus + .inputFocusLine{
   border-bottom: 2px solid var(--text-primary);
-  width:100%;
+  width: 97%;
   transition-duration: 0.3s;
 }
 .checkbox{
@@ -159,15 +159,4 @@ input:-webkit-autofill:active  {
   resize: none;
 }
 
-.inputFocusLine{
-  position: relative;
-  bottom: 2px;
-  margin: auto;
-  width: 0%;
-  border-bottom: 2px solid var(--text-primary);
-  transition: linear width 0s;
-}
 
-.inputFocusLineComment{
-  bottom: 2px;
-}

@@ -18,7 +18,7 @@
   }
   
   .userSettingsForm{
-    background: var(--ui-baseline);
+    background: var(--ui-background);
     border-radius: 5px;
     padding: 0;
     display: flex;

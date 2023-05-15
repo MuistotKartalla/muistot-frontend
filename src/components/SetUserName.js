@@ -27,7 +27,7 @@ export const SetUserName = (props) => {
         props.history.push("/usersettings/")
     }
     return (
-        <div className="loginContainer centerAlignWithPadding">
+        <div className="loginContainer centerAlignWithPaddingContainer">
             <h1 className="headerText bottomPadding30">{props.settings.strings["set_username"]}</h1>
      <form className="loginForm" onSubmit={confirmUser}>
                 <div className="inputContainer">

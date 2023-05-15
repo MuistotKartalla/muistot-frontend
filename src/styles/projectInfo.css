@@ -52,7 +52,7 @@
 }
 
 .projectInfoImageContainer {
-  max-width: 100%;
+  max-width: auto;
   display: block;
   
 }
