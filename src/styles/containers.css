@@ -54,7 +54,6 @@ html, body, #root, #app, #app>div {
   flex-direction: column;
   flex: 1;
   z-index: 1;
-  overflow-x: hidden;
 }
 
 .toggleDescriptionButtonContainer{

@@ -25,12 +25,15 @@
 }
 
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 430px) {
   .dropDownSelectCurrentItem{
-    width: 75%;
+    width: 76%;
   }
-  .activeItemText{
-    font-size: 1.5em;
+  .activeItemText {
+    font-size: 90%;
+  }
+  .activeItemTextActive{
+    font-size:  80%;
   }
 }
 
@@ -38,8 +41,8 @@
 
 .activeItemText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: 1.2em;
   width: 16.8em;
+  font-size: 90%;
   color: var(--text-primary);
   text-align: left;
   text-transform: capitalize;
@@ -88,10 +91,5 @@
 }
 
 @media screen and (max-width: 390px) {
-  .activeItemText{
-    font-size: 80%;
-  }
-  .activeItemTextActive{
-    font-size:  80%;
-  }
+
 }
