@@ -202,8 +202,6 @@ if(post && props.currentProject.id === "parantolat"){
       <div className="postCloseContainer">
         <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
         <div className="postButtonsParantolat">
-          <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-          <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
         </div>
       </div>
       <div className="storyContainer normalText" style={{padding:"10px"}}>

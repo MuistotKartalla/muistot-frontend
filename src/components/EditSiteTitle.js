@@ -62,3 +62,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(EditSiteTitle)
+
+
+// EditSiteTitle: The component retrieves the post object to edit from the Redux store based on the id parameter passed in the URL.
+//  It then defines a function ConfirmNewTitle which will be called when the form is submitted. The function first checks if the new title is empty and, if so, displays a notification message
+//  This is used in CotentArea. 

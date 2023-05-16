@@ -6,9 +6,9 @@ import useComponentVisible from "../hooks/OutsideClick"
 import "../styles/floatingSearch.css"
 import "../styles/inputs.css"
 
-
+import { ReactComponent as SearchIcon} from "../resources/search_FILL0.svg";
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
-import PostList from "./PostList"
+import PostList from "../common components/PostList"
 
 
 
@@ -35,7 +35,7 @@ export const FloatingSearch = (props) => {
     setIsComponentVisible(false)
   }
 
-  const onHover = (event) => {
+  const onClick = (event) => {
     event.preventDefault()
     setIsComponentVisible(true)
   }
@@ -70,42 +70,43 @@ export const FloatingSearch = (props) => {
   //console.log("Hakunäkymä")
   //console.log(props)
 
-  if(!isComponentVisible){
-    return(
-      <div className="floatingSearchContainer" ref={ref}>
-        <div className="floatingSearchInputContainer">
-          <div className="floatingSearchInputContainerInner">
-            <input name="search" id="searchField" className="inputPrimary" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="off" onChange={onSearchValueChange} value={searchValue} onMouseEnter={onHover} />
-            <div className="inputFocusLine"/>
-          </div>
-          <ClearIcon className="clearIcon" onClick={onClearClick}/>
+  return (
+      <div className="floatingSearchContainer">
+        <div className="floatingSearchButton" onClick={() => setIsComponentVisible(true)}>
+          <SearchIcon className="floatingSearch" />
         </div>
+
+        {isComponentVisible && (
+            <div className="floatingSearchPopup" ref={ref}>
+
+              <div className="searchResultsContainer">
+                {results.length !== 0 ? (
+                    <PostList posts={results} click={onItemClick} />
+                ) : (
+                    <div />
+                )}
+              </div>
+
+              <div className="floatingSearchInputContainer">
+                <input
+                    name="search"
+                    id="searchField"
+                    className="inputPrimary"
+                    placeholder={props.settings.strings["search"]}
+                    maxLength="32"
+                    autoComplete="off"
+                    onChange={onSearchValueChange}
+                    value={searchValue}
+                />
+                <ClearIcon className="clearIcon" onClick={onClearClick} />
+              </div>
+
+
+            </div>
+        )}
       </div>
-    )
-  }else{
-    return(
-      <div className="floatingSearchContainer" ref={ref}>
-        <div className="floatingSearchInputContainer">
-          <div className="floatingSearchInputContainerInner">
-            <input name="search" id="searchField" className="inputPrimary" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="off" onChange={onSearchValueChange} value={searchValue} />
-            <div className="inputFocusLine"/>
-          </div>
-          <ClearIcon className="clearIcon" onClick={onClearClick}/>
-        </div>
-
-        <div className="searchResultsContainer">
-          {results.length !== 0?
-            <PostList posts={results} click={onItemClick}/>
-            :
-            <div/>
-          }
-        </div>
-      </div>
-    )
-  }
-
-
-}
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -121,3 +122,9 @@ export default connect(
   mapStateToProps,
   null
 )(FloatingSearch)
+
+
+// FloatingSearch: This is a React component called FloatingSearch that implements a search feature. The component uses the useState
+//  and connect hooks from the React-Redux library to manage its state and props, respectively. It also imports a custom hook called
+//  useComponentVisible from a file named "OutsideClick" and a PostList component.
+//  It is used in MapContainerOpen.js. Currently not in use and not functioning properly. It may be possible to remove it.!!

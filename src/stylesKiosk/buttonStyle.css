@@ -1,0 +1,170 @@
+.logoButton {
+    position: absolute;
+    display: flex;
+    grid-area: logo;
+    margin-left: 2%;
+    width: 18vw;
+    height: auto;
+    z-index: 9;
+    bottom: 2%;
+    background-color: transparent;
+    /* to create the effect of a cut border */
+    clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
+}
+
+.logoButton:hover {
+    clip-path: none;
+    background-color: var(--ui-background);
+    color: var(--ui-accent);
+}
+
+
+.textButton {
+    cursor: pointer;
+    color: black;
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    margin: auto 10px;
+    font-weight: bold;
+    font-size: 2vw;
+    padding: 5px;
+    z-index: 1000;
+    overflow: hidden;
+}
+.textButton:hover {
+    color: var(--text-primary);
+}
+.floatingListKiosk {
+    width: 100%;
+    height: 100%;
+    fill: var(--icon-fill);
+
+}
+
+
+.utils-ulKiosk {
+    width: 100%;
+    height: 100%;
+    list-style: none; /* elimina los marcadores de lista */
+    padding: 4px; /* elimina el espacio de relleno predeterminado */
+    margin: 0; /* elimina el margen predeterminado */
+}
+
+.utils-containerKiosk{
+    bottom: 2%;
+    width: 14%;
+    height: auto;
+    position: fixed;
+    right: 28px;
+    z-index: 9;
+    background: var(--ui-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/*Mateusz*/
+
+.icon-containerlanKiosk {
+    position: relative;
+    padding-top: 7%;
+}
+
+
+.dropdownLanKiosk {
+    position: absolute;
+    top: 0;
+    left: -115%;
+    height: 10vw;
+    width: 90%;
+}
+
+.iconLookKiosk {
+    display: flex;
+    fill: var(--icon-fill);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+.projectInfoButtonContainerKiosk {
+    height: 100%;
+    width: 100%;
+    fill: var(--icon-fill);
+
+}
+
+
+
+.icon-containerlan:hover .dropdownLan,
+.icon-containerlan.show .dropdownLan {
+    display: block;
+}
+
+/*--------------------*/
+.dropDownContainerKiosk {
+    background: var(--ui-baseline);
+    border: 10px solid var(--ui-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    max-height: 700%;
+    width: 100%;
+    height: auto;
+
+}
+
+.dropDownItemTextKiosk {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 3vw;
+    display: block;
+    font-weight: 500;
+    padding: 0.5em 0.5em;
+    margin: 0;
+    width: fit-content;
+    width: 30px;
+}
+
+.geolocationButton {
+    position: absolute;
+    left: 65%;
+    bottom: 2.5%;
+    z-index: 999;
+    background-color: var(--primary-color);
+    border: 1px;
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.geolocationButton:hover {
+    background-color: #f1f1f1;
+}
+
+.geolocationButton .material-icons {
+    font-size: 3vw;
+    color: #333;
+}  
+
+.iconKiosk {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  @media screen and (max-width: 768px) {
+    .iconLookKiosk {
+      /* Estilos específicos para dispositivos con un ancho máximo de 768px */
+      font-size: 1.5em; /* Reducción del tamaño del icono utilizando unidades "em" */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .iconLookKiosk {
+      /* Estilos específicos para dispositivos con un ancho máximo de 480px */
+      font-size: 1em; /* Reducción adicional del tamaño del icono utilizando unidades "em" */
+    }
+  }
+  

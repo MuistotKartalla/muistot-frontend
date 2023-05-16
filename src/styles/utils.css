@@ -1,0 +1,36 @@
+.utils-container {
+    position: fixed;
+    bottom: 25px;
+    right: 28px;
+    z-index: 9999;
+    background: var(--ui-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10%;
+
+}
+
+
+
+.utils-ul {
+    list-style: none; /* elimina los marcadores de lista */
+    padding: 4px; /* elimina el espacio de relleno predeterminado */
+    margin: 0; /* elimina el margen predeterminado */
+}
+
+
+.floatingSearch{
+    width: 35px;
+    height: 35px;
+    fill: var(--icon-fill);
+}
+
+.floatingList {
+    width: 35px;
+    height: 35px;
+    fill: var(--icon-fill);
+}
+
+.divider {
+    border-bottom: 1px solid var(--text-primary);
+    margin: 25px 25px;
+}

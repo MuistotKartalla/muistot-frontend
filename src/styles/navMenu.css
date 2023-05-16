@@ -3,7 +3,7 @@
   width: 100%;
   height: 4em;
   top: 0;
-  background: var(--primary-color);
+  background: var(--ui-background);
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select:  none;
@@ -39,7 +39,7 @@
 
 .logoText{
   cursor: pointer;
-  color: var(--title-color);
+  color: var(--icon-fill);
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   margin: auto 10px;
   font-weight: 700;
@@ -47,18 +47,25 @@
   padding: 10px;
 }
 
-.projectInfoButtonContainer{
-  height: 4em;
-  display: flex;
-  flex: -1200px;
-  margin: 0px;
-  flex-direction: column;
-  min-width: fit-content;
+.projectInfoButtonContainer {
+  width: 40px;
+  height: 40px;
+  margin-top: 12px;
+  fill: var(--icon-fill);
 }
 
+.centerContainer{
+  position: abosulte;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  padding-right: 90px;
+}
 .projectInfoButton{
-  background: var(--primary-color);
-  color: var(--secondary-text-color);
+
+  /*background: var(--primary-color);*/
+  color: var(--text-secondary);
   cursor: pointer;
   display: inline-block;
   min-height: 1em;
@@ -83,7 +90,7 @@
 }
 
 .projectInfoButton:hover{
-  color: var(--title-color);
+  color: var(--icon-fill);
 }
 
 .projectSelectContainer{
@@ -95,49 +102,6 @@
 }
 
 
-/* CSS for samller screen - by Adnan Islam */
-@media screen and (min-width: 700px) and (max-width: 1000px) {
-
-.logoText{
-  margin: auto 5px;
-  font-weight: 700;
-  font-size: .8em;
-  padding: 5px;
-}
-
-.projectInfoButton{
-  font-size: 1em;
-  padding: 0;
-  text-transform: none;
-  text-shadow: none;
-  font-weight: 700;
-  line-height: 1em;
-  text-decoration: none;
-  border-radius: .28571429rem;
-  background-position: center;
-  transition: background 0s;
-  margin: auto;
-}
-
-}
-
-@media screen and (min-width: 500px) and (max-width: 700px) {
-
-.logoText{
-  margin: auto 5px;
-  font-weight: 700;
-  font-size: .9em;
-  padding: 3px;
-}
-
-.projectInfoButton{
-  font-size: .9em;
-  padding: 0;
-  margin: auto 10px;
-}
-
-}
-
 /*
 .menuButtonList{
   color: var(--secondary-text-color);
@@ -147,7 +111,6 @@
   height: 4em;
   grid-area: right;
 }
-
 .menuItemText{
   
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
@@ -155,7 +118,6 @@
   display: block;
   font-weight: 500;
 }
-
 .menuListItem{
   cursor: pointer;
   float: right;
@@ -167,14 +129,12 @@
   align-self: center;
   transition: 0s;
 }
-
 .menuListItem:hover{
   color: var(--primary-text-color);
   transition: 0.5s;
   background: var(--accent-color);
   height: 100%;
 }
-
 .accountDropDownContainer{
   float: right;
   height: fit-content;
@@ -182,7 +142,6 @@
   width: 100%;
   top: 4em;
 }
-
 .maxWidthContainer{
   top: 0;
   max-width: 1200px;
@@ -192,7 +151,6 @@
   width: -moz-available;
   border-radius: 5px;
 }
-
 .accountItemContainer{
   display: flex;
   width: fit-content;

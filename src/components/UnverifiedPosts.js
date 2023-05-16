@@ -95,3 +95,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(UnverfiedPosts)
+
+
+
+// UniverifiedPost: This is used in ContentArea.js. The component receives props such as "posts", "settings" and "history" through the "mapStateToProps" function. The component filters the "posts" received from props to only 
+//  show the ones that are waiting for approval. It then maps through these posts and renders them as a list item, with their image, title, and author information. The list item is clickable and redirects the user to the post's view page.

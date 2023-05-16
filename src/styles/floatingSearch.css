@@ -1,86 +1,50 @@
 .floatingSearchContainer{
-  z-index: 4;
-  border-radius: 5px;
-  padding: 1.5px;
-  background-color: var(--primary-color);
-  max-width: clamp(200px,100%,400px);
-  width: 100%;
-  height: fit-content;
+  position: relative;
 }
 
-.floatingSearchInputContainer{
-  z-index: 4;
-  margin: 0;
+.floatingSearchButton {
+  cursor: pointer;
+}
+
+.floatingSearchPopup {
+  position: fixed;
+  bottom: 20px; /* Ajusta la distancia desde la parte inferior de la pantalla */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999; /* Ajusta el valor según sea necesario para asegurarte de que el pop-up esté por encima de otros elementos */
+  width: 400px; /* Ajusta el ancho del pop-up según sea necesario */
+  background: var(--ui-background);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.floatingSearchInputContainer {
+  position: relative;
   display: flex;
-  flex-direction: row;
-  width: 100%;
+  align-items: center;
 }
 
-.floatingSearchInputContainerInner{
-  z-index: 4;
-  background: var(--primary-color);
-  margin: 0;
-  padding: 0.25em;
-  opacity: 1;
-  border: none;
-  color: var(--primary-text-color);
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-weight: 400;
-  text-align: left;
-  font-size: 1.25em;
-  width: 90%;
-}
+
 
 .clearIcon{
-  height: 2em;
-  width: 2em;
-  fill: var(--secondary-text-color);
+  height: 1em;
+  width: 1em;
+  fill: var(--text-secondary);
   cursor: pointer;
-  margin: auto 0.1em auto auto;
   transition: 0s;
   z-index: 10;
+  margin-left: auto;
 }
 
 .clearIcon:hover{
-  fill: var(--primary-text-color);
+  fill: var(--text-primary);
   transition-duration: 0.2s;
 }
 
 .searchResultsContainer{
-  max-height: 700px;
   display: flex;
   width: 100%;
+  max-height: 300px;
   overflow-y: scroll;
 }
-
-@media screen and (min-width: 350px) and (max-width: 520px) {
-  .floatingSearchContainer{
-  padding: 0;
-}
-.floatingSearchInputContainerInner{
-  width: 85%;
-}
-}
-
-
-@media screen and (min-width: 200px) and (max-width: 350px) {
-  .floatingSearchContainer{
-  padding: 0;
-}
-.floatingSearchInputContainerInner{
-  width: 75%;
-}}
-@media screen and (min-height: 700px) and (max-height: 1060px) {
-
-.searchResultsContainer{
-  max-height:480px ;
-}
-}
-
-
-@media screen and (max-height: 700px) {
-
-  .searchResultsContainer{
-    max-height:300px ;
-  }
-  }

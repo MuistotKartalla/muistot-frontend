@@ -7,11 +7,12 @@ import { notify } from "../reducers/notificationReducer"
 import { changeSitePicture, deletePost, toggleVerify } from "../reducers/postReducer"
 
 import "../styles/buttons.css"
-import "../styles/floatingSearch.css"
+// import "../styles/floatingSearch.css"
 import "../styles/postView.css"
 import "../styles/projectInfo.css"
 import "../styles/texts.css"
 
+import { useLocation } from 'react-router-dom'
 import { ReactComponent as Arrow } from "../resources/arrow_back.svg"
 import { ReactComponent as FacebookIcon } from "../resources/facebook_icon.svg"
 import { ReactComponent as TwitterIcon } from "../resources/twitter_icon.svg"
@@ -28,17 +29,24 @@ export const PostView = (props) => {
   //gets the post to show based on the id that is set on the url field.
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
 
-  post.uusi = 0
+  //post.uusi = 0
 
-    /* const getDateFromUnixStamp = (unix) => {
-    const date = new Date(unix)
-    return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }*/
+  /* const getDateFromUnixStamp = (unix) => {
+  const date = new Date(unix)
+  return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
+}*/
+  //david
+  const location = useLocation();
+  const isKiosk = location.pathname.startsWith('/kiosk');
+
   const showOnMap = (event) => {
     event.preventDefault()
     //console.log(`Centering Map to ${post.title} coordinates.`)
     props.updateMapLocation(post.location)
-    props.history.push("/")
+    isKiosk ?
+      props.history.push("/kiosk")
+      :
+      props.history.push('/');
   }
   const deletePost = (event) => {
     event.preventDefault()
@@ -48,8 +56,11 @@ export const PostView = (props) => {
     props.notify(`${props.settings.strings["post"]}: "${post.title}" ${props.settings.strings["delete_success"]}`, false, 5)
 
   }
-  const editPostClick = (postId) =>{
-    props.history.push(`/edit-post/${postId}`)
+  const editPostClick = (postId) => {
+    isKiosk ?
+      props.history.push(`/kiosk/edit-post/${postId}`)
+      :
+      props.history.push(`/edit-post/${postId}`)
   }
 
   const backClick = (event) => {
@@ -63,7 +74,12 @@ export const PostView = (props) => {
     //eventhandler for close button
     event.preventDefault()
     //console.log("closeClick")
-    props.history.push("/")
+    if (isKiosk) {
+      props.history.push("/kiosk")
+    } else {
+      props.history.push("/")
+    }
+
     props.updateListView(0)
   }
 
@@ -74,7 +90,7 @@ export const PostView = (props) => {
 
   const twitterShareClick = (event) => {
     event.preventDefault()
-    window.open(`https://twitter.com/intent/tweet?text=${window.location.href}`, "_blank", )
+    window.open(`https://twitter.com/intent/tweet?text=${window.location.href}`, "_blank",)
   }
   const facebookShareClick = (event) => {
     event.preventDefault()
@@ -85,47 +101,47 @@ export const PostView = (props) => {
     window.open(`https://instragram.com/sharer/sharer.php?u=${window.location.href}`, "_blank")
   }*/
 
-// Päivämäärät: <p className="normalTextNoMargin">{getDateFromUnixStamp(post.date)}</p>
-//          {!post.waiting_approval?
-//<Verified className="verifiedIcon"/>
-//:
-//<br/>
-//}
+  // Päivämäärät: <p className="normalTextNoMargin">{getDateFromUnixStamp(post.date)}</p>
+  //          {!post.waiting_approval?
+  //<Verified className="verifiedIcon"/>
+  //:
+  //<br/>
+  //}
 
-  if(post && props.currentProject.id !== "parantolat"){
+  if (post && props.currentProject.id !== "parantolat") {
     //if post is defined return the actual post view else empty div.
-    
-    return(
+
+    return (
       <div className="postViewContainer centerAlignWithPaddingLean">
         <div className="postTitleContainer">
-        <div className="postCloseButtonContainer">
-        <Arrow className="clearIcon" onClick={backClick}/>
-            
-            <br/>
-            </div>
+          <div className="postCloseButtonContainer">
+            <Arrow className="clearIcon" onClick={backClick} />
+
+            <br />
+          </div>
           <h1 className="titleText">{post.title}
-          {!post.waiting_approval?
-            <Verified className="verifiedIcon"/>
-            :
-            <br/>
-          }
+            {!post.waiting_approval ?
+              <Verified className="verifiedIcon" />
+              :
+              <br />
+            }
           </h1>
           <div className="postCloseButtonContainer">
-          <ClearIcon className="clearIcon" onClick={closeClick}/>
+            <ClearIcon className="clearIcon" onClick={closeClick} />
           </div>
         </div>
         <div className="postImageContainer">
 
-         <img className="postImage" src={getImageURL(post.image)} alt=""></img>
+          <img className="postImage" src={getImageURL(post.image)} alt=""></img>
 
         </div>
         <div className="postContextContainer">
           <div className="infoContainer">
-            {post.modifier?
-              (post.modifier === post.creator?
-              <p className="normalText">{`${props.settings.strings["by"]}: ${post.creator}`}</p>
-              :
-              <p className="normalText">{`${props.settings.strings["modified"]}: ${post.modifier}`}</p>
+            {post.modifier ?
+              (post.modifier === post.creator ?
+                <p className="normalText">{`${props.settings.strings["by"]}: ${post.creator}`}</p>
+                :
+                <p className="normalText">{`${props.settings.strings["modified"]}: ${post.modifier}`}</p>
               )
               :
               <p className="normalText">{`${props.settings.strings["by"]}: ${props.settings.strings["anonymous"]}`}</p>
@@ -134,16 +150,16 @@ export const PostView = (props) => {
 
           </div>
           <div className="postButtonsContainer">
-          {props.user?
-            // multilevel conditional rendering
-            // visitor sees no buttons
-            // author sees delete button
-            // user sees report button
-            // admin sees delete and verify buttons.
-              (props.currentProject.moderators.find(user => user === props.user.username)?
+            {props.user ?
+              // multilevel conditional rendering
+              // visitor sees no buttons
+              // author sees delete button
+              // user sees report button
+              // admin sees delete and verify buttons.
+              (props.currentProject.moderators.find(user => user === props.user.username) ?
                 <div className="postButtonsContainerInner">
                   <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
-                  {post.waiting_approval?
+                  {post.waiting_approval ?
                     <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["verify"]}</button>
                     :
                     <button className="rippleButton smallButton negativeButton" onClick={verifyClick}>{props.settings.strings["unverify"]}</button>
@@ -151,7 +167,7 @@ export const PostView = (props) => {
                   <button className="rippleButton Button negativeButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_information"]}</button>
                 </div>
                 :
-                (post.own === true? 
+                (post.own === true ?
                   <div className="postButtonsContainerInner">
                     <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                     <button className="rippleButton Button negativeButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_information"]}</button>
@@ -166,53 +182,49 @@ export const PostView = (props) => {
             }
 
             <button className="rippleButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
-          <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-          <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
           </div>
         </div>
-        {deleteState? 
-        <div className="postCloseContainer">
-            <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button> 
-        </div>
-        :
-        <></>}
-  
-        
+        {deleteState ?
+          <div className="postCloseContainer">
+            <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button>
+          </div>
+          :
+          <></>}
+
+
         <div className="storyContainer">
-	        <MementoList posts={post} history={props.history}/>
+          <MementoList posts={post} history={props.history} />
         </div>
       </div>
     )
   }
-  if(post && props.currentProject.id === "parantolat"){
-    return(
+  if (post && props.currentProject.id === "parantolat") {
+    return (
       <div className="postViewContainer centerAlignWithPaddingLean">
         <div className="postTitleContainer">
-          {!post.waiting_approval?
-            <Verified className="verifiedIcon"/>
+          {!post.waiting_approval ?
+            <Verified className="verifiedIcon" />
             :
-            <br/>
+            <br />
           }
           <h1 className="titleText">{post.title}</h1>
           <div className="postCloseButtonContainer">
-          <ClearIcon className="clearIcon" onClick={closeClick}/>
+            <ClearIcon className="clearIcon" onClick={closeClick} />
           </div>
         </div>
-        <div className="storyContainer normalText" style={{padding:"10px"}}>
+        <div className="storyContainer normalText" style={{ padding: "10px" }}>
           <ReactMarkdown source={post.description} />
         </div>
-          <div className="postCloseContainer">
-            <hr></hr>
-            <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
-            <div className="postButtonsParantolat">
-              <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick}/>
-              <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick}/>
-            </div>
+        <div className="postCloseContainer">
+          <hr></hr>
+          <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
+          <div className="postButtonsParantolat">
           </div>
-    </div>
+        </div>
+      </div>
     )
   }
-  return(
+  return (
     <></>
   )
 
@@ -245,3 +257,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PostView)
+
+
+
+// PostView: This component is used in ContentArea.js. and ContentAreaKiosk.js. The component uses the useState hook to manage the state of the delete button, and finds the post to display based on the ID in the URL.
+//  It defines several event handlers, such as for clicking the "show on map" button, deleting a post, editing a post, sharing on Twitter/Facebook, and verifying a post.

@@ -96,3 +96,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ImageUpload)
+
+
+
+// ImageUpload: This is used in NewMemento.js, NewProject.js. This is a React component for uploading images, allowing the user to select an image file and preview it. The component uses the React hooks
+//  useState and useEffect to manage state and side effects respectively. The Redux library is also used to connect the component to the global state.

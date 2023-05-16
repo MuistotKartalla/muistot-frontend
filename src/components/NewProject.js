@@ -127,3 +127,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NewProject)
+
+
+
+// NewProject: The NewProject component is defined, which renders a form with several input fields and buttons, allowing the user to create a new project. The state of the component is managed using the useState hook.
+//  This component is never used. 

@@ -79,3 +79,10 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChangeUserName);
+
+
+
+
+// ChangeUserName: this component allow to change the username. It imports useState and connect from the react. It has
+// three funtions, cancelClick, UsernameChangeHndler, and confirmUser. ChangeUsername component return a div conteining 
+// a header and a form. The form contains an input field for the new username. 

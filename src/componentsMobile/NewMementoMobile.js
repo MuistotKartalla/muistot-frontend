@@ -93,32 +93,32 @@ export const NewMementoMobile = (props) => {
   }
 
   return(
-    <div className="newPostContainerMobile">
-      <div>
-        <div className="titleContainerMobile">
-          <button className="mobileButtonContainer">
-            <ReturnIcon className="mobileIcon" onClick={() => props.history.goBack()}/>
-          </button>
-	      <h1 className="titleTextMobile">{props.settings.strings["new_memento"]} {post.title}</h1>
+      <div className="newPostContainerMobile">
+        <div>
+          <div className="titleContainerMobile">
+            <button className="mobileButtonContainer">
+              <ReturnIcon className="mobileIcon" onClick={() => props.history.goBack()}/>
+            </button>
+            <h1 className="titleTextMobile">{props.settings.strings["new_memento"]} {post.title}</h1>
+          </div>
         </div>
-      </div>
-      <ImageUploadMobile change={imageOnChangeHandler}/>
-      <form className="postFormMobile" onSubmit={confirmPost}>
-        <div className="inputContainer">
-          <input name="title" id="titleField" className="input" placeholder={props.settings.strings["title"]} maxLength="100" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>
-          <div className="inputFocusLine"/>
-        </div>
-        <div className="inputContainer">
-          <textarea name="story" id="storyField" className="input" rows="4" placeholder={props.settings.strings["description"]} maxLength="10000" autoComplete="off" onChange={StoryFieldChangeHandler} value={storyField}/>
-          <div className="inputFocusLine"/>
-        </div>
+        <ImageUploadMobile change={imageOnChangeHandler}/>
+        <form className="postFormMobile" onSubmit={confirmPost}>
+          <div className="inputContainer">
+            <input name="title" id="titleField" className="input" placeholder={props.settings.strings["title"]} maxLength="100" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>
+            <div className="inputFocusLine"/>
+          </div>
+          <div className="inputContainer">
+            <textarea name="story" id="storyField" className="input" rows="4" placeholder={props.settings.strings["description"]} maxLength="10000" autoComplete="off" onChange={StoryFieldChangeHandler} value={storyField}/>
+            <div className="inputFocusLine"/>
+          </div>
 
-        <div className="postFormButtonContainer">
-          <button className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>
-          <button className="rippleButton negativeButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
-        </div>
-      </form>
-    </div>
+          <div className="postFormButtonContainer">
+            <button className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>
+            <button className="rippleButton negativeButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
+          </div>
+        </form>
+      </div>
   )
 
 }
@@ -142,6 +142,6 @@ const mapDispatchToProps = {
 }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(NewMementoMobile)

@@ -1,6 +1,5 @@
 .postListContainer{
   z-index: 4;
-  background: var(--secondary-color);
   width: -webkit-fill-available;
   width: -moz-available;
   border-radius: 10px;
@@ -22,13 +21,11 @@
 .postSearchList{
   list-style-type: none;
   z-index: 4;
-  background: var(--secondary-color);
   width: -webkit-fill-available;
   width: -moz-available;
   width: 97.5%;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
   overflow-x: hidden;
   padding: 0px;
   margin: 10px;
@@ -45,7 +42,7 @@
 
 .postListItem{
   cursor: pointer;
-  background: var(--primary-color);
+  background: var(--ui-background);
   display: flex;
   margin: 5px 0;
   padding: 10px;
@@ -55,7 +52,7 @@
 }
 .postListItemMobile{
   cursor: pointer;
-  background: var(--primary-color);
+  background: var(--ui-background);
   display: grid;
   margin: 5px 0;
   padding: 10px;
@@ -66,7 +63,7 @@
 
 .postViewListItem{
   cursor: pointer;
-  background: var(--primary-color);
+  background: var(--ui-baseline);
   display: flex;
   margin: 0 0 10px 0;
   padding: 10px;
@@ -75,12 +72,12 @@
   width: calc(100% - 40px);
 }
 .postViewListItem:focus{
-  border: 5px solid var(--title-color);
+  border: 5px solid var(--icon-fill);
   border-radius: 10px;
 }
 .postViewListItem:hover{
   transition: 0.2s;
-  border: 5px solid var(--title-color);
+  border: 5px solid var(--icon-fill);
   border-radius: 10px;
 }
 
@@ -116,7 +113,7 @@
 
 .postListTitle{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-weight: 700;
   font-size: 1.2em;
   margin: 0;
@@ -125,7 +122,7 @@
 
 .postListTitleMobile{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-weight: 700;
   font-size: 1.2em;
   margin: 0;
@@ -135,28 +132,13 @@
 
 .postListText{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--primary-text-color);
+  color: var(--text-primary);
   font-weight: 500;
   font-size: 1em;
   margin: 0;
 }
 
 /* CSS for samller screen - by Adnan Islam */
-@media screen and (max-width: 700px){
-
-.postListTitle{
-  font-size: 1em;
-}
-
-.postListText{
-  font-weight: 500;
-  font-size: .8em;
-  margin: 0;
-}
-#output {
-  padding: 1rem 0;
-}
 
 
-}
 

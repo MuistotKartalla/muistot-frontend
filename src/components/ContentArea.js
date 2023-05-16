@@ -7,23 +7,23 @@ import "../styles/texts.css"
 
 import CookieConsent from "react-cookie-consent"
 import { notify } from "../reducers/notificationReducer"
-import About from "./About"
+import About from "../common components/About"
 import AccountInfo from "./AccountInfo"
 import ChangeUserName from "./ChangeUserName"
-import EditImage from "./EditImage"
+import EditImage from "../common components/EditImage"
 import EditLocation from "./EditLocation"
 import EditPost from "./EditPost"
 import EditSiteTitle from "./EditSiteTitle"
 import ImagelessPosts from "./ImagelessPosts"
-import ListView from "./ListView"
+import ListView from "../common components/ListView"
 import LoginForm from "./LoginForm"
 import MapContainerOpen from "./MapContainerOpen"
 import MyPosts from "./MyPosts"
 import NewMemento from "./NewMemento"
 import NewPostCombined from "./NewPostCombined"
-import PopUpContainer from "./PopUpContainer"
+import PopUpContainer from "../common components/PopUpContainer"
 import PostView from "./PostView"
-import ProjectInfo from "./ProjectInfo"
+import ProjectInfo from "../common components/ProjectInfo"
 import ProjectManagement from "./ProjectManagement"
 import ProjectModerators from "./ProjectModerators"
 import ProjectSettings from "./ProjectSettings"
@@ -187,3 +187,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ContentArea)
+
+
+
+// ContentArea: The ContentArea component contains several Route components, which are used to render different components based on the URL path. 
+//  For example, if the URL path is /login, the LoginForm component is rendered. 
+//  There are also several PopUpContainer components, which are used to render components in a popup window.

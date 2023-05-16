@@ -109,3 +109,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(projectStats)
+
+
+
+// ProjectStats: The component takes props as input, which include the current active project and settings, and renders a table of statistics for the project, such as the number of new posts in the last 24 hours,
+//  7 days, and 30 days, as well as total posts, contributors, and reports.
+//  It is not used.

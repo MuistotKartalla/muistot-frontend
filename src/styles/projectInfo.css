@@ -1,6 +1,6 @@
 .projectInfoContainer {
   z-index: 4;
-  background: var(--secondary-color);
+  background: var(--ui-background);
   max-width: 50%;
   width: 100%;
   height: auto;
@@ -9,12 +9,26 @@
   margin:auto;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 15px 5px grey;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
+@media (orientation: portrait) {
+  .projectInfoContainer{
+    z-index: 4;
+    background: var(--ui-background);
+    max-width: 70%;
+    width: 100%;
+    height: auto;
+    max-height: 90%;
+    border-radius: 10px;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
 .projectInfoContainerMobile {
   z-index: 4;
-  background: var(--secondary-color);
+  background: var(--ui-background);
   height: 100%;
   width: 100%;
   margin: auto;
@@ -38,18 +52,16 @@
 }
 
 .projectInfoImageContainer {
-  margin: 10px;
-  max-width: 100%;
-  margin: auto;
+  max-width: auto;
   display: block;
-  padding: 0 10px;
+  
 }
 
 .projectInfoImage {
   max-width: 100%;
   max-height: 100%;
   margin: auto;
-  border-radius: 5px;
+  border-radius: 21%;
 }
 
 .settingIcon{
@@ -71,4 +83,11 @@
 .projectInfoDownloadButton{
   text-align: center;
   margin-top: 2em;
+}
+
+.showMore{
+  background: var(--button-background);
+  border-radius: 7px;
+  transition: background 0s;
+  margin-bottom: 15px;
 }

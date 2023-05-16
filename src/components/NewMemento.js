@@ -49,8 +49,8 @@ export const NewMemento = (props) => {
     event.preventDefault()
     //console.log("creating new memento")
 
-    if(titleField.length < 5){
-      props.notify(props.settings.strings["title_length"], true, 5)
+    if(titleField.length < 1){
+      props.notify(props.settings.strings["title_length"], true, 1)
       return
     }
     if((image === null && props.tempPost.image === null) && storyField.length < 20){
@@ -142,3 +142,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NewMemento)
+
+
+
+// NewMemento: This component is used in ContentArea.js. This component renders a form where a user can create a new "memento" (memory). It receives various props from its parent component, including the current user,
+//  temporary post data, project data, post data, user location data, and app settings.

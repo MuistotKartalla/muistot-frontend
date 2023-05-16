@@ -27,7 +27,7 @@ export const UserSettingsMobile = (props) => {
   const modifyConfirmClick = async (event) => {
     //console.log("attempting profile modification")
     event.preventDefault()
-    if(event.target.firstName.value === "" && event.target.lastName.value === "" && event.target.email.value === "" && event.target.city.value === "" && event.target.dob.value === "")
+    if(event.target.city.value === "" && event.target.dob.value === "")
     {
        props.notify(props.settings.strings["no_new_changes"], false, 5)
     }
@@ -36,8 +36,6 @@ export const UserSettingsMobile = (props) => {
 
     
         const modifiedUser = {
-          "new_firstName": event.target.firstName.value,
-          "new_lastName": event.target.lastName.value,
           "new_country": event.target.country.value,
           "new_city": event.target.city.value,
           "new_dob": event.target.dob.value
@@ -45,7 +43,7 @@ export const UserSettingsMobile = (props) => {
 
         
           // const ok = await modifyService.modifyRequest(modifiedUser)
-          props.changeUserSettings(modifiedUser.new_firstName, modifiedUser.new_lastName, modifiedUser.new_country, modifiedUser.new_city, modifiedUser.new_dob)
+          props.changeUserSettings(modifiedUser.new_country, modifiedUser.new_city, modifiedUser.new_dob)
           //console.log(modifiedUser)
           props.notify(props.settings.strings["account_modify_ok"], false, 8)
           props.history.push("/my-account/")
@@ -111,15 +109,7 @@ export const UserSettingsMobile = (props) => {
                 <div className="infoTextContainer">
                   <p className="normalText">{props.settings.strings["enter_values_to_change"]}</p>
                 </div>
-                <div className="inputContainer">
 
-                  <input name="firstName" className="input" required placeholder={props.user !== null && props.user.first_name !== "" ?  props.settings.strings["first_name"] + ": " + props.user.first_name : props.settings.strings["first_name"]} maxLength="32"/>
-                  <div className="inputFocusLine"/>
-                </div>
-                <div className="inputContainer">
-                  <input name="lastName" className="input" required placeholder={props.user !== null && props.user.last_name !== "" ? props.settings.strings["last_name"] + ": " + props.user.last_name : props.settings.strings["last_name"]} maxLength="32"/>
-                  <div className="inputFocusLine"/>
-                </div>
 
                 <div className="inputContainer">
                   <input name="country" className="input" required placeholder={props.user !== null && props.user.country !== "" ? props.settings.strings["country"] + ": " + props.user.country : props.settings.strings["country"]} maxLength="2"/>
@@ -132,7 +122,7 @@ export const UserSettingsMobile = (props) => {
                 </div>
 
                 <div className="inputContainer">
-                  <input type="date" name="dob" className="input" required maxLength="32"/>
+                  <input type="month" name="dob" className="input" required maxLength="32"/>
                   <div className="inputFocusLine"/>
                 </div>
               </div>

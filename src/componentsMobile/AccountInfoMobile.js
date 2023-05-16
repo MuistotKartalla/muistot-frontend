@@ -10,8 +10,8 @@ export const AccountInfo = (props) => {
     }
 
     const editUsername = (event) => {
-            event.preventDefault()
-            props.history.push("/change-username/")
+        event.preventDefault()
+        props.history.push("/change-username/")
     }
 
     const goToMyPosts = (event) => {
@@ -19,12 +19,12 @@ export const AccountInfo = (props) => {
         props.history.push("/my-posts/")
     }
 
-    return(
+    return (
         <div className="userInformationContainerMobile">
             <div className="titleContainerMobile">
                 <div className="userInformationButtonMobile">
                     <button className="mobileButtonContainer">
-                            <ReturnIcon className="mobileIcon" onClick={() => props.history.push("/")}/>
+                        <ReturnIcon className="mobileIcon" onClick={() => props.history.push("/")} />
                     </button>
                 </div>
                 <div className="userInformationTitleMobile">
@@ -69,6 +69,7 @@ export const AccountInfo = (props) => {
         </div>
     )
 }
+
 
 const mapStateToProps = (state) => {
     return {

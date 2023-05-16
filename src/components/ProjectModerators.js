@@ -85,3 +85,10 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProjectModerators)
+
+
+
+// ProjectModerators: This component is used in ContentArea.js.The component conditionally renders different UI depending on whether the logged-in user is a moderator for the active project or not. If the user is
+//  a moderator, it displays a form with an input for the new moderator's username and two buttons: one for submitting the form, and another for cancelling the operation. If the user is not a moderator, it displays
+//  a message informing the user that they are not authorized to perform this action, along with a button to return to the homepage.
+

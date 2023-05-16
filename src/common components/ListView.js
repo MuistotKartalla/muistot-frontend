@@ -8,6 +8,7 @@ import { notify } from "../reducers/notificationReducer"
 
 import "../styles/listView.css"
 import "../styles/postView.css"
+import { useLocation } from 'react-router-dom';
 import PostList from "./PostList"
 import PostViewLW from "./PostViewLW"
 
@@ -29,7 +30,14 @@ export const ListView = (props) => {
 
   }, [props, posts.length])
 
+  //david
+  const location = useLocation();
+  const isKiosk = location.pathname.startsWith('/kiosk');
+
   const onItemClick = (post) => {
+    isKiosk ? 
+    props.history.push(`/kiosk/list-view/${post.id}`)
+    :
     props.history.push(`/list-view/${post.id}`)
   }
 
@@ -86,3 +94,7 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ListView)
+
+
+// ListView:It is used in ContentArea.js. This is a React component named ListView which renders a list of posts. It uses useState and useEffect hooks to manage the state of posts and to update it when props
+//  change. It also connects to the Redux store using connect function to map the state and dispatchers to the component props.

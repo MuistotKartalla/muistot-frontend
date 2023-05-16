@@ -1,6 +1,6 @@
 .newProjectContainer{
   z-index: 4;
-  background: var(--secondary-color);
+  background: var(--ui-background);
   width: -webkit-fill-available;
   width: -moz-available;
   height: 100%;
@@ -15,7 +15,7 @@
 }
 
 .newProjectForm{
-  background: var(--secondary-color);
+  background: var(--ui-background);
   border-radius: 5px;
   padding: 0;
   display: flex;

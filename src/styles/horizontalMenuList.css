@@ -1,25 +1,23 @@
-.horizontalMenuContainer{
-  display: flex;
-  flex-direction: column;
-  height: 4em;
-}
-
 .horizontalMenuContainerLogged{
   display: flex;
   flex-direction: column;
   grid-area: navMenu;
-  width: 100%;
-  max-width: 25%;
-  height: 4em;
+  width: auto;
 }
 
+.horizontalMenuContainer{
+  display: flex;
+  flex-direction: column;
+  grid-area: navMenu;
+  width: auto;
+}
+
+
 .menuButtonList{
-  color: var(--secondary-text-color);
-  list-style-type: none;
+  color: var(--text-primary);
   float: right;
-  padding: 0;
   margin: 0 10px;
-  height: 4em;
+  padding-left: 0;
 }
 
 .menuItemText{
@@ -33,208 +31,89 @@
 .menuListItem{
   cursor: pointer;
   float: right;
-  margin: 0;
-  padding: 0px 10px;
-  height: 4em;
   display: flex;
   text-align: center;
   align-self: center;
   transition: 0s;
+  margin: 0 5px;
 }
 
-.menuListItem:hover{
-  color: var(--title-color);
-  transition: 0.5s;
-  background: var(--primary-color);
-  height: 4em;
-}
 
-.accountDropDownContainer{
-  align-self: flex-end;
-  height: fit-content;
-  height: -moz-fit-content;
-  width: fit-content;
-  width: -moz-fit-content;
-  top: 4em;
-}
 
 .personIcon{
   padding: 0;
   margin: auto;
-  fill: var(--secondary-text-color);
+  fill: var(--icon-fill);
   width: 2em;
   height: 2em;
 }
 
-.personIconActive{
-  padding: 0;
-  margin: auto;
-  fill: var(--title-color);
-  width: 2em;
-  height: 2em;
-}
-
-.accountItem{
-  cursor: pointer;
-  float: right;
-  margin: 0px;
-  padding: 0px  0px 0px 15px;
-  height: 4em;
-  display: flex;
-  text-align: center;
-  align-self: center;
-  transition: 0s; 
-}
-
-.accountItem:hover{
-  color: var(--title-color);
-  transition: 0s;
-  /*background: var(--accent-color);*/
-  height: 4em;
-}
-
-.accountItem:hover .dropDownIcon{
-  fill: var(--title-color);
-  transition: 0s;
-}
-
-.accountItem:hover .personIcon{
-  fill: var(--title-color);
-  transition: 0s;
-}
-
-.accountItemText{
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: 1.2em;
-  display: block;
-  font-weight: 500;
-  margin: auto;
-}
-
-.accountItemContainerInner{
-  cursor: pointer;
-  float: right;
-  margin: 0px;
-  height: 4em;
-  display: flex;
-  text-align: center;
-  align-self: center;
-  transition: 0s; 
-  color: var(--primary-text-color);
-}
-
-.accountItemActive{
-  cursor: pointer;
-  float: right;
-  margin: 0px;
-  padding: 0px  0px 0px 15px;
-  height: 4em;
-  display: flex;
-  text-align: center;
-  align-self: center;
-  transition: 0s; 
-  color: var(--primary-text-color);
-}
-
-.accountItemActive:hover{
-  color: var(--primary-text-color);
-  transition: 0s;
-  height: 4em;
-}
 
 .dropDownIcon{
   padding: 0;
-  margin: auto 0;
+  margin-top: 6px;
   float: right;
-  fill: var(--secondary-text-color);
-  transition: 0s;
+  fill: var(--text-primary);
+  transition: 0.3s;
   width: 2em !important;
   height: 2em !important;
 }
 
 .dropDownIcon:hover {
-  color: var(--title-color);
+  color: var(--icon-fill);
 }
 
 .dropDownIconActive{
   padding: 0;
-  margin: auto 0;
+  margin-top: 6px;
   float: right;
-  fill: var(--title-color);
+  fill: var(--icon-fill);
   width: 2em;
   height: 2em;
-  transition: 0s;
+  transition: 0.3s;
   transform: rotate(180deg);
 }
 
+/*Mateusz CSS*/
+.icon-container {
+  position: relative;
+}
 
-/* CSS for samller screen - by Adnan Islam */
-@media screen and (min-width: 700px) and (max-width: 1000px) {
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
 
-.menuItemText{
-  font-size: .9em;
+.dropdown {
+  position: absolute;
+  top: 55px; /* ajusta la posición vertical del dropdown */
+  left: -190px; /* ajusta la posición horizontal del dropdown */
+  width: 205px;
+  background: var(--ui-baseline);
+  border: 10px solid var(--ui-background);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none;
+  border-radius: 10%;
+}
+
+.dropdownContainer{
+  position: absolute;
+  top: 60px; /* ajusta la posición vertical del dropdown */
+  left: -190px; /* ajusta la posición horizontal del dropdown */
+  width: 50px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #000000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none;
+  border-radius: 5%;
+}
+
+.icon-container:hover .dropdown,
+.icon-container.show .dropdown{
   display: block;
 }
 
-.dropDownListItem{
-  padding: 0px;
-  height: 100%;
-  width: 5em;
-}
-
-.personIcon{
-  padding: 0;
-  margin: auto;
-  fill: var(--secondary-text-color);
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.personIconActive{
-  padding: 0;
-  margin: auto;
-  fill: var(--title-color);
-  width: 1.5em;
-  height: 1.5em;
-}
-
-}
-
-@media screen and (min-width: 500px) and (max-width: 700px) {
-
-.menuItemText{
-  font-size: .9em;
-  display: block;
-}
-
-.dropDownListItem{
-  padding: 0px;
-  height: 100%;
-  width: 5em;
-}
-
-.personIcon{
-  padding: 0;
-  margin: auto;
-  fill: var(--secondary-text-color);
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.personIconActive{
-  padding: 0;
-  margin: auto;
-  fill: var(--title-color);
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.menuListItem{
-  background: var(--secondary-color);
-}
-
-.accountItem, .accountItemActive{
-  margin: 0px -15px 0px 0px;
-}
-
-}

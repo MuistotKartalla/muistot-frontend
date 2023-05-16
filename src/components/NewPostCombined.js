@@ -8,7 +8,7 @@ import { setTempSite } from "../reducers/tempSiteReducer"
 import "../styles/buttons.css"
 import "../styles/newPost.css"
 
-import SiteImageUpload from "./SiteImageUpload"
+import SiteImageUpload from "../common components/SiteImageUpload"
 
 //combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.
 // aka if "live location" button is highlighted the it uses your current location. if map button highlighted then it uses selected location.
@@ -138,3 +138,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NewPostCombined)
+
+
+
+// NewPostCombined: The component renders a form for creating a new post. The form includes fields for the title, location, and image. There are also buttons for canceling the post and submitting it.
+//  The component uses conditional rendering to show either a button for selecting a location on a map or a form for entering a location name depending on the state of the location field.
+//  It is used in ContentArea.js.

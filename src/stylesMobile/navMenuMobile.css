@@ -1,4 +1,4 @@
-.mobileMenuContainerOuter{
+.mobileMenuContainerOuter {
   position: absolute;
   top: 0;
   left: 0;
@@ -7,11 +7,15 @@
   z-index: 3;
 }
 
-.mobileMenuContainer{
+.overflowMenuContainer{
+  overflow-y: auto;
+}
+
+.mobileMenuContainer {
   position: absolute;
   top: 0;
   left: 0;
-  background: var(--primary-color);
+  background: var(--ui-background);
   width: 80%;
   height: 100%;
   z-index: 4;
@@ -19,43 +23,62 @@
   flex-direction: column;
 }
 
-.mobileMenuContainerHidden{
+.downContainer{
+
+  width: 100%;
+}
+
+
+.mobileMenuContainerHidden {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 4;
-  background: transparent;
+  background: white;
   float: left;
 }
 
-.mobileMenuToggleButton{
+.mobileMenuToggleButton {
   cursor: pointer;
-  background: transparent;
+  background: var(--ui-background);
   outline: none;
   border: 0;
   padding: 0.5em;
 }
 
-.menuIcon{
-  fill: var(--accent-color);
+.menuIcon {
+  fill: var(--icon-fill);
+  width: 5em;
+  height: 4.5em;
+}
+
+.menuIconInverted {
+  fill: var(--icon-fill);
   width: 5em;
   height: 5em;
 }
 
-.menuIconInverted{
-  fill: var(--secondary-text-color);
-  width: 5em;
-  height: 5em;
-}
-
-.mobileMenuLogoContainer{
+.mobileMenuLogoContainer {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: fit-content;
 }
 
-.menuLogoMobile{
+.aboutMobileContainer {
+  z-index: 2;
+  position: fixed;
+  bottom: 1.5em;
+  left: 1em;
+
+}
+.preferencesContainer{
+  z-index: 2;
+  bottom: 5em;
+  left: 1em;
+  
+}
+.menuLogoMobile {
   width: -webkit-fill-available;
   width: -moz-available;
   height: 100%;
@@ -64,25 +87,25 @@
   display: flex;
 }
 
-.logoTextMobile{
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: var(--title-color);
+.logoTextMobile {
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: var(--icon-fill);
   font-weight: 700;
   font-size: 1.2em;
   margin: auto;
 }
 
-.mobileMenuButton{
+.mobileMenuButton {
   width: 100%;
-  background: var(--primary-color);
-  color: var(--secondary-text-color);
+  background: var(--ui-background);
+  color: var(--text-primary);
   cursor: pointer;
   display: inline-block;
   min-height: 1em;
   outline: 0;
   border: none;
   vertical-align: baseline;
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   margin: 0 .25em 0 .25em;
   padding: .78571429em 0.5em .78571429em;
@@ -98,6 +121,3 @@
   transition: background 0s;
   margin: auto;
 }
-
-
-

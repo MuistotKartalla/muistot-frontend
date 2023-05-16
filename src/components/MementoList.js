@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import { notify } from "../reducers/notificationReducer"
 import * as postService from "../services/posts"
 
+import {useLocation} from 'react-router-dom'
 import { deleteMemory, toggleVerifyMemento } from "../reducers/postReducer"
 import { getImageURL } from "../services/images"
 import "../styles/listView.css"
@@ -62,9 +63,17 @@ export const MementoList = (props) => {
     window.location.reload(false);
   }
 
+  //david
+  const location = useLocation();
+  const isKiosk = location.pathname.startsWith('/kiosk');
+
   return(
     <div className="postListContainer">
       <ul className="postListList">
+        {isKiosk ? (
+          null
+        ):
+        (
           <li className="postListItem" onClick={() => newMementoClick(props.posts.id)}>
             <div className="postListItemImageContainer">
               <img className="postListImagePreview" src={getImageURL("placeholder.jpg")} alt=""></img>
@@ -74,6 +83,8 @@ export const MementoList = (props) => {
               <p className="normalText">{`${props.settings.strings["add_your_memento_info"]}`}</p>
             </div>
           </li>
+        )}
+          
         {mementos.map((memento,index) =>
             <li key={index} className="postListItem">
               <div className="postListItemImageContainer">
@@ -138,3 +149,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MementoList)
+
+
+
+// MementoList: This component is used in PostView.js, and PostViewLW.js. The component returns a list of memories to be rendered, with each memory being rendered as a list item (li element).
+//  The details of each memory, such as the image, title, and story, are rendered within the list item. The component also conditionally renders buttons such as "Verify", "Unverify", and "Delete"
+//  depending on the user's permissions and actions.

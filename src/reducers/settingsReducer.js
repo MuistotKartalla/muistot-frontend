@@ -19,32 +19,40 @@ const initialState = {
     update: false
 }
 
+const light = {
+    primary_color: "#3E4144",
+
+}
+
 const changeThemeInCSS = (theme) => {
     if (theme === "dark"){
-        document.documentElement.style.setProperty("--primary-color", "#181818")
-        document.documentElement.style.setProperty("--secondary-color", "#202020")
-        document.documentElement.style.setProperty("--primary-text-color", "#ffffff")
-        document.documentElement.style.setProperty("--secondary-text-color", "#a0a0a0")
-        document.documentElement.style.setProperty("--accent-color", "#383838")
-        document.documentElement.style.setProperty("--accent-color-dark", "#1d1c1d")
-        document.documentElement.style.setProperty("--accent-color-light", "#808080")
-        document.documentElement.style.setProperty("--effect-color", "#cecece")
-        document.documentElement.style.setProperty("--activity-color", "#000000")
-        document.documentElement.style.setProperty("--title-color", "#03FFFF")
-        document.documentElement.style.setProperty("--hover-text-color", "#000000")
+        document.documentElement.style.setProperty("--ui-background", "#3E4144")
+        document.documentElement.style.setProperty("--ui-baseline", "#535B61")
+        document.documentElement.style.setProperty("--ui-accent", "#b1b1b1")
+
+        document.documentElement.style.setProperty("--button-active", "#f9f9f9")
+        document.documentElement.style.setProperty("--button-background", "#65727C")
+        document.documentElement.style.setProperty("--button-foreground", "#535B61")
+        document.documentElement.style.setProperty("--icon-fill", "#ffffff")
+
+        document.documentElement.style.setProperty("--text-primary", "#ffffff")
+        document.documentElement.style.setProperty("--text-secondary", "#e1e1e1")
     }
     else{
-        document.documentElement.style.setProperty("--primary-color", "#ffffff")
-        document.documentElement.style.setProperty("--secondary-color", "#e8e8e8")
-        document.documentElement.style.setProperty("--primary-text-color", "#000000")
-        document.documentElement.style.setProperty("--secondary-text-color", "#505050")
-        document.documentElement.style.setProperty("--accent-color", "#ffffff")
-        document.documentElement.style.setProperty("--accent-color-dark", "#e0e0e0")
-        document.documentElement.style.setProperty("--accent-color-light", "#ffffff")
-        document.documentElement.style.setProperty("--activity-color", "#ddaadd")
-        document.documentElement.style.setProperty("--title-color", "#2b2b2b")
-        document.documentElement.style.setProperty("--hover-text-color", "#ffffff")
+        document.documentElement.style.setProperty("--ui-background", "#D3D3D3")
+        document.documentElement.style.setProperty("--ui-baseline", "#DCDCDC")
+        document.documentElement.style.setProperty("--ui-accent", "#b1b1b1")
+
+        document.documentElement.style.setProperty("--button-active", "#262222")
+        document.documentElement.style.setProperty("--button-background", "#F5F5F5")
+        document.documentElement.style.setProperty("--button-foreground", "#DCDCDC")
+        document.documentElement.style.setProperty("--icon-fill", "#262222")
+
+
+        document.documentElement.style.setProperty("--text-primary", "#060303")
+        document.documentElement.style.setProperty("--text-secondary", "#505050")
     }
+    document.documentElement.style.setProperty("--pop-background", "#000000b3" )
 }
 
 
@@ -126,6 +134,7 @@ export const setActiveLanguage = (languageCode) => {
         })
     }
 }
+
 
 export const setActiveTheme = (theme) => {
     return dispatch => {

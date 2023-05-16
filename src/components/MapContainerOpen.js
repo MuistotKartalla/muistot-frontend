@@ -12,21 +12,8 @@ import "../styles/buttons.css"
 import "../styles/mapContainer.css"
 import "../styles/markerCluster.css"
 import "../styles/popupContainer.css"
-//import iconN from "../resources/marker-icon-new.png"
-//import iconT from "../resources/marker-transp.png"
-//import iconTN from "../resources/marker-transp-new.png"
-//import iconY from "../resources/marker-yellow.png"
-//import iconH from "../resources/marker-hilite.png"
-//import iconP from "../resources/marker-piippu.png"
-//import iconPT from "../resources/marker-piippu-tp.png"
-//import iconPS from "../resources/marker-piippu-star.png"
-//import iconPS2 from "../resources/marker-piippu-star2.png"
-//import iconPS3 from "../resources/marker-piippu-star3.png"
-//import iconS from "../resources/marker-star.png"
-//import iconS2 from "../resources/marker-star2.png"
-//import iconS3 from "../resources/marker-star3.png"
-//import iconx2 from "../resources/marker-icon-2x.png"
-//import iconPShadow from "../resources/marker-piippu-shadow.png"
+import "../styles/utils.css"
+
 
 import tempIconMarker from "../resources/temp_marker.svg"
 import userIconMarker from "../resources/user_icon_custom.svg"
@@ -38,6 +25,8 @@ import { createSite } from "../reducers/postReducer"
 import { setTempSite } from "../reducers/tempSiteReducer"
 import { updateUserLocation } from "../reducers/userLocationReducer"
 import FloatingSearch from "./FloatingSearch"
+import {ReactComponent as ListIcon} from "../resources/list_icon.svg";
+import {Utils} from "./Utils";
 
 var IconMarker = L.Icon.extend({
         options: {
@@ -72,7 +61,7 @@ const MapContainerOpen = (props) => {
   const [position, setPosition] = useState({lat: 65.01157565139543, lng: 25.470943450927738})
   const [tempMarker, setTempMarker] = useState(null)
   const itemsRef = useRef([]);
-  const [zoom, setZoom] = useState(5)
+  const [zoom, setZoom] = useState(6)
   const [posts, setPosts] = useState([])
   const [moveToPosition, setmoveToPosition] = useState(false)
 
@@ -92,7 +81,7 @@ const MapContainerOpen = (props) => {
       setPosts(props.posts)
     }
     if(props.mapLocation !== null){
-      setZoom(18)
+      setZoom(10)
       setPosition(props.mapLocation) 
       props.updateMapLocation(null)
       setmoveToPosition(true)
@@ -293,10 +282,11 @@ const MapContainerOpen = (props) => {
           <></>
         }
       </MapContainer>
-      <div className="floatingSearchContainerMap">
-        <FloatingSearch history={props.history}/>
-      </div>
-      <button className="overlayButtonLeft rippleButton" onClick={toListView}>{props.settings.strings["list_view"]}</button>
+
+      <Utils items={[<FloatingSearch history={props.history}/>, <ListIcon className="floatingList" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
+
+
+
       {tempMarker ?  props.user ? props.currentProject.id !== "parantolat"? !followUser?
       <button className="overlayButtonCenter pulsingButton rippleButton smallButton" onClick={confirmNewLocationMarker}>{props.settings.strings["new_post"]}</button>
       :
@@ -340,3 +330,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MapContainerOpen)
+
+
+
+// MapContainerOpen: It is used in ContentArea.js . The component defines a function to handle user clicks on the map, which will create a temporary marker that can be used to create a new post. It also defines
+//  a function to confirm the location of the temporary marker and navigate to a new post form.

@@ -14,9 +14,11 @@
   --hover-text-color: #000000;
 }
 
+
 html, body, #root, #app, #app>div {
   height: auto;
   min-height: 100%;
+ 
 }
 
 .appContainer{
@@ -37,7 +39,7 @@ html, body, #root, #app, #app>div {
 }
 
 .popUpBackground{
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--pop-background);
   position: absolute;
   height: 100%;
   width: 100%;
@@ -55,6 +57,10 @@ html, body, #root, #app, #app>div {
   overflow-x: hidden;
 }
 
+.toggleDescriptionButtonContainer{
+  text-align: center;
+  z-index: 10;
+}
 .titleContainerMobile{
   width: 100%;
   height: fit-content;

@@ -7,10 +7,10 @@ import NavMenuMobile from "./NavMenuMobile"
 
 
 import { notify } from "../reducers/notificationReducer"
-import AboutMobile from "./AboutMobile"
+import About from "../common components/About"
 import AccountInfoMobile from "./AccountInfoMobile"
 import ChangeUserNameMobile from "./ChangeUserNameMobile"
-import EditImageMobile from "./EditImageMobile"
+import EditImage from "../common components/EditImage"
 import EditLocationMobile from "./EditLocationMobile"
 import EditPostMobile from "./EditPostMobile"
 import EditSiteTitleMobile from "./EditSiteTitleMobile"
@@ -62,7 +62,7 @@ const ContentAreaMobile = (props) => {
           <EditPostMobile match={match} history={history}/>
       )}/>
       <Route path="/edit-image/:id/" render={({match,history}) => (
-          <EditImageMobile match={match} history={history}/>
+          <EditImage match={match} history={history}/>
       )}/>
       <Route path="/edit-title/:id/" render={({match,history}) => (
           <EditSiteTitleMobile match={match} history={history}/>
@@ -80,7 +80,7 @@ const ContentAreaMobile = (props) => {
         <MyPostsMobile history={history}/>
       )}/>
       <Route path="/about/" render={({history}) => (
-        <AboutMobile history={history}/>
+        <About history={history}/>
       )}/>
       <Route path="/project-info/" render={({history}) => (
         <ProjectInfoMobile history={history}/>

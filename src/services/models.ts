@@ -262,3 +262,17 @@ export interface ErrorDetail {
 export interface ApiError {
     error: ErrorDetail
 }
+
+/*
+export interface Theme {
+    pop_background: string
+}
+
+const light: Theme = {
+
+}
+
+const setFromJSON = (theme: Theme) => {
+
+}
+ */

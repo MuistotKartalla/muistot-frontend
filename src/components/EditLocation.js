@@ -114,3 +114,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(EditLocation)
+
+
+
+// EditLocation: The main component in this code is EditLocation, which renders a map and allows the user to select a new location.
+//  The selected coordinates are then used to modify the location of a post. Finally, the mapStateToProps and mapDispatchToProps
+//  functions are used to map the component's props to the Redux store and dispatch actions, respectively.This component is used in ContentArea.js

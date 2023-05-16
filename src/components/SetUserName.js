@@ -27,7 +27,7 @@ export const SetUserName = (props) => {
         props.history.push("/usersettings/")
     }
     return (
-        <div className="loginContainer centerAlignWithPadding">
+        <div className="loginContainer centerAlignWithPaddingContainer">
             <h1 className="headerText bottomPadding30">{props.settings.strings["set_username"]}</h1>
      <form className="loginForm" onSubmit={confirmUser}>
                 <div className="inputContainer">
@@ -65,3 +65,8 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(SetUserName)
+
+
+
+// SetUserName: This component is used in ContentArea.js. The component uses the useState hook to manage the state of the input field for the username. When the form is submitted, it calls confirmUser function,
+//  which dispatches an action to update the username in the store using changeUsernameReducer from the loginReducer.

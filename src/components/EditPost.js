@@ -93,3 +93,11 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PostView)
+
+
+// EditPost: The component receives props as its input parameter and uses the find method to search for a post with a matching ID in the props.posts array, based on the ID passed in the URL. 
+//  It then sets a property called uusi to 0 on the found post object. This is used in ContentArea.js 
+//  the component defines mapStateToProps and mapDispatchToProps functions, which are used to connect the component to the Redux store.
+//  The mapStateToProps function maps the user, posts, settings, and currentProject objects in the store to the component's props. 
+//  The mapDispatchToProps function connects the notify action creator from the notificationReducer to the component's props.
+//  The connect function then connects the component to the Redux store by passing mapStateToProps and mapDispatchToProps as arguments.

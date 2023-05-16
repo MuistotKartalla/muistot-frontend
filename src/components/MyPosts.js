@@ -100,3 +100,6 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MyPosts)
+
+
+// MyPosts: This is used in ContentArea.js. The MyPosts component receives props as an argument, which contains the user's posts, settings and history. It filters the user's posts to display only the ones that they own.

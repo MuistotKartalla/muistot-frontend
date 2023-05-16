@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 import { logout } from "../reducers/loginReducer"
 import { notify } from "../reducers/notificationReducer"
 
-
+import { ReactComponent as InfoButton } from "../resources/info_font.svg"
 import "../styles/navMenu.css"
 
 import HorizontalMenuList from "./HorizontalMenuList"
@@ -49,14 +49,12 @@ export const NavMenu = (props) => {
           <p className="logoText" onClick={toRoot}>{props.settings.strings["app_name"]}</p>
         </div>
 
-        <div className="projectSelectContainer">
-          
-          <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject}/>
-
-          <div className="projectInfoButtonContainer">
-            <button className="projectInfoButton" onClick={toProjectMenu}>{props.settings.strings["project_info"]}</button>
-          </div>
+        <div className="centerContainer">
+          <DropDownSelectProject  items={props.projects.projects} active={props.projects.active} change={changeProject}/>
+          <InfoButton className="projectInfoButtonContainer" onClick={toProjectMenu}></InfoButton>
         </div>
+
+
         <HorizontalMenuList history={props.history}/>
       </div>
     </div>
@@ -87,3 +85,6 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NavMenu)
+
+
+// NavMenu: This component renders a menu bar at the top of the page, It is usen inside of App.js. The menu includes a logo, a dropdown to select a project, a button to view project information, and a list of horizontal links. 
