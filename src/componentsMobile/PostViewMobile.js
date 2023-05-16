@@ -148,6 +148,15 @@ export const PostViewMobile = (props) => {
                 (post.own === true?
                   <div className="postButtonsContainerInnerMobile">
                     <button className="rippleButton fillButton bigButton"onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
+
+                    {deleteState?
+                        <div className="postButtonsContainerInnerMobile">
+                          <div className="divider"/>
+                          <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button>
+                        </div>
+                        :
+                        <></>
+                    }
                     <div className="divider"/>
                     <button className="rippleButton fillButton bigButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_information"]}</button>
                     <div className="divider"/>
@@ -160,14 +169,7 @@ export const PostViewMobile = (props) => {
               <div/>
             }
             <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
-            {deleteState?
-              <div className="postButtonsContainerInnerMobile">
-                <div className="divider"/>
-                <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button>
-              </div> 
-              :
-              <></>
-            }
+
         </div>
         <div className="storyContainer">
           <MementoListMobile posts={post} history={props.history}/> 
