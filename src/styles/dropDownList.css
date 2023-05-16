@@ -8,6 +8,7 @@
   width: auto;
   max-height: 400px;
   overflow-y: auto;
+  z-index: 999;
 }
 
 @media screen and (max-width: 410px) {
@@ -54,7 +55,7 @@
 }
 .dropDownItemTextMobile{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: 5.5vw;
+  font-size: 4.5vw;
   padding: 0.5em 0.5em 0.5em 0.5em;
   margin: 0;
 }
