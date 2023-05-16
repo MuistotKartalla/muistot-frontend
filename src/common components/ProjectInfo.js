@@ -53,7 +53,11 @@ export const ProjectInfo = (props) => {
      :
     props.history.push("/")
   }
-
+  //go to project management page
+  const toManagement = (event) => {
+    event.preventDefault()
+    props.history.push("/project-management")
+  }
   //full description
   const [showFullDescription, setShowFullDescription] = useState(false)
   const [textToggleButton, setTextToggleButton] = useState("Show more")
@@ -78,12 +82,10 @@ export const ProjectInfo = (props) => {
         <div className="divider"></div>
         <div className="projectInfoContentContainer">
           <div className="projectInfoText">
-            <h3>Short project description</h3>
-            <h4> COOL COOL PROJECT YEAH AWESOME SITES AND MEMORIES</h4>
-            <h4>Start: 2023-01-01     End: 2023-04-15</h4>
+            <ReactMarkdown source={project.description} />
           </div>
         </div>
-        <div className="divider"></div>
+        <div className="divider"></div> 
 
         {isKiosk? (
           <div className="projectInfoDescriptionContainer normalText">
