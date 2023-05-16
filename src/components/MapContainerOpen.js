@@ -61,7 +61,7 @@ const MapContainerOpen = (props) => {
   const [position, setPosition] = useState({lat: 65.01157565139543, lng: 25.470943450927738})
   const [tempMarker, setTempMarker] = useState(null)
   const itemsRef = useRef([]);
-  const [zoom, setZoom] = useState(6)
+  const [zoom, setZoom] = useState(5)
   const [posts, setPosts] = useState([])
   const [moveToPosition, setmoveToPosition] = useState(false)
 
