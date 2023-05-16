@@ -309,14 +309,12 @@ const MapContainerMobile = (props) => {
 
       {/* --- */}
 
-      {props.currentProject.id !== "parantolat" ?
+
 
         <button className="mobileProjectButton ">
           <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject} />
         </button>
-        :
-        <></>
-      }
+
 
 
 
