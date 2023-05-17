@@ -47,10 +47,10 @@ export const PostViewLW = (props) => {
     event.preventDefault()
     //console.log(`Centering Map to ${post.title} coordinates.`)
     props.updateMapLocation(post.location)
-    isKiosk?
-    props.history.push('/kiosk')
-    :
-    props.history.push('/')
+    isKiosk ?
+      props.history.push('/kiosk')
+      :
+      props.history.push('/')
   }
 
   const showDetails = (event) => {
@@ -113,7 +113,7 @@ export const PostViewLW = (props) => {
     //if post is defined return the actual post view else empty div.
     return (
       <div className="postViewContainerLW">
-        <div className="postTitleContainer">
+        <div className="postTitleContainer fixedCloseButton">
 
           {!post.waiting_approval ?
             <Verified className="verifiedIconListView" />
@@ -165,7 +165,7 @@ export const PostViewLW = (props) => {
                 (post.own === true ?
                   <div className="postButtonsContainerInner">
                     <button className="rippleButton Button negativeButton" onClick={() => editPostClick(post.id)}>{props.settings.strings["change_image"]}</button>
-                    <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
+                    <button className="rippleButton smallButton negativeButton " onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
                   </div>
                   :
                   <></>
@@ -185,91 +185,88 @@ export const PostViewLW = (props) => {
             <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button>
           </div>
           :
-          <div className="postCloseContainer">
+          
+            <div className="postCloseContainer fixedButtons">
 
-            <button className="rippleButton fillButton" onClick={showDetails}>{props.settings.strings["look_at_mementos"]}</button>
+              <button className="rippleButton fillButton" onClick={showDetails}>{props.settings.strings["look_at_mementos"]}</button>
 
-            <hr></hr>
-            <button className="rippleButton fillButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
-          </div>
+              <hr></hr>
+              <button className="rippleButton fillButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
+            </div>
+       
+         
         }
-        <div className="storyContainer">
-          <MementoList posts={post} history={props.history} />
-        </div>
-      </div>
+            <div className="storyContainer">
+              <MementoList posts={post} history={props.history} />
+            </div>
+          </div>
     )
   }
-  if (post && props.currentProject.id === "parantolat") {
+        if (post && props.currentProject.id === "parantolat") {
     //if post is defined return the actual post view else empty div.
     return (
-      <div className="postViewContainerLW">
-        <div className="postTitleContainer">
+        <div className="postViewContainerLW">
+          <div className="postTitleContainer">
 
-          {post.published ?
-            <Verified className="verifiedIconListView" />
-            :
-            <div />
-          }
-          <h1 className="titleText">{post.title}</h1>
+            {post.published ?
+              <Verified className="verifiedIconListView" />
+              :
+              <div />
+            }
+            <h1 className="titleText">{post.title}</h1>
 
-          <div className="postCloseButtonContainer">
-            <ClearIcon className="clearIcon" onClick={closeClick} />
+            <div className="postCloseButtonContainer fixedCloseButton">
+              <ClearIcon className="clearIcon" onClick={closeClick} />
+            </div>
           </div>
-        </div>
 
-        <div className="storyContainer normalText" style={{ padding: "20px" }}>
-          <ReactMarkdown source={post.description} />
-        </div>
+          <div className="storyContainer normalText" style={{ padding: "20px" }}>
+            <ReactMarkdown source={post.description} />
+          </div>
 
-        <div className="postContextContainer">
-          <div className="postCloseContainer">
-            <hr></hr>
-            <button className="rippleButton fillButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
-            <div className="postButtonsParantolat">
-              <div className="postButtonsContainer">
-                <TwitterIcon className="mobileIconSmall" onClick={twitterShareClick} />
-                <FacebookIcon className="mobileIconSmall" onClick={facebookShareClick} />
-              </div>
+          <div className="postContextContainer">
+            <div className="postCloseContainer">
+              <hr></hr>
+              <button className="rippleButton fillButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
             </div>
           </div>
         </div>
-      </div>
-    )
+        )
   }
-  return (
-    <></>
-  )
+        return (
+        <></>
+        )
 }
 
 const mapStateToProps = (state) => {
   return {
-    //maps state to props, after this you can for example call props.notification
-    user: state.user,
-    posts: state.posts,
-    settings: state.settings,
-    currentProject: state.projects.active
+          //maps state to props, after this you can for example call props.notification
+          user: state.user,
+        posts: state.posts,
+        settings: state.settings,
+        currentProject: state.projects.active
 
   }
 }
 
-const mapDispatchToProps = {
-  //connect reducer functions/dispatchs to props
-  //notify (for example)
-  notify,
-  deletePost,
-  toggleVerify,
-  updateMapLocation,
-  updateListView
-}
+        const mapDispatchToProps = {
+          //connect reducer functions/dispatchs to props
+          //notify (for example)
+          notify,
+          deletePost,
+          toggleVerify,
+          updateMapLocation,
+          updateListView
+        }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PostViewLW)
-
-
+        export default connect(
+        mapStateToProps,
+        mapDispatchToProps
+        )(PostViewLW)
 
 
-// PostViewLW: This component is used in ListView.js. The component renders the post's title, image, and context details such as the post's creator, 
-//number of memories, and some buttons, including delete, report, and verify for certain users. If a delete button is clicked, a modal asking for 
+
+
+// PostViewLW: This component is used in ListView.js. The component renders the post's title, image, and context details such as the post's creator,
+//number of memories, and some buttons, including delete, report, and verify for certain users. If a delete button is clicked, a modal asking for
 //confirmation appears, and if the delete is confirmed, the post is deleted from the server, and the user is notified. 

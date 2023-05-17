@@ -43,6 +43,17 @@
   overflow-y: auto;
 }
 
+.fixedButtons{
+  position: sticky;
+  top: 8%;
+  background: var(--ui-background);
+}
+.fixedCloseButton{
+  background: var(--ui-background);
+  position: sticky;
+  top: 0;
+}
+
 .postTitleContainer{
   width: -webkit-fill-available;
   width: -moz-available;

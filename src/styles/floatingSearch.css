@@ -28,8 +28,8 @@
 
 
 .clearIcon{
-  height: 1em;
-  width: 1em;
+  height: 2em;
+  width: 2em;
   fill: var(--text-secondary);
   cursor: pointer;
   transition: 0s;
