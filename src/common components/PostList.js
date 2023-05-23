@@ -74,5 +74,5 @@ export default connect(
 )(PostList)
 
 
-// PostList: This component is used in ListView.js. The component uses the LazyLoadImage component from the react-lazy-load-image-component library to lazy load the images. It also uses the useEffect hook to
-//  scroll to the selected post and the useRef hook to create a reference to each list item for scrolling.
+// PostList: This component is used in ListView.js. The component uses the LazyLoadImage component from the react-lazy-load-image-component library to lazy load the images.
+// It also uses the useEffect hook to scroll to the selected post and the useRef hook to create a reference to each list item for scrolling.

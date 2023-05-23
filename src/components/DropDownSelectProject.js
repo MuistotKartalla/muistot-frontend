@@ -20,6 +20,14 @@ export const DropDownSelectProject = (props) => {
     setIsComponentVisible(!isComponentVisible)
   }
 
+  //david
+  const handleProjectChange = (selectedProject)=> {
+
+    props.setActiveProject(selectedProject);
+
+    setIsComponentVisible(false);
+  }
+
   const genListOptions = () => {
     const strings = props.items.filter(item => item.id !== props.active.id)
     let list = []
@@ -30,14 +38,14 @@ export const DropDownSelectProject = (props) => {
       }
       else if (element === props.settings.strings["new_project"]){
         list.push({string: element, onClickHandler: () => {
-          props.change(element)
+          handleProjectChange(element)
           setIsComponentVisible(!isComponentVisible)
         }
         })
       }
       else if (element.id === "piiput" || element.id === "parantolat"){
         list.push({string: props.settings.strings[element.id], onClickHandler: () => {
-          props.change(element)
+          handleProjectChange(element)
           setIsComponentVisible(!isComponentVisible)
           //console.log(element.title, " clicked")
         }
@@ -45,7 +53,7 @@ export const DropDownSelectProject = (props) => {
       }
       else{
         list.push({string: element.title, onClickHandler: () => {
-          props.change(element)
+          handleProjectChange(element)
           setIsComponentVisible(!isComponentVisible)
         }
       })
