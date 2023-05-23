@@ -20,11 +20,20 @@ export const MementoList = (props) => {
   const [deleteId, setDeleteId] = useState(null)
 
   useEffect(() => {
+
+    let isMounted = true;
+
       postService.getMemories(
           props.posts.projectId,
           props.posts.id
-      ).then(data => {setMementos(data)})
-  }, [props])
+      ).then(data => {
+        if (isMounted) {setMementos(data);
+        }
+      });
+      return() =>{
+        isMounted = false;
+      };
+  }, [props.posts.id]);
 
   const newMementoClick = (kohdeid) => {
    if(props.user !== null){
