@@ -186,7 +186,9 @@
       "birthday": "Date of birth",
       "change_information": "Change information",
       "download_info": "Download information",
-      "country_name": "Country"
+      "country_name": "Country",
+      "info_button_more": "Show more",
+      "info_button_less": "Show less"
     },
     "fi":{
       "look_at_mementos": "Katsele kohteen tietoja",
@@ -371,7 +373,9 @@
       "birthday": "Syntymäaika",
       "change_information": "Muuta tietoja",
       "download_info": "Lataa tiedot",
-      "country_name": "Maa"
+      "country_name": "Maa",
+      "info_button_more": "Näytä lisää",
+      "info_button_less": "Näytä vähemmän"
     },
 
     "es": {
@@ -387,7 +391,7 @@
       "my_posts": "Mis publicaciones",
       "empty_list": "¯\\_(ツ)_/¯ No hay nada aquí.",
       "configure_account": "Configurar cuenta",
-      "about": "Acerca de",
+      "about": "Acerca de nosotros",
       "about_text": "El servicio Muistotkartalla.fi fue desarrollado entre 2019 y 2021 para la recolección de datos arqueológicos mediante la colaboración del público.",
       "log_out": "Cerrar sesión",
       "log_in": "Iniciar sesión",
@@ -559,7 +563,9 @@
       "birthday": "Fecha de nacimiento",
       "change_information": "Cambiar información",
       "download_info": "Descargar información",
-      "country_name": "País"
+      "country_name": "País",
+      "info_button_more": "Mostrar más",
+      "info_button_less": "Mostrar menos"
     }
 }
 }

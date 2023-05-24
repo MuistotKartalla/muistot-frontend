@@ -60,13 +60,13 @@ export const ProjectInfo = (props) => {
   }
   //full description
   const [showFullDescription, setShowFullDescription] = useState(false)
-  const [textToggleButton, setTextToggleButton] = useState("Show more")
+  const [textToggleButton, setTextToggleButton] = useState(props.settings.strings["info_button_more"])
   const toggleDescription = () => {
     setShowFullDescription(!showFullDescription)
     showFullDescription ?
-    setTextToggleButton("Show more")
+    setTextToggleButton(props.settings.strings["info_button_more"])
     :
-    setTextToggleButton("Show less")
+    setTextToggleButton(props.settings.strings["info_button_less"])
   };
 
   //check if current user is project moderator
