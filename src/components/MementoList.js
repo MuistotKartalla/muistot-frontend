@@ -33,7 +33,7 @@ export const MementoList = (props) => {
       return() =>{
         isMounted = false;
       };
-  }, [props.posts.id]);
+  }, [props]);
 
   const newMementoClick = (kohdeid) => {
    if(props.user !== null){
