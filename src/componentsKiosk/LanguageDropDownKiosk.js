@@ -14,6 +14,8 @@ import { isMobile } from "react-device-detect";
 
 import finnishFlag from "../resources/finnish-flag.png";
 import englishFlag from "../resources/english-flag.png";
+import spanishFlag from "../resources/spanish-flag.png";
+
 
 
 export const LanguageDropDownKiosk = (props) => {
@@ -43,7 +45,7 @@ export const LanguageDropDownKiosk = (props) => {
         setIsComponentVisible(false);
       },
       isActive: index === activeIndex,
-      bandera: lang === 'en' ? englishFlag : finnishFlag // Agregar la propiedad "bandera" con la ruta de la imagen correspondiente
+      bandera: lang === 'en' ? englishFlag : (lang === 'fi' ? finnishFlag : spanishFlag) // Agregar la propiedad "bandera" con la ruta de la imagen correspondiente
     }));
     return list;
   };

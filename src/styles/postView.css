@@ -14,7 +14,6 @@
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  overflow-y: scroll;
   border-radius: 10px;
 }
 
@@ -186,6 +185,7 @@
 
 .storyContainer{
   max-width: 100%;
+  overflow-y: auto;
 }
 
 
