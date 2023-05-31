@@ -1,13 +1,14 @@
 import "../stylesKiosk/buttonStyle.css"
-
+import iconLOGO from "../resources/logoIcon.png"
 
 
 const MuistotkartallaLogo = (props) =>{
 
     return(
-        <button className="logoButton" onClick={props.onClick}>
-            <p className="textButton">{props.title}</p>
-        </button>
+       
+             <img src={iconLOGO} alt="Logo" className="logoIcon" onClick={props.onClick}/>
+           
+     
     )
 }
 
