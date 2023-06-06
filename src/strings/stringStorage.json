@@ -188,7 +188,8 @@
       "download_info": "Download information",
       "country_name": "Country",
       "info_button_more": "Show more",
-      "info_button_less": "Show less"
+      "info_button_less": "Show less",
+      "Filter_by_title": "Filter by title"
     },
     "fi":{
       "look_at_mementos": "Katsele kohteen tietoja",
@@ -375,7 +376,8 @@
       "download_info": "Lataa tiedot",
       "country_name": "Maa",
       "info_button_more": "Näytä lisää",
-      "info_button_less": "Näytä vähemmän"
+      "info_button_less": "Näytä vähemmän",
+      "Filter_by_title":"Suodata otsikon perusteella"
     },
 
     "es": {
@@ -384,7 +386,7 @@
       "app_name": "MUISTOT KARTALLA",
       "project_info": "Información del proyecto",
       "new_post": "Agregar nueva publicación",
-      "list_view": "Vista de lista",
+      "list_view": "Lista",
       "dark_mode": "Modo oscuro",
       "location_names": "Nombres de sitios",
       "account_activity": "Actividad de la cuenta",
@@ -565,7 +567,8 @@
       "download_info": "Descargar información",
       "country_name": "País",
       "info_button_more": "Mostrar más",
-      "info_button_less": "Mostrar menos"
+      "info_button_less": "Mostrar menos",
+      "Filter_by_title":"Filtrar por título"
     }
 }
 }

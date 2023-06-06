@@ -119,6 +119,15 @@
   overflow-x: auto;
 }
 
+.postListFilterContainerMobile{
+  display: table-column;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: 100%;
+  overflow-x: auto;
+  text-align: center;
+}
+
 .postTitleTextMobile{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   color: var(--icon-fill);

@@ -35,14 +35,6 @@ export const AccountInfo = (props) => {
                 <table>
                     <tbody>
                         <tr className="userInfoRows">
-                            <th className="userInfoValues">{props.settings.strings["first_name"]}</th>
-                            <th className="userInfoValues">{props.user !== null && props.user.first_name !== "" ? props.user.first_name : "-"}</th>
-                        </tr>
-                        <tr className="userInfoRows">
-                            <th className="userInfoValues">{props.settings.strings["last_name"]}</th>
-                            <th className="userInfoValues">{props.user !== null && props.user.last_name !== "" ? props.user.last_name : "-"}</th>
-                        </tr>
-                        <tr className="userInfoRows">
                             <th className="userInfoValues">{props.settings.strings["email"]}</th>
                             <th className="userInfoValues">{props.user !== null && props.user.email !== "" ? props.user.email : "-"}</th>
                         </tr>

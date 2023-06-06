@@ -24,7 +24,7 @@
   bottom: 2%;
   right: 0;
   background: transparent;
-  fill: #262222;
+  fill: var(--ui-background);
   border: 0;
 }
 

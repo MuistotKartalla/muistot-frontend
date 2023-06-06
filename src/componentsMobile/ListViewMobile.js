@@ -95,22 +95,17 @@ export const ListViewMobile = (props) => {
         <button className="mobileButtonContainer">
           <ReturnIcon className="mobileIcon" onClick={toMapView} />
         </button>
-        <div className="postTitleHeader">
+        <div className="postListFilterContainerMobile">
           <h1 className="postTitleTextMobile">{props.settings.strings["list_view"]}</h1>
-
-          <div className="postListFilterContainer">
-            <label htmlFor="postListFilterInput" className="postListFilterLabel">
-              Filter by title:
-            </label>
             <input
               type="text"
               id="postListFilterInput"
               className="postListFilterInput"
+              placeholder={props.settings.strings["Filter_by_title"]}
               value={posts.filter_by}
               onChange={handleFilterChange}
+              style={{ textAlign: "center" }}
             />
-          </div>
-
         </div>
       </div>
       <div className="postListContainerInner">

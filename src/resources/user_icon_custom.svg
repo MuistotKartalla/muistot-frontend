@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <ellipse cx="16" cy="16" rx="16" ry="16" fill="royalblue"/>
-  <ellipse cx="16" cy="16" rx="15" ry="15" fill="cornflowerblue"/>
-  
+    <ellipse cx="16" cy="16" rx="13" ry="13" fill="rgba(128, 128, 128, 0.5)"/>
+    <ellipse cx="16" cy="16" rx="9" ry="9" fill="white"/>
+    <ellipse cx="16" cy="16" rx="8" ry="8" fill="paleturquoise"/>
+
+
 </svg>
