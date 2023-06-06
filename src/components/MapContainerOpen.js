@@ -1,5 +1,5 @@
 // By: Niklas Impiö, Lassi Tölli
-import L from "leaflet"
+import L, { MarkerCluster } from 'leaflet'
 import "leaflet/dist/leaflet.css"
 import { useEffect, useRef, useState } from "react"
 import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents } from "react-leaflet"
@@ -15,8 +15,9 @@ import "../styles/popupContainer.css"
 import "../styles/utils.css"
 
 
-import tempIconMarker from "../resources/temp_marker.svg"
+import tempIconMarker from "../resources/marker-green.png"
 import userIconMarker from "../resources/user_icon_custom.svg"
+import clusterIconMarker from "../resources/moreThanOneLocation.svg"
 
 import { usePosition } from "../hooks/LocationHook"
 import { updateMapLocation } from "../reducers/mapLocationReducer"
@@ -35,9 +36,11 @@ var IconMarker = L.Icon.extend({
         }
 });
 
+
 //initialize markers
 let defaultIcon = new IconMarker({iconUrl: icon})
 L.Marker.prototype.options.icon = defaultIcon
+
 
 //const emptyIcon = new IconMarker({iconUrl: iconT})
 //const emptyIconNew = new IconMarker({iconUrl: iconTN})
@@ -53,6 +56,7 @@ const tempIcon = L.icon({
   iconUrl: tempIconMarker,
   iconAnchor: [16,32]
 })
+
 
 
 
@@ -208,7 +212,13 @@ const MapContainerOpen = (props) => {
     }, [map,props.popups,zoom])
     return null;
   }
-
+  const createClusterCustomIcon = function (cluster) {
+    return L.divIcon({
+      className: 'marker-cluster-custom',
+      iconSize: L.point(50, 50, true),
+    })
+  }
+  //iconCreateFunction={createClusterCustomIcon} showCoverageOnHover={false}
   return(
     <div className="mapContainer">
       <MapContainer className="fullscreenMap" center={position} zoom={zoom}>
@@ -221,10 +231,11 @@ const MapContainerOpen = (props) => {
         <HandleMapEvents/>
         <UpdatePopups/>
 
-        <MarkerClusterGroup className="markerCluster" maxClusterRadius="60">
+        <MarkerClusterGroup className="markerCluster" maxClusterRadius="60"
+                           >
           {posts.map((element, index) =>
             <Marker key={index} ref={el => itemsRef.current[index] = el}
-              position={element.location} 
+              position={element.location}
               //if site is created by current user, use green marker. else, use default marker
               icon={props.user===null?defaultIcon:(element.own?greenIcon:defaultIcon)}
               //for testing purposes:
