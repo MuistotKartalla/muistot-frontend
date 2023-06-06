@@ -75,3 +75,10 @@
 .marker-cluster span {
 	line-height: 30px;
 	}
+
+.marker-cluster-custom{
+	background-image: url(../resources/moreThanOneLocation.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
