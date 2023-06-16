@@ -11,6 +11,7 @@ import { getImageURL } from "../services/images"
 import "../styles/listView.css"
 import "../styles/postList.css"
 import "../styles/postView.css"
+import placeholderImage from "../resources/logoIcon.png";
 
 
 export const MementoList = (props) => {
@@ -85,7 +86,7 @@ export const MementoList = (props) => {
         (
           <li className="postListItem" onClick={() => newMementoClick(props.posts.id)}>
             <div className="postListItemImageContainer">
-              <img className="postListImagePreview" src={getImageURL("placeholder.jpg")} alt=""></img>
+              <img className="postListImagePreview"  height={80} width={80} src={placeholderImage} alt=""></img>
             </div>
             <div className="postListItemInfo">
               <h2 className="postListTitle">{`${props.settings.strings["add_your_memento"]}`}</h2>

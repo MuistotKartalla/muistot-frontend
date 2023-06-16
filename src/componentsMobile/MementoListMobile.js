@@ -10,6 +10,7 @@ import "../styles/postList.css"
 import "../styles/postView.css"
 import {getImageURL} from "../services/images"
 import { deleteMemory, toggleVerifyMemento } from "../reducers/postReducer"
+import placeholderImage from "../resources/logoIcon.png";
 
 
 export const MementoListMobile = (props) => {
@@ -67,7 +68,7 @@ export const MementoListMobile = (props) => {
       <ul className="postListList">
           <li className="postListItem" onClick={() => newMementoClick(props.posts.id)}>
             <div className="postListItemImageContainer">
-              <img className="postListImagePreview" src={getImageURL("placeholder.jpg")} alt=""></img>
+              <img className="postListImagePreview" src={placeholderImage} alt=""></img>
             </div>
             <div className="postListItemInfo">
               
