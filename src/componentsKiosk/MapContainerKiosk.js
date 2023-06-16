@@ -362,7 +362,7 @@ const MapContainerOpen = (props) => {
           :
           <></>
         }
-      </MapContainer>
+      </MapContainer>+
       <MuistotkartallaLogo title="MUISTOT KARTALLA" onClick={aboutClick} />
       <Utils items={[<LanguageDropDownKiosk className="iconLookKiosk"></LanguageDropDownKiosk>, <InfoButton className="projectInfoButtonContainerKiosk" onClick={toProjectMenu}></InfoButton>, <ListIcon className="floatingListKiosk" onClick={toListView}>{props.settings.strings["list_view"]}</ListIcon>]}></Utils>
 
