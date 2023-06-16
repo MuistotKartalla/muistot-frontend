@@ -70,20 +70,6 @@
     border-radius: 10px;
     position: relative;
 }
-.positiveButtonToggle{
-    background: var(--button-background);
-    border-radius: 7px;
-    transition: background 0s;
-    height: 7%;
-}
-.positiveButtonToggle:hover {
-    border: none;
-    background: var(--button-foreground);
-    color: var(--button-active);
-    font-weight: bold;
-    border-radius: 10px;
-    position: relative;
-}
 .negativeButton {
     background: var(--button-background);
     border-radius: 7px;

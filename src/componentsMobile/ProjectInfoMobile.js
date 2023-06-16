@@ -16,13 +16,8 @@ export const ProjectInfoMobile = (props) => {
   */
  //full description
  const [showFullDescription, setShowFullDescription] = useState(false)
- const [textToggleButton, setTextToggleButton] = useState(props.settings.strings["info_button_more"])
  const toggleDescription = () => {
    setShowFullDescription(!showFullDescription)
-   showFullDescription ?
-   setTextToggleButton(props.settings.strings["info_button_more"])
-   :
-   setTextToggleButton(props.settings.strings["info_button_less"])
  };
   const [project, setProject] = useState(props.projects.active)
   const [projectTitle, setProjectTitle] = useState(props.projects.active.title)
@@ -107,7 +102,7 @@ export const ProjectInfoMobile = (props) => {
           </div>
           <div className="divider" />
         </div>
-        <button onClick={toggleDescription} className="positiveButtonToggle">{textToggleButton}</button>
+        <button onClick={toggleDescription} className="positiveButton">Large description</button>
         {showFullDescription && (
           <div className="projectInfoDescriptionContainer normalText">
             <div className="projectInfoDescriptionContainer normalText">
