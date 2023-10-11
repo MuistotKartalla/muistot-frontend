@@ -36,6 +36,14 @@ const HorizontalMenuList = (props) => {
     }
   }
 
+  const myProjectsClick = (event) => {
+    event.preventDefault()
+    props.history.push("/my-projects/")
+    if (isComponentVisible) {
+      toggleDropDownVisibility()
+    }
+  }
+
   const myPostsClick = (event) => {
     event.preventDefault()
     props.history.push("/my-posts/")
@@ -121,7 +129,13 @@ const HorizontalMenuList = (props) => {
                     <p className="userNameText">{props.user.username}</p>
                   </AcountDropDown>
                   :
-                  <AcountDropDown items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["profile"], onClickHandler:ProfileClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+                  <AcountDropDown items={[
+                    {string:props.settings.strings["my_projects"], onClickHandler: myProjectsClick},
+                    {string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},
+                    {string:props.settings.strings["about"], onClickHandler:aboutClick},
+                    {string:props.settings.strings["profile"], onClickHandler:ProfileClick},
+                    {string:props.settings.strings["log_out"], onClickHandler: logoutClick},
+                  ]}>
                     <p className="userNameText">{props.user.username}</p>
                   </AcountDropDown>
               }
