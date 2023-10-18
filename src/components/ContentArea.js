@@ -101,6 +101,11 @@ const ContentArea = (props) => {
           <PostView match={match} history={history}/>
         </PopUpContainer>
       )}/>
+      <Route path="/my-projects/" render={({history}) => (
+        <PopUpContainer history={history}>
+          <div /> 
+        </PopUpContainer>
+      )}/>
       <Route path="/my-posts/" render={({history}) => (
         <PopUpContainer history={history}>
           <MyPosts history={history}/>
