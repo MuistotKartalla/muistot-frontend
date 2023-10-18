@@ -15,6 +15,11 @@ export const AccountInfo = (props) => {
         props.history.push("/change-username/")
     }
 
+    const goToMyProjects = (event) => {
+        event.preventDefault()
+        props.history.push("/my-projects/")
+    }
+
     const goToMyPosts = (event) => {
         event.preventDefault()
         props.history.push("/my-posts/")
@@ -57,6 +62,7 @@ export const AccountInfo = (props) => {
                 </div>
                 <div className="userInfoButtonsContainer">
                     <button className="rippleButton" onClick={changeInfo}>{props.settings.strings["change_information"]}</button>
+                    <button className="rippleButton" onClick={goToMyProjects}>{props.settings.strings["my_projects"]}</button>
                     <button className="rippleButton" onClick={goToMyPosts}>{props.settings.strings["my_posts"]}</button>
                     <button className="rippleButton" onClick={editUsername}>{props.settings.strings["change_username"]}</button>
                 </div>
