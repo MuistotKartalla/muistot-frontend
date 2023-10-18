@@ -19,6 +19,7 @@ import ListView from "../common components/ListView"
 import LoginForm from "./LoginForm"
 import MapContainerOpen from "./MapContainerOpen"
 import MyPosts from "./MyPosts"
+import MyProjects from "./MyProjects"
 import NewMemento from "./NewMemento"
 import NewPostCombined from "./NewPostCombined"
 import PopUpContainer from "../common components/PopUpContainer"
@@ -103,7 +104,7 @@ const ContentArea = (props) => {
       )}/>
       <Route path="/my-projects/" render={({history}) => (
         <PopUpContainer history={history}>
-          <div /> 
+          <MyProjects history={history}/> 
         </PopUpContainer>
       )}/>
       <Route path="/my-posts/" render={({history}) => (
