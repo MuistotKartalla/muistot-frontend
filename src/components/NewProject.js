@@ -14,8 +14,9 @@ export const NewProject = (props) => {
   const [description, setDescription] = useState("")
   const [contentDescription, setContentDescription] = useState("")
   const [image, setImage] = useState(null)
+  const [abstract, setAbstract] = useState("")
   //const [moderators, setModerators] = useState([]) // implementation???
-  const [accountForPosting,setAccountForPosting] = useState(props.settings.strings["only_users_can_post"])
+  const [accountForPosting, setAccountForPosting] = useState(props.settings.strings["only_users_can_post"])
 
   /*
 
@@ -25,11 +26,11 @@ export const NewProject = (props) => {
     var result = '';
     var characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
-}
+  }
 
   const createNewProjectClick = (event) => {
     event.preventDefault()
@@ -38,15 +39,20 @@ export const NewProject = (props) => {
     new_mods.push(props.user.username)
     const object = {
       "id": new_id,
-      "title": title,
-      "description": description,
-      "contentDescription": contentDescription,
+      "lang": "en",
       "visitorPosting": accountForPosting === props.settings.strings["only_users_can_post"],
       "moderators": new_mods,
-      "image": image
+      "image": image,
+      "info": {
+        "lang": "en",
+        "name": title,
+        "description": description,
+        "abstract": abstract,
+      },
+      "admins": new_mods
     }
     props.createProject(new_id, object)
-    props.notify(`Project "${title.title}" Created.`, false, 5)
+    props.notify(`Project "${title.title}" Created.`, 5)
     props.history.push("/")
 
   }
@@ -59,6 +65,11 @@ export const NewProject = (props) => {
   const descriptionChangeHandler = (event) => {
     event.preventDefault()
     setDescription(event.target.value)
+  }
+
+  const abstractChangeHandler = (event) => {
+    event.preventDefault()
+    setAbstract(event.target.value)
   }
 
   const contentDescChangeHandler = (event) => {
@@ -75,26 +86,26 @@ export const NewProject = (props) => {
   }
 
 
-  return(
+  return (
     <div className="newProjectContainer centerAlignWithPadding">
       <h1 className="headerText">{props.settings.strings["new_project"]}</h1>
       <form className="newProjectForm">
         <div className="section1">
           <div className="inputContainer">
-            <input name="title" className="input" placeholder={props.settings.strings["title"]} maxLength="32" onChange={titleChangeHandler} value={title}/>
-            <div className="inputFocusLine"/>
+            <input name="title" className="input" placeholder={props.settings.strings["title"]} maxLength="32" onChange={titleChangeHandler} value={title} />
+            <div className="inputFocusLine" />
           </div>
           <div className="inputContainer">
-            <textarea name="description" id="descField" className="input" rows="4" placeholder={props.settings.strings["abstract"]} maxLength="256" autoComplete="off" onChange={descriptionChangeHandler} value={description}/>
-            <div className="inputFocusLine"/>
+            <textarea name="description" id="descField" className="input" rows="4" placeholder={props.settings.strings["abstract"]} maxLength="256" autoComplete="off" onChange={abstractChangeHandler} value={abstract} />
+            <div className="inputFocusLine" />
           </div>
-          <ImageUpload change={imageOnChangeHandler}/>
+          <ImageUpload change={imageOnChangeHandler} />
         </div>
         <div className="section2">
-          <DropDownSelect items={[props.settings.strings["only_users_can_post"],props.settings.strings["visitors_can_post"]]} active={accountForPosting} change={changeContentPolicy}/>
+          <DropDownSelect items={[props.settings.strings["only_users_can_post"], props.settings.strings["visitors_can_post"]]} active={accountForPosting} change={changeContentPolicy} />
           <div className="inputContainer">
-            <textarea name="contentDesc" id="contentDescField" className="input" rows="4" placeholder={props.settings.strings["description"]} maxLength="256" autoComplete="off" onChange={contentDescChangeHandler} value={contentDescription}/>
-            <div className="inputFocusLine"/>
+            <textarea name="contentDesc" id="contentDescField" className="input" rows="4" placeholder={props.settings.strings["description"]} maxLength="256" autoComplete="off" onChange={descriptionChangeHandler} value={description} />
+            <div className="inputFocusLine" />
           </div>
 
         </div>
@@ -130,5 +141,5 @@ export default connect(
 
 
 
-// NewProject: The NewProject component is defined, which renders a form with several input fields and buttons, allowing the user to create a new project. The state of the component is managed using the useState hook.
-//  This component is never used. 
+// NewProject: The NewProject component is defined, which renders a form with several input fields and buttons, allowing the user to create a new project.
+// The state of the component is managed using the useState hook.

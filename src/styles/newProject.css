@@ -4,6 +4,7 @@
   width: -webkit-fill-available;
   width: -moz-available;
   height: 100%;
+  overflow: auto;
   max-width: 600px;
   max-height: 800px;
   border-radius: 5px;

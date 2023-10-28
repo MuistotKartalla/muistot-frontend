@@ -16,7 +16,7 @@ import AcountDropDown from "./AcountDropDown";
 const HorizontalMenuList = (props) => {
   //Hardcoded horizontal menu list for the nav bar. Maybe a separate component is not necessary but to keep components concise, it currently is.
   //Has all the menu buttons and event handlers for clicks that activate router navigation.
-  const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false)
+  const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false)
 
   //account settings not in use atm {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick}
   // reports not in use atm ,{divider:true}, {string:props.settings.strings["reports"], onClickHandler: reportsClick}
@@ -30,15 +30,13 @@ const HorizontalMenuList = (props) => {
 
   const aboutClick = (event) => {
     event.preventDefault()
-    if(props.history.location.pathname === "/about")
-    {
+    if (props.history.location.pathname === "/about") {
       props.history.push("/")
     }
-    else
-    {
+    else {
       props.history.push("/about")
     }
-    if(isComponentVisible){
+    if (isComponentVisible) {
       toggleDDV()
     }
   }
@@ -46,14 +44,14 @@ const HorizontalMenuList = (props) => {
   const myPostsClick = (event) => {
     event.preventDefault()
     props.history.push("/my-posts/")
-    if(isComponentVisible){
+    if (isComponentVisible) {
       toggleDDV()
     }
   }
   const UnverifiedPostsClick = (event) => {
     event.preventDefault()
     props.history.push("/unverified-posts/")
-    if(isComponentVisible){
+    if (isComponentVisible) {
       toggleDDV()
     }
   }
@@ -61,7 +59,7 @@ const HorizontalMenuList = (props) => {
   const ImagelessPostsClick = (event) => {
     event.preventDefault()
     props.history.push("/imageless-posts/")
-    if(isComponentVisible){
+    if (isComponentVisible) {
       toggleDDV()
     }
   }
@@ -84,7 +82,7 @@ const HorizontalMenuList = (props) => {
   const ProfileClick = (event) => {
     event.preventDefault()
     props.history.push("/my-account/")
-    if(isComponentVisible){
+    if (isComponentVisible) {
       toggleDDV()
     }
   }
@@ -92,7 +90,7 @@ const HorizontalMenuList = (props) => {
   const ManagementClick = (event) => {
     event.preventDefault()
     props.history.push("/project-management/")
-    if(isComponentVisible){
+    if (isComponentVisible) {
       toggleDDV()
     }
   }
@@ -101,64 +99,76 @@ const HorizontalMenuList = (props) => {
     event.preventDefault()
     //console.log("Logging out")
     props.logout(props.notify, props.settings.strings["logout_notification"])
-    var params = {projectId: props.projects.active.id};
+    var params = { projectId: props.projects.active.id };
     props.initPosts(params)
     toggleDDV()
   }
   const toLoginClick = (event) => {
     event.preventDefault()
     props.logoutS(props.notify)
-    if(props.history.location.pathname === "/login")
-    {
+    if (props.history.location.pathname === "/login") {
       props.history.push("/")
     }
-    else
-    {
+    else {
       props.history.push("/login")
     }
 
   }
+  const toProjectCreate = (event) => {
+    event.preventDefault()
+    if (props.history.location.pathname === "/new-project/") {
+      props.history.push("/")
+    }
+    else {
+      props.history.push("/new-project/")
+    }
+  }
 
+  if (props.user) {
+    return (
+      <div className="horizontalMenuContainerLogged" ref={ref}>
+        <ul className="menuButtonList">
+          <li className="menuListItem">
+            <div>
+              {props.currentProject.moderators.find(user => user === props.user.username) ?
+                <AcountDropDown items={[{ string: props.settings.strings["my_posts"], onClickHandler: myPostsClick }, { string: props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick }, { string: props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick }, { string: props.settings.strings["about"], onClickHandler: aboutClick }, { string: props.settings.strings["profile"], onClickHandler: ProfileClick }, { string: props.settings.strings["project_management"], onClickHandler: ManagementClick }, { string: props.settings.strings["log_out"], onClickHandler: logoutClick }]}>
+                  <p className="userNameText">{props.user.username}</p>
+                </AcountDropDown>
+                :
+                <AcountDropDown items={[{ string: props.settings.strings["my_posts"], onClickHandler: myPostsClick }, { string: props.settings.strings["about"], onClickHandler: aboutClick }, { string: props.settings.strings["profile"], onClickHandler: ProfileClick }, { string: props.settings.strings["log_out"], onClickHandler: logoutClick }]}>
+                  <p className="userNameText">{props.user.username}</p>
+                </AcountDropDown>
+              }
+            </div>
+          </li>
+          <li className="menuListItem">
+            <LanguageDropDown />
+          </li>
+          <li className="menuListItem">
+            <button className="createProjectButton" onClick={toProjectCreate}>Create Project</button>
+          </li>
+        </ul>
 
-  if(props.user){
-    return(
-        <div className="horizontalMenuContainerLogged" ref={ref}>
-          <ul className="menuButtonList">
-            <li className="menuListItem">
-              <div>
-                {props.currentProject.moderators.find(user => user === props.user.username)?
-                    <AcountDropDown items={[{ string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick},{string:props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["profile"], onClickHandler:ProfileClick}, {string:props.settings.strings["project_management"], onClickHandler:ManagementClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
-                      <p className="userNameText">{props.user.username}</p>
-                    </AcountDropDown>
-                    :
-                    <AcountDropDown items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["profile"], onClickHandler:ProfileClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
-                      <p className="userNameText">{props.user.username}</p>
-                    </AcountDropDown>
-                }
-              </div>
-            </li>
-            <li className="menuListItem">
-              <LanguageDropDown/>
-            </li>
-          </ul>
-
-        </div>
+      </div>
 
     )
-  }else{
-    return(
-        <div className="horizontalMenuContainer" ref={ref}>
-          <ul className="menuButtonList">
-            <div>
-              <li className="menuListItem">
-                <AcountDropDown items={[{string:props.settings.strings["log_in"], onClickHandler:toLoginClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}]}/>
-              </li>
-              <li className="menuListItem">
-                <LanguageDropDown/>
-              </li>
-            </div>
-          </ul>
-        </div>
+  } else {
+    return (
+      <div className="horizontalMenuContainer" ref={ref}>
+        <ul className="menuButtonList">
+          <div>
+            <li className="menuListItem">
+              <AcountDropDown items={[{ string: props.settings.strings["log_in"], onClickHandler: toLoginClick }, { string: props.settings.strings["about"], onClickHandler: aboutClick }]} />
+            </li>
+            <li className="menuListItem">
+              <LanguageDropDown />
+            </li>
+            <li className="menuListItem">
+              <button className="createProjectButton" onClick={toProjectCreate}>Create Project</button>
+            </li>
+          </div>
+        </ul>
+      </div>
     )
   }
 }
@@ -183,8 +193,8 @@ const mapDispatchToProps = {
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(HorizontalMenuList)
 
 
