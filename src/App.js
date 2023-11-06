@@ -2,16 +2,16 @@
 // Edited:
 // - joniumGit
 // - Aapo2001
-import React, {useEffect, useState} from "react"
-import {connect} from "react-redux"
-import {BrowserRouter as Router, Route, Redirect} from "react-router-dom"
+import React, { useEffect, useState } from "react"
+import { connect } from "react-redux"
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom"
 import axios from "axios"
 //import dispatch methods
-import {notify} from "./reducers/notificationReducer"
-import {initLoggedUser, login, logout} from "./reducers/loginReducer"
-import {initPosts} from "./reducers/postReducer"
-import {initProjects} from "./reducers/projectReducer"
-import {initSettings, setActiveLanguage, setActiveTheme} from "./reducers/settingsReducer"
+import { notify } from "./reducers/notificationReducer"
+import { initLoggedUser, login, logout } from "./reducers/loginReducer"
+import { initPosts } from "./reducers/postReducer"
+import { initProjects } from "./reducers/projectReducer"
+import { initSettings, setActiveLanguage, setActiveTheme } from "./reducers/settingsReducer"
 //import components
 import Notification from "./components/Notification"
 import NavMenu from "./components/NavMenu"
@@ -19,8 +19,8 @@ import "./styles/containers.css"
 import ContentArea from "./components/ContentArea"
 import ContentAreaMobile from "./componentsMobile/ContentAreaMobile"
 import ContentAreaKiosk from "./componentsKiosk/ContentAreaKiosk"
-import {log} from "./services/settings";
-import {checkLocation} from "./services/initialurl";
+import { log } from "./services/settings";
+import { checkLocation } from "./services/initialurl";
 import NavMenuKiosk from "./componentsKiosk/NavMenuKiosk"
 const App = (props) => {
     const [postsInit, setPostsInitialized] = useState(false)
@@ -53,9 +53,9 @@ const App = (props) => {
         if (!settingsInit && settingsJSON) {
             log("Aktivoidaan asetukset:")
             log(settingsJSON)
-            if(settingsJSON.language && settingsJSON.theme){
+            if (settingsJSON.language && settingsJSON.theme) {
                 props.initSettings(settingsJSON)
-            }else{
+            } else {
                 const language = "fi"
                 const theme = "dark"
                 const settings = {
@@ -68,12 +68,12 @@ const App = (props) => {
             }
             setSettingsInitialized(true)
         }
-        if(parantolat && !projectsInit){
+        if (parantolat && !projectsInit) {
             window.localStorage.setItem("ChimneysGoProject", "parantolat")
             props.initProjects("parantolat")
             setProjectsInitialized(true)
         }
-        if(piiput && !projectsInit){
+        if (piiput && !projectsInit) {
             window.localStorage.setItem("ChimneysGoProject", "piiput")
             props.initProjects("piiput")
             setProjectsInitialized(true)
@@ -83,12 +83,12 @@ const App = (props) => {
             setProjectsInitialized(true)
         }
         if (!postsInit && props.projects.active && props.projects.active.title) {
-            var params = {projectId: props.projects.active.id};
+            var params = { projectId: props.projects.active.id };
             props.initPosts(params)
             setPostsInitialized(true)
         }
         document.title = "Muistot kartalla"
-    }, [props, postsInit, projectsInit, settingsInit,userInit])
+    }, [props, postsInit, projectsInit, settingsInit, userInit])
     useEffect(() => {
         if (window.location.pathname === '/kiosk') {
             setIsKiosk(true);
@@ -98,30 +98,30 @@ const App = (props) => {
         return (
             <div className="appContainer">
                 <Router>
-                    <Route path="/" render={({history}) => (<ContentAreaMobile history={history}/>)}/>
-                    {!verified? <Redirect to="/set-username" /> : <></>}
+                    <Route path="/" render={({ history }) => (<ContentAreaMobile history={history} />)} />
+                    {!verified ? <Redirect to="/set-username" /> : <></>}
                     {/* {props.notification.message !== null ? <NotificationMobile/> : <div/>} */}
                 </Router>
             </div>
         )
-    } else if (isKiosk){
-        return(
+    } else if (isKiosk) {
+        return (
             <div className="appContainer">
                 <Router>
-                    <Route path="/kiosk" render={({history}) => (<NavMenuKiosk history={history}/>)}/>
-                    <ContentAreaKiosk/>
+                    <Route path="/kiosk" render={({ history }) => (<NavMenuKiosk history={history} />)} />
+                    <ContentAreaKiosk />
                 </Router>
             </div>
         )
-    }else{
+    } else {
         return (
             //returns what to render
             <div className="appContainer">
                 <Router>
-                    <Route path="/" render={({history}) => (<NavMenu history={history}/>)}/>
-                    {!verified? <Redirect to="/set-username" /> : <></>}
-                    <ContentArea/>
-                    {/* {props.notification.message !== null ? <Notification/> : <div/>} */}
+                    <Route path="/" render={({ history }) => (<NavMenu history={history} />)} />
+                    {!verified ? <Redirect to="/set-username" /> : <></>}
+                    <ContentArea />
+                    {/* {props.notification.message !== null ? <Notification /> : <div />} */}
                 </Router>
             </div>
         )

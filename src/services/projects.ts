@@ -37,10 +37,6 @@ export async function getSingleProject (
 //async function for creating a new project
 export async function createNewProject (
   project: object): Promise<OldProject[]>  {
-    console.log("creating new project" + project);
-    // return await axios.post("localhost:5600/projects", {
-    //   project
-    // })
     return [... (await projects(async (url) => await axios.post(url, project))).data.items]
 }
 

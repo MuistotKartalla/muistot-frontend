@@ -124,7 +124,7 @@ const HorizontalMenuList = (props) => {
     }
   }
 
-  if (props.user) {
+  if (props.user) { // header for user
     return (
       <div className="horizontalMenuContainerLogged" ref={ref}>
         <ul className="menuButtonList">
@@ -152,7 +152,7 @@ const HorizontalMenuList = (props) => {
       </div>
 
     )
-  } else {
+  } else { // header for guest
     return (
       <div className="horizontalMenuContainer" ref={ref}>
         <ul className="menuButtonList">
@@ -164,7 +164,7 @@ const HorizontalMenuList = (props) => {
               <LanguageDropDown />
             </li>
             <li className="menuListItem">
-              <button className="createProjectButton" onClick={toProjectCreate}>Create Project</button>
+              <button className="createProjectButton" onClick={toLoginClick}>Create Project</button>
             </li>
           </div>
         </ul>
