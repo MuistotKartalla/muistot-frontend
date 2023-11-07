@@ -18,17 +18,23 @@ import DropDownSelectProject from "./DropDownSelectProject"
 export const NavMenu = (props) => {
   //Nav menu container component that has the menu components embedded.
 
-
+  // const toProjectCreate = (event) => {
+  //   event.preventDefault()
+  //   if (props.history.location.pathname === "/project-create/") {
+  //     props.history.push("/")
+  //   }
+  //   else {
+  //     props.history.push("/project-create/")
+  //   }
+  // }
   const toProjectMenu = (event) => {
     event.preventDefault()
-	if(props.history.location.pathname === "/project-info/")
-		{
-		props.history.push("/")
-		}
-	else
-		{
-		props.history.push("/project-info/")
-		}
+    if (props.history.location.pathname === "/project-info/") {
+      props.history.push("/")
+    }
+    else {
+      props.history.push("/project-info/")
+    }
   }
   const toRoot = (event) => {
     //pushes url route to root or "/", might change later when different projects implemented.
@@ -38,9 +44,9 @@ export const NavMenu = (props) => {
 
   const changeProject = (project) => {
     props.setActiveProject(project)
-    var params = {projectId: project.id};
+    var params = { projectId: project.id };
     props.initPosts(params)
-  	
+
   }
   return (
     <div className="menuContainer">
@@ -50,12 +56,11 @@ export const NavMenu = (props) => {
         </div>
 
         <div className="centerContainer">
-          <DropDownSelectProject  items={props.projects.projects} active={props.projects.active} change={changeProject}/>
+          <DropDownSelectProject items={props.projects.projects} active={props.projects.active} change={changeProject} />
           <InfoButton className="projectInfoButtonContainer" onClick={toProjectMenu}></InfoButton>
         </div>
 
-
-        <HorizontalMenuList history={props.history}/>
+        <HorizontalMenuList history={props.history} />
       </div>
     </div>
 

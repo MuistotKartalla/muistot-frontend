@@ -60,7 +60,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
-  padding-right: 90px;
+  /* padding-right: 90px; */
 }
 .projectInfoButton{
 
@@ -101,6 +101,30 @@
   margin: 0 1%;
 }
 
+.createProjectButton {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  height: 3em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  margin: 0 .25em 0 .25em;
+  padding: 0;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  background-color: inherit;
+  /* text-decoration: none; */
+  /* border-radius: .28571429rem; */
+}
 
 /*
 .menuButtonList{

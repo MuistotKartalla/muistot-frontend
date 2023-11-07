@@ -10,7 +10,7 @@ export const ProjectModerators = (props) => {
 
   //in useEffect, check if we have some active project
   useEffect(() => {
-    if(!project.title){
+    if (!project.title) {
       setProject(props.projects.active)
     }
   }, [props, project.title])
@@ -20,19 +20,21 @@ export const ProjectModerators = (props) => {
     let new_mod = event.target.new_moderator.value.replace(/#/g, "%23")
     event.preventDefault()
     //if inputted username isn't empty, try to add it as a new moderator
-    if(event.target.new_moderator.value !== "") {
+    if (event.target.new_moderator.value !== "") {
       props.addNewModerator(project.id, new_mod)
       props.notify(props.settings.strings["project_modify_ok"], false, 8)
     }
     //if it is empty, notificate user that no new changes to make
     else {
       props.notify(props.settings.strings["no_new_changes"], false, 5)
+      console.log("No new changes to make");
+      console.log(project.moderators);
     }
     props.history.push("/project-management")
   }
 
-  if(props.user && project.moderators.find(user => user === props.user.username)){
-    return(
+  if (props.user && project.moderators.find(user => user === props.user.username)) {
+    return (
       <div className="userSettingsContainer centerAlignWithPaddingContainer">
         <div className="titleContainer">
           <h1 className="titleText">{props.settings.strings["add_new_moderator"]}</h1>
@@ -43,8 +45,8 @@ export const ProjectModerators = (props) => {
               <p className="normalText">{props.settings.strings["new_moderator_instructions"]}</p>
             </div>
             <div className="inputContainer">
-              <input name="new_moderator" className="input" placeholder={props.settings.strings["new_mod_placeholder"]} maxLength="150"/>
-              <div className="inputFocusLine"/>
+              <input name="new_moderator" className="input" placeholder={props.settings.strings["new_mod_placeholder"]} maxLength="150" />
+              <div className="inputFocusLine" />
             </div>
           </div>
 
@@ -61,7 +63,7 @@ export const ProjectModerators = (props) => {
       <div className="userInformationContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer">
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings["not_moderator"]}</h1>
-          <ClearIcon className="clearIcon" onClick={() => props.history.push("/")}/>
+          <ClearIcon className="clearIcon" onClick={() => props.history.push("/")} />
         </div>
       </div>
     );
@@ -77,7 +79,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  notify, 
+  notify,
   addNewModerator
 }
 

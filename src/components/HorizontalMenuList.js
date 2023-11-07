@@ -13,7 +13,7 @@ import AcountDropDown from "./AcountDropDown";
 const HorizontalMenuList = (props) => {
   //Hardcoded horizontal menu list for the nav bar. Maybe a separate component is not necessary but to keep components concise, it currently is.
   //Has all the menu buttons and event handlers for clicks that activate router navigation.
-  const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false)
+  const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false)
 
   //account settings not in use atm {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick}
   // reports not in use atm ,{divider:true}, {string:props.settings.strings["reports"], onClickHandler: reportsClick}
@@ -103,7 +103,7 @@ const HorizontalMenuList = (props) => {
     event.preventDefault()
     //console.log("Logging out")
     props.logout(props.notify, props.settings.strings["logout_notification"])
-    var params = {projectId: props.projects.active.id};
+    var params = { projectId: props.projects.active.id };
     props.initPosts(params)
     toggleDropDownVisibility()
   }
@@ -115,6 +115,15 @@ const HorizontalMenuList = (props) => {
       props.history.push("/")
     } else {
       props.history.push("/login")
+    }
+  }
+  const toProjectCreate = (event) => {
+    event.preventDefault()
+    if (props.history.location.pathname === "/new-project/") {
+      props.history.push("/")
+    }
+    else {
+      props.history.push("/new-project/")
     }
   }
 
@@ -144,6 +153,9 @@ const HorizontalMenuList = (props) => {
           <li className="menuListItem">
             <LanguageDropDown/>
           </li>
+          <li className="menuListItem">
+            <button className="createProjectButton" onClick={toProjectCreate}>Create Project</button>
+          </li>
         </ul>
       </div>
     )
@@ -153,10 +165,13 @@ const HorizontalMenuList = (props) => {
         <ul className="menuButtonList">
           <div>
             <li className="menuListItem">
-              <AcountDropDown items={[{string:props.settings.strings["log_in"], onClickHandler:toLoginClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}]}/>
+              <AcountDropDown items={[{ string: props.settings.strings["log_in"], onClickHandler: toLoginClick }, { string: props.settings.strings["about"], onClickHandler: aboutClick }]} />
             </li>
             <li className="menuListItem">
-              <LanguageDropDown/>
+              <LanguageDropDown />
+            </li>
+            <li className="menuListItem">
+              <button className="createProjectButton" onClick={toLoginClick}>Create Project</button>
             </li>
           </div>
         </ul>
@@ -184,8 +199,8 @@ const mapDispatchToProps = {
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(HorizontalMenuList)
 
 // HorizontalMenuList: This component is used in NavMenu.js as part of it. This component  imports several other components, including DropDownList, LanguageDropDown, and AcountDropDown,

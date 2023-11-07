@@ -31,6 +31,7 @@ import ProjectSettings from "./ProjectSettings"
 import SetUserName from "./SetUserName"
 import UnverifiedPosts from "./UnverifiedPosts"
 import UserSettings from "./UserSettings"
+import NewProject from "./NewProject"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -44,130 +45,135 @@ const ContentArea = (props) => {
   //use pop container for pop up pages
   return (
     <div className="contentContainer">
-      <Route path ="/" render={({history}) => (
-        <MapContainerOpen history={history}/>
-      )}/>
-      <Route path="/login" render={({history}) => (
+      <Route path="/" render={({ history }) => (
+        <MapContainerOpen history={history} />
+      )} />
+      <Route path="/login" render={({ history }) => (
         <PopUpContainer history={history}>
-          <LoginForm history={history}/>
+          <LoginForm history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/about" render={({history}) => (
+      )} />
+      <Route path="/about" render={({ history }) => (
         <PopUpContainer history={history}>
-          <About history={history}/>
+          <About history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/project-info" render={({history}) => (
+      )} />
+      <Route path="/project-info" render={({ history }) => (
         <PopUpContainer history={history}>
-          <ProjectInfo history={history}/>
+          <ProjectInfo history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/new-post" render={({history}) => (
+      )} />
+      <Route path="/new-project" render={({ history }) => (
         <PopUpContainer history={history}>
-          <NewPostCombined history={history}/>
+          <NewProject history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/edit-post/:id/" render={({match,history}) => (
+      )} />
+      <Route path="/new-post" render={({ history }) => (
         <PopUpContainer history={history}>
-          <EditPost match={match} history={history}/>
+          <NewPostCombined history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/edit-image/:id/" render={({match,history}) => (
+      )} />
+      <Route path="/edit-post/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
-          <EditImage match={match} history={history}/>
+          <EditPost match={match} history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/edit-title/:id/" render={({match,history}) => (
+      )} />
+      <Route path="/edit-image/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
-          <EditSiteTitle match={match} history={history}/>
+          <EditImage match={match} history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/edit-location/:id/" render={({match,history}) => (
+      )} />
+      <Route path="/edit-title/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
-          <EditLocation match={match} history={history}/>
+          <EditSiteTitle match={match} history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/new-memento/:id/" render={({match,history}) => (
+      )} />
+      <Route path="/edit-location/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
-          <NewMemento match={match} history={history}/>
+          <EditLocation match={match} history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/list-view/:id/" render={({match,history}) => (
+      )} />
+      <Route path="/new-memento/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
-          <ListView match={match} history={history}/>
+          <NewMemento match={match} history={history} />
         </PopUpContainer>
-      )}/>
-      <Route exact path="/post-view/:id" render={({match,history}) => (
+      )} />
+      <Route path="/list-view/:id/" render={({ match, history }) => (
         <PopUpContainer history={history}>
-          <PostView match={match} history={history}/>
+          <ListView match={match} history={history} />
         </PopUpContainer>
-      )}/>
+      )} />
+      <Route exact path="/post-view/:id" render={({ match, history }) => (
+        <PopUpContainer history={history}>
+          <PostView match={match} history={history} />
+        </PopUpContainer>
+      )} />
       <Route path="/my-projects/" render={({history}) => (
         <PopUpContainer history={history}>
           <MyProjects history={history}/> 
         </PopUpContainer>
-      )}/>
-      <Route path="/my-posts/" render={({history}) => (
+      )} />
+      <Route path="/my-posts/" render={({ history }) => (
         <PopUpContainer history={history}>
-          <MyPosts history={history}/>
+          <MyPosts history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/unverified-posts/" render={({history}) => (
+      )} />
+      <Route path="/unverified-posts/" render={({ history }) => (
         <PopUpContainer history={history}>
-          <UnverifiedPosts history={history}/>
+          <UnverifiedPosts history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/imageless-posts/" render={({history}) => (
+      )} />
+      <Route path="/imageless-posts/" render={({ history }) => (
         <PopUpContainer history={history}>
-          <ImagelessPosts history={history}/>
+          <ImagelessPosts history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/usersettings" render={({history}) => (
+      )} />
+      <Route path="/usersettings" render={({ history }) => (
         <PopUpContainer history={history}>
-          <UserSettings history={history}/>
+          <UserSettings history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/change-username" render={({history}) => (
+      )} />
+      <Route path="/change-username" render={({ history }) => (
         <PopUpContainer history={history}>
-          <ChangeUserName history={history}/>
+          <ChangeUserName history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/set-username" render={({history}) => (
+      )} />
+      <Route path="/set-username" render={({ history }) => (
         <PopUpContainer history={history}>
-          <SetUserName history={history}/>
+          <SetUserName history={history} />
         </PopUpContainer>
-      )}/> 
-      <Route path="/my-account" render={({history}) => (
+      )} />
+      <Route path="/my-account" render={({ history }) => (
         <PopUpContainer history={history}>
-          <AccountInfo history={history}/>
+          <AccountInfo history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/project-management" render={({history}) => (
+      )} />
+      <Route path="/project-management" render={({ history }) => (
         <PopUpContainer history={history}>
-          <ProjectManagement history={history}/>
+          <ProjectManagement history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/project-settings" render={({history}) => (
+      )} />
+      <Route path="/project-settings" render={({ history }) => (
         <PopUpContainer history={history}>
-          <ProjectSettings history={history}/>
+          <ProjectSettings history={history} />
         </PopUpContainer>
-      )}/>
-      <Route path="/project-moderators" render={({history}) => (
+      )} />
+      <Route path="/project-moderators" render={({ history }) => (
         <PopUpContainer history={history}>
-          <ProjectModerators history={history}/>
+          <ProjectModerators history={history} />
         </PopUpContainer>
-      )}/>
+      )} />
       <CookieConsent  //TODO: modelize, styles, add to mobile as well
         location="bottom"
         buttonText="I understand"
         cookieName="consentCookie"
-        style={{ background: "#181818", fontFamily: "sans-serif"}}
-        buttonStyle={{ background: "#03FFFF", fontSize: "1em", border: "none", borderRadius: "7px", fontWeight: "700", padding: "0.5em 1em 0.5em 1em"}}>
+        style={{ background: "#181818", fontFamily: "sans-serif" }}
+        buttonStyle={{ background: "#03FFFF", fontSize: "1em", border: "none", borderRadius: "7px", fontWeight: "700", padding: "0.5em 1em 0.5em 1em" }}>
         This website uses cookies to enhance the user experience.
         <Link to="/about">
-            <span style={{float: "right", color: "#FFFFFF", textDecoration: "underline"}}>Privacy Policy</span> 
+          <span style={{ float: "right", color: "#FFFFFF", textDecoration: "underline" }}>Privacy Policy</span>
         </Link>
-      </CookieConsent>         
+      </CookieConsent>
     </div>
 
   )
@@ -196,6 +202,6 @@ export default connect(
 
 
 
-// ContentArea: The ContentArea component contains several Route components, which are used to render different components based on the URL path. 
-//  For example, if the URL path is /login, the LoginForm component is rendered. 
+// ContentArea: The ContentArea component contains several Route components, which are used to render different components based on the URL path.
+//  For example, if the URL path is /login, the LoginForm component is rendered.
 //  There are also several PopUpContainer components, which are used to render components in a popup window.
