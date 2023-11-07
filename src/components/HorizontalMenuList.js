@@ -1,17 +1,14 @@
-// By: Niklas Impiö
+/* Original By: Niklas Impiö
+*/
 import { connect } from "react-redux"
 import { logout, logoutS } from "../reducers/loginReducer"
 import { notify } from "../reducers/notificationReducer"
 import { initPosts } from "../reducers/postReducer"
-
-
 import useComponentVisible from "../hooks/OutsideClick"
 import "../styles/horizontalMenuList.css"
-
 import DropDownList from "./DropDownList"
 import LanguageDropDown from "../common components/LanguageDropDown"
 import AcountDropDown from "./AcountDropDown";
-
 
 const HorizontalMenuList = (props) => {
   //Hardcoded horizontal menu list for the nav bar. Maybe a separate component is not necessary but to keep components concise, it currently is.
@@ -21,8 +18,7 @@ const HorizontalMenuList = (props) => {
   //account settings not in use atm {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick}
   // reports not in use atm ,{divider:true}, {string:props.settings.strings["reports"], onClickHandler: reportsClick}
 
-  const toggleDDV = () => {
-    //DDV = dropDownVisibility
+  const toggleDropDownVisibility = () => {
     //event.preventDefault()
     //console.log("toggling dropdown visibility")
     setIsComponentVisible(!isComponentVisible)
@@ -32,12 +28,19 @@ const HorizontalMenuList = (props) => {
     event.preventDefault()
     if (props.history.location.pathname === "/about") {
       props.history.push("/")
-    }
-    else {
+    } else {
       props.history.push("/about")
     }
     if (isComponentVisible) {
-      toggleDDV()
+      toggleDropDownVisibility()
+    }
+  }
+
+  const myProjectsClick = (event) => {
+    event.preventDefault()
+    props.history.push("/my-projects/")
+    if (isComponentVisible) {
+      toggleDropDownVisibility()
     }
   }
 
@@ -45,14 +48,15 @@ const HorizontalMenuList = (props) => {
     event.preventDefault()
     props.history.push("/my-posts/")
     if (isComponentVisible) {
-      toggleDDV()
+      toggleDropDownVisibility()
     }
   }
+
   const UnverifiedPostsClick = (event) => {
     event.preventDefault()
     props.history.push("/unverified-posts/")
     if (isComponentVisible) {
-      toggleDDV()
+      toggleDropDownVisibility()
     }
   }
 
@@ -60,7 +64,7 @@ const HorizontalMenuList = (props) => {
     event.preventDefault()
     props.history.push("/imageless-posts/")
     if (isComponentVisible) {
-      toggleDDV()
+      toggleDropDownVisibility()
     }
   }
   /*
@@ -68,14 +72,14 @@ const HorizontalMenuList = (props) => {
       event.preventDefault()
       props.history.push("/usersettings/")
       if(isComponentVisible){
-        toggleDDV()
+        toggleDropDownVisibility()
       }
     }
     const ChangeUserNameClick = (event) => {
       event.preventDefault()
       props.history.push("/change-username/")
       if(isComponentVisible){
-        toggleDDV()
+        toggleDropDownVisibility()
       }
     }*/
 
@@ -83,7 +87,7 @@ const HorizontalMenuList = (props) => {
     event.preventDefault()
     props.history.push("/my-account/")
     if (isComponentVisible) {
-      toggleDDV()
+      toggleDropDownVisibility()
     }
   }
 
@@ -91,7 +95,7 @@ const HorizontalMenuList = (props) => {
     event.preventDefault()
     props.history.push("/project-management/")
     if (isComponentVisible) {
-      toggleDDV()
+      toggleDropDownVisibility()
     }
   }
 
@@ -101,18 +105,17 @@ const HorizontalMenuList = (props) => {
     props.logout(props.notify, props.settings.strings["logout_notification"])
     var params = { projectId: props.projects.active.id };
     props.initPosts(params)
-    toggleDDV()
+    toggleDropDownVisibility()
   }
+
   const toLoginClick = (event) => {
     event.preventDefault()
     props.logoutS(props.notify)
     if (props.history.location.pathname === "/login") {
       props.history.push("/")
-    }
-    else {
+    } else {
       props.history.push("/login")
     }
-
   }
   const toProjectCreate = (event) => {
     event.preventDefault()
@@ -124,35 +127,39 @@ const HorizontalMenuList = (props) => {
     }
   }
 
-  if (props.user) { // header for user
+  if (props.user) {
     return (
       <div className="horizontalMenuContainerLogged" ref={ref}>
         <ul className="menuButtonList">
           <li className="menuListItem">
             <div>
-              {props.currentProject.moderators.find(user => user === props.user.username) ?
-                <AcountDropDown items={[{ string: props.settings.strings["my_posts"], onClickHandler: myPostsClick }, { string: props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick }, { string: props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick }, { string: props.settings.strings["about"], onClickHandler: aboutClick }, { string: props.settings.strings["profile"], onClickHandler: ProfileClick }, { string: props.settings.strings["project_management"], onClickHandler: ManagementClick }, { string: props.settings.strings["log_out"], onClickHandler: logoutClick }]}>
-                  <p className="userNameText">{props.user.username}</p>
-                </AcountDropDown>
-                :
-                <AcountDropDown items={[{ string: props.settings.strings["my_posts"], onClickHandler: myPostsClick }, { string: props.settings.strings["about"], onClickHandler: aboutClick }, { string: props.settings.strings["profile"], onClickHandler: ProfileClick }, { string: props.settings.strings["log_out"], onClickHandler: logoutClick }]}>
-                  <p className="userNameText">{props.user.username}</p>
-                </AcountDropDown>
+              {props.currentProject.moderators?.find(user => user === props.user.username)?
+                  <AcountDropDown items={[{ string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick},{string:props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["profile"], onClickHandler:ProfileClick}, {string:props.settings.strings["project_management"], onClickHandler:ManagementClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+                    <p className="userNameText">{props.user.username}</p>
+                  </AcountDropDown>
+                  :
+                  <AcountDropDown items={[
+                    {string:props.settings.strings["my_projects"], onClickHandler: myProjectsClick},
+                    {string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},
+                    {string:props.settings.strings["about"], onClickHandler:aboutClick},
+                    {string:props.settings.strings["profile"], onClickHandler:ProfileClick},
+                    {string:props.settings.strings["log_out"], onClickHandler: logoutClick},
+                  ]}>
+                    <p className="userNameText">{props.user.username}</p>
+                  </AcountDropDown>
               }
             </div>
           </li>
           <li className="menuListItem">
-            <LanguageDropDown />
+            <LanguageDropDown/>
           </li>
           <li className="menuListItem">
             <button className="createProjectButton" onClick={toProjectCreate}>Create Project</button>
           </li>
         </ul>
-
       </div>
-
     )
-  } else { // header for guest
+  } else {
     return (
       <div className="horizontalMenuContainer" ref={ref}>
         <ul className="menuButtonList">
@@ -189,16 +196,12 @@ const mapDispatchToProps = {
   initPosts,
   logout,
   logoutS
-
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(HorizontalMenuList)
-
-
-
 
 // HorizontalMenuList: This component is used in NavMenu.js as part of it. This component  imports several other components, including DropDownList, LanguageDropDown, and AcountDropDown,
 //  which are used to render drop-down menus for some of the menu buttons.The component uses the useComponentVisible hook to track whether the drop-down menus are visible or not and to toggle their
