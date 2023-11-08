@@ -111,7 +111,7 @@ export const ProjectManagement = (props) => {
                 <tr className="userInfoRows">
                   <th className="userInfoValues">{props.settings.strings["abstract"]}</th>
                   <th className="userInfoValues">
-                    {project.description !== null 
+                    {!!project.description 
                     ? (project.description.length > 150 
                       ? project.description.slice(0, 150) + '...'
                       : project.description) 
@@ -121,7 +121,7 @@ export const ProjectManagement = (props) => {
                 <tr className="userInfoRows">
                   <th className="userInfoValues">{props.settings.strings["description"]}</th>
                   <th className="userInfoValues">
-                    {project.contentDescription !== null
+                    {!!project.contentDescription
                     ? (project.contentDescription.length > 150
                       ? project.contentDescription.slice(0, 150) + '...'
                       : project.contentDescription)
