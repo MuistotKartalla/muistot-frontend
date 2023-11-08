@@ -133,28 +133,28 @@ const HorizontalMenuList = (props) => {
         <ul className="menuButtonList">
           <li className="menuListItem">
             <div>
-              {props.currentProject.moderators?.find(user => user === props.user.username)?
-                  <AcountDropDown items={[{ string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},{string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick},{string:props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["profile"], onClickHandler:ProfileClick}, {string:props.settings.strings["project_management"], onClickHandler:ManagementClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
-                    <p className="userNameText">{props.user.username}</p>
-                  </AcountDropDown>
-                  :
-                  <AcountDropDown items={[
-                    {string:props.settings.strings["my_projects"], onClickHandler: myProjectsClick},
-                    {string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},
-                    {string:props.settings.strings["about"], onClickHandler:aboutClick},
-                    {string:props.settings.strings["profile"], onClickHandler:ProfileClick},
-                    {string:props.settings.strings["log_out"], onClickHandler: logoutClick},
-                  ]}>
-                    <p className="userNameText">{props.user.username}</p>
-                  </AcountDropDown>
+              {props.currentProject.moderators?.find(user => user === props.user.username) ?
+                <AcountDropDown items={[{ string: props.settings.strings["my_posts"], onClickHandler: myPostsClick }, { string: props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick }, { string: props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick }, { string: props.settings.strings["about"], onClickHandler: aboutClick }, { string: props.settings.strings["profile"], onClickHandler: ProfileClick }, { string: props.settings.strings["project_management"], onClickHandler: ManagementClick }, { string: props.settings.strings["log_out"], onClickHandler: logoutClick }]}>
+                  <p className="userNameText">{props.user.username}</p>
+                </AcountDropDown>
+                :
+                <AcountDropDown items={[
+                  { string: props.settings.strings["my_projects"], onClickHandler: myProjectsClick },
+                  { string: props.settings.strings["my_posts"], onClickHandler: myPostsClick },
+                  { string: props.settings.strings["about"], onClickHandler: aboutClick },
+                  { string: props.settings.strings["profile"], onClickHandler: ProfileClick },
+                  { string: props.settings.strings["log_out"], onClickHandler: logoutClick },
+                ]}>
+                  <p className="userNameText">{props.user.username}</p>
+                </AcountDropDown>
               }
             </div>
           </li>
           <li className="menuListItem">
-            <LanguageDropDown/>
+            <LanguageDropDown />
           </li>
           <li className="menuListItem">
-            <button className="createProjectButton" onClick={toProjectCreate}>Create Project</button>
+            <button className="createProjectButton" onClick={toProjectCreate}> {props.settings.strings["create_project"]} </button>
           </li>
         </ul>
       </div>
@@ -171,7 +171,7 @@ const HorizontalMenuList = (props) => {
               <LanguageDropDown />
             </li>
             <li className="menuListItem">
-              <button className="createProjectButton" onClick={toLoginClick}>Create Project</button>
+              <button className="createProjectButton" onClick={toLoginClick}> {props.settings.strings["create_project"]} </button>
             </li>
           </div>
         </ul>

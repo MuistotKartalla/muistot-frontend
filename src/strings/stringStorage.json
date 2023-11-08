@@ -129,6 +129,7 @@
       "invalid_dob": "Birth year too old to be valid.",
       "user_too_young": "We require a minimum age of 13 years.",
 
+      "create_project": "Create Project",
       "new_project": "New Project",
       "project_description": "Project Description",
       "abstract": "Abstract",
@@ -308,7 +309,7 @@
       "image_missing": "Kohteella ei ole kuvaa.",
       "invalid_dob": "Syntymävuosi liian vanha.",
       "user_too_young": "Edellytämme käyttäjältä vähintään 13 vuoden ikää.",
-
+      "create_project": "Luo projekti",
       "new_project": "Uusi projekti",
       "project_description": "Projektin kuvaus",
       "abstract": "Tiivistelmä",
