@@ -1,4 +1,5 @@
 // Based on the MyPosts component
+// Borrows MyPosts component's styles
 import { connect } from "react-redux"
 import { notify } from "../reducers/notificationReducer"
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
