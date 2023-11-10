@@ -63,7 +63,6 @@
   /* padding-right: 90px; */
 }
 .projectInfoButton{
-
   /*background: var(--primary-color);*/
   color: var(--text-secondary);
   cursor: pointer;
@@ -102,6 +101,7 @@
 }
 
 .createProjectButton {
+  color: var(--icon-fill);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -122,8 +122,6 @@
   font-style: normal;
   text-align: center;
   background-color: inherit;
-  /* text-decoration: none; */
-  /* border-radius: .28571429rem; */
 }
 
 /*
