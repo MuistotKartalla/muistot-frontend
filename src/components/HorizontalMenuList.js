@@ -133,20 +133,29 @@ const HorizontalMenuList = (props) => {
         <ul className="menuButtonList">
           <li className="menuListItem">
             <div>
-              {props.currentProject.moderators?.find(user => user === props.user.username) ?
-                <AcountDropDown items={[{ string: props.settings.strings["my_posts"], onClickHandler: myPostsClick }, { string: props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick }, { string: props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick }, { string: props.settings.strings["about"], onClickHandler: aboutClick }, { string: props.settings.strings["profile"], onClickHandler: ProfileClick }, { string: props.settings.strings["project_management"], onClickHandler: ManagementClick }, { string: props.settings.strings["log_out"], onClickHandler: logoutClick }]}>
-                  <p className="userNameText">{props.user.username}</p>
-                </AcountDropDown>
-                :
-                <AcountDropDown items={[
-                  { string: props.settings.strings["my_projects"], onClickHandler: myProjectsClick },
-                  { string: props.settings.strings["my_posts"], onClickHandler: myPostsClick },
-                  { string: props.settings.strings["about"], onClickHandler: aboutClick },
-                  { string: props.settings.strings["profile"], onClickHandler: ProfileClick },
-                  { string: props.settings.strings["log_out"], onClickHandler: logoutClick },
-                ]}>
-                  <p className="userNameText">{props.user.username}</p>
-                </AcountDropDown>
+              {props.currentProject?.moderators?.find(user => user === props.user.username)?
+                  <AcountDropDown items={[
+                    {string:props.settings.strings["my_projects"], onClickHandler: myProjectsClick},
+                    {string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},
+                    {string:props.settings.strings["unverified-posts"], onClickHandler: UnverifiedPostsClick},
+                    {string:props.settings.strings["imageless_posts"], onClickHandler: ImagelessPostsClick},
+                    {string:props.settings.strings["about"], onClickHandler:aboutClick},
+                    {string:props.settings.strings["profile"], onClickHandler:ProfileClick},
+                    {string:props.settings.strings["project_management"], onClickHandler:ManagementClick},
+                    {string:props.settings.strings["log_out"], onClickHandler: logoutClick}
+                    ]}>
+                    <p className="userNameText">{props.user.username}</p>
+                  </AcountDropDown>
+                  :
+                  <AcountDropDown items={[
+                    {string:props.settings.strings["my_projects"], onClickHandler: myProjectsClick},
+                    {string:props.settings.strings["my_posts"], onClickHandler: myPostsClick},
+                    {string:props.settings.strings["about"], onClickHandler:aboutClick},
+                    {string:props.settings.strings["profile"], onClickHandler:ProfileClick},
+                    {string:props.settings.strings["log_out"], onClickHandler: logoutClick},
+                  ]}>
+                    <p className="userNameText">{props.user.username}</p>
+                  </AcountDropDown>
               }
             </div>
           </li>
@@ -165,7 +174,10 @@ const HorizontalMenuList = (props) => {
         <ul className="menuButtonList">
           <div>
             <li className="menuListItem">
-              <AcountDropDown items={[{ string: props.settings.strings["log_in"], onClickHandler: toLoginClick }, { string: props.settings.strings["about"], onClickHandler: aboutClick }]} />
+              <AcountDropDown items={[
+                { string: props.settings.strings["log_in"], onClickHandler: toLoginClick }, 
+                { string: props.settings.strings["about"], onClickHandler: aboutClick }
+              ]} />
             </li>
             <li className="menuListItem">
               <LanguageDropDown />
