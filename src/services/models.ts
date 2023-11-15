@@ -184,7 +184,7 @@ export function convONM(o: OldMemoryOutbound): Memory {
     return {
         title: o.title,
         story: o.story,
-        image: o.image.data.substr(0, 100).replace(/^data:image\/.+;base64,/, '') + o.image.data.substr(100)
+        image: o.image?.data?.substr(0, 100).replace(/^data:image\/.+;base64,/, '') + o.image?.data?.substr(100),
     } as Memory
 }
 
