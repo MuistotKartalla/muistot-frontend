@@ -188,7 +188,8 @@
       "birthday": "Date of birth",
       "change_information": "Change information",
       "download_info": "Download information",
-      "country_name": "Country"
+      "country_name": "Country",
+      "skip": "Skip"
     },
     "fi":{
       "look_at_mementos": "Katsele kohteen tietoja",
@@ -374,7 +375,8 @@
       "birthday": "Syntymäaika",
       "change_information": "Muuta tietoja",
       "download_info": "Lataa tiedot",
-      "country_name": "Maa"
+      "country_name": "Maa",
+      "skip": "Ohita"
     }
   }
 }

@@ -255,7 +255,7 @@ export const UserSettings = (props) => {
             className="negativeButton rippleButton fillButton"
             onClick={() => props.history.push("/my-account/")}
           >
-            Skip
+            {props.settings.strings["skip"]}
           </button>
         </div>
       </form>
