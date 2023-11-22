@@ -111,7 +111,7 @@ export const ProjectManagement = (props) => {
                 </tr>
                 <tr className="userInfoRows">
                   <th className="userInfoValues">{props.settings.strings["project_sites"]}</th>
-                  <th className="userInfoValues">{posts.length > 1 ? posts.length : "-"}</th>
+                  <th className="userInfoValues">{posts.length}</th>
                 </tr>
                 <tr className="userInfoRows">
                   <th className="userInfoValues">{props.settings.strings["abstract"]}</th>
