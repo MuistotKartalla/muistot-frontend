@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { connect } from "react-redux"
 import { notify } from "../reducers/notificationReducer"
 import { changeProjectSettings } from "../reducers/projectReducer"
@@ -6,19 +5,7 @@ import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import "../styles/userSettings.css"
 
 export const ProjectSettings = (props) => {
-  const [project, setProject] = useState(props.projects.active)
-  const [posts, setPosts] = useState(props.posts)
-
-  //in useEffect, check if we have some active project
-  useEffect(() => {
-    if (!project.title) {
-      setProject(props.projects.active)
-    }
-    //check that we have all correct posts
-    if (props.posts !== posts) {
-      setPosts(props.posts)
-    }
-  }, [props, project.title, posts])
+  const project = props.projects.active
 
   const modifyConfirmClick = async (event) => {
     event.preventDefault()

@@ -16,13 +16,10 @@ export const ProjectManagement = (props) => {
 
   //in useEffect, check if we have some active project, check its posts and update data for csv download
   useEffect(() => {
-    if (!project.title) {
-      setProject(props.projects.active)
-    }
-    //check that we have all correct posts
-    if (props.posts !== posts) {
-      setPosts(props.posts)
-    }
+    // Update project and posts if they have changed
+    setProject(props.projects.active)
+    setPosts(props.posts)
+
     //if there is no csv data, generate it
     if (csvData.length <= 1) {
       const postsData = [[
@@ -53,15 +50,13 @@ export const ProjectManagement = (props) => {
       setCsvData(postsData)
     }
     //initialize new list of moderators with ',' between items for display purposes
-    if (moderatorList.length <= 1) {
-      const modlist = []
-      project.moderators.map((value) => modlist.push(value + ", "))
-      //remove ',' from last item and add it back
-      let lastItem = modlist.pop().slice(0, -2)
-      modlist.push(lastItem)
-      setModeratorList(modlist)
-    }
-  }, [props, project.title, posts, csvData.length, project.moderators, moderatorList.length])
+    const modlist = []
+    project.moderators.map((value) => modlist.push(value + ", "))
+    //remove ',' from last item and add it back
+    let lastItem = modlist.pop().slice(0, -2)
+    modlist.push(lastItem)
+    setModeratorList(modlist)
+  }, [props, project.title, project.moderators, posts, csvData])
 
   const closeClick = (event) => {
     //go back to the previous page
