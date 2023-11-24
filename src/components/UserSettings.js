@@ -3,6 +3,10 @@ import { changeUserSettings, logout } from "../reducers/loginReducer"
 import { notify } from "../reducers/notificationReducer"
 import "../styles/userSettings.css"
 
+/* 
+TODO: FIX THIS IMPLEMENTATION WHEN THE REDUCER IS FIXED.
+GITHUB ISSUE #139
+*/
 export const UserSettings = (props) => {
   /*
   Component for configuring user settings. Change password etc.
