@@ -29,7 +29,17 @@ export const MyPosts = (props) => {
     props.history.push(`/post-view/${post.id}/`)
   }
 
-  if (posts && posts.length > 0) {
+  const redirectToLoginPage = () => {
+    props.history.push("/login")
+  }
+
+  // If user is not logged in redirect to login page
+  if (!props.user) {
+    redirectToLoginPage()
+    return <div />
+  }
+
+  if (posts.length > 0) {
     //if user has posts render the list
     return (
       <div className="myPostsContainer centerAlignWithPadding">
