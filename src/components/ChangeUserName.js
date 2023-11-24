@@ -24,6 +24,16 @@ export const ChangeUserName = (props) => {
     setUsername("");
     props.history.push("/my-account/");
   };
+
+	const redirectToLoginPage = () => {
+    props.history.push("/login")
+  }
+
+  // If user is not logged in redirect to login page
+  if (!props.user) {
+    redirectToLoginPage()
+    return <div />
+  }
   return (
     <div className="loginContainer centerAlignWithPaddingContainer">
       <h1 className="headerText2 bottomPadding30">
