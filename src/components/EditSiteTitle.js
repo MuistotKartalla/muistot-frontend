@@ -18,7 +18,17 @@ export const EditSiteTitle = (props) => {
     props.history.push(`/edit-post/${post.id}`)
   }
 
-  return (
+  const redirectToLoginPage = () => {
+    props.history.push("/login")
+  }
+
+  // If user is not logged in redirect to login page
+  if (!props.user) {
+    redirectToLoginPage()
+    return <div />
+  }
+
+  return(
     <div className="userSettingsContainer centerAlignWithPadding">
       <div className="titleContainer">
         <h1 className="titleText">{props.settings.strings["change_title"]}</h1>
