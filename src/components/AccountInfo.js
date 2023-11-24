@@ -31,7 +31,17 @@ export const AccountInfo = (props) => {
 		event.preventDefault()
 		props.history.push("/")
 	}
-    
+
+	const redirectToLoginPage = () => {
+    props.history.push("/login")
+  }
+
+  // If user is not logged in redirect to login page
+  if (!props.user) {
+    redirectToLoginPage()
+    return <div />
+  }
+
 	return (
 		<div className="userInformationContainer centerAlignWithPaddingContainer">
 			<div className="postTitleContainer">
