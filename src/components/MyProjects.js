@@ -34,6 +34,16 @@ export const MyProjects = (props) => {
     props.history.push("/")
   }
 
+  const redirectToLoginPage = () => {
+    props.history.push("/login")
+  }
+
+  // If user is not logged in redirect to login page
+  if (!props.user) {
+    redirectToLoginPage()
+    return <div />
+  }
+
   if (usersProjects.length > 0) {
     return (
       <div className="myPostsContainer centerAlignWithPadding">
