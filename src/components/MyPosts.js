@@ -1,17 +1,12 @@
 // By: Niklas Impiö
 import { connect } from "react-redux"
 import { notify } from "../reducers/notificationReducer"
-
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import { getImageURL } from "../services/images"
 import "../styles/buttons.css"
 import "../styles/myPosts.css"
 import "../styles/postList.css"
 import "../styles/texts.css"
-
-
-
-
 
 export const MyPosts = (props) => {
   /*
@@ -21,37 +16,29 @@ export const MyPosts = (props) => {
   */
 
   const posts = props.posts.filter(post => post.own === true)
-  //console.log(props.posts)
-  //console.log(props.user)
-  //console.log(posts)
+
   const closeClick = (event) => {
     //go back to the previous page
     event.preventDefault()
     props.history.push("/")
   }
 
-    /* const getDateFromUnixStamp = (unix) => {
-    const date = new Date(unix)
-    return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
-  }*/
-
-
   const onPostClick = (post) => {
     //event handler for post marker clicks. Routes to post view.
     //console.log(`Clicked post: ${post}`, post)
     props.history.push(`/post-view/${post.id}/`)
   }
-  if(posts && posts.length > 0){
-    //if user has posts render the lsit
 
-    return(
+  if (posts && posts.length > 0) {
+    //if user has posts render the list
+    return (
       <div className="myPostsContainer centerAlignWithPadding">
         <div className="postTitleContainer">
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings["my_posts"]}</h1>
           <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
         </div>
         <ul className="myPostsList">
-          {posts.map((post,index) =>
+          {posts.map((post, index) =>
             <li key={index} className="postViewListItem" onClick={() => onPostClick(post)}>
               <div className="postListItemImageContainer">
                 <img className="postListImagePreview" src={getImageURL(post.image)} alt=""></img>
@@ -67,7 +54,7 @@ export const MyPosts = (props) => {
     )
   }
   //if user doesn't have any posts, tell them
-  return(
+  return (
     <div className="myPostsContainer centerAlignWithPaddingContainer">
       <div className="postTitleContainer">
         <h1 className="titleText centerAlignWithPadding">{props.settings.strings["my_posts"]}</h1>
@@ -76,7 +63,6 @@ export const MyPosts = (props) => {
       <h2 className="headerText">{props.settings.strings["empty_list"]}</h2>
     </div>
   )
-
 }
 
 const mapStateToProps = (state) => {
@@ -85,7 +71,6 @@ const mapStateToProps = (state) => {
     user: state.user,
     posts: state.posts,
     settings: state.settings
-
   }
 }
 
@@ -93,13 +78,11 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   //notify (for example)
   notify,
-
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MyPosts)
-
 
 // MyPosts: This is used in ContentArea.js. The MyPosts component receives props as an argument, which contains the user's posts, settings and history. It filters the user's posts to display only the ones that they own.
