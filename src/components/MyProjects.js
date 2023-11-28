@@ -1,7 +1,10 @@
 // Based on the MyPosts component
+// Borrows MyPosts component's styles
 import { connect } from "react-redux"
 import { notify } from "../reducers/notificationReducer"
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
+import { setActiveProject } from "../reducers/projectReducer"
+import { initPosts } from "../reducers/postReducer"
 import "../styles/buttons.css"
 import "../styles/myPosts.css"
 import "../styles/postList.css"
@@ -14,27 +17,52 @@ import "../styles/texts.css"
 */
 export const MyProjects = (props) => {
 
+  const usersProjects = props.projects?.projects?.filter((project) => (
+    project.moderators?.find((moderator) => moderator === props.user?.username)
+  ))
+
   const closeClick = (event) => {
     //go back to the previous page
     event.preventDefault()
     props.history.push("/")
   }
 
-  /*  TODO
   const onProjectClick = (project) => {
+    props.setActiveProject(project)
+    var params = {projectId: props.projects?.active?.id};
+    props.initPosts(params)
+    props.history.push("/")
   }
-  */
 
-  return (
-    /* TODO: Add actual list. Currently only returns the empty list message */
-    <div className="myPostsContainer centerAlignWithPaddingContainer">
+  if (usersProjects.length > 0) {
+    return (
+      <div className="myPostsContainer centerAlignWithPadding">
       <div className="postTitleContainer">
         <h1 className="titleText centerAlignWithPadding">{props.settings.strings["my_projects"]}</h1>
         <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
       </div>
-      <h2 className="headerText">{props.settings.strings["empty_list"]}</h2>
+      <ul className="myPostsList">
+        {usersProjects.map((project, index) =>
+          <li key={index} className="postViewListItem" onClick={() => onProjectClick(project)}>
+            <div className="postListItemInfo">
+              <h2 className="postListTitle">{project.title}</h2>
+            </div>
+          </li>
+        )}
+      </ul>
     </div>
-  )
+    )
+  } else {
+    return (
+      <div className="myPostsContainer centerAlignWithPaddingContainer">
+        <div className="postTitleContainer">
+          <h1 className="titleText centerAlignWithPadding">{props.settings.strings["my_projects"]}</h1>
+          <ClearIcon className="clearIcon rightAlignWithPadding" onClick={closeClick}/>
+        </div>
+        <h2 className="headerText">{props.settings.strings["empty_list"]}</h2>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -48,8 +76,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
-  //notify (for example)
   notify,
+  setActiveProject,
+  initPosts,
 }
 
 export default connect(
