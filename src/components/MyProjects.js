@@ -6,6 +6,7 @@ import { notify } from "../reducers/notificationReducer"
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
 import { setActiveProject } from "../reducers/projectReducer"
 import { initPosts } from "../reducers/postReducer"
+import { getImageURL } from "../services/images"
 import "../styles/buttons.css"
 import "../styles/myPosts.css"
 import "../styles/postList.css"
@@ -45,6 +46,9 @@ export const MyProjects = (props) => {
       <ul className="myPostsList">
         {usersProjects.map((project, index) =>
           <li key={index} className="postViewListItem" onClick={() => onProjectClick(project)}>
+            <div className="postListItemImageContainer">
+              <img className="postListImagePreview" src={getImageURL(project.image)} alt=""></img>
+            </div>
             <div className="postListItemInfo">
               <h2 className="postListTitle">{project.title}</h2>
             </div>
