@@ -1,5 +1,6 @@
 // Based on the MyPosts component
 // Borrows MyPosts component's styles
+import { useState } from "react"
 import { connect } from "react-redux"
 import { notify } from "../reducers/notificationReducer"
 import { ReactComponent as ClearIcon } from "../resources/clear.svg"
@@ -17,9 +18,9 @@ import "../styles/texts.css"
 */
 export const MyProjects = (props) => {
 
-  const usersProjects = props.projects?.projects?.filter((project) => (
+  const [usersProjects] = useState(props.projects?.projects?.filter((project) => (
     project.moderators?.find((moderator) => moderator === props.user?.username)
-  ))
+  )))
 
   const closeClick = (event) => {
     //go back to the previous page
