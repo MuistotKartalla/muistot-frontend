@@ -3,6 +3,10 @@ import { changeUserSettings, logout } from "../reducers/loginReducer"
 import { notify } from "../reducers/notificationReducer"
 import "../styles/userSettings.css"
 
+/* 
+TODO: FIX THIS IMPLEMENTATION WHEN THE REDUCER IS FIXED.
+GITHUB ISSUE #139
+*/
 export const UserSettings = (props) => {
   /*
   Component for configuring user settings. Change password etc.
@@ -60,34 +64,23 @@ export const UserSettings = (props) => {
     }
   */
   const modifyConfirmClick = async (event) => {
-    //console.log("attempting profile modification")
+
     event.preventDefault()
-    if(event.target.city.value === "" && event.target.dob.value === "")
-    {
+    if (event.target.city.value === "" && event.target.dob.value === "") {
       props.notify(props.settings.strings["no_new_changes"], false, 5)
-    }
-    else
-    {
-
-
+    } else {
       const modifiedUser = {
-
         "new_country": event.target.country.value,
         "new_city": event.target.city.value,
-        "new_dob": event.target.dob.value
+        "new_dob": event.target.dob.value,
       }
-
-
       // const ok = await modifyService.modifyRequest(modifiedUser)
       props.changeUserSettings(modifiedUser.new_country, modifiedUser.new_city, modifiedUser.new_dob)
-      //console.log(modifiedUser)
       props.notify(props.settings.strings["account_modify_ok"], false, 8)
       props.history.push("/my-account/")
-
     }
-
   }
-  {/*
+  /*
     const modifyConfirmClickSoMe = async (event) => {
     //console.log("attempting profile modification")
     event.preventDefault()
@@ -217,47 +210,60 @@ export const UserSettings = (props) => {
       }
 
 
-      else{ */}
-  return(
-      <div className="userSettingsContainer centerAlignWithPadding">
-        <div className="titleContainer">
-          <h1 className="titleText">{props.settings.strings["account_settings"]}</h1>
-        </div>
-        {/*<div className="deleteAccountButtonContainer">
-              <button className="rippleButton" onClick={toggleDeleteAccount}>{props.settings.strings["delete_account"]}</button>
-        </div> */}
-
-        <form className="userSettingsForm" onSubmit={modifyConfirmClick}>
-
-          <div>
-            <div className="infoTextContainer">
-              <p className="normalText">{props.settings.strings["enter_values_to_change"]}</p>
-            </div>
-
-            <div className="inputContainer">
-              <input name="country" className="input" placeholder={props.user !== null && props.user.country !== "" ? props.settings.strings["country"] + ": " + props.user.country : props.settings.strings["country"]} maxLength="2"/>
-              <div className="inputFocusLine"/>
-            </div>
-
-            <div className="inputContainer">
-              <input name="city" className="input" placeholder={props.user !== null && props.user.city !== "" ? props.settings.strings["city"] + ": " + props.user.city : props.settings.strings["city"]} maxLength="32"/>
-              <div className="inputFocusLine"/>
-            </div>
-
-            <div className="inputContainer">
-              <input type="month" name="dob" className="input" maxLength="32"/>
-              <div className="inputFocusLine"/>
-            </div>
-          </div>
-
-          <div className="dualButtonContainer">
-            <button className="positiveButton rippleButton fillButton">{props.settings.strings["confirm"]}</button>
-            <button className="negativeButton rippleButton fillButton" onClick={() => props.history.push("/my-account/")}>Skip</button>
-          </div>
-
-
-        </form>
+      else{ */
+  return (
+    <div className="userSettingsContainer centerAlignWithPadding">
+      <div className="titleContainer">
+        <h1 className="titleText">{props.settings.strings["account_settings"]}</h1>
       </div>
+      {/*<div className="deleteAccountButtonContainer">
+            <button className="rippleButton" onClick={toggleDeleteAccount}>{props.settings.strings["delete_account"]}</button>
+      </div> */}
+      <form className="userSettingsForm" onSubmit={modifyConfirmClick}>
+        <div>
+          <div className="infoTextContainer">
+            <p className="normalText">{props.settings.strings["enter_values_to_change"]}</p>
+          </div>
+          <div className="inputContainer">
+            <input 
+              name="country"
+              className="input"
+              placeholder={props.user !== null && props.user.country !== ""
+                ? props.settings.strings["country"] + ": " + props.user.country
+                : props.settings.strings["country"]} 
+              maxLength="2"
+            />
+            <div className="inputFocusLine"/>
+          </div>
+          <div className="inputContainer">
+            <input
+              name="city"
+              className="input"
+              placeholder={props.user !== null && props.user.city !== ""
+                ? props.settings.strings["city"] + ": " + props.user.city
+                : props.settings.strings["city"]} 
+              maxLength="32"
+            />
+            <div className="inputFocusLine"/>
+          </div>
+          <div className="inputContainer">
+            <input type="month" name="dob" className="input" maxLength="32"/>
+            <div className="inputFocusLine"/>
+          </div>
+        </div>
+        <div className="dualButtonContainer">
+          <button className="positiveButton rippleButton fillButton">
+            {props.settings.strings["confirm"]}
+          </button>
+          <button
+            className="negativeButton rippleButton fillButton"
+            onClick={() => props.history.push("/my-account/")}
+          >
+            {props.settings.strings["skip"]}
+          </button>
+        </div>
+      </form>
+    </div>
   )
 }
 //}
@@ -277,6 +283,6 @@ const mapDispatchToProps = {
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(UserSettings)

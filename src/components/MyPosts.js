@@ -58,7 +58,7 @@ export const MyPosts = (props) => {
               </div>
               <div className="postListItemInfo">
                 <h2 className="postListTitle">{post.title}</h2>
-                <p className="postListText">{props.user.username}</p>
+                <p className="postListText">{props.user?.username}</p>
               </div>
             </li>
           )}
