@@ -7,7 +7,6 @@ import "../styles/userSettings.css"
 
 export const ProjectModerators = (props) => {
   const [project, setProject] = useState(props.projects.active)
-
   //in useEffect, check if we have some active project
   useEffect(() => {
     if (!project.title) {
@@ -27,8 +26,8 @@ export const ProjectModerators = (props) => {
     //if it is empty, notificate user that no new changes to make
     else {
       props.notify(props.settings.strings["no_new_changes"], false, 5)
-      console.log("No new changes to make");
-      console.log(project.moderators);
+      // console.log("No new changes to make");
+      // console.log(project.moderators);
     }
     props.history.push("/project-management")
   }

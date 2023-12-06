@@ -93,6 +93,7 @@
       "verify": "Verify",
       "unverify": "Unverify",
       "confirm_delete": "Permanently Remove This Post",
+      "confirm_delete_text": "confirm-delete",
       "confirm_delete_memory": "Permanently Remove This Memory",
       "post": "Post",
       "delete_success": "Succesfully Deleted.",
@@ -130,6 +131,8 @@
       "user_too_young": "We require a minimum age of 13 years.",
 
       "create_project": "Create Project",
+      "delete_project": "Delete Project",
+      "confirm_delete_project": "Are you sure you want to delete? Type 'confirm-delete' to the box below to delete",
       "new_project": "New Project",
       "project_description": "Project Description",
       "abstract": "Abstract",
@@ -277,6 +280,8 @@
 
       "delete_post": "Poista",
       "confirm_delete": "Poista tämä kohde lopullisesti",
+      "confirm_delete_text": "vahvista-poistaminen",
+      "confirm_delete_project": "Haluatko varmasti poistaa? Kirjoita 'vahvista-poistaminen' alla olevaan ruutuun poistaaksesi",
       "confirm_delete_memory": "Poista tämä muisto lopullisesti",
       "post": "Kohde",
       "delete_success": "Poistettu.",
@@ -311,6 +316,7 @@
       "user_too_young": "Edellytämme käyttäjältä vähintään 13 vuoden ikää.",
       "create_project": "Luo projekti",
       "new_project": "Uusi projekti",
+      "delete_project": "Poista projekti",
       "project_description": "Projektin kuvaus",
       "abstract": "Tiivistelmä",
       "content_description": "Sisällön kuvaus",

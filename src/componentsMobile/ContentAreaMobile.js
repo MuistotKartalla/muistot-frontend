@@ -39,73 +39,76 @@ const ContentAreaMobile = (props) => {
   //Navigation can be done with props.history.push("/example-url/") [only the url after page name]
   return (
     <div className="contentContainer">
-      <Route path ="/" render={({history}) => (
+      <Route path="/" render={({ history }) => (
         <div>
-          <NavMenuMobile history={history}/>
-          <MapContainerMobile history={history}/>
+          <NavMenuMobile history={history} />
+          <MapContainerMobile history={history} />
         </div>
-      )}/>
+      )} />
 
-      <Route path="/list-view/" render={({history}) => (
-        <ListViewMobile history={history}/>
-      )}/>
-      <Route exact path="/post-view/:id" render={({match,history}) => (
-        <PostViewMobile match={match} history={history}/>
-      )}/>
-      <Route path="/login/" render={({history}) => (
-        <LoginFormMobile history={history}/>
-      )}/>
-      <Route path="/new-post/" render={({history}) => (
-        <NewPostMobile history={history}/>
-      )}/>
-      <Route path="/edit-post/:id/" render={({match,history}) => (
-          <EditPostMobile match={match} history={history}/>
-      )}/>
-      <Route path="/edit-image/:id/" render={({match,history}) => (
-          <EditImage match={match} history={history}/>
-      )}/>
-      <Route path="/edit-title/:id/" render={({match,history}) => (
-          <EditSiteTitleMobile match={match} history={history}/>
-      )}/>
-      <Route path="/edit-location/:id/" render={({match,history}) => (
-          <EditLocationMobile match={match} history={history}/>
-      )}/>
-      <Route path="/new-memento/:id/" render={({match,history}) => (
-          <NewMementoMobile match={match} history={history}/>
-      )}/>
-      <Route path="/unverified-posts/" render={({history}) => (
-        <UnverifiedPostsMobile history={history}/>
-      )}/>
-      <Route path="/my-posts/" render={({history}) => (
-        <MyPostsMobile history={history}/>
-      )}/>
-      <Route path="/about/" render={({history}) => (
-        <About history={history}/>
-      )}/>
-      <Route path="/project-info/" render={({history}) => (
-        <ProjectInfoMobile history={history}/>
-      )}/>
-      <Route path="/usersettings/" render={({history}) => (
-        <UserSettingsMobile history={history}/>
-      )}/>
-      <Route path="/change-username/" render={({history}) => (
-        <ChangeUserNameMobile history={history}/>
-      )}/>
-      <Route path="/set-username/" render={({history}) => (
-        <SetUserNameMobile history={history}/>
-      )}/>
-      <Route path="/my-account/" render={({history}) => (
-        <AccountInfoMobile history={history}/>
-      )}/>
-      <Route path="/project-management/" render={({history}) => (
-        <ProjectManagementMobile history={history}/>
-      )}/>
-      <Route path="/project-settings/" render={({history}) => (
-        <ProjectSettingsMobile history={history}/>
-      )}/>
-      <Route path="/project-moderators/" render={({history}) => (
-        <ProjectModeratorsMobile history={history}/>
-      )}/>
+      <Route path="/list-view/" render={({ history }) => (
+        <ListViewMobile history={history} />
+      )} />
+      <Route exact path="/post-view/:id" render={({ match, history }) => (
+        <PostViewMobile match={match} history={history} />
+      )} />
+      <Route path="/login/" render={({ history }) => (
+        <LoginFormMobile history={history} />
+      )} />
+      <Route path="/new-post/" render={({ history }) => (
+        <NewPostMobile history={history} />
+      )} />
+      <Route path="/edit-post/:id/" render={({ match, history }) => (
+        <EditPostMobile match={match} history={history} />
+      )} />
+      <Route path="/edit-image/:id/" render={({ match, history }) => (
+        <EditImage match={match} history={history} />
+      )} />
+      <Route path="/edit-title/:id/" render={({ match, history }) => (
+        <EditSiteTitleMobile match={match} history={history} />
+      )} />
+      <Route path="/edit-location/:id/" render={({ match, history }) => (
+        <EditLocationMobile match={match} history={history} />
+      )} />
+      <Route path="/new-memento/:id/" render={({ match, history }) => (
+        <NewMementoMobile match={match} history={history} />
+      )} />
+      <Route path="/unverified-posts/" render={({ history }) => (
+        <UnverifiedPostsMobile history={history} />
+      )} />
+      <Route path="/my-posts/" render={({ history }) => (
+        <MyPostsMobile history={history} />
+      )} />
+      <Route path="/about/" render={({ history }) => (
+        <About history={history} />
+      )} />
+      <Route path="/project-info/" render={({ history }) => (
+        <ProjectInfoMobile history={history} />
+      )} />
+      <Route path="/usersettings/" render={({ history }) => (
+        <UserSettingsMobile history={history} />
+      )} />
+      <Route path="/change-username/" render={({ history }) => (
+        <ChangeUserNameMobile history={history} />
+      )} />
+      <Route path="/set-username/" render={({ history }) => (
+        <SetUserNameMobile history={history} />
+      )} />
+      <Route path="/my-account/" render={({ history }) => (
+        <AccountInfoMobile history={history} />
+      )} />
+      <Route path="/project-management/" render={({ history }) => (
+        <ProjectManagementMobile history={history} />
+      )} />
+      <Route path="/project-settings/" render={({ history }) => (
+        <ProjectSettingsMobile history={history} />
+      )} />
+      <Route path="/project-moderators/" render={({ history }) => (
+        <ProjectModeratorsMobile history={history} />
+      )} />
+      <Route path="/project-delete" render={({ history }) => (
+        <ProjectModeratorsMobile history={history} />
+      )} />
     </div>
   )
 }

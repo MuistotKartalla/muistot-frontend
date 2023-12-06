@@ -106,6 +106,33 @@ export const createProject = (project_id, object) => {
     }
 }
 
+export const deleteProject = (project_id) => {
+    console.log("project_delete", project_id)
+    return async dispatch => {
+        try {
+            const projects = (await projectService.getAllProjects())
+            await projectService.deleteSingleProject(project_id)
+            let activeProject = null
+            if (project_id) {
+                activeProject = projects.find(project => project.id.toString() === project_id)
+            }
+            if (!activeProject) {
+                activeProject = projects[0]
+                log("Active project not found")
+            }
+            dispatch({
+                type: INIT_PROJECT,
+                data: {
+                    projects,
+                    active: activeProject
+                }
+            })
+        } catch (exception) {
+            log(exception)
+        }
+    }
+}
+
 export const changeProjectSettings = (modifiedproject) => {
     return async dispatch => {
         try {

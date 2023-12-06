@@ -16,15 +16,15 @@ export const ProjectManagement = (props) => {
 
   //in useEffect, check if we have some active project, check its posts and update data for csv download
   useEffect(() => {
-    if(!project.title){
+    if (!project.title) {
       setProject(props.projects.active)
     }
     //check that we have all correct posts
-    if(props.posts !== posts){
+    if (props.posts !== posts) {
       setPosts(props.posts)
     }
     //if there is no csv data, generate it
-    if(csvData.length <= 1){
+    if (csvData.length <= 1) {
       const postsData = [["Project", "Project moderators", "Site ID", "Site title", "Site creator", "Last modifier", "Memories", "Location latitude", "Location longitude", "Abstract"]]
       posts.map((post) => postsData.push([project.title, project.moderators, post.id, post.title, post.creator, post.modifier, post.muistoja, post.location.lat, post.location.lng, post.abstract]))
       //update data to csvData variable
@@ -59,54 +59,62 @@ export const ProjectManagement = (props) => {
     props.history.push("/project-moderators")
   }
 
-  if(props.user && project.moderators.find(user => user === props.user.username)){
+  const deleteProject = (event) => {
+    //go to project owner's project delete page
+    event.preventDefault()
+    props.history.push("/project-delete")
+  }
+
+  if (props.user && project.moderators.find(user => user === props.user.username)) {
     return (
       <div className="userInformationContainer centerAlignWithPaddingContainer">
         <div className="postTitleContainer">
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings["project_management"]}</h1>
-          <ClearIcon className="clearIcon" onClick={closeClick}/>
+          <ClearIcon className="clearIcon" onClick={closeClick} />
         </div>
         <div className="userInformation">
           <table>
-              <tbody>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["project_id"]}</th>
-                  <th className="userInfoValues">{project.id !== null ? project.id : "-"}</th>
-                </tr>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["project_title"]}</th>
-                  <th className="userInfoValues">{project.title !== null ? project.title : "-"}</th>
-                </tr>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["project_mod"]}</th>
-                  <th className="userInfoValues">{project.moderators !== null ? moderatorList : "-"}</th>
-                </tr>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["project_sites"]}</th>
-                  <th className="userInfoValues">{posts.length  > 1 ? posts.length : "-"}</th>
-                </tr>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["abstract"]}</th>
-                  <th className="userInfoValues">{project.description !== null ? (project.description.length > 150 ? project.description.slice(0, 150) + '...': project.description) : "-"}</th>
-                </tr>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["description"]}</th>
-                  <th className="userInfoValues">{project.contentDescription !== null ? (project.contentDescription.length > 150 ? project.contentDescription.slice(0, 150) + '...': project.contentDescription) : "-"}</th>
-                </tr>
-                </tbody>
-            </table>
-          </div>
-          <div className="userInfoButtonsContainer">
+            <tbody>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["project_id"]}</th>
+                <th className="userInfoValues">{project.id !== null ? project.id : "-"}</th>
+              </tr>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["project_title"]}</th>
+                <th className="userInfoValues">{project.title !== null ? project.title : "-"}</th>
+              </tr>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["project_mod"]}</th>
+                <th className="userInfoValues">{project.moderators !== null ? moderatorList : "-"}</th>
+              </tr>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["project_sites"]}</th>
+                <th className="userInfoValues">{posts.length > 1 ? posts.length : "-"}</th>
+              </tr>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["abstract"]}</th>
+                <th className="userInfoValues">{project.description !== null ? (project.description.length > 150 ? project.description.slice(0, 150) + '...' : project.description) : "-"}</th>
+              </tr>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["description"]}</th>
+                <th className="userInfoValues">{project.contentDescription !== null ? (project.contentDescription.length > 150 ? project.contentDescription.slice(0, 150) + '...' : project.contentDescription) : "-"}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="userInfoButtonsContainer">
           <button className="rippleButton" onClick={changeProjectInfo}>{props.settings.strings["change_information"]}</button>
           <button className="rippleButton" onClick={addModeratorClick}>{props.settings.strings["add_new_moderator"]}</button>
           <CSVLink
-                data={csvData}
-                filename={project.id + '-sites.csv'}
-                className='rippleButton'
-                target='_blank'
-              >{props.settings.strings["download_project"]}
+            data={csvData}
+            filename={project.id + '-sites.csv'}
+            className='rippleButton'
+            target='_blank'
+          >{props.settings.strings["download_project"]}
           </CSVLink>
-          </div>
+          <br />
+          <button className="rippleButton" onClick={deleteProject}>{props.settings.strings["delete_project"]}</button>
+        </div>
       </div>
     );
   }
@@ -115,34 +123,34 @@ export const ProjectManagement = (props) => {
       <div className="userInformationContainer centerAlignWithPadding">
         <div className="postTitleContainer">
           <h1 className="titleText centerAlignWithPadding">{props.settings.strings["not_moderator"]}</h1>
-          <ClearIcon className="clearIcon" onClick={closeClick}/>
+          <ClearIcon className="clearIcon" onClick={closeClick} />
         </div>
       </div>
     );
   }
 
-  
+
 };
 
 const mapStateToProps = (state) => {
-    return {
-      //maps state to props, after this you can for example call props.notification
-      projects: state.projects,
-      user: state.user,
-      posts: state.posts,
-      settings: state.settings
-    }
+  return {
+    //maps state to props, after this you can for example call props.notification
+    projects: state.projects,
+    user: state.user,
+    posts: state.posts,
+    settings: state.settings
   }
-  
-  const mapDispatchToProps = {
-    //connect reducer functions/dispatchs to props
-    notify,
-  }
-  
-  export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(ProjectManagement)
+}
+
+const mapDispatchToProps = {
+  //connect reducer functions/dispatchs to props
+  notify,
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProjectManagement)
 
 
 
