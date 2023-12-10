@@ -21,16 +21,14 @@ export const ProjectDelete = (props) => {
 
   const deleteProjectClick = (event) => {
     event.preventDefault()
-    console.log(props)
     if (text === props.settings.strings["confirm_delete_text"]) {
       setValidation(false)
       let new_mods = []
       new_mods.push(props.user.username)
 
       props.deleteProject(project.id)
-      console.log(project)
       props.notify(`Project "${project.title}" Delete.`, 5)
-      // props.history.push("/")
+      props.history.push("/")
     }
     else setValidation(true)
   }
