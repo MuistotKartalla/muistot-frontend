@@ -98,6 +98,8 @@ hooks are for custom hooks,
 mobile and desktop components are split in their own folders
 
 ## Further Development (Written at the end of the Autumn 2023 iteration)
+The `general-instructions` repository contains a README file with instructions about the project and software development in general. You should read through it before starting out, especially if you have not been a part of a software development team before.
+
 While the frontend is currently mostly functional, it could be improved in many many ways, especially when it comes to the development process.
 
 There are a ton of existing issues open in the frontend repository already. Trying to get through the backlog should probably be the first priority, instead of trying to add a ton of new fancy stuff (of course the customer might disagree, and have their own demands).
