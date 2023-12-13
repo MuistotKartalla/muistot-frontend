@@ -46,7 +46,7 @@ export const ProjectDelete = (props) => {
           <div className="inputContainer">
             <input name="text" className="input" placeholder={props.settings.strings["confirm_delete_text"]} maxLength="32" onChange={textChangeHandler} value={text} />
             <div className="inputFocusLine" />
-            {validation && <div className="error">"Wrong input, write again"</div>}
+            {validation && <div className="error"> {props.settings.strings["wrong_input_text"]}</div>}
           </div>
 
         </div>

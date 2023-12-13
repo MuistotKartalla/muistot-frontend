@@ -97,7 +97,7 @@
       "confirm_delete_memory": "Permanently Remove This Memory",
       "post": "Post",
       "delete_success": "Succesfully Deleted.",
-
+      "wrong_input_text": "Wrong input text, please enter again!",
       "login_required_to_post": "Log In to Post New Content.",
       "user_follow": "The Map Will Automatically Follow Your Avatar Until You Drag The Map.",
       
@@ -286,7 +286,7 @@
       "confirm_delete_memory": "Poista tämä muisto lopullisesti",
       "post": "Kohde",
       "delete_success": "Poistettu.",
-
+      "wrong_input_text": "Väärä syöttöteksti, kirjoita uudelleen!",
       "login_required_to_post": "Kirjaudu sisään lisätäksesi uusia kohteita.",
       "user_follow": "Kartta seuraa sijaintiasi kunnes liikutat karttaa.",
       
