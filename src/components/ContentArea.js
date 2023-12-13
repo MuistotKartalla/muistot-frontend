@@ -32,6 +32,7 @@ import SetUserName from "./SetUserName"
 import UnverifiedPosts from "./UnverifiedPosts"
 import UserSettings from "./UserSettings"
 import NewProject from "./NewProject"
+import ProjectDelete from "./ProjectDelete"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -108,9 +109,9 @@ const ContentArea = (props) => {
           <PostView match={match} history={history} />
         </PopUpContainer>
       )} />
-      <Route path="/my-projects/" render={({history}) => (
+      <Route path="/my-projects/" render={({ history }) => (
         <PopUpContainer history={history}>
-          <MyProjects history={history}/> 
+          <MyProjects history={history} />
         </PopUpContainer>
       )} />
       <Route path="/my-posts/" render={({ history }) => (
@@ -161,6 +162,11 @@ const ContentArea = (props) => {
       <Route path="/project-moderators" render={({ history }) => (
         <PopUpContainer history={history}>
           <ProjectModerators history={history} />
+        </PopUpContainer>
+      )} />
+      <Route path="/project-delete" render={({ history }) => (
+        <PopUpContainer history={history}>
+          <ProjectDelete history={history} />
         </PopUpContainer>
       )} />
       <CookieConsent  //TODO: modelize, styles, add to mobile as well

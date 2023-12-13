@@ -40,6 +40,12 @@ export async function createNewProject (
     return [... (await projects(async (url) => await axios.post(url, project))).data.items]
 }
 
+//async function for deleting a project
+export async function deleteSingleProject (
+  project_id: string): Promise<OldProject[]>  {
+    return [... (await projectPath(async (url) => await axios.delete(url), project_id)).data.items]
+}
+
 //async function for adding new project moderator with patch request
 export async function addNewMod (
   project_id: string, 

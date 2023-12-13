@@ -67,7 +67,7 @@ export interface Project {
     starts?: string
     ends?: string
     admins?: string[]
-
+    owner: string
     site_count: number
     sites?: Site[]
 }
@@ -93,6 +93,7 @@ export interface OldProject {
     visitorPosting: boolean
     image?: string
     moderators: string[]
+    owner: string
 }
 
 export interface OldLocation {
@@ -176,7 +177,8 @@ export function convNOP(o: Project): OldProject {
         contentDescription: o.info.description,
         visitorPosting: o.anonymous_posting,
         image: o.image,
-        moderators: o.admins || []
+        moderators: o.admins || [],
+        owner: o.owner,
     }
 }
 

@@ -76,6 +76,12 @@ export const ProjectManagement = (props) => {
     props.history.push("/project-moderators")
   }
 
+  const deleteProject = (event) => {
+    //go to project owner's project delete page
+    event.preventDefault()
+    props.history.push("/project-delete")
+  }
+
   if (props.user && project.moderators.find(user => user === props.user.username)) {
     return (
       <div className="userInformationContainer centerAlignWithPaddingContainer">
@@ -83,55 +89,55 @@ export const ProjectManagement = (props) => {
           <h1 className="titleText centerAlignWithPadding">
             {props.settings.strings["project_management"]}
           </h1>
-          <ClearIcon className="clearIcon" onClick={closeClick}/>
+          <ClearIcon className="clearIcon" onClick={closeClick} />
         </div>
         <div className="userInformation">
           <table>
-              <tbody>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["project_id"]}</th>
-                  <th className="userInfoValues">{project.id !== null ? project.id : "-"}</th>
-                </tr>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["project_title"]}</th>
-                  <th className="userInfoValues">
-                    {project.title !== null ? project.title : "-"}
-                  </th>
-                </tr>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["project_mod"]}</th>
-                  <th className="userInfoValues">
-                    {project.moderators !== null ? moderatorList : "-"}
-                  </th>
-                </tr>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["project_sites"]}</th>
-                  <th className="userInfoValues">{posts.length}</th>
-                </tr>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["abstract"]}</th>
-                  <th className="userInfoValues">
-                    {!!project.description 
-                    ? (project.description.length > 150 
+            <tbody>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["project_id"]}</th>
+                <th className="userInfoValues">{project.id !== null ? project.id : "-"}</th>
+              </tr>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["project_title"]}</th>
+                <th className="userInfoValues">
+                  {project.title !== null ? project.title : "-"}
+                </th>
+              </tr>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["project_mod"]}</th>
+                <th className="userInfoValues">
+                  {project.moderators !== null ? moderatorList : "-"}
+                </th>
+              </tr>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["project_sites"]}</th>
+                <th className="userInfoValues">{posts.length}</th>
+              </tr>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["abstract"]}</th>
+                <th className="userInfoValues">
+                  {!!project.description
+                    ? (project.description.length > 150
                       ? project.description.slice(0, 150) + '...'
-                      : project.description) 
+                      : project.description)
                     : "-"}
-                  </th>
-                </tr>
-                <tr className="userInfoRows">
-                  <th className="userInfoValues">{props.settings.strings["description"]}</th>
-                  <th className="userInfoValues">
-                    {!!project.contentDescription
+                </th>
+              </tr>
+              <tr className="userInfoRows">
+                <th className="userInfoValues">{props.settings.strings["description"]}</th>
+                <th className="userInfoValues">
+                  {!!project.contentDescription
                     ? (project.contentDescription.length > 150
                       ? project.contentDescription.slice(0, 150) + '...'
                       : project.contentDescription)
                     : "-"}
-                  </th>
-                </tr>
-                </tbody>
-            </table>
-          </div>
-          <div className="userInfoButtonsContainer">
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="userInfoButtonsContainer">
           <button className="rippleButton" onClick={changeProjectInfo}>
             {props.settings.strings["change_information"]}
           </button>
@@ -139,13 +145,15 @@ export const ProjectManagement = (props) => {
             {props.settings.strings["add_new_moderator"]}
           </button>
           <CSVLink
-                data={csvData}
-                filename={project.id + '-sites.csv'}
-                className='rippleButton'
-                target='_blank'
-              >{props.settings.strings["download_project"]}
+            data={csvData}
+            filename={project.id + '-sites.csv'}
+            className='rippleButton'
+            target='_blank'
+          >{props.settings.strings["download_project"]}
           </CSVLink>
-          </div>
+          <br />
+          <button className="rippleButton" onClick={deleteProject}>{props.settings.strings["delete_project"]}</button>
+        </div>
       </div>
     );
   } else {
@@ -155,32 +163,34 @@ export const ProjectManagement = (props) => {
           <h1 className="titleText centerAlignWithPadding">
             {props.settings.strings["not_moderator"]}
           </h1>
-          <ClearIcon className="clearIcon" onClick={closeClick}/>
+          <ClearIcon className="clearIcon" onClick={closeClick} />
         </div>
       </div>
     );
   }
+
+
 };
 
 const mapStateToProps = (state) => {
-    return {
-      //maps state to props, after this you can for example call props.notification
-      projects: state.projects,
-      user: state.user,
-      posts: state.posts,
-      settings: state.settings
-    }
+  return {
+    //maps state to props, after this you can for example call props.notification
+    projects: state.projects,
+    user: state.user,
+    posts: state.posts,
+    settings: state.settings
   }
-  
-  const mapDispatchToProps = {
-    //connect reducer functions/dispatchs to props
-    notify,
-  }
-  
-  export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(ProjectManagement)
+}
+
+const mapDispatchToProps = {
+  //connect reducer functions/dispatchs to props
+  notify,
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProjectManagement)
 
 //   ProjectManagement: This component is used in ContentArea.js. The component returns a JSX template that displays information about the active project, such as its ID, title, moderators, number of sites, abstract,
 //  and description. It also displays buttons to download the project's CSV data, change project information, and add a new moderator if the current user is one of the moderators of the project. If the current user

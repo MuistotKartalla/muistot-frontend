@@ -12,7 +12,6 @@ import ImageUpload from "./ImageUpload"
 export const NewProject = (props) => {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
-  const [contentDescription, setContentDescription] = useState("")
   const [image, setImage] = useState(null)
   const [abstract, setAbstract] = useState("")
   //const [moderators, setModerators] = useState([]) // implementation???
@@ -72,10 +71,6 @@ export const NewProject = (props) => {
     setAbstract(event.target.value)
   }
 
-  const contentDescChangeHandler = (event) => {
-    event.preventDefault()
-    setContentDescription(event.target.value)
-  }
   const changeContentPolicy = (value) => {
     setAccountForPosting(value)
   }
