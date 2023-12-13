@@ -8,7 +8,7 @@ import "../styles/myPosts.css"
 import "../styles/texts.css"
 
 
-export const UnverfiedPosts = (props) => {
+export const UnverifiedPosts = (props) => {
   /*
   Component that shows list of all posts that are waiting approval.
   Clicking a post in the list redirects to the post page.
@@ -31,7 +31,7 @@ export const UnverfiedPosts = (props) => {
 
   const onPostClick = (post) => {
     //event handler for post marker clicks. Routes to post view.
-    //console.log(`Clicked post: ${post}`, post)
+    // console.log(`Clicked post: ${post}`, post)
     props.history.push(`/post-view/${post.id}/`)
   }
 
@@ -94,7 +94,7 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UnverfiedPosts)
+)(UnverifiedPosts)
 
 
 
