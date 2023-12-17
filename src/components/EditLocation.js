@@ -53,6 +53,16 @@ export const EditLocation = (props) => {
     return null;
   }
 
+  const redirectToLoginPage = () => {
+    props.history.push("/login")
+  }
+
+  // If user is not logged in redirect to login page
+  if (!props.user) {
+    redirectToLoginPage()
+    return <div />
+  }
+
   return(
     <div className="userSettingsContainer centerAlignWithPadding">
         <div className="titleContainer">

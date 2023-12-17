@@ -43,6 +43,15 @@ export const EditImage = (props) => {
     props.history.goBack()
   }
 
+  const redirectToLoginPage = () => {
+    props.history.push("/login")
+  }
+
+  // If user is not logged in redirect to login page
+  if (!props.user) {
+    redirectToLoginPage()
+    return <div />
+  }
 
   return (
     isMobile ? (<div className="newPostContainerMobile">

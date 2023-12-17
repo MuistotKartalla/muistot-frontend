@@ -80,7 +80,14 @@ export const NewProject = (props) => {
     setImage(image)
   }
 
+  const redirectToLoginPage = () => {
+    props.history.push("/login")
+  }
 
+  if (!props.user) {
+    redirectToLoginPage()
+    return <div />
+  }
   return (
     <div className="newProjectContainer centerAlignWithPadding">
       <h1 className="headerText">{props.settings.strings["new_project"]}</h1>
