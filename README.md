@@ -11,6 +11,8 @@ Install [Node.js](https://nodejs.org/en/download) if you don't have it installed
 
 It is very highly recommended to use an Integrated Development Environment (IDE) during development. [VSCode](https://code.visualstudio.com/) is a good one, with plenty of extensions available to help with the process.
 
+The `general-instructions` repository contains a README file with instructions about the project and software development in general. You should read through it before starting out, especially if you have not been a part of a software development team before.
+
 ---
 
 ### Setting up the frontend
@@ -97,12 +99,12 @@ reducers are for reducers,
 hooks are for custom hooks,
 mobile and desktop components are split in their own folders
 
-## Further Development (Written at the end of the Autumn 2023 iteration)
-The `general-instructions` repository contains a README file with instructions about the project and software development in general. You should read through it before starting out, especially if you have not been a part of a software development team before.
+---
 
+## Further Development (Written at the end of the Autumn 2023 iteration)
 While the frontend is currently mostly functional, it could be improved in many many ways, especially when it comes to the development process.
 
-There are a ton of existing issues open in the frontend repository already. Trying to get through the backlog should probably be the first priority, instead of trying to add a ton of new fancy stuff (of course the customer might disagree, and have their own demands).
+There are a ton of existing issues open in the frontend repository already. Working on these issues alone would be enough content for at least one run of the Software Project course. Trying to get through this backlog should probably be the first priority, instead of trying to add a ton of new fancy stuff (of course the customer might disagree, and will have their own demands).
 
 ### Things that should be done
 Fixing everything that's broken
@@ -129,6 +131,11 @@ Adding a pipeline with Github Actions
 Merging pull requests should require a review and approval from a second developer
 - If not already set by the time of the next project, ask the project owner to enforce this. These remarks were written at the end of the Autumn 2023 project
 
+Updating packages
+- Packages are outdated and should be updated
+- [Renovate](https://github.com/renovatebot/renovate) is a tool that can help automate the process. It can be configured to automatically create pull requests for updating packages
+- Caution should be taken with the updates, things can easily break when jumping to a new major version. Updates should be tested and changes should be reviewed before merging
+
 ### Possible suggestions to consider
 Moving from pure Redux to [Redux ToolKit](https://redux-toolkit.js.org/) to ease/improve state management
 - Might require a pretty heavy rework
@@ -148,8 +155,3 @@ Switching to [Styled Components](https://styled-components.com/) for styles
 Introducing a component library, such as [BluePrint JS](https://blueprintjs.com/)
 - Would have ready made components that could be used and altered instead of having to write everything from scratch
 - Maybe not necessary, as most components already exists
-
-Updating packages
-- Packages are outdated and should be updated
-- [Renovate](https://github.com/renovatebot/renovate) is a tool that can help automate the process. It can be configured to automatically create pull requests for updating packages
-- Caution should be taken with the updates, things can easily break when jumping to a new major version. Updates should be tested and changes should be reviewed before merging
